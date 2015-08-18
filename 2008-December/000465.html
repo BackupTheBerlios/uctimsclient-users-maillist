@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem when OpenIMSCore and pcrf/pcef in	different PC
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20when%20OpenIMSCore%20and%20pcrf/pcef%20in%0A%09different%20PC&In-Reply-To=%3Cf0d480080812300001n52ba62d1pe93fd086d54cbb71%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000463.html">
+   <LINK REL="Next"  HREF="000466.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem when OpenIMSCore and pcrf/pcef in	different PC</H1>
+    <B>Yang Kai</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20when%20OpenIMSCore%20and%20pcrf/pcef%20in%0A%09different%20PC&In-Reply-To=%3Cf0d480080812300001n52ba62d1pe93fd086d54cbb71%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Problem when OpenIMSCore and pcrf/pcef in	different PC">gabriel827 at gmail.com
+       </A><BR>
+    <I>Tue Dec 30 09:01:19 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000463.html">[Uctimsclient-users] before subscibe expiry time the client is	going to be dergistered
+</A></li>
+        <LI>Next message: <A HREF="000466.html">[Uctimsclient-users] Changing hss_db file?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#465">[ date ]</a>
+              <a href="thread.html#465">[ thread ]</a>
+              <a href="subject.html#465">[ subject ]</a>
+              <a href="author.html#465">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+When I use OpenIMSCore and UCT pcrf/pcef in one PC, they work well.
+But when I run OpenIMSCore in PC A (Ubuntu)and put the pcrf/pcef in PC
+B(Ubuntu). OpenIMSCore works well and a call can be made , but the pcrf
+shows &quot;[Thread-10] ERROR
+de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - StateMachine: Peer
+pcef.open-ims.test not responding to connection attempt&quot; and the pcef shows
+&quot;[Thread-4] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  -
+StateMachine: Peer pcrf.open-ims.test not responding to connection attempt&quot;.
+And the pcscf can't find the pcrf too.
+ Obviousely the pcef can't find the pcrf and pcrf can't find the pcscf and
+pcef.But the dns config in both PCs are good, when I ping
+pcscf.open-ims.test it can point to PC A's address and ping
+pcrf/pcef.open-ims.test it can also point to PC B's address.
+
+Can anyone tell me what the problem is ?
+
+Regards,
+Yang Kai.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081230/7b9cff82/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081230/7b9cff82/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000463.html">[Uctimsclient-users] before subscibe expiry time the client is	going to be dergistered
+</A></li>
+	<LI>Next message: <A HREF="000466.html">[Uctimsclient-users] Changing hss_db file?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#465">[ date ]</a>
+              <a href="thread.html#465">[ thread ]</a>
+              <a href="subject.html#465">[ subject ]</a>
+              <a href="author.html#465">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

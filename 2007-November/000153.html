@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem with IPTV server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20IPTV%20server&In-Reply-To=%3C225719.62483.qm%40web56709.mail.re3.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000152.html">
+   <LINK REL="Next"  HREF="000154.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem with IPTV server</H1>
+    <B>Prateek Shadangi</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20IPTV%20server&In-Reply-To=%3C225719.62483.qm%40web56709.mail.re3.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] Problem with IPTV server">pshadangi at yahoo.com
+       </A><BR>
+    <I>Thu Nov 22 12:31:23 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000152.html">[Uctimsclient-users] Problem with IPTV server
+</A></li>
+        <LI>Next message: <A HREF="000154.html">[Uctimsclient-users] Problem with IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I am getting the following output for gst-launch
+
+Setting pipeline to PAUSED ...
+ERROR: Pipeline doesn't want to pause.
+ERROR: from element /pipeline0/xvimagesink0: Could not initialise Xv output
+Additional debug info:
+xvimagesink.c(1277): gst_xvimagesink_get_xv_support (): /pipeline0/xvimagesink0:
+XVideo extension is not available
+Setting pipeline to NULL ...
+FREEING pipeline ...
+
+I have installed all the plugins like good/bad/ugly and ffmpeg.
+Do I need someting else ??
+
+Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>&gt; wrote: Can you confirm that audio and video packets are flowing to the client?
+
+The client uses the xvimagesink element to display the video. You can 
+test if this element is working on your machine using this command:
+
+gst-launch-0.10 videotestsrc ! xvimagesink
+
+You should see a TV test pattern. If not gstreamer is not working 
+correctly on your machine.
+
+Regards
+
+Dave
+
+Prateek Shadangi wrote:
+&gt;<i> Hi Dave,
+</I>&gt;<i> Thanks for the help, Server is working now. There was some problem in 
+</I>&gt;<i> the machine on which I was trying, When I changed the machine it 
+</I>&gt;<i> worked fine.
+</I>&gt;<i>
+</I>&gt;<i> Now I am trying to Call Channel1 from uct-ims-client, INVITE is 
+</I>&gt;<i> successful but I am not able to see the video, instead it is showing a 
+</I>&gt;<i> blank window. Attached is the screenshot.
+</I>&gt;<i>
+</I>&gt;<i> Can you please help me out.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Prateek
+</I>&gt;<i>
+</I>&gt;<i> */Dave Waiting /* wrote:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     I have attached a short clip that works for me, but I don't think
+</I>&gt;<i>     this
+</I>&gt;<i>     is your problem.
+</I>&gt;<i>
+</I>&gt;<i>     The server can handle lots of different file types if you have the
+</I>&gt;<i>     right
+</I>&gt;<i>     gstreamer plugins installed. I recommend installing them all, i.e.
+</I>&gt;<i>     good,
+</I>&gt;<i>     bad, ugly, ffmpeg, etc.
+</I>&gt;<i>
+</I>&gt;<i>     Regards
+</I>&gt;<i>
+</I>&gt;<i>     Dave
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     Prateek Shadangi wrote:
+</I>&gt;<i>     &gt; Hi Dave,
+</I>&gt;<i>     &gt; Thanks a lot for the Help. I feel that the problem is because my
+</I>&gt;<i>     media
+</I>&gt;<i>     &gt; files are not proper !!!
+</I>&gt;<i>     &gt; I will be very thankful to you if you can provide me some media
+</I>&gt;<i>     files
+</I>&gt;<i>     &gt; (or links) on which you have successfully tested IPTV server.
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Regards,
+</I>&gt;<i>     &gt; Prateek
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; */Dave Waiting /* wrote:
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; As far as I recall the server just hangs at the line &quot;elements
+</I>&gt;<i>     &gt; linked&quot;
+</I>&gt;<i>     &gt; if there is an error.
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Make sure if you are just using one file you specify one
+</I>&gt;<i>     channel, i.e.
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; ./uctiptv 500000 1 media/Dilbert101.avi
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; I have tried with many different types of files and most work
+</I>&gt;<i>     &gt; (with the
+</I>&gt;<i>     &gt; exception of real media). This is what the output looks like if it
+</I>&gt;<i>     &gt; works:
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Initialising 1 on channel1
+</I>&gt;<i>     &gt; Starting channel1
+</I>&gt;<i>     &gt; Elements created
+</I>&gt;<i>     &gt; Pipeline created
+</I>&gt;<i>     &gt; Setting Bitrate to 500000
+</I>&gt;<i>     &gt; Creating Decodebin
+</I>&gt;<i>     &gt; Adding items
+</I>&gt;<i>     &gt; Linking items
+</I>&gt;<i>     &gt; Elements linked
+</I>&gt;<i>     &gt; ffenc_h263p Caps:
+</I>&gt;<i>     &gt; video/x-raw-yuv, width=(int)576, height=(int)432,
+</I>&gt;<i>     &gt; framerate=(fraction)2997/125, format=(fourcc)I420,
+</I>&gt;<i>     &gt; pixel-aspect-ratio=(fraction)1/1
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Video Caps:
+</I>&gt;<i>     &gt; application/x-rtp, media=(string)video, payload=(int)96,
+</I>&gt;<i>     &gt; clock-rate=(int)90000, encoding-name=(string)H263-1998,
+</I>&gt;<i>     &gt; ssrc=(guint)2633027481, clock-base=(guint)3046449868,
+</I>&gt;<i>     &gt; seqnum-base=(guint)50872
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Audio Caps:
+</I>&gt;<i>     &gt; application/x-rtp, media=(string)audio, payload=(int)96,
+</I>&gt;<i>     &gt; clock-rate=(int)90000, encoding-name=(string)MPA,
+</I>&gt;<i>     &gt; ssrc=(guint)1111983472, clock-base=(guint)4227231487,
+</I>&gt;<i>     &gt; seqnum-base=(guint)29113
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Returning from channel channel1 init
+</I>&gt;<i>     &gt; IPTV Appserver started on port 7070
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Regards
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Dave
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Prateek Shadangi wrote:
+</I>&gt;<i>     &gt; &gt; Hi Dave,
+</I>&gt;<i>     &gt; &gt; When I tried with the files individually I am seeing the same
+</I>&gt;<i>     &gt; behavior.
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; I am having a question that when the server dosent recognize the
+</I>&gt;<i>     &gt; file
+</I>&gt;<i>     &gt; &gt; formats wouldn't it will throw some error or it will simply
+</I>&gt;<i>     hang ??
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; It will be gr8 if you can provide me some media files (or link) on
+</I>&gt;<i>     &gt; &gt; which I can test this server ??
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; Regards,
+</I>&gt;<i>     &gt; &gt; Prateek
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; */Dave Waiting /* wrote:
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; Hi Prateek
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; It looks like the server does not recognise one of the file
+</I>&gt;<i>     &gt; &gt; formats and
+</I>&gt;<i>     &gt; &gt; is not starting properly.
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; Try with each file individually to see which one is giving
+</I>&gt;<i>     &gt; &gt; problems. My
+</I>&gt;<i>     &gt; &gt; guess is the MPG.
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; Regards
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; Dave
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt; Prateek Shadangi wrote:
+</I>&gt;<i>     &gt; &gt; &gt; Hi All,
+</I>&gt;<i>     &gt; &gt; &gt; I have successfully compiled IPTV streaming server ans trying to
+</I>&gt;<i>     &gt; &gt; run
+</I>&gt;<i>     &gt; &gt; &gt; it with the following command:
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt; &gt; ./uctiptv 500000 3 ccvt_box.avi air.wmv DELTA.MPG
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt; &gt; after this I get the following msgs and the server hanges there
+</I>&gt;<i>     &gt; &gt; &gt; Initialising channel3
+</I>&gt;<i>     &gt; &gt; &gt; Starting channel3
+</I>&gt;<i>     &gt; &gt; &gt; Elements created
+</I>&gt;<i>     &gt; &gt; &gt; Pipeline created
+</I>&gt;<i>     &gt; &gt; &gt; Setting Bitrate to 500000
+</I>&gt;<i>     &gt; &gt; &gt; Creating Decodebin
+</I>&gt;<i>     &gt; &gt; &gt; Adding items
+</I>&gt;<i>     &gt; &gt; &gt; Linking items
+</I>&gt;<i>     &gt; &gt; &gt; Elements linked
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt; &gt; But the problem is server is not listening on port 7070 (I
+</I>&gt;<i>     &gt; verified
+</I>&gt;<i>     &gt; &gt; &gt; this from netstat)
+</I>&gt;<i>     &gt; &gt; &gt; Have I missed anything ??
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt; &gt; Regards,
+</I>&gt;<i>     &gt; &gt; &gt; Prateek
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     ------------------------------------------------------------------------
+</I>&gt;<i>     &gt; &gt; &gt; Be a better pen pal. Text or chat with friends inside Yahoo!
+</I>&gt;<i>     &gt; &gt; Mail. See
+</I>&gt;<i>     &gt; &gt; &gt; how.
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     ------------------------------------------------------------------------
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt; &gt; _______________________________________________
+</I>&gt;<i>     &gt; &gt; &gt; Uctimsclient-users mailing list
+</I>&gt;<i>     &gt; &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>     &gt; &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>     &gt; &gt; &gt;
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt; &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     ------------------------------------------------------------------------
+</I>&gt;<i>     &gt; &gt; Be a better pen pal. Text or chat with friends inside Yahoo!
+</I>&gt;<i>     &gt; Mail. See
+</I>&gt;<i>     &gt; &gt; how.
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     ------------------------------------------------------------------------
+</I>&gt;<i>     &gt; Be a better pen pal. Text or chat with friends inside Yahoo!
+</I>&gt;<i>     Mail. See
+</I>&gt;<i>     &gt; how.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> Get easy, one-click access to your favorites. Make Yahoo! your 
+</I>&gt;<i> homepage. 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+
+       
+---------------------------------
+Be a better pen pal. Text or chat with friends inside Yahoo! Mail. See how.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20071122/8219951c/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20071122/8219951c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000152.html">[Uctimsclient-users] Problem with IPTV server
+</A></li>
+	<LI>Next message: <A HREF="000154.html">[Uctimsclient-users] Problem with IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

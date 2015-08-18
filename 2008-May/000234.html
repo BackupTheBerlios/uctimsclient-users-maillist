@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Video-phone does not work
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Video-phone%20does%20not%20work&In-Reply-To=%3C48340795.4030101%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000233.html">
+   <LINK REL="Next"  HREF="000235.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Video-phone does not work</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Video-phone%20does%20not%20work&In-Reply-To=%3C48340795.4030101%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Video-phone does not work">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Wed May 21 13:29:25 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000233.html">[Uctimsclient-users] Video-phone does not work
+</A></li>
+        <LI>Next message: <A HREF="000235.html">[Uctimsclient-users] How to pause a video with IPTV Service?????
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#234">[ date ]</a>
+              <a href="thread.html#234">[ thread ]</a>
+              <a href="subject.html#234">[ subject ]</a>
+              <a href="author.html#234">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+Are you calling between two UCT clients? If not, the client might not 
+support the codec of the other client.
+
+For calling between two UCT clients make sure that video calling is 
+enabled in both the calling and receiving clients.
+
+Only one client can access the camera at a time so if you want full 
+duplex calling you will need to call between two different machines both 
+with their own web-cams. It is also possible that your camera is not 
+supported by gstreamer. You can test this from the terminal using the 
+following command:
+
+gst-launch-0.10 v4lsrc ! ffmpegcolorspace ! ximagesink
+
+Regards
+
+Dave
+
+
+
+
+peng peng wrote:
+&gt;<i> i received the following messages after starting a video call.... 
+</I>&gt;<i> can somebody help me..... plz...
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> UCT IMS Client - SIP port 5061 - Audio Port: 32251 - Video Port: 14795
+</I>&gt;<i>
+</I>&gt;<i> ** (uctimsclient:28934): WARNING **: I found a video component in this call but either I did not recognise any of the codecs or video is disabled
+</I>&gt;<i> ** (uctimsclient:28934): WARNING **: I found a video component in this call but either I did not recognise any of the codecs or video is disabled
+</I>&gt;<i> ** (uctimsclient:28934): WARNING **: I found a video component in this call but either I did not recognise any of the codecs or video is disabled
+</I>&gt;<i> ** (uctimsclient:28934): WARNING **: I found a video component in this call but either I did not recognise any of the codecs or video is disabled
+</I>&gt;<i>
+</I>&gt;<i> (uctimsclient:28934): GStreamer-CRITICAL **: gst_bus_source_dispatch: assertion `message != NULL' failed
+</I>&gt;<i>
+</I>&gt;<i> ** (uctimsclient:28934): WARNING **: GStreamer: v4l_calls.c(409): gst_v4l_set_chan_norm (): /Video_Transmit_Pipeline/camera_src:
+</I>&gt;<i> Error setting the channel/norm settings: Invalid argument - Can't initialise the video pipeline. Either you do not have a Video-4-Linux compatible camera or it already in use by another application
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________________________________
+</I>&gt;<i> EINE F&#220;R ALLE: die kostenlose WEB.DE-Plattform f&#252;r Freunde und Deine
+</I>&gt;<i> Homepage mit eigenem Namen. Jetzt starten! <A HREF="http://unddu.de/?kid=kid@mf2">http://unddu.de/?kid=kid@mf2</A>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000233.html">[Uctimsclient-users] Video-phone does not work
+</A></li>
+	<LI>Next message: <A HREF="000235.html">[Uctimsclient-users] How to pause a video with IPTV Service?????
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#234">[ date ]</a>
+              <a href="thread.html#234">[ thread ]</a>
+              <a href="subject.html#234">[ subject ]</a>
+              <a href="author.html#234">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

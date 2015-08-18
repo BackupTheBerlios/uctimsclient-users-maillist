@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Audio Path issue --- UCTIMSClient withFOKUS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Audio%20Path%20issue%20---%20UCTIMSClient%20withFOKUS&In-Reply-To=%3C003101c75a33%240e8ad540%240b40000a%40blr.velankani.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000025.html">
+   <LINK REL="Next"  HREF="000028.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Audio Path issue --- UCTIMSClient withFOKUS</H1>
+    <B>Gaurav Kansal</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Audio%20Path%20issue%20---%20UCTIMSClient%20withFOKUS&In-Reply-To=%3C003101c75a33%240e8ad540%240b40000a%40blr.velankani.com%3E"
+       TITLE="[Uctimsclient-users] Audio Path issue --- UCTIMSClient withFOKUS">gkansal at velankani.com
+       </A><BR>
+    <I>Tue Feb 27 06:49:33 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000025.html">[Uctimsclient-users] Audio Path issue --- UCTIMSClient with FOKUS
+</A></li>
+        <LI>Next message: <A HREF="000028.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dave
+
+ 
+
+I monitored the traffic flowing from port 10001 using ethereal. It's always
+UDP packets flowing from port 10001 from 10.0.64.16(the one which triggered
+the INVITE i.e. calling party) to port 10001 on 10.0.64.18 (the called
+party) after the call is established. There is no packet flowing from other
+side.
+
+ 
+
+I don't know if these are RTP packets as ethereal always shows the source
+and destination port as following:
+
+Source port: scp-config (10001)
+
+Destination port: scp-config (10001)
+
+ 
+
+Could you please suggest something?
+
+ 
+
+Regards,
+
+Gaurav Kansal
+
+ 
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] On Behalf Of Dave
+Waiting
+Sent: Monday, February 26, 2007 4:08 PM
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: Re: [Uctimsclient-users] Audio Path issue --- UCTIMSClient
+withFOKUS
+
+ 
+
+I know there are issues with some sound cards not working perfectly, but you
+have a strange problem. The RTP packets should flow anyway.
+
+Make sure you are capturing on port 10001 (the default client media port).
+Typing tcpdump should verify that there are a large number of packets
+flowing of length 172.
+
+It's possible the client could not open your sound card at all and gave up.
+
+Regards
+
+Dave
+
+
+
+
+Gaurav Kansal wrote: 
+
+Dave
+
+ 
+
+ I have been trying to make end-to-end voice call by using UCTIMSCleint and
+FOKUS. 
+
+ 
+
+ My setup looks like this, 
+
+ 
+
+1.       Linux Fedora Core (machine 1) --- Fokus is setup including FHoSS
+
+ 
+
+2.       Linux Fedora Core (machine 2)--- one UCTIMSClient , it has got
+Intel-had-snd card with chipset 8280 1G (ICH 7 family), with the device
+being to STAC92XX analog.  Local sound card verification works fine. 
+
+  
+
+3.       Linux Fedora Core (machine 3)--- one other UCTIMSClient , it has
+got Intel-had-snd card with chipset 8280 1G (ICH 7 family), with the device
+being to STAC92XX analog.  Local sound card verification works fine.
+
+ 
+
+Since both the UCTIMS clients are registered with FHOSS, I am making a call
+from one to the other, wherein the called party gets to hear ringback played
+locally, But when the called clientanswers the incoming call, both the
+UCTIMSClients are displaying &quot;Call is established&quot;. However I don't see any
+audio packets (RTP) flowing through between them. 
+
+ 
+
+ 
+
+For your reference, this is what I see on both the UCTIMSClients console, 
+
+ 
+
+lsa_set_params: The period size 256 is not supported by your hardware.
+
+ ==&gt; Using 256 instead.
+
+alsa_set_params: The period size 256 is not supported by your hardware.
+
+ ==&gt; Using 255 instead.
+
+alsa_set_params: The period size 1280 is not supported by your hardware.
+
+ ==&gt; Using 1279 instead.
+
+alsa_set_params: The number of periods 4 is not supported by your hardware.
+
+ ==&gt; Using 2 instead.
+
+alsa_set_params: The period size 256 is not supported by your hardware.
+
+*        Using 256 instead.
+
+ 
+
+Any help on this would be really helpful and appreciated. 
+
+ 
+
+Thanks,
+
+Gaurav Kansal 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070227/04633a2b/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070227/04633a2b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000025.html">[Uctimsclient-users] Audio Path issue --- UCTIMSClient with FOKUS
+</A></li>
+	<LI>Next message: <A HREF="000028.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

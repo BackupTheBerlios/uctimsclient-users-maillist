@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT Charging Framework : CDR fields discrepancy
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20Charging%20Framework%20%3A%20CDR%20fields%20discrepancy&In-Reply-To=%3CBANLkTi%3DfwXquT-7rYnJh6DkxXPdg%2B_x3bw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000687.html">
+   <LINK REL="Next"  HREF="000689.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT Charging Framework : CDR fields discrepancy</H1>
+    <B>dpene</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20Charging%20Framework%20%3A%20CDR%20fields%20discrepancy&In-Reply-To=%3CBANLkTi%3DfwXquT-7rYnJh6DkxXPdg%2B_x3bw%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] UCT Charging Framework : CDR fields discrepancy">comeonleech at gmail.com
+       </A><BR>
+    <I>Thu May  5 16:52:05 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000687.html">[Uctimsclient-users] testing sh interface in openims core
+</A></li>
+        <LI>Next message: <A HREF="000689.html">[Uctimsclient-users] update to uctimsclient for VoD under Ubuntu	10.10
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#688">[ date ]</a>
+              <a href="thread.html#688">[ thread ]</a>
+              <a href="subject.html#688">[ subject ]</a>
+              <a href="author.html#688">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there,
+
+I have analyzed some ACR, ACA, CCR and CCA messages captured by wireshark
+from tests with UCT IMS client requesting a video in online and offline
+mode.
+
+I have identified the following discrepancies between my capture and the
+3GPP 32.299 v10.1.0 (release 10) for the mandatory AVP :
+
+I miss the following mandatory fields (M) in my messages :
+
+Accounting Request  (ACR) :
+- Destination-Realm
+- Proxy-Host
+- Proxy-State
+
+Accounting Answer  (ACA) :
+- Accounting-Record-Type
+- Accounting-Record-Number
+- Proxy-Host
+- Proxy-State
+
+Credit Control Request (CCR) :
+- Destination-Realm
+- Service-Context-Id
+- CC-Request-Number
+- Subscription-Id-Type
+- Subscription-Id-Data
+- Envelope-Start-Time
+- QoS-Class-Identifier
+- User-Equipment-Info-Type
+- User-Equipment-Info-Value
+- Proxy-Host Proxy-State
+
+Credit Control Answer (CCA) :
+- Auth-Application-Id
+- CC-Request-Type
+- CC-Request-Number
+- G-S-U-Pool-Identifier
+- CC-Unit-Type
+- Unit-Value
+- Value-Digits
+- Final-Unit-Action
+- Redirect-Address-Type
+- Redirect-Server-Address
+- Time-Quota-Type
+- Base-Time-Interval
+- Unit-Value
+- Value-Digits
+- Currency-Code
+- Unit-Value
+- Value-Digits
+- Currency-Code
+- Proxy-Host
+- Proxy-State
+
+I cannot figure out whether those parameter will really be necessary to my
+charging or not.
+Anybody can tell me if this is a show stopper ?
+
+Didier.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20110505/e59a758f/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20110505/e59a758f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000687.html">[Uctimsclient-users] testing sh interface in openims core
+</A></li>
+	<LI>Next message: <A HREF="000689.html">[Uctimsclient-users] update to uctimsclient for VoD under Ubuntu	10.10
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#688">[ date ]</a>
+              <a href="thread.html#688">[ thread ]</a>
+              <a href="subject.html#688">[ subject ]</a>
+              <a href="author.html#688">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

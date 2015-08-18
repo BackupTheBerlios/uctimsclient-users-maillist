@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem running IPTV server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20running%20IPTV%20server&In-Reply-To=%3C4796F7AE.3020602%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000170.html">
+   <LINK REL="Next"  HREF="000172.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem running IPTV server</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20running%20IPTV%20server&In-Reply-To=%3C4796F7AE.3020602%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Problem running IPTV server">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Wed Jan 23 09:15:42 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000170.html">[Uctimsclient-users] Problem running IPTV server
+</A></li>
+        <LI>Next message: <A HREF="000172.html">[Uctimsclient-users] UCT IPtv Streaming Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Abhinav
+
+The problem with the ximagesink / xvimagesink is only on the client side 
+(UCT IMS Client). This we will have to deal with later.
+
+Your problem is with the server not starting correctly. This is often 
+just a case of your video file not being compatible. Try with another 
+file, preferably an avi. Also make sure you have the ffmpeg gstreamer 
+plugins installed.
+
+Regards
+
+Dave
+
+
+
+Abhinav Rajawat wrote:
+&gt;<i> Hi All,
+</I>&gt;<i>
+</I>&gt;<i> I have been facing the same problem as previously posted here. It has been
+</I>&gt;<i> listed in the november archives. But I could not find the solution to it.
+</I>&gt;<i> The problem is as follows....
+</I>&gt;<i>
+</I>&gt;<i> ***************************************
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi All,
+</I>&gt;&gt;<i> I have successfully compiled IPTV streaming server ans trying to run it
+</I>&gt;&gt;<i>     
+</I>&gt;<i> with &gt;the following command:
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> ./uctiptv 500000 1 ccvt_box.avi
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> after this I get the following msgs and the server hanges there
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Initialising channel3
+</I>&gt;&gt;<i> Starting channel3
+</I>&gt;&gt;<i> Elements created
+</I>&gt;&gt;<i> Pipeline created
+</I>&gt;&gt;<i> Setting Bitrate to 500000
+</I>&gt;&gt;<i> Creating Decodebin
+</I>&gt;&gt;<i> Adding items
+</I>&gt;&gt;<i> Linking items
+</I>&gt;&gt;<i> Elements linked
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> But the problem is server is not listening on port 7070 (I verified this
+</I>&gt;&gt;<i>     
+</I>&gt;<i> &gt;from netstat)
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Have I missed anything ??
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i> Prateek
+</I>&gt;&gt;<i>     
+</I>&gt;<i> **************************************
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I have installed all the gstreamer plugins like good, bad, ugly etc but it
+</I>&gt;<i> doesn't seems to be working. It looks like xvimagesink is not working on my
+</I>&gt;<i> machine. The output of the
+</I>&gt;<i>
+</I>&gt;<i> gst-launch-0.10 videotestsrc ! xvimagesink is
+</I>&gt;<i>
+</I>&gt;<i> Setting pipeline to PAUSED ...
+</I>&gt;<i> ERROR: Pipeline doesn't want to pause.
+</I>&gt;<i> ERROR: from element /pipeline0/xvimagesink0: Could not initialise Xv output
+</I>&gt;<i> Additional debug info:
+</I>&gt;<i> xvimagesink.c(1322): gst_xvimagesink_get_xv_support ():
+</I>&gt;<i> /pipeline0/xvimagesink0:
+</I>&gt;<i> No port available
+</I>&gt;<i> Setting pipeline to NULL ...
+</I>&gt;<i> FREEING pipeline ...
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> And the output from the xvinfo command is
+</I>&gt;<i>
+</I>&gt;<i> X-Video Extension version 2.2
+</I>&gt;<i> screen #0
+</I>&gt;<i> no adaptors present
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> But gst-launch-0.10 videotestsrc ! ximagesink works on my machine.
+</I>&gt;<i> Is there any patch to make IPTV work with ximagesink.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance,
+</I>&gt;<i> Abhinav
+</I>&gt;<i>
+</I>&gt;<i> =====-----=====-----=====
+</I>&gt;<i> Notice: The information contained in this e-mail
+</I>&gt;<i> message and/or attachments to it may contain 
+</I>&gt;<i> confidential or privileged information. If you are 
+</I>&gt;<i> not the intended recipient, any dissemination, use, 
+</I>&gt;<i> review, distribution, printing or copying of the 
+</I>&gt;<i> information contained in this e-mail message 
+</I>&gt;<i> and/or attachments to it are strictly prohibited. If 
+</I>&gt;<i> you have received this communication in error, 
+</I>&gt;<i> please notify us by reply e-mail or telephone and 
+</I>&gt;<i> immediately and permanently delete the message 
+</I>&gt;<i> and any attachments. Thank you
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000170.html">[Uctimsclient-users] Problem running IPTV server
+</A></li>
+	<LI>Next message: <A HREF="000172.html">[Uctimsclient-users] UCT IPtv Streaming Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

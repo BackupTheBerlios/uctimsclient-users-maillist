@@ -1,0 +1,382 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCTIMSClient 1.0.4 available for download (Richard Good)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTIMSClient%201.0.4%20available%20for%20download%0A%20%28Richard%20Good%29&In-Reply-To=%3C4663E283.4080903%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000103.html">
+   <LINK REL="Next"  HREF="000106.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCTIMSClient 1.0.4 available for download (Richard Good)</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTIMSClient%201.0.4%20available%20for%20download%0A%20%28Richard%20Good%29&In-Reply-To=%3C4663E283.4080903%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] UCTIMSClient 1.0.4 available for download (Richard Good)">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Mon Jun  4 11:59:31 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000103.html">[Uctimsclient-users] UCTIMSClient 1.0.4 available for download (Richard Good)
+</A></li>
+        <LI>Next message: <A HREF="000106.html">[Uctimsclient-users] Registration bug fixed in latest release
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#105">[ date ]</a>
+              <a href="thread.html#105">[ thread ]</a>
+              <a href="subject.html#105">[ subject ]</a>
+              <a href="author.html#105">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Laurent,
+
+Change the authentication scheme to AKAv1 and it should work (In our 
+case &quot;any&quot; defaults to AKAv1, perhaps your &quot;any&quot; default to something 
+else).  Also do you have the latest version of UCTIMSClient? The 
+segmentation fault you got should not be happening in the latest version.
+
+regards,
+Richard
+
+
+laurent craignou wrote:
+&gt;<i> hi all,
+</I>&gt;<i>
+</I>&gt;<i> When I change in the FHoSS user interface the authentication scheme to 
+</I>&gt;<i> &quot;any&quot; I obtain this message:
+</I>&gt;<i>
+</I>&gt;<i> REGISTER -&gt; Forbidden - HSS returned no authentication vectors
+</I>&gt;<i>
+</I>&gt;<i> I join my wireshark trace.
+</I>&gt;<i>
+</I>&gt;<i> PS: peharps my scscf.cfg is wrong
+</I>&gt;<i>
+</I>&gt;<i> thanks a lot for your help.
+</I>&gt;<i>
+</I>&gt;<i> Laurent
+</I>&gt;<i>
+</I>&gt;<i> 2007/6/4, Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A> 
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt; &gt;:
+</I>&gt;<i>
+</I>&gt;<i>     Hi,
+</I>&gt;<i>
+</I>&gt;<i>     The OpenIMSCore supports several different authentication methods,
+</I>&gt;<i>     while the UCTIMSClient only supports IMS compliant Digest AKA
+</I>&gt;<i>     authentication.  In the FHoSS user interface, go to private
+</I>&gt;<i>     identities and change the authentication scheme to &quot;any&quot; for each
+</I>&gt;<i>     user and this should work fine.  (The fact that the client crashes
+</I>&gt;<i>     when the Authentication scheme is not supported is a bug that
+</I>&gt;<i>     should be fixed in the next version!)
+</I>&gt;<i>
+</I>&gt;<i>     regards,
+</I>&gt;<i>     Richard
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     laurent craignou wrote:
+</I>&gt;&gt;<i>     hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     when i want register alice, have this error:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     AKA: version 0 not supported.
+</I>&gt;&gt;<i>     Erreur de segmentation (core dumped)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     where I can change authentification parameter in UCT client ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     does anybody can help me ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     thank you in advance
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     Laurent
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     2007/5/31, <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kiran.bkumar at wipro.com</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kiran.bkumar at wipro.com</A>&gt;
+</I>&gt;&gt;<i>     &lt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kiran.bkumar at wipro.com</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kiran.bkumar at wipro.com</A>&gt;&gt;:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         I just wanted to add here that mysql.so is not installed by
+</I>&gt;&gt;<i>         default the first time.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         You will have compile the mysql.so module using, make modules
+</I>&gt;&gt;<i>         include_modules=&quot;mysql&quot; and then install the mysql using make
+</I>&gt;&gt;<i>         install include_modules=&quot;mysql&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Thanks,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Kiran.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         ------------------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         *From:* <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>
+</I>&gt;&gt;<i>         &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i>         [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>
+</I>&gt;&gt;<i>         &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>&gt;] *On
+</I>&gt;&gt;<i>         Behalf Of *Richard Good
+</I>&gt;&gt;<i>         *Sent:* Thursday, May 31, 2007 7:38 PM
+</I>&gt;&gt;<i>         *To:* li wang
+</I>&gt;&gt;<i>         *Cc:* <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i>         &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i>         *Subject:* Re: [Uctimsclient-users] UCTIMSClient 1.0.4
+</I>&gt;&gt;<i>         available for download (Richard Good)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Hi Li,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         I think the MySQL modules comes standard with OpenSER_1.2.0 -
+</I>&gt;&gt;<i>         check /usr/lib/openser/modules, and if mysql.so is present
+</I>&gt;&gt;<i>         then the module is already loaded (If this file is not here
+</I>&gt;&gt;<i>         then you must install the mysql module).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         When OpenSER is used as a presence server it uses its own
+</I>&gt;&gt;<i>         MySQL database to store and retrieve the presence info. i.e.
+</I>&gt;&gt;<i>         No information is taken from the HSS, all the IMS Core does
+</I>&gt;&gt;<i>         is forward SUBSCRIBE and PUBLISH messages with event =
+</I>&gt;&gt;<i>         presence to the presence server.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         The presence module makes new tables in the OpenSER database
+</I>&gt;&gt;<i>         that allow for presence functionality.  Once you have
+</I>&gt;&gt;<i>         installed OpenSER and the presence modules you should be able
+</I>&gt;&gt;<i>         to run the script
+</I>&gt;&gt;<i>         openser_mysql create
+</I>&gt;&gt;<i>         from the the command line.  This script adds the correct
+</I>&gt;&gt;<i>         tables to the OpenSER database.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         I am not sure which Linux distribution you are using, but:
+</I>&gt;&gt;<i>         mysql-client
+</I>&gt;&gt;<i>         mysql-server
+</I>&gt;&gt;<i>         libmysqlclient-dev
+</I>&gt;&gt;<i>         libxml
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         are all standard packages in the debian repositories.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         regards,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Richard
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         li wang wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         hi Richard,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         I have download UCTIMSClient 1.0.4/Openser/Presence module and follow the 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         instruction to set up the presence server.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         But I don't really understand what does it means:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         &quot;You will need the mySQL server and client, and the  libmysqlclient-dev and 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         libXML libraries. Once OpenSER and the presence modules are installed you 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         should run the script openser_mysql - this script will setup the mySQL 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         databases for the presence server.&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         That means i should also download openser-mysql-module_1.2.0-0_i386.deb and 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         configure it? or It means the SQL which is running for Open IMS Core?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         In truth, i am confused that if the Presence Server has his own database for 
+</I>&gt;&gt;<i>             
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         presence information or the Presence Server go fetch the information from 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         HSS.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         And where can i find libmysqlclient-dev and libXML libraries and the script 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         openser_mysql?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Thanks for your guidance.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Best Regards,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         li
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>             
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>           
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         From: 
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>&gt;
+</I>&gt;&gt;&gt;&gt;<i>         [
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] On Behalf Of
+</I>&gt;&gt;&gt;&gt;<i>         Richard Good
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         Sent: Thursday, May 31, 2007 2:39 PM
+</I>&gt;&gt;&gt;&gt;<i>         To: uctims
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         Subject: [Uctimsclient-users] UCTIMSClient 1.0.4 available for download
+</I>&gt;&gt;&gt;&gt;<i>          
+</I>&gt;&gt;&gt;&gt;<i>                 
+</I>&gt;&gt;&gt;&gt;<i>         Hi All,
+</I>&gt;&gt;&gt;&gt;<i>          
+</I>&gt;&gt;&gt;&gt;<i>         The latest version (1.0.4) of the UCTIMSClient is now available for
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         download at 
+</I>&gt;&gt;&gt;&gt;<i>         <A HREF="http://uctimsclient.berlios.de/">http://uctimsclient.berlios.de/</A>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>          
+</I>&gt;&gt;&gt;&gt;<i>         This version has an improved messaging facility, built-in presence
+</I>&gt;&gt;&gt;&gt;<i>         functionality (see
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         <A HREF="http://uctimsclient.berlios.de/presence_server_howto.html">http://uctimsclient.berlios.de/presence_server_howto.html</A>) and other
+</I>&gt;&gt;&gt;&gt;<i>         minor fixes.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         As well as the usual source tarball, a debian package is now available
+</I>&gt;&gt;&gt;&gt;<i>         for easy installation of the UCTIMSClient on debian architectures.
+</I>&gt;&gt;&gt;&gt;<i>          
+</I>&gt;&gt;&gt;&gt;<i>         As always this is a work in progress and we welcome all comments, bugs,
+</I>&gt;&gt;&gt;&gt;<i>         etc.
+</I>&gt;&gt;&gt;&gt;<i>          
+</I>&gt;&gt;&gt;&gt;<i>                 
+</I>&gt;&gt;&gt;&gt;<i>         regards,
+</I>&gt;&gt;&gt;&gt;<i>          
+</I>&gt;&gt;&gt;&gt;<i>         Richard
+</I>&gt;&gt;&gt;&gt;<i>         _______________________________________________
+</I>&gt;&gt;&gt;&gt;<i>         Uctimsclient-users mailing list
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;&gt;&gt;<i>          &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&gt;
+</I>&gt;&gt;&gt;&gt;<i>          
+</I>&gt;&gt;&gt;&gt;<i>               
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         _________________________________________________________________
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Avec Windows Live OneCare &#233;liminez tous les virus de votre PC ! 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         <A HREF="http://www.windowslive.fr/liveonecare/default.asp">http://www.windowslive.fr/liveonecare/default.asp</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         _______________________________________________
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         Uctimsclient-users mailing list
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i>          &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>          &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>           
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>          
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         The information contained in this electronic message and any
+</I>&gt;&gt;<i>         attachments to this message are intended for the exclusive
+</I>&gt;&gt;<i>         use of the addressee(s) and may contain proprietary,
+</I>&gt;&gt;<i>         confidential or privileged information. If you are not the
+</I>&gt;&gt;<i>         intended recipient, you should not disseminate, distribute or
+</I>&gt;&gt;<i>         copy this e-mail. Please notify the sender immediately and
+</I>&gt;&gt;<i>         destroy all copies of this message and any attachments.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         WARNING: Computer viruses can be transmitted via email. The
+</I>&gt;&gt;<i>         recipient should check this email and any attachments for the
+</I>&gt;&gt;<i>         presence of viruses. The company accepts no liability for any
+</I>&gt;&gt;<i>         damage caused by any virus transmitted by this email.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         www.wipro.com &lt;<A HREF="http://www.wipro.com">http://www.wipro.com</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         _______________________________________________
+</I>&gt;&gt;<i>         Uctimsclient-users mailing list
+</I>&gt;&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i>         &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>         &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070604/b208c914/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070604/b208c914/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000103.html">[Uctimsclient-users] UCTIMSClient 1.0.4 available for download (Richard Good)
+</A></li>
+	<LI>Next message: <A HREF="000106.html">[Uctimsclient-users] Registration bug fixed in latest release
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#105">[ date ]</a>
+              <a href="thread.html#105">[ thread ]</a>
+              <a href="subject.html#105">[ subject ]</a>
+              <a href="author.html#105">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

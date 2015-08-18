@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] VLC and uctimsclient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20VLC%20and%20uctimsclient&In-Reply-To=%3C48DC91DA.6060807%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000391.html">
+   <LINK REL="Next"  HREF="000393.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] VLC and uctimsclient</H1>
+    <B>Robert Marston</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20VLC%20and%20uctimsclient&In-Reply-To=%3C48DC91DA.6060807%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] VLC and uctimsclient">rmarston at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Fri Sep 26 09:40:10 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000391.html">[Uctimsclient-users] VLC and uctimsclient
+</A></li>
+        <LI>Next message: <A HREF="000393.html">[Uctimsclient-users] VLC and uctimsclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#392">[ date ]</a>
+              <a href="thread.html#392">[ thread ]</a>
+              <a href="subject.html#392">[ subject ]</a>
+              <a href="author.html#392">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+Just to clarify, you are able to view the sample streams of DSS by using 
+VLC to connect to them but when the uctimsclient tries to connect to 
+them it doesn't receive the stream?
+
+Regards
+Robert
+
+Polo Cortina, Eduardo wrote:
+&gt;<i> That's a good point. In fact, i found out that only with the samples (.mov files) I could make the stream (without the IMS). VLC works fine as well. The problem is when I integrate those servers with the IMS and use the uctimsclient. 
+</I>&gt;<i>
+</I>&gt;<i> How do you hint the videos without the Quicktime pro? (I guess .mov are not supported by the uctimsclient)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Mensaje original-----
+</I>&gt;<i> De: Bill Friedrich [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bill.friedrich at cal.trlabs.ca</A>] 
+</I>&gt;<i> Enviado el: jueves, 25 de septiembre de 2008 17:12
+</I>&gt;<i> Para: Polo Cortina, Eduardo
+</I>&gt;<i> Asunto: RE: [Uctimsclient-users] VLC and uctimsclient
+</I>&gt;<i>
+</I>&gt;<i> Were you able to connect to those streams normally with VLC (ie, outside
+</I>&gt;<i> of the IMSClient)? I know I had to hint my streams before Darwin
+</I>&gt;<i> Streaming Server would actually serve them. When I didn't hint them, I
+</I>&gt;<i> would get the video window opening up, but the video would never play.
+</I>&gt;<i>
+</I>&gt;<i> /bill
+</I>&gt;<i>
+</I>&gt;<i> On Thu, 2008-09-25 at 09:45 +0200, Polo Cortina, Eduardo wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi Bill
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks for your response. I've checked the key file and this is what I have:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &lt;key-value_pair&gt;
+</I>&gt;&gt;<i> 	&lt;key&gt;channel1&lt;/key&gt;
+</I>&gt;&gt;<i> 	&lt;value&gt;<A HREF="rtsp://172.30.10.223:554/sample.mov&lt;/value">rtsp://172.30.10.223:554/sample.mov&lt;/value</A>&gt;
+</I>&gt;&gt;<i> &lt;/key-value_pair&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &lt;key-value_pair&gt;
+</I>&gt;&gt;<i> 	&lt;key&gt;channel2&lt;/key&gt;
+</I>&gt;&gt;<i> 	&lt;value&gt;<A HREF="rtp://172.30.10.223:1234/sp.mpg&lt;/value">rtp://172.30.10.223:1234/sp.mpg&lt;/value</A>&gt;
+</I>&gt;&gt;<i> &lt;/key-value_pair&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Channel 1 is for DSS and channel 2 is for VLC. 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> In the log window, these are the messages showed:
+</I>&gt;&gt;<i> 09:42:01&gt; INVITE
+</I>&gt;&gt;<i> 09:42:01&gt; trying -- your call is important to us (for INVITE)
+</I>&gt;&gt;<i> 09:42:01&gt; Dialog Establishement (for INVITE)
+</I>&gt;&gt;<i> 09:42:01&gt; OK (for INVITE)
+</I>&gt;&gt;<i> 09:42:01&gt; ACK
+</I>&gt;&gt;<i> A new window opens and then nothing happens
+</I>&gt;&gt;<i> Any suggest?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thank you very much
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -----Mensaje original-----
+</I>&gt;&gt;<i> De: Bill Friedrich [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bill.friedrich at cal.trlabs.ca</A>] 
+</I>&gt;&gt;<i> Enviado el: mi&#233;rcoles, 24 de septiembre de 2008 17:11
+</I>&gt;&gt;<i> Para: Polo Cortina, Eduardo
+</I>&gt;&gt;<i> Asunto: Re: [Uctimsclient-users] VLC and uctimsclient
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi, did it with Darwin Streaming Server.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The one problem I noticed in the how to guide is that the XML they used
+</I>&gt;&gt;<i> for key/value pairs was the wrong syntax for the newest version of the
+</I>&gt;&gt;<i> indirection server. Here is the correct syntax to follow:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;&gt;<i> &lt;key-value_pairs&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &lt;key-value_pair&gt;
+</I>&gt;&gt;<i>         &lt;key&gt;channel1&lt;/key&gt;
+</I>&gt;&gt;<i>         &lt;value&gt;<A HREF="rtsp://something.comish/media.mp4&lt;/value">rtsp://something.comish/media.mp4&lt;/value</A>&gt;
+</I>&gt;&gt;<i> &lt;/key-value_pair&gt;
+</I>&gt;&gt;<i> &lt;/key-value_pairs&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Give this a try!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Wed, 2008-09-24 at 11:50 +0200, Polo Cortina, Eduardo wrote:
+</I>&gt;&gt;<i>     
+</I>&gt;&gt;&gt;<i> Hi all!
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I've followed your &quot;how to guide&quot; to integrate a VLC acting as a
+</I>&gt;&gt;&gt;<i> server within the OpenIMSCore. I've made all the setup steps till the
+</I>&gt;&gt;&gt;<i> end.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I've configured the key_value_file of the uctiptv_as to map requests
+</I>&gt;&gt;&gt;<i> to the VLC. I've captured packets from uctimsclient to the uctiptv_as
+</I>&gt;&gt;&gt;<i> with wireshark and all the SIP dialog is ok. 
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> When I register either with bob or alice and make the &quot;channel2&quot;
+</I>&gt;&gt;&gt;<i> request, the client closes and in the log I get the following message:
+</I>&gt;&gt;&gt;<i> Attempting to open RTSP stream ... segmentation fault (core dumped)
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I've also tried to make an udp stream channel:
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> # vlc -vvv ~/Videos/sp.mpg --sout udp:172.30.10.223 --ttl 12
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> But I just get: access_output_udp private warning: send error:
+</I>&gt;&gt;&gt;<i> connection refused
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Anyone has watched a video on the uctimsclient? Which server do you
+</I>&gt;&gt;&gt;<i> use? I also tried the Darwin Streaming Server...
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>  
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Thanks in advanced,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Eduardo
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;&gt;<i>       
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000391.html">[Uctimsclient-users] VLC and uctimsclient
+</A></li>
+	<LI>Next message: <A HREF="000393.html">[Uctimsclient-users] VLC and uctimsclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#392">[ date ]</a>
+              <a href="thread.html#392">[ thread ]</a>
+              <a href="subject.html#392">[ subject ]</a>
+              <a href="author.html#392">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

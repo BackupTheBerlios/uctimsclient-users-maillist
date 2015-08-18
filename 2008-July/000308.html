@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Regarding I am Testing the presence server with UCTIMS client.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Regarding%20I%20am%20Testing%20the%20presence%20server%0A%20with%20UCTIMS%20client.&In-Reply-To=%3C48887283.5090202%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000307.html">
+   <LINK REL="Next"  HREF="000309.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Regarding I am Testing the presence server with UCTIMS client.</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Regarding%20I%20am%20Testing%20the%20presence%20server%0A%20with%20UCTIMS%20client.&In-Reply-To=%3C48887283.5090202%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Regarding I am Testing the presence server with UCTIMS client.">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Thu Jul 24 14:16:03 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000307.html">[Uctimsclient-users] Regarding I am Testing the presence server with UCTIMS client.
+</A></li>
+        <LI>Next message: <A HREF="000309.html">[Uctimsclient-users] Enabling MSRP
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi.
+
+I tested with v1.0.11 and still have no problem adding/removing buddies 
+and receiving status notifications.
+
+I have looked at your presence config file and cannot see anything 
+obviously wrong.  However attached is the config file we use, it is much 
+simpler and ignores all messages except PUBLISH and SUBSCRIBE.  Try with 
+this config file and see if you have any luck.
+
+Also ensure that your trigger points are correctly set in the FHoSS.  
+I.e. only PUBLISH and SUBSCRIBE messages with &quot;presence&quot; in the SIP 
+header are forwarded to your presence server.
+
+If you still have problems please include a wireshark trace from the 
+machine running the core and presence server.
+
+Regards,
+Richard.
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">srinivasa.reddy at info-spectrum.com</A> wrote:
+&gt;<i> I  installed UCTIMSCLIENT V1.0.11 .
+</I>&gt;<i>
+</I>&gt;<i> So could you please give me some conformation for uct v1.0.11 
+</I>&gt;<i> regarding that segmentation fault.
+</I>&gt;<i> I mean you were tested for v1.0.12 but present i am using 1.0.11.
+</I>&gt;<i> And i am attaching configuartion file also .
+</I>&gt;<i>
+</I>&gt;<i> and thanks for very good fast responce.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Srinivasa Reddy Kadiri
+</I>&gt;<i> Software Developer
+</I>&gt;<i> Infospectrum India Pvt. Ltd.
+</I>&gt;<i> Cell:  +91 9921710062
+</I>&gt;<i> Email: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">srinivasa.reddy at info-spectrum.com</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message ----- From: &quot;Richard Good&quot; 
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;
+</I>&gt;<i> To: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">srinivasa.reddy at info-spectrum.com</A>&gt;
+</I>&gt;<i> Cc: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;<i> Sent: Thursday, July 24, 2008 4:44 PM
+</I>&gt;<i> Subject: Re: [Uctimsclient-users] Regarding I am Testing the presence 
+</I>&gt;<i> server with UCTIMS client.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi Srinivas,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have tested your scenario with the latest client and can 
+</I>&gt;&gt;<i> successfully add users to the buddy list and am notified when their 
+</I>&gt;&gt;<i> status is changed.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Firstly make sure you are using the latest client v1.0.12, secondly 
+</I>&gt;&gt;<i> please attach your OpenSER config file for the presence server. 
+</I>&gt;&gt;<i> Perhaps this is not configured correctly and sends unrecognised 
+</I>&gt;&gt;<i> messages to the client causing the seg fault.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i> Richard.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">srinivasa.reddy at info-spectrum.com</A> wrote:
+</I>&gt;&gt;&gt;<i> Hi All,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I have one issue regarding uctims client.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I will give some clear idea for my sinorio.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Presently i am installed IMS core on one system and OPENSER 
+</I>&gt;&gt;&gt;<i> intstalled on the same IP and HSS also on the same IP.
+</I>&gt;&gt;&gt;<i> Openser is implimented as PRESENCE SERVER.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Now i need to test the presence server ie when i registered as bob 
+</I>&gt;&gt;&gt;<i> using UCTIMS client and also i was added alice in the buddylist.
+</I>&gt;&gt;&gt;<i> Then when i registered and captured traces during that time and 
+</I>&gt;&gt;&gt;<i> found that all subscribe and publish messages are taking the route 
+</I>&gt;&gt;&gt;<i> through the presence server.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> But the problem here is after register it is giving the segmentation 
+</I>&gt;&gt;&gt;<i> fault due to adding of users to buddylist .When there is nobody in 
+</I>&gt;&gt;&gt;<i> the buddylist it is not giveing any error but that is not the my 
+</I>&gt;&gt;&gt;<i> requirement. I need to test when bob is registered then i need to 
+</I>&gt;&gt;&gt;<i> see alice's status(alice is in buddylist) .
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> So here i need to rectify that segmentation fault .So please anybody 
+</I>&gt;&gt;&gt;<i> respond on this.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> ---------------------------------------------
+</I>&gt;&gt;&gt;<i> WITH BSET WISHES
+</I>&gt;&gt;&gt;<i> SRINIVAS
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: openser.cfg
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080724/19e20308/attachment.ksh">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080724/19e20308/attachment.ksh</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000307.html">[Uctimsclient-users] Regarding I am Testing the presence server with UCTIMS client.
+</A></li>
+	<LI>Next message: <A HREF="000309.html">[Uctimsclient-users] Enabling MSRP
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

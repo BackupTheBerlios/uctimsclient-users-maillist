@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] vlc on IPTV Service??
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20vlc%20on%20IPTV%20Service%3F%3F&In-Reply-To=%3CBAY141-W48A69A105094C35619E3BFDC10%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000244.html">
+   <LINK REL="Next"  HREF="000246.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] vlc on IPTV Service??</H1>
+    <B>Miroslave Gudic</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20vlc%20on%20IPTV%20Service%3F%3F&In-Reply-To=%3CBAY141-W48A69A105094C35619E3BFDC10%40phx.gbl%3E"
+       TITLE="[Uctimsclient-users] vlc on IPTV Service??">miro_slave at live.fr
+       </A><BR>
+    <I>Fri May 23 13:54:34 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000244.html">[Uctimsclient-users] Problem with sound on UCT IMS Client
+</A></li>
+        <LI>Next message: <A HREF="000246.html">[Uctimsclient-users] vlc on IPTV Service??
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#245">[ date ]</a>
+              <a href="thread.html#245">[ thread ]</a>
+              <a href="subject.html#245">[ subject ]</a>
+              <a href="author.html#245">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi David
+
+I have seen it is the gstreamer library used to do the
+streaming in the UCTIMS Client so if i change it by the vlc library I
+think it's possible.
+
+i have an other question : in the
+gstreamer.c code there're only methods to play video
+(GST_STATE_PLAYING) and stop it (GST_STATE_NULL) but no method to
+paused it. If i want to pause the video i must implement a method with
+GST_STATE_PAUSED in the client (UCTIMS CLIENT) and in the server
+(uctiptv) ???????? 
+
+Thanks a lot
+
+Miroslave 
+
+&gt;<i> Date: Fri, 23 May 2008 10:43:01 +0200
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">miro_slave at live.fr</A>
+</I>&gt;<i> CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [Uctimsclient-users] vlc on IPTV Service??
+</I>&gt;<i> 
+</I>&gt;<i> Hi Miroslave
+</I>&gt;<i> 
+</I>&gt;<i> I don't think this is possible at the moment since my VLC does not 
+</I>&gt;<i> support SIP signaling or the H263 codec.
+</I>&gt;<i> 
+</I>&gt;<i> Of course with a few modifications to the IPtv server code you might be 
+</I>&gt;<i> able to do this, but I doubt this has any relevance to IMS.
+</I>&gt;<i> 
+</I>&gt;<i> Regards
+</I>&gt;<i> 
+</I>&gt;<i> Dave
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Miroslave Gudic wrote:
+</I>&gt;<i> &gt; Hi everybody,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I wonder what is the streaming software used by uct ims client to open 
+</I>&gt;<i> &gt; a video (when click to channel 1,2,3).
+</I>&gt;<i> &gt; Do you think it's possible to replace it by VLC and how??
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks in advance.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Miroslave Gudic
+</I>&gt;<i> &gt; Ingineer in Telecom
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ------------------------------------------------------------------------
+</I>&gt;<i> &gt; Plus de 15 millions de fran&#231;ais utilisent Windows Live Messenger ! 
+</I>&gt;<i> &gt; T&#233;l&#233;chargez Messenger, c'est gratuit ! 
+</I>&gt;<i> &gt; &lt;<A HREF="http://www.windowslive.fr/messenger/">http://www.windowslive.fr/messenger/</A>&gt;
+</I>&gt;<i> &gt; ------------------------------------------------------------------------
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Uctimsclient-users mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> &gt;   
+</I>&gt;<i> 
+</I>
+_________________________________________________________________
+Votre contact a choisi Hotmail, l'e-mail ultra s&#233;curis&#233;. Cr&#233;ez un compte gratuitement !
+<A HREF="http://www.windowslive.fr/hotmail/default.asp">http://www.windowslive.fr/hotmail/default.asp</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080523/4f40c10c/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080523/4f40c10c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000244.html">[Uctimsclient-users] Problem with sound on UCT IMS Client
+</A></li>
+	<LI>Next message: <A HREF="000246.html">[Uctimsclient-users] vlc on IPTV Service??
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#245">[ date ]</a>
+              <a href="thread.html#245">[ thread ]</a>
+              <a href="subject.html#245">[ subject ]</a>
+              <a href="author.html#245">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

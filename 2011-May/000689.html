@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] update to uctimsclient for VoD under Ubuntu	10.10
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20update%20to%20uctimsclient%20for%20VoD%20under%20Ubuntu%0A%0910.10&In-Reply-To=%3CBANLkTik-GO83x_44ZtzhH_VWyZjc8pFgZA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000688.html">
+   <LINK REL="Next"  HREF="000690.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] update to uctimsclient for VoD under Ubuntu	10.10</H1>
+    <B>dpene</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20update%20to%20uctimsclient%20for%20VoD%20under%20Ubuntu%0A%0910.10&In-Reply-To=%3CBANLkTik-GO83x_44ZtzhH_VWyZjc8pFgZA%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] update to uctimsclient for VoD under Ubuntu	10.10">comeonleech at gmail.com
+       </A><BR>
+    <I>Wed May 11 15:33:41 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000688.html">[Uctimsclient-users] UCT Charging Framework : CDR fields discrepancy
+</A></li>
+        <LI>Next message: <A HREF="000690.html">[Uctimsclient-users] UCT IMS MCF-MDF and SCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#689">[ date ]</a>
+              <a href="thread.html#689">[ thread ]</a>
+              <a href="subject.html#689">[ subject ]</a>
+              <a href="author.html#689">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there,
+I have noticed that many people experienced the segmentation fault
+problem when they are trying to use UCT IMS Client with a recent
+version of Ubuntu.
+It seem that nobody provided yet the solution which is to update the
+source code in order to use the newest functions of libvlc library.
+I have modified myself the source code to make uctimsclient v1.0.13
+compatible with libdev v1.1.4-1ubuntu1 which is the version that can
+be installed from Ubuntu 10.10 (Maverick Meerkat) repository (it goes
+with vlc 1.1.4 The luggage).
+
+Four files need to be updated :
+- rtsp.c
+- globals.h
+- extern_vars.h
+- includes.h
+
+If I provide them to the community, is there any chance that the UCT
+IMS Client can be updated with them ?
+
+Regards,
+
+Didier P&#232;ne
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000688.html">[Uctimsclient-users] UCT Charging Framework : CDR fields discrepancy
+</A></li>
+	<LI>Next message: <A HREF="000690.html">[Uctimsclient-users] UCT IMS MCF-MDF and SCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#689">[ date ]</a>
+              <a href="thread.html#689">[ thread ]</a>
+              <a href="subject.html#689">[ subject ]</a>
+              <a href="author.html#689">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

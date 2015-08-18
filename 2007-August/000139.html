@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] how to reduce Expires value in INVITE on isc	interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20how%20to%20reduce%20Expires%20value%20in%20INVITE%20on%0A%20isc%09interface&In-Reply-To=%3C46CECF55.5090705%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000137.html">
+   <LINK REL="Next"  HREF="000140.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] how to reduce Expires value in INVITE on isc	interface</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20how%20to%20reduce%20Expires%20value%20in%20INVITE%20on%0A%20isc%09interface&In-Reply-To=%3C46CECF55.5090705%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] how to reduce Expires value in INVITE on isc	interface">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Fri Aug 24 14:30:13 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000137.html">[Uctimsclient-users] how to reduce Expires value in INVITE on isc	interface
+</A></li>
+        <LI>Next message: <A HREF="000140.html">[Uctimsclient-users] how to reduce Expires value in INVITE on	isc	interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#139">[ date ]</a>
+              <a href="thread.html#139">[ thread ]</a>
+              <a href="subject.html#139">[ subject ]</a>
+              <a href="author.html#139">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+The behavior you are talking about is a fundamental part of SIP, i.e. 
+retransmitting messages that do not receive a reply. It is the client 
+that is sending these retransmissions.
+
+Is there a reason why your AS is not sending any kind of reply to the 
+client?
+
+If you really want to stop this (and I really do not advise this) you 
+must edit the source code of the eXosip SIP stack to stop the 
+retransmissions. Performing this in the core network is not advisable 
+either. Remember in SIP the intelligence lies in the clients not the 
+network.
+
+Regards
+
+Dave
+
+
+
+Vishwadeepak Agarwal wrote:
+&gt;<i>
+</I>&gt;<i> Hi all,
+</I>&gt;<i> i am sending INVITE to my application server from UCTIMSCLIENT via 
+</I>&gt;<i> imscore.
+</I>&gt;<i> The imscore is sending four INVITEs to my application server till 
+</I>&gt;<i> timeout.
+</I>&gt;<i> I want to restrict it to one INVITE.
+</I>&gt;<i> I have done changes in the scscf.cfg file but it didnt help.
+</I>&gt;<i>
+</I>&gt;<i> changes in scscf.cfg :
+</I>&gt;<i> #modparam(&quot;isc&quot;,&quot;expires_grace&quot;,120)
+</I>&gt;<i> modparam(&quot;isc&quot;,&quot;expires_grace&quot;,30)
+</I>&gt;<i>
+</I>&gt;<i> can somebody help? Thanks in advance
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Vishwa Deepak Agarwal
+</I>&gt;<i>
+</I>&gt;<i> *
+</I>&gt;<i> *
+</I>&gt;<i> ______________________________________________________________________
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000137.html">[Uctimsclient-users] how to reduce Expires value in INVITE on isc	interface
+</A></li>
+	<LI>Next message: <A HREF="000140.html">[Uctimsclient-users] how to reduce Expires value in INVITE on	isc	interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#139">[ date ]</a>
+              <a href="thread.html#139">[ thread ]</a>
+              <a href="subject.html#139">[ subject ]</a>
+              <a href="author.html#139">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

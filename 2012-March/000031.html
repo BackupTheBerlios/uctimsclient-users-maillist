@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.1.1331738966.13725.uctimsclient-users%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000029.html">
+   <LINK REL="Next"  HREF="000032.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.1.1331738966.13725.uctimsclient-users%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 16:29:27 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000029.html">No subject
+</A></li>
+        <LI>Next message: <A HREF="000032.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>variable needs to point to the folder containing the ortp package.  Try=20
+a search for ortp.pc then set the environment variable to this location.
+i.e. /export PKG_CONFIG_PATH=3D&quot;/rtp/package/location&quot;
+
+/regards,
+
+Richard
+/
+
+/asma a wrote:
+
+&gt;<i> hi;
+</I>&gt;<i>
+</I>&gt;<i> I have installed &quot;ortp-0.10.1.tar.gz&quot;,  &quot;gtk+-2.8.20&quot;,=20
+</I>&gt;<i> libexosip2-2.2.3, libosip2-2.2.3, and &quot;alsa-plugins-1.0.11&quot;
+</I>&gt;<i>
+</I>&gt;<i> and after that I start to install the UCT client, get the following =
+</I>error:
+&gt;<i>
+</I>&gt;<i> =20
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# make
+</I>&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o=20
+</I>&gt;<i> obj/callbacks.o -c callbacks.c
+</I>&gt;<i> Package ortp was not found in the pkg-config search path.
+</I>&gt;<i> Perhaps you should add the directory containing `ortp.pc'
+</I>&gt;<i> to the PKG_CONFIG_PATH environment variable
+</I>&gt;<i> No package 'ortp' found
+</I>&gt;<i> In file included from callbacks.c:6:
+</I>&gt;<i> includes.h:14:21: error: gtk/gtk.h: No such file or directory
+</I>&gt;<i> includes.h:20:18: error: glib.h: No such file or directory
+</I>&gt;<i> =20
+</I>&gt;<i> what else is needed to be install???
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Asma
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message ----
+</I>&gt;<i> From: asma a &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt;
+</I>&gt;<i> To: uctims &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;<i> Sent: Monday, 26 February, 2007 12:14:53 PM
+</I>&gt;<i> Subject: [Uctimsclient-users] installing UCT IMS Client
+</I>&gt;<i>
+</I>&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I am trying to install the UCT IMS Client on my Fedora Core 6 system,
+</I>&gt;<i> my current problem is on installing libexosip2 (2.2.3)
+</I>&gt;<i>
+</I>&gt;<i> ./.libs/libjosua.so: undefined reference to `ortp_set_debug_file'
+</I>&gt;<i> collect2: ld returned 1 exit status
+</I>&gt;<i> make[2]: *** [josua] Error 1
+</I>&gt;<i> make[2]: Leaving directory `/root/UCT_IMS/libeXosip2-2.2.3/josua'
+</I>&gt;<i> make[1]: *** [all-recursive] Error 1
+</I>&gt;<i> make[1]: Leaving directory `/root/UCT_IMS/libeXosip2-2.2.3'
+</I>&gt;<i> make: *** [all] Error 2
+</I>&gt;<i>
+</I>&gt;<i> It seems that the problem is with the libortp!
+</I>&gt;<i>
+</I>&gt;<i> I can not find the libortp (1.3.5) package on the=20
+</I>&gt;<i> <A HREF="http://www.antisip.com/download/">http://www.antisip.com/download/</A> website
+</I>&gt;<i> however I downloaded and installed the &quot;ortp-0.10.1.tar.gz&quot;
+</I>&gt;<i> but I still have the same problem!!!
+</I>&gt;<i>
+</I>&gt;<i> where can I find the required packages??
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks;
+</I>&gt;<i>
+</I>&gt;<i> Asma
+</I>&gt;<i>
+</I>&gt;<i> =
+</I>------------------------------------------------------------------------
+&gt;<i> The all-new Yahoo! Mail=20
+</I>&gt;<i>
+</I>&lt;<A HREF="http://us.rd.yahoo.com/mail/uk/taglines/default/nowyoucan/free_from_isp/=">http://us.rd.yahoo.com/mail/uk/taglines/default/nowyoucan/free_from_isp/=</A>
+*ht
+<A HREF="tp://us.rd.yahoo.com/evt=3D40565/*http://uk.docs.yahoo.com/nowyoucan.html=">tp://us.rd.yahoo.com/evt=3D40565/*http://uk.docs.yahoo.com/nowyoucan.html=</A>
+
+&lt;<A HREF="http://us.rd.yahoo.com/mail/uk/taglines/default/nowyoucan/free_from_isp/=">http://us.rd.yahoo.com/mail/uk/taglines/default/nowyoucan/free_from_isp/=</A>
+*ht
+tp:/us.rd.yahoo.com/evt=3D40565/*http:/uk.docs.yahoo.com/nowyoucan.html&gt; =
+&gt;<i>=20
+</I>&gt;<i> goes wherever you go - free your email address from your Internet=20
+</I>&gt;<i> provider.
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> =
+</I>------------------------------------------------------------------------
+&gt;<i> What kind of emailer are you? Find out today - get a free analysis of=20
+</I>&gt;<i> your email personality. Take the quiz at the Yahoo! Mail Championship=20
+</I>&gt;<i>
+</I>&lt;<A HREF="http://uk.rd.yahoo.com/mail/uk/taglines/yahoo_co_uk/championships/quiz/*=">http://uk.rd.yahoo.com/mail/uk/taglines/yahoo_co_uk/championships/quiz/*=</A>
+htt
+<A HREF="p://uk.rd.yahoo.com/evt=3D44106/*http://mail.yahoo.net/uk/">p://uk.rd.yahoo.com/evt=3D44106/*http://mail.yahoo.net/uk/</A>
+&lt;<A HREF="http://uk.rd.yahoo.com/mail/uk/taglines/yahoo_co_uk/championships/quiz/*=">http://uk.rd.yahoo.com/mail/uk/taglines/yahoo_co_uk/championships/quiz/*=</A>
+htt
+p:/uk.rd.yahoo.com/evt=3D44106/*http:/mail.yahoo.net/uk/&gt; &gt;.=20
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>------------------------------------------------------------------------=
+</I>
+&gt;<i>
+</I>&gt;<i>_______________________________________________
+</I>&gt;<i>Uctimsclient-users mailing list
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> =20
+</I>&gt;<i>
+</I>
+=20
+
+=20
+
+  _____ =20
+
+New Yahoo! Mail is the ultimate force in competitive emailing. Find out =
+more
+at the Yahoo!
+&lt;<A HREF="http://uk.rd.yahoo.com/mail/uk/taglines/default/championships/games/*htt=">http://uk.rd.yahoo.com/mail/uk/taglines/default/championships/games/*htt=</A>
+p:/
+uk.rd.yahoo.com/evt=3D44106/*http:/mail.yahoo.net/uk/&gt;  Mail =
+Championships.
+Plus: play games and win prizes.
+
+
+------=_NextPart_000_000E_01C75A81.74D25190
+Content-Type: text/html;
+	charset=&quot;us-ascii&quot;
+Content-Transfer-Encoding: quoted-printable
+
+&lt;html&gt;
+
+&lt;head&gt;
+&lt;META HTTP-EQUIV=3D&quot;Content-Type&quot; CONTENT=3D&quot;text/html; =
+charset=3Dus-ascii&quot;&gt;
+
+
+&lt;meta name=3DGenerator content=3D&quot;Microsoft Word 10 (filtered)&quot;&gt;
+
+&lt;style&gt;
+&lt;!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:&quot;Times New Roman&quot;;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+span.EmailStyle17
+	{font-family:Arial;
+	color:navy;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+--&gt;
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body lang=3DEN-US link=3Dblue vlink=3Dblue&gt;
+
+&lt;div class=3DSection1&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D2 color=3Dnavy face=3DArial&gt;&lt;span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'&gt;Asma&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D2 color=3Dnavy face=3DArial&gt;&lt;span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'&gt;&nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D2 color=3Dnavy face=3DArial&gt;&lt;span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'&gt;If you have installed ortp, then I =
+think
+the problem is that &lt;/span&gt;&lt;/font&gt;libortp is at some other place and =
+your
+compilation is trying to pick it from some other place. Try locating =
+where libortp
+is placed and copy that to /usr/lib or whatever PATH you have =
+defined.&lt;/p&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D2 color=3Dnavy face=3DArial&gt;&lt;span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'&gt;&nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;div&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D2 color=3Dnavy face=3DArial&gt;&lt;span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'&gt;Regards,&lt;/span&gt;&lt;/font&gt;&lt;/st1:PersonNa=
+me&gt;&lt;/p&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;st1:PersonName style=3D&quot;BACKGROUND-POSITION: left =
+bottom; BACKGROUND-IMAGE: url(<A HREF="res://ietag.dll/#34/#1001">res://ietag.dll/#34/#1001</A>); =
+BACKGROUND-REPEAT: repeat-x&quot;&gt;&lt;font
+size=3D2 color=3Dnavy face=3DArial&gt;&lt;span =
+style=3D'font-size:10.0pt;font-family:Arial;
+color:navy'&gt;Gaurav Kansal&lt;/span&gt;&lt;/font&gt;&lt;/st1:PersonName&gt;&lt;/p&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D2 color=3Dnavy face=3DArial&gt;&lt;span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'&gt;&nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D2 face=3DTahoma&gt;&lt;span =
+style=3D'font-size:10.0pt;
+font-family:Tahoma'&gt;-----Original Message-----&lt;br&gt;
+&lt;b&gt;&lt;span style=3D'font-weight:bold'&gt;From:&lt;/span&gt;&lt;/b&gt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] &lt;b&gt;&lt;span =
+style=3D'font-weight:
+bold'&gt;On Behalf Of &lt;/span&gt;&lt;/b&gt;asma a&lt;br&gt;
+&lt;b&gt;&lt;span style=3D'font-weight:bold'&gt;Sent:&lt;/span&gt;&lt;/b&gt; &lt;/span&gt;&lt;/font&gt;&lt;font =
+size=3D2 face=3DTahoma&gt;&lt;span =
+style=3D'font-size:10.0pt;font-family:Tahoma'&gt;Tuesday,
+ February 27, 2007&lt;/span&gt;&lt;/font&gt;&lt;font size=3D2 face=3DTahoma&gt;&lt;span
+style=3D'font-size:10.0pt;font-family:Tahoma'&gt; &lt;/span&gt;&lt;/font&gt;&lt;font
+ size=3D2 face=3DTahoma&gt;&lt;span =
+style=3D'font-size:10.0pt;font-family:Tahoma'&gt;3:03 PM&lt;/span&gt;&lt;/font&gt;&lt;font
+size=3D2 face=3DTahoma&gt;&lt;span =
+style=3D'font-size:10.0pt;font-family:Tahoma'&gt;&lt;br&gt;
+&lt;b&gt;&lt;span style=3D'font-weight:bold'&gt;To:&lt;/span&gt;&lt;/b&gt; Richard Good&lt;br&gt;
+&lt;b&gt;&lt;span style=3D'font-weight:bold'&gt;Cc:&lt;/span&gt;&lt;/b&gt; uctims&lt;br&gt;
+&lt;b&gt;&lt;span style=3D'font-weight:bold'&gt;Subject:&lt;/span&gt;&lt;/b&gt; Re: =
+[Uctimsclient-users]
+installing UCT IMS Client&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D3 face=3D&quot;Times New Roman&quot;&gt;&lt;span =
+style=3D'font-size:
+12.0pt'&gt;&nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;div&gt;
+
+&lt;div&gt;
+
+&lt;p class=3DMsoNormal&gt;&lt;font size=3D3 face=3D&quot;Times New Roman&quot;&gt;&lt;span =
+style=3D'font-size:
+12.0pt'&gt;yes I installed them manually from source code.&lt;br&gt;
+&lt;br&gt;
+I found the &quot;ortp.pc&quot; file in the path
+&quot;/usr/local/lib/pkgconfig&quot; and export it to the =
+PKG_CONFIG_PATH
+environment variable.&nbsp; now the make step work. &lt;br&gt;
+&lt;br&gt;
+but it seems that there is another environment variable need to be set, =
+because
+as I execute the uctimsclient I get this&lt;br&gt;
+&lt;br&gt;
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# ./uctimsclient&lt;br&gt;
+./uctimsclient: error while loading shared libraries: libortp.so.5: =
+cannot open
+shared object file: No such file or directory&lt;br&gt;
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# &lt;br&gt;
+&lt;br&gt;
+what is the environment variable I need to set the libortp.so path in =
+it??&lt;br&gt;
+&lt;br&gt;
+Thanks;&lt;br&gt;
+&lt;br&gt;
+Asma&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;div&gt;
+
+&lt;p class=3DMsoNormal style=3D'margin-bottom:12.0pt'&gt;&lt;font size=3D3
+face=3D&quot;Times New Roman&quot;&gt;&lt;span style=3D'font-size:12.0pt'&gt;----- Original =
+Message
+----&lt;br&gt;
+From: Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;&lt;br&gt;
+To: asma a &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt;&lt;br&gt;
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&lt;br&gt;
+Sent: &lt;/span&gt;&lt;/font&gt;Monday, 26 February, 2007 2:20:28 PM&lt;br&gt;
+Subject: Re: [Uctimsclient-users] installing UCT IMS Client&lt;/p&gt;
+
+&lt;div&gt;
+
+&lt;p class=3DMsoNormal style=3D'margin-bottom:12.0pt'&gt;&lt;font size=3D3
+face=3D&quot;Times New Roman&quot;&gt;&lt;span style=3D'font-size:12.0pt'&gt;Hi Asma,&lt;br&gt;
+&lt;br&gt;
+It sounds like you manually installed these packages and may not have =
+&lt;br&gt;
+put them in their default locations.&nbsp;&nbsp;Wherever possible use =
+package &lt;br&gt;
+managers to install software as these use the default locations.&lt;br&gt;
+&lt;br&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000029.html">No subject
+</A></li>
+	<LI>Next message: <A HREF="000032.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

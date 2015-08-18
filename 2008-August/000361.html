@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Facing problem in Integrating UCT policy control in Open IMS core
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Facing%20problem%20in%20Integrating%20UCT%20policy%0A%20control%20in%20Open%20IMS%20core&In-Reply-To=%3C48B660A7.7020703%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000360.html">
+   <LINK REL="Next"  HREF="000358.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Facing problem in Integrating UCT policy control in Open IMS core</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Facing%20problem%20in%20Integrating%20UCT%20policy%0A%20control%20in%20Open%20IMS%20core&In-Reply-To=%3C48B660A7.7020703%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Facing problem in Integrating UCT policy control in Open IMS core">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Thu Aug 28 10:24:07 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000360.html">[Uctimsclient-users] Facing problem in Integrating UCT policy	control in Open IMS core
+</A></li>
+        <LI>Next message: <A HREF="000358.html">[Uctimsclient-users] how to add an AS ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#361">[ date ]</a>
+              <a href="thread.html#361">[ thread ]</a>
+              <a href="subject.html#361">[ subject ]</a>
+              <a href="author.html#361">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Indranil,
+
+This exception is just another synchronization issue with diameter peers 
+starting up at different times; if it does not persist then it should be 
+OK.   Both these errors should be changed to warnings in the next release.
+
+For testing and checking that the interfaces are working correctly see 
+/*Step 7: Testing*/ of the HOW TO: 
+<A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A> 
+&lt;<A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>&gt;
+
+Also have a look at 
+<A HREF="http://uctimsclient.berlios.de/policy_control_scenario.html">http://uctimsclient.berlios.de/policy_control_scenario.html</A> for some 
+simple testing scenarios.
+
+Regards,
+Richard.
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">indranil.chatterjee at wipro.com</A> wrote:
+&gt;<i> Hi Richard,
+</I>&gt;<i>  
+</I>&gt;<i> Thanks for the response.
+</I>&gt;<i>  
+</I>&gt;<i> I was getting the below Error */[Thread-4] ERROR 
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - StateMachine: 
+</I>&gt;<i> Peer pcrf.open-ims.test not responding to connection attempt /*as you 
+</I>&gt;<i> mentioned. But now it seems to be corrected as both the PCEF and PCRF 
+</I>&gt;<i> is running.
+</I>&gt;<i> Instead I am getting the following Exception:
+</I>&gt;<i>  
+</I>&gt;<i> *java.lang.Exception:Read failed*
+</I>&gt;<i> *     at 
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.transport.Communicator.run(Communicator.jav:187)*
+</I>&gt;<i>  
+</I>&gt;<i> I have also modified the DiameterPeerXXX.xml files in the config 
+</I>&gt;<i> folder to change to my domain name and IP address.
+</I>&gt;<i>  
+</I>&gt;<i> Pl help on this.
+</I>&gt;<i>  
+</I>&gt;<i> And, also pl let me know how will I test whether the PCRF and PCEF is 
+</I>&gt;<i> running and communicating and both the Rx/Gx interface is up.
+</I>&gt;<i>  
+</I>&gt;<i> Thanks &amp; Regards,
+</I>&gt;<i> Indranil
+</I>&gt;<i>  
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> *From:* Richard Good [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>]
+</I>&gt;<i> *Sent:* Thursday, August 28, 2008 1:12 PM
+</I>&gt;<i> *To:* Indranil Chatterjee (WT01 - Testing Services)
+</I>&gt;<i> *Cc:* <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> *Subject:* Re: [Uctimsclient-users] Facing problem in Integrating UCT 
+</I>&gt;<i> policy control in Open IMS core
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Is that the exact error message - or is it more like:
+</I>&gt;<i>
+</I>&gt;<i> */[Thread-4] ERROR 
+</I>&gt;<i> de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - StateMachine: 
+</I>&gt;<i> Peer pcrf.open-ims.test not responding to connection attempt
+</I>&gt;<i> /*
+</I>&gt;<i> If this is the case and the error does not persist there is no 
+</I>&gt;<i> problem.  This message will appear if the Diameter peer (This case the 
+</I>&gt;<i> PCRF) is not yet running.  Once you run the PCRF this error should not 
+</I>&gt;<i> appear again.
+</I>&gt;<i>
+</I>&gt;<i> If this is not your problem - have you correctly modified the 
+</I>&gt;<i> DiameterPeerXXX.xml files in the config folder to change your domain 
+</I>&gt;<i> name and IP address?
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Richard.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">indranil.chatterjee at wipro.com</A> wrote:
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> Hi Everybody,
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> I am trying to incorporate UCT Policy Control in Open IMS Core.
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> I have followed the steps in 
+</I>&gt;&gt;<i> <A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> Now, when I am trying to start PCEF by giving ./pcef.sh command from 
+</I>&gt;&gt;<i> /opt/OpenIMSCore/uctpcrf I am getting the an Exception.
+</I>&gt;&gt;<i> It says : pcef.imslab.wipro.com unable to connect to the connection 
+</I>&gt;&gt;<i> attempt.
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> The problem is in the Diameter connection.
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> Pl help on this
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> Thanks &amp; Regards,
+</I>&gt;&gt;<i> Indranil
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> *Please do not print this email unless it is absolutely necessary. *
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The information contained in this electronic message and any 
+</I>&gt;&gt;<i> attachments to this message are intended for the exclusive use of the 
+</I>&gt;&gt;<i> addressee(s) and may contain proprietary, confidential or privileged 
+</I>&gt;&gt;<i> information. If you are not the intended recipient, you should not 
+</I>&gt;&gt;<i> disseminate, distribute or copy this e-mail. Please notify the sender 
+</I>&gt;&gt;<i> immediately and destroy all copies of this message and any attachments.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> WARNING: Computer viruses can be transmitted via email. The recipient 
+</I>&gt;&gt;<i> should check this email and any attachments for the presence of 
+</I>&gt;&gt;<i> viruses. The company accepts no liability for any damage caused by 
+</I>&gt;&gt;<i> any virus transmitted by this email.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> www.wipro.com
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>   
+</I>&gt;<i>
+</I>&gt;<i> * Please do not print this email unless it is absolutely necessary. *
+</I>&gt;<i>
+</I>&gt;<i> The information contained in this electronic message and any 
+</I>&gt;<i> attachments to this message are intended for the exclusive use of the 
+</I>&gt;<i> addressee(s) and may contain proprietary, confidential or privileged 
+</I>&gt;<i> information. If you are not the intended recipient, you should not 
+</I>&gt;<i> disseminate, distribute or copy this e-mail. Please notify the sender 
+</I>&gt;<i> immediately and destroy all copies of this message and any attachments.
+</I>&gt;<i>
+</I>&gt;<i> WARNING: Computer viruses can be transmitted via email. The recipient 
+</I>&gt;<i> should check this email and any attachments for the presence of 
+</I>&gt;<i> viruses. The company accepts no liability for any damage caused by any 
+</I>&gt;<i> virus transmitted by this email.
+</I>&gt;<i>
+</I>&gt;<i> www.wipro.com
+</I>&gt;<i>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080828/4832d269/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080828/4832d269/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000360.html">[Uctimsclient-users] Facing problem in Integrating UCT policy	control in Open IMS core
+</A></li>
+	<LI>Next message: <A HREF="000358.html">[Uctimsclient-users] how to add an AS ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#361">[ date ]</a>
+              <a href="thread.html#361">[ thread ]</a>
+              <a href="subject.html#361">[ subject ]</a>
+              <a href="author.html#361">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

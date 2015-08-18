@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Some problem with the iptv source code
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Some%20problem%20with%20the%20iptv%20source%20code&In-Reply-To=%3Cd7d566c20805260312s6627400bxf0864d6ea2ed17a9%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000249.html">
+   <LINK REL="Next"  HREF="000251.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Some problem with the iptv source code</H1>
+    <B>Richard Spiers</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Some%20problem%20with%20the%20iptv%20source%20code&In-Reply-To=%3Cd7d566c20805260312s6627400bxf0864d6ea2ed17a9%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Some problem with the iptv source code">richard.spiers at gmail.com
+       </A><BR>
+    <I>Mon May 26 12:12:08 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000249.html">[Uctimsclient-users] Some problem with the iptv source code
+</A></li>
+        <LI>Next message: <A HREF="000251.html">[Uctimsclient-users] Some problem with the iptv source code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#250">[ date ]</a>
+              <a href="thread.html#250">[ thread ]</a>
+              <a href="subject.html#250">[ subject ]</a>
+              <a href="author.html#250">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Miroslave
+
+In addition to Richard's reply, could you also please try the following ?
+
+Can you type a make clean followed by a make and send me the entire
+output ? It looks like there is a typo in one of your source files.
+
+Can you check this for me and get back to me ? (Maybe there is a
+character at the start of the file that shouldn't be there ?
+
+Have you modified the source files at all ?
+
+Kind Regards
+Richard Spiers
+
+On Mon, May 26, 2008 at 11:43 AM, Miroslave Gudic &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">miro_slave at live.fr</A>&gt; wrote:
+&gt;<i> Hello everybody
+</I>&gt;<i>
+</I>&gt;<i> When I try to execute the makefile (with the command make) some errors
+</I>&gt;<i> appear related to the video.c.
+</I>&gt;<i> I don't understand why it says the variables are undeclared...
+</I>&gt;<i> I'm working on a debian station.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> sh-3.1$ make
+</I>&gt;<i> gcc -I/usr/include/gstreamer-0.10/gst `pkg-config --cflags gtk+-2.0
+</I>&gt;<i> gstreamer-0.10` -o obj/video.o -c src/video.c
+</I>&gt;<i> src/video.c:3: error: expected '=', ',', ';', 'asm' or '__attribute__'
+</I>&gt;<i> before '*' token
+</I>&gt;<i> src/video.c:7: error: expected ')' before '*' token
+</I>&gt;<i> src/video.c:31: error: expected '=', ',', ';', 'asm' or '__attribute__'
+</I>&gt;<i> before 'bus_callback'
+</I>&gt;<i> src/video.c:66: error: expected declaration specifiers or '...' before
+</I>&gt;<i> 'gchar'
+</I>&gt;<i> src/video.c:67: error: conflicting types for 'add_client'
+</I>&gt;<i> video.h:8: error: previous declaration of 'add_client' was here
+</I>&gt;<i> src/video.c: In function 'add_client':
+</I>&gt;<i> src/video.c:68: error: 'GstElement' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:68: error: (Each undeclared identifier is reported only once
+</I>&gt;<i> src/video.c:68: error: for each function it appears in.)
+</I>&gt;<i> src/video.c:68: error: 'multiudpsinka' undeclared (first use in this
+</I>&gt;<i> function)
+</I>&gt;<i> src/video.c:68: error: 'multiudpsinkv' undeclared (first use in this
+</I>&gt;<i> function)
+</I>&gt;<i> src/video.c:72: error: 'stream1' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:76: error: 'stream2' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:80: error: 'stream3' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:85: error: 'host' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:85: error: 'NULL' undeclared (first use in this function)
+</I>&gt;<i> src/video.c: At top level:
+</I>&gt;<i> src/video.c:90: error: expected declaration specifiers or '...' before
+</I>&gt;<i> 'gchar'
+</I>&gt;<i> src/video.c:91: error: conflicting types for 'remove_client'
+</I>&gt;<i> video.h:9: error: previous declaration of 'remove_client' was here
+</I>&gt;<i> src/video.c: In function 'remove_client':
+</I>&gt;<i> src/video.c:92: error: 'GstElement' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:92: error: 'multiudpsinka' undeclared (first use in this
+</I>&gt;<i> function)
+</I>&gt;<i> src/video.c:92: error: 'multiudpsinkv' undeclared (first use in this
+</I>&gt;<i> function)
+</I>&gt;<i> src/video.c:97: error: 'stream1' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:101: error: 'stream2' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:105: error: 'stream3' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:110: error: 'host' undeclared (first use in this function)
+</I>&gt;<i> src/video.c:110: error: 'NULL' undeclared (first use in this function)
+</I>&gt;<i> src/video.c: At top level:
+</I>&gt;<i> src/video.c:115: error: expected '=', ',', ';', 'asm' or '__attribute__'
+</I>&gt;<i> before '*' token
+</I>&gt;<i> make: *** [obj/video.o] Erreur 1
+</I>&gt;<i>
+</I>&gt;<i> Thanks
+</I>&gt;<i>
+</I>&gt;<i> Miroslave
+</I>&gt;<i>
+</I>&gt;<i> ________________________________
+</I>&gt;<i> Tous vos amis discutent sur Messenger, et vous ? T&#233;l&#233;chargez Messenger,
+</I>&gt;<i> c'est gratuit !
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000249.html">[Uctimsclient-users] Some problem with the iptv source code
+</A></li>
+	<LI>Next message: <A HREF="000251.html">[Uctimsclient-users] Some problem with the iptv source code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#250">[ date ]</a>
+              <a href="thread.html#250">[ thread ]</a>
+              <a href="subject.html#250">[ subject ]</a>
+              <a href="author.html#250">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

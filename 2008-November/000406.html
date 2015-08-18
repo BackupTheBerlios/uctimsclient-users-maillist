@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT client terminates when registrating
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20client%20terminates%20when%20registrating&In-Reply-To=%3C000901c93fce%24d54bfe70%24d90112ac%40LIONKING.COM%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000408.html">
+   <LINK REL="Next"  HREF="000407.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT client terminates when registrating</H1>
+    <B>srinivasa.reddy at info-spectrum.com</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20client%20terminates%20when%20registrating&In-Reply-To=%3C000901c93fce%24d54bfe70%24d90112ac%40LIONKING.COM%3E"
+       TITLE="[Uctimsclient-users] UCT client terminates when registrating">srinivasa.reddy at info-spectrum.com
+       </A><BR>
+    <I>Thu Nov  6 06:16:22 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000408.html">[Uctimsclient-users] UCT client terminates when registrating Alice/Bob
+</A></li>
+        <LI>Next message: <A HREF="000407.html">[Uctimsclient-users] UCT client terminates when registrating	Alice/Bob (T K Lee)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#406">[ date ]</a>
+              <a href="thread.html#406">[ thread ]</a>
+              <a href="subject.html#406">[ subject ]</a>
+              <a href="author.html#406">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+try with the following sollution .
+
+    2.. BackTrace of the core dump:
+(gdb) bt
+
+#0  0x00000000004248cd in get_exosip_events (main_window=0x141de020) at 
+src/imsUA.c:236
+
+#1  0x00002aaaaaf3b35b in g_timeout_dispatch (source=0x1448ce50, 
+callback=0x14159a60, user_data=0x0) at gmain.c:3488
+
+#2  0x00002aaaaaf3ac23 in IA__g_main_context_dispatch (context=0x1415e290) 
+at gmain.c:2061
+
+#3  0x00002aaaaaf3df0d in g_main_context_iterate (context=0x1415e290, 
+block=1, dispatch=1, self=&lt;value optimized out&gt;)
+
+
+
+    at gmain.c:2694
+
+#4  0x00002aaaaaf3e21a in IA__g_main_loop_run (loop=0x1448ced0) at 
+gmain.c:2898
+
+#5  0x0000003231d2aa53 in gtk_main () from /usr/lib64/libgtk-x11-2.0.so.0
+
+#6  0x00000000004249e0 in main (argc=1, argv=0x7fff954ead48) at 
+src/imsUA.c:288
+
+
+
+    1.. Solution to this issue:
+            In /src/imsUA.c file lineno:236 &quot;if&quot; condition was changed. As 
+je-&gt;response is null, segmentation fault observed.
+
+
+
+-----------snip---------------
+
+else if((je-&gt;response)&amp;&amp;((je-&gt;response)-&gt;status_code == 302))
+
+                {
+
+                        ims_process_302(je);
+
+                }
+
+
+
+-------------snap--------------
+
+
+
+
+
+
+
+Thanks &amp; Regards,
+SRINI.
+----- Original Message ----- 
+From: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-request at lists.berlios.de</A>&gt;
+To: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+Sent: Thursday, November 06, 2008 9:06 AM
+Subject: Uctimsclient-users Digest, Vol 21, Issue 1
+
+
+&gt;<i> Send Uctimsclient-users mailing list submissions to
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> or, via email, send a message with subject or body 'help' to
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-request at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> You can reach the person managing the list at
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-owner at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> When replying, please edit your Subject line so it is more specific
+</I>&gt;<i> than &quot;Re: Contents of Uctimsclient-users digest...&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Today's Topics:
+</I>&gt;<i>
+</I>&gt;<i>   1. UCT client terminates when registrating Alice/Bob (T K Lee)
+</I>&gt;<i>   2. UCT client terminates when registrating Alice/Bob (T K Lee)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 1
+</I>&gt;<i> Date: Thu, 6 Nov 2008 11:30:34 +0800
+</I>&gt;<i> From: &quot;T K Lee&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">teckkiong at hotmail.com</A>&gt;
+</I>&gt;<i> Subject: [Uctimsclient-users] UCT client terminates when registrating
+</I>&gt;<i> Alice/Bob
+</I>&gt;<i> To: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;<i> Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">BAY120-DAV762CB4B1D8034F96F55ABB21E0 at phx.gbl</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=&quot;us-ascii&quot;
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I have a working OpenIMSCore on Ubuntu 8.04 server.  However, after i
+</I>&gt;<i> installed UCT Policy control framework on the same server, i no longer can
+</I>&gt;<i> Register a user UCT client cause the client terminates immediately.
+</I>&gt;<i>
+</I>&gt;<i> Installed:
+</I>&gt;<i> -  Fokus 'Open IMS Core'
+</I>&gt;<i> -  UCT Policy control function
+</I>&gt;<i> -  UCT IMS client
+</I>&gt;<i>
+</I>&gt;<i> Event - Console:
+</I>&gt;<i> /opt/OpenIMSCore &gt; ./ims.qos.sh
+</I>&gt;<i> /opt/OpenIMSCore/uctpref &gt; ./pcrf.sh
+</I>&gt;<i> /opt/OpenIMSCore/uctpref &gt; sudo ./pcef.sh
+</I>&gt;<i> /opt/OpenIMSCore  &gt; uctclient
+</I>&gt;<i>
+</I>&gt;<i> Event - UCT Client:
+</I>&gt;<i> -  Select 'Register Alice'
+</I>&gt;<i> -  Client immediately terminates
+</I>&gt;<i> -  Console message shows 'segmentation fault'.
+</I>&gt;<i>
+</I>&gt;<i> Please advice.  Thank you.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Teck Kiong LEE
+</I>&gt;<i> ****
+</I>&gt;<i> Institute for Infocomm Research (I2R), Singapore
+</I>&gt;<i> DID: +65 6408-2269
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An HTML attachment was scrubbed...
+</I>&gt;<i> URL: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0001.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0001.html</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An embedded and charset-unspecified text was scrubbed...
+</I>&gt;<i> Name: scscf-qos.txt
+</I>&gt;<i> Url: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0004.txt">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0004.txt</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An embedded and charset-unspecified text was scrubbed...
+</I>&gt;<i> Name: hss-qos.txt
+</I>&gt;<i> Url: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0005.txt">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0005.txt</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An embedded and charset-unspecified text was scrubbed...
+</I>&gt;<i> Name: icscf-qos.txt
+</I>&gt;<i> Url: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0006.txt">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0006.txt</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An embedded and charset-unspecified text was scrubbed...
+</I>&gt;<i> Name: pcscf-qos.txt
+</I>&gt;<i> Url: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0007.txt">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0007.txt</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> A non-text attachment was scrubbed...
+</I>&gt;<i> Name: WiresharkTrace
+</I>&gt;<i> Type: application/octet-stream
+</I>&gt;<i> Size: 3704 bytes
+</I>&gt;<i> Desc: not available
+</I>&gt;<i> Url : 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0001.obj">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/8ee4bb28/attachment-0001.obj</A>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 2
+</I>&gt;<i> Date: Thu, 6 Nov 2008 11:31:11 +0800
+</I>&gt;<i> From: &quot;T K Lee&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">teckkiong at hotmail.com</A>&gt;
+</I>&gt;<i> Subject: [Uctimsclient-users] UCT client terminates when registrating
+</I>&gt;<i> Alice/Bob
+</I>&gt;<i> To: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;<i> Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">BAY120-DAV3F597E371EBC9B121BDD6B21E0 at phx.gbl</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=&quot;us-ascii&quot;
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I have a working OpenIMSCore on Ubuntu 8.04 server.  However, after i
+</I>&gt;<i> installed UCT Policy control framework on the same server, i no longer can
+</I>&gt;<i> Register a user UCT client cause the client terminates immediately.
+</I>&gt;<i>
+</I>&gt;<i> Installed:
+</I>&gt;<i> -  Fokus 'Open IMS Core'
+</I>&gt;<i> -  UCT Policy control function
+</I>&gt;<i> -  UCT IMS client
+</I>&gt;<i>
+</I>&gt;<i> Event - Console:
+</I>&gt;<i> /opt/OpenIMSCore &gt; ./ims.qos.sh
+</I>&gt;<i> /opt/OpenIMSCore/uctpref &gt; ./pcrf.sh
+</I>&gt;<i> /opt/OpenIMSCore/uctpref &gt; sudo ./pcef.sh
+</I>&gt;<i> /opt/OpenIMSCore  &gt; uctclient
+</I>&gt;<i>
+</I>&gt;<i> Event - UCT Client:
+</I>&gt;<i> -  Select 'Register Alice'
+</I>&gt;<i> -  Client immediately terminates
+</I>&gt;<i> -  Console message shows 'segmentation fault'.
+</I>&gt;<i>
+</I>&gt;<i> Please advice.  Thank you.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Teck Kiong LEE
+</I>&gt;<i> ****
+</I>&gt;<i> Institute for Infocomm Research (I2R), Singapore
+</I>&gt;<i> DID: +65 6408-2269
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An HTML attachment was scrubbed...
+</I>&gt;<i> URL: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment.html</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An embedded and charset-unspecified text was scrubbed...
+</I>&gt;<i> Name: scscf-qos.txt
+</I>&gt;<i> Url: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment.txt">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment.txt</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An embedded and charset-unspecified text was scrubbed...
+</I>&gt;<i> Name: hss-qos.txt
+</I>&gt;<i> Url: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment-0001.txt">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment-0001.txt</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An embedded and charset-unspecified text was scrubbed...
+</I>&gt;<i> Name: icscf-qos.txt
+</I>&gt;<i> Url: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment-0002.txt">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment-0002.txt</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> An embedded and charset-unspecified text was scrubbed...
+</I>&gt;<i> Name: pcscf-qos.txt
+</I>&gt;<i> Url: 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment-0003.txt">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment-0003.txt</A>
+</I>&gt;<i> -------------- next part --------------
+</I>&gt;<i> A non-text attachment was scrubbed...
+</I>&gt;<i> Name: WiresharkTrace
+</I>&gt;<i> Type: application/octet-stream
+</I>&gt;<i> Size: 3704 bytes
+</I>&gt;<i> Desc: not available
+</I>&gt;<i> Url : 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment.obj">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081106/541f56c8/attachment.obj</A>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> End of Uctimsclient-users Digest, Vol 21, Issue 1
+</I>&gt;<i> *************************************************
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000408.html">[Uctimsclient-users] UCT client terminates when registrating Alice/Bob
+</A></li>
+	<LI>Next message: <A HREF="000407.html">[Uctimsclient-users] UCT client terminates when registrating	Alice/Bob (T K Lee)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#406">[ date ]</a>
+              <a href="thread.html#406">[ thread ]</a>
+              <a href="subject.html#406">[ subject ]</a>
+              <a href="author.html#406">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT IMS ClientV1.12 crashes when it	attempts to open RTSP session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20IMS%20ClientV1.12%20crashes%20when%20it%0A%09attempts%20to%20open%20RTSP%20session&In-Reply-To=%3C7124131e0812061041g308c02b9ge963851d793601c2%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000445.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT IMS ClientV1.12 crashes when it	attempts to open RTSP session</H1>
+    <B>Raghavendra sunku</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20IMS%20ClientV1.12%20crashes%20when%20it%0A%09attempts%20to%20open%20RTSP%20session&In-Reply-To=%3C7124131e0812061041g308c02b9ge963851d793601c2%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] UCT IMS ClientV1.12 crashes when it	attempts to open RTSP session">raghavendra.sunku at gmail.com
+       </A><BR>
+    <I>Sat Dec  6 19:41:23 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000445.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#443">[ date ]</a>
+              <a href="thread.html#443">[ thread ]</a>
+              <a href="subject.html#443">[ subject ]</a>
+              <a href="author.html#443">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Richard,
+
+Finally I could solve the problem. On my laptop i had Ubuntu 8.10 version.
+Now I downgraded to 8.04 version and installed UCT IMS Client.
+ Now it is able to stream the RTSP URL successfully.
+Dont know the reason why it was not working with Ubuntu 8.10.
+
+Regards,
+Sunku
+
+On 11/16/08, Raghavendra sunku &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">raghavendra.sunku at gmail.com</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> Hello Richard,
+</I>&gt;<i>
+</I>&gt;<i> I hope the traces sent were useful to debug the prob....
+</I>&gt;<i>
+</I>&gt;<i> Kindly let me know your analysis....
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Waiting for your reply.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Sunku
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 11/11/08, Raghavendra sunku &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">raghavendra.sunku at gmail.com</A>&gt; wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hello Richard,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Please find the wireshark traces attached for the machine where OpenIMS
+</I>&gt;&gt;<i> core is setup.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Please let me know if its fine.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks and Regards,
+</I>&gt;&gt;<i> Sunku
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Tue, Nov 11, 2008 at 1:22 PM, Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Hi,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Yes I forgot about you successfully opening firefox.  Please can you send
+</I>&gt;&gt;&gt;<i> me a wireshark trace of the crash from the machine hosting the
+</I>&gt;&gt;&gt;<i> IMS core.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Richard.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Raghavendra sunku wrote:
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Hello Richard,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> The error &quot;Network is Unreachable&quot; is only when client crashes.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Other wise the systems ping each other and I am able to perform all other
+</I>&gt;&gt;&gt;<i> operations like initiating a call etc...
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Also  using my set up I could observe that UCT client opens successfully
+</I>&gt;&gt;&gt;<i> a firefox window if the content redirected by IpTv AS has an <A HREF="http://url.">http://url.</A>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I feel that there is no problem with the setup.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Please let me know if you need any further info.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Thanks and Regards,
+</I>&gt;&gt;&gt;<i> Sunku
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> On Tue, Nov 11, 2008 at 12:33 PM, Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;wrote:
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Hi,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> It is tricky to decipher what is happening as the client and core are
+</I>&gt;&gt;&gt;&gt;<i> hosted in different machines so I can only see a portion of the signaling.
+</I>&gt;&gt;&gt;&gt;<i> The &quot;Network is unreachable&quot; points towards some kind of routing problem,
+</I>&gt;&gt;&gt;&gt;<i> can you successfully ping and connect between each host?
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Please send me the Wireshark trace on the core machine as well.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Regards,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Richard.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Raghavendra sunku wrote:
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Hello Richard,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Please find the attached uctclient_crash_rtsp file for wireshark traces.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> My Open IMS set up environement is as follows
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 10.33.1.113   is an Red Hat Linux Server where the OpenIMS Core is
+</I>&gt;&gt;&gt;&gt;<i> running.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> 10.33.1.109  is an Ubuntu Server where both the IPTV AS and UCT IMS
+</I>&gt;&gt;&gt;&gt;<i> Client are running,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> The IPTV AS is running on 10.33.1.109 and sip port 8010.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> The UCT IMS Client is running on 10.33.1.109 and sip port 5060.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> I have set up live555 streaming server in 10.33.1.112 which is again an
+</I>&gt;&gt;&gt;&gt;<i> RHEL box.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Also I see the following console log when uct client crashes.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> -----------------------------
+</I>&gt;&gt;&gt;&gt;<i> Console Log for UCT IMS Client
+</I>&gt;&gt;&gt;&gt;<i> -----------------------------
+</I>&gt;&gt;&gt;&gt;<i> UCT IMS Client - SIP port 5060 - Audio Port: 14540 - Video Port: 34351
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i> Attempting to open RTSP stream ...
+</I>&gt;&gt;&gt;&gt;<i> [00000001] main private error: no memcpy module matched &quot;any&quot;
+</I>&gt;&gt;&gt;&gt;<i> [00000283] main interface error: no interface module matched
+</I>&gt;&gt;&gt;&gt;<i> &quot;hotkeys,none&quot;
+</I>&gt;&gt;&gt;&gt;<i> [00000283] main interface error: no suitable interface module
+</I>&gt;&gt;&gt;&gt;<i> [00000001] main private error: interface &quot;hotkeys,none&quot; initialization
+</I>&gt;&gt;&gt;&gt;<i> failed
+</I>&gt;&gt;&gt;&gt;<i> [00000284] main interface error: no interface module matched
+</I>&gt;&gt;&gt;&gt;<i> &quot;screensaver,none&quot;
+</I>&gt;&gt;&gt;&gt;<i> [00000284] main interface error: no suitable interface module
+</I>&gt;&gt;&gt;&gt;<i> [00000001] main private error: interface &quot;screensaver,none&quot;
+</I>&gt;&gt;&gt;&gt;<i> initialization failed
+</I>&gt;&gt;&gt;&gt;<i> (uctimsclient:10914): Gtk-WARNING **: GtkSpinButton: setting an
+</I>&gt;&gt;&gt;&gt;<i> adjustment with non-zero page size is deprecated
+</I>&gt;&gt;&gt;&gt;<i> Segmentation fault
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> -------------------------
+</I>&gt;&gt;&gt;&gt;<i> Console Log for IPTV AS
+</I>&gt;&gt;&gt;&gt;<i> --------------------------
+</I>&gt;&gt;&gt;&gt;<i> Dave Waiting and Robert Marston (2008)
+</I>&gt;&gt;&gt;&gt;<i> eXosip started and listening on port = 8010
+</I>&gt;&gt;&gt;&gt;<i> Creating Hashtable...
+</I>&gt;&gt;&gt;&gt;<i> Populating table with key-value pairs...
+</I>&gt;&gt;&gt;&gt;<i> Number of key-value pairs found in file ./key_value_file is 1
+</I>&gt;&gt;&gt;&gt;<i> Done.
+</I>&gt;&gt;&gt;&gt;<i> Server is ready to accept client requests...
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i> Event type: 5 New call received!
+</I>&gt;&gt;&gt;&gt;<i> Client requesting: channel1
+</I>&gt;&gt;&gt;&gt;<i> DEBUG: [get_output_if] connect: Network is unreachable
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Please let me know if you need any further info.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Thanking you in advance.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Thanks and Regards,
+</I>&gt;&gt;&gt;&gt;<i> Sunku
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> On Mon, Nov 10, 2008 at 2:53 PM, Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;wrote:
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Hi,
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Please send a wireshark trace of the crash scenario.
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Regards,
+</I>&gt;&gt;&gt;&gt;&gt;<i> Richard.
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Raghavendra sunku wrote:
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i>  Hello All,
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> I am currently using the latest version of UCT IMS Client V1.12 and
+</I>&gt;&gt;&gt;&gt;&gt;<i> have a Open IMS core set up. Also using latest *UCT Indirection AS.*
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> I was trying to open a RTSP session using the uct client. But
+</I>&gt;&gt;&gt;&gt;&gt;<i> unfortuantely the uct client crashes giving a &quot;Segmentation Fault&quot;.
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> To check whether my rtsp url was correct or wrong....I ran vlc on
+</I>&gt;&gt;&gt;&gt;&gt;<i> command line with the rtsp url....It was working fine...I
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> With the UCT client I am able to open a firefox web browser but not an
+</I>&gt;&gt;&gt;&gt;&gt;<i> RTSP session....Kindly help me and let me know if there are any work arounds
+</I>&gt;&gt;&gt;&gt;&gt;<i> available...
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Thanks and Regards,
+</I>&gt;&gt;&gt;&gt;&gt;<i> Sunku
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;&gt;&gt;<i> Uctimsclient-users mailing <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">listUctimsclient-users at lists.berlios.dehttps</A>://lists.berlios.de/mailman/listinfo/uctimsclient-users
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081207/50046354/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081207/50046354/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000445.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#443">[ date ]</a>
+              <a href="thread.html#443">[ thread ]</a>
+              <a href="subject.html#443">[ subject ]</a>
+              <a href="author.html#443">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

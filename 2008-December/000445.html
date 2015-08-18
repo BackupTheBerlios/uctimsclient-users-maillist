@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem launching IPTV server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20launching%20IPTV%20server&In-Reply-To=%3Cf0d480080812111918id535612xc3a5a1b60631b656%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000443.html">
+   <LINK REL="Next"  HREF="000449.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem launching IPTV server</H1>
+    <B>&#26472;&#20975;</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20launching%20IPTV%20server&In-Reply-To=%3Cf0d480080812111918id535612xc3a5a1b60631b656%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Problem launching IPTV server">gabriel827 at gmail.com
+       </A><BR>
+    <I>Fri Dec 12 04:18:38 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000443.html">[Uctimsclient-users] UCT IMS ClientV1.12 crashes when it	attempts to open RTSP session
+</A></li>
+        <LI>Next message: <A HREF="000449.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#445">[ date ]</a>
+              <a href="thread.html#445">[ thread ]</a>
+              <a href="subject.html#445">[ subject ]</a>
+              <a href="author.html#445">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi.!
+
+I installed the uctiptv1.0.2 on Ubuntu 8.10.When i launch the iptv server
+,there are some problems(see belows).i have installed the gstreamer and its
+plugins as belows(all are updated):
+gstreamer0.10-tools gstreamer0.10-x gstreamer0.10-plugins-base
+gstreamer0.10-plugins-good gstreamer0.10-plugins-ugly
+gstreamer0.10-plugins-bad gstreamer0.10-ffmpeg gstreamer0.10-alsa
+gstreamer0.10-schroedinger gstreamer0.10-pulseaudio
+
+Can anyone help me?
+
+Thanks in advanced,
+Yangkai
+
+
+
+
+
+This is the output when ia run the server:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at yangkai-desktop</A>:/opt/uctiptv# ./uctiptv 500000 1 /opt/test.mpg
+Initialising 1 on channel1
+Starting channel1
+Elements created
+Pipeline created
+
+(&lt;unknown&gt;:25839): GLib-GObject-CRITICAL **: g_object_set: assertion
+`G_IS_OBJECT (object)' failed
+Setting Bitrate to 500000
+Creating Decodebin
+Adding items
+Linking items
+
+(&lt;unknown&gt;:25839): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: queuea and ffenc_mp2
+
+(&lt;unknown&gt;:25839): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: queuea and ffenc_mp2
+
+(&lt;unknown&gt;:25839): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: ffmpegcolorspace and queuev
+
+(&lt;unknown&gt;:25839): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: ffmpegcolorspace and queuev
+Elements linked
+If the server gets stuck at this point then there is an error... perhaps an
+incompatible input file
+
+(&lt;unknown&gt;:25839): GStreamer-CRITICAL **: gst_element_get_pad: assertion
+`GST_IS_ELEMENT (element)' failed
+
+(&lt;unknown&gt;:25839): GStreamer-CRITICAL **: gst_pad_link_prepare: assertion
+`GST_IS_PAD (sinkpad)' failed
+
+(&lt;unknown&gt;:25839): GStreamer-CRITICAL **: gst_element_get_pad: assertion
+`GST_IS_ELEMENT (element)' failed
+
+(&lt;unknown&gt;:25839): GStreamer-CRITICAL **: gst_pad_get_negotiated_caps:
+assertion `GST_IS_PAD (pad)' failed
+ffenc_h263p Caps:
+NULL
+
+Video Caps:
+NULL
+
+Audio Caps:
+NULL
+
+
+(&lt;unknown&gt;:25839): GStreamer-CRITICAL **: gst_caps_unref: assertion `caps !=
+NULL' failed
+Returning from channel channel1 init
+IPTV Appserver started on port 7070
+
+
+** ERROR **: GST error: gstbasesrc.c(2234): gst_base_src_loop ():
+/GstPipeline:channel1/GstFileSrc:source:
+streaming task paused, reason not-linked (-1)
+
+aborting...
+Aborted
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081212/f820fbad/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081212/f820fbad/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000443.html">[Uctimsclient-users] UCT IMS ClientV1.12 crashes when it	attempts to open RTSP session
+</A></li>
+	<LI>Next message: <A HREF="000449.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#445">[ date ]</a>
+              <a href="thread.html#445">[ thread ]</a>
+              <a href="subject.html#445">[ subject ]</a>
+              <a href="author.html#445">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

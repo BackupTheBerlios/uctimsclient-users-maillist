@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctpdf --&gt; web interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-June/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctpdf%20--%3E%20web%20interface&In-Reply-To=%3COF4A635832.AB403992-ONC125746D.003A761D-C125746D.003BB00A%40amper.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000271.html">
+   <LINK REL="Next"  HREF="000273.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctpdf --&gt; web interface</H1>
+    <B>Pedro Antonio Vico Solano</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctpdf%20--%3E%20web%20interface&In-Reply-To=%3COF4A635832.AB403992-ONC125746D.003A761D-C125746D.003BB00A%40amper.es%3E"
+       TITLE="[Uctimsclient-users] uctpdf --&gt; web interface">pvsolano at amper.es
+       </A><BR>
+    <I>Thu Jun 19 12:48:12 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000271.html">[Uctimsclient-users] Time shifting
+</A></li>
+        <LI>Next message: <A HREF="000273.html">[Uctimsclient-users] Gx library for wireshark?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#272">[ date ]</a>
+              <a href="thread.html#272">[ thread ]</a>
+              <a href="subject.html#272">[ subject ]</a>
+              <a href="author.html#272">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I'm resuming this issue with the new version (1.0.2) of UCT PCRF.
+
+On Fedora 5 the web interface keeps on not working.
+
+This is the log that appears on catalina.out log:
+
+INFO: 
+validateJarFile(/usr/share/tomcat5/webapps/uct_web_pcm/WEB-INF/lib/servlet-api.jar) 
+- jar not loaded. See Servlet Spec 2.3, section 9.7.2. Offending class: 
+javax/servlet/Servlet.class
+19-jun-2008 12:38:45 org.apache.catalina.startup.ContextConfig 
+applicationWebConfig
+INFO: The file web.xml is missing from the application. Using default 
+parameters 
+StandardEngine[Catalina].StandardHost[localhost].StandardContext[/uct_web_pcm]
+
+What java version are you using?
+Why does it ask for the web.xml file?
+
+Best regards.
+Pedro
+
+
+
+
+
+Eduardo Moreno &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">eduardo.moreno at inycom.es</A>&gt; 
+12/03/2008 09:42
+
+Para
+Pedro Antonio Vico Solano &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">pvsolano at amper.es</A>&gt;
+cc
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Asunto
+Re: [Uctimsclient-users] uctpdf --&gt; web interface
+
+
+
+
+
+
+Hola Pedro.
+
+If tomcat installation was made through package manager we can suppose 
+that is correct. So the problem should be an auxiliary issue. Maybe the 
+Java installation. It is Java in the place that appear in tomcat5.conf? 
+(/usr/lib/jvm/java-1.5.0-sun).
+By other hand the files in webapp directory have read permission for 
+TOMCAT_USER=&quot;tomcat&quot;?
+
+See the Tomcat's log, perhaps it helps you. In my installation the log is 
+in /var/log/tomcat5.5
+
+Regards...
+
+El mar, 11-03-2008 a las 12:29 +0100, Pedro Antonio Vico Solano escribi&#243;:
+
+Hola Eduardo and Richard, 
+
+Yes, I followed all the steps on installation guide. The only difference 
+between your Tomcat and mine is that my folders are:  .../tomcat5 instead 
+of ../tomcat5.5 but my (whole) Tomcat version is 5.5.15
+
+In Fedora the configuration and Webapps folders are the 'same' that in 
+Ubuntu: 
+
+Conf:                /etc/tomcat5 
+Webapps:        /var/lib/tomcat5/webapps 
+
+I attach you the server.xml and tomcat5.conf. Directory /usr/share/tomcat5 
+is linked to /var/lib/tomcat5 
+
+I think it is a problem with *.jsp files. If I change the PDF's webapp 
+file 'index.jsp' to 'index.html' the server tries to do something. 
+
+Best Regards 
+Pedro 
+
+
+
+
+
+
+Eduardo Moreno &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">eduardo.moreno at inycom.es</A>&gt; 
+
+11/03/2008 11:44 
+
+
+
+Para
+Pedro Antonio Vico Solano &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">pvsolano at amper.es</A>&gt; 
+cc
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A> 
+Asunto
+Re: [Uctimsclient-users] uctpdf --&gt; web interface 
+
+
+
+
+
+
+
+
+
+Hola Pedro.
+
+Did you follow the step 4 in installation guide?
+<A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>
+
+In my case with Ubuntu there wasn't problem. Perhaps in Fedora the default 
+configuration of Tomcat is different than the supposed by installation 
+guide (made with Ubuntu in mind).
+I attach the default configuration file in Ubuntu. Review the Fedora one. 
+It is possible that the default directory root (CATALINA_BASE variable) 
+was in another place.
+
+Saludos...
+
+
+El mar, 11-03-2008 a las 10:43 +0100, Pedro Antonio Vico Solano escribi&#243;: 
+
+Hello all, 
+
+I'm trying to setup the PDF for Core IMS, everything seem to run OK except 
+the Web Interface. 
+
+I'm using a Fedora 5 and the base Tomcat server seems to be OK because the 
+example webapps and JSPs  work fine. 
+
+When I try to load the PDF webapp (<A HREF="http://localhost:8180/uct_web_pcm">http://localhost:8180/uct_web_pcm</A>) I 
+get a blank screen. 
+
+Can anyone help me? 
+
+Best regards 
+Pedro 
+
+_______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+
+AVISO LEGAL 
+
+Este mensaje y los archivos que en su caso lleve adjuntos son privados y 
+confidenciales y se dirigen exclusivamente a su destinatario. Por ello, se 
+informa a quien lo reciba por error que la informaci&#243;n contenida en el 
+mismo es reservada y su utilizaci&#243;n, copia o distribuci&#243;n est&#225; prohibida, 
+por lo que en tal caso le rogamos que nos lo comunique por esta misma v&#237;a 
+o por tel&#233;fono (+34976013300) y proceda a borrarlo de inmediato. 
+  
+En cumplimiento del Art. 5 de la Ley Org&#225;nica 15/1999, de 13 de diciembre, 
+de Protecci&#243;n de Datos de Car&#225;cter Personal, se le informa que sus datos 
+personales forman parte de un fichero propiedad de INSTRUMENTACI&#211;N Y 
+COMPONENTES, S.A. En cualquier momento podr&#225; ejercitar sus derechos de 
+acceso, cancelaci&#243;n, rectificaci&#243;n y oposici&#243;n RESPONDIENDO a este correo. 
+
+  
+AVISO LEGAL 
+
+Este mensaje y los archivos que en su caso lleve adjuntos son privados y 
+confidenciales y se dirigen exclusivamente a su destinatario. Por ello, se 
+informa a quien lo reciba por error que la informaci&#243;n contenida en el 
+mismo es reservada y su utilizaci&#243;n, copia o distribuci&#243;n est&#225; prohibida, 
+por lo que en tal caso le rogamos que nos lo comunique por esta misma v&#237;a 
+o por tel&#233;fono (+34976013300) y proceda a borrarlo de inmediato. 
+ 
+En cumplimiento del Art. 5 de la Ley Org&#225;nica 15/1999, de 13 de diciembre, 
+de Protecci&#243;n de Datos de Car&#225;cter Personal, se le informa que sus datos 
+personales forman parte de un fichero propiedad de INSTRUMENTACI&#211;N Y 
+COMPONENTES, S.A.  En cualquier momento podr&#225; ejercitar sus derechos de 
+acceso, cancelaci&#243;n, rectificaci&#243;n y oposici&#243;n RESPONDIENDO a este correo.
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080619/946be4c9/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080619/946be4c9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000271.html">[Uctimsclient-users] Time shifting
+</A></li>
+	<LI>Next message: <A HREF="000273.html">[Uctimsclient-users] Gx library for wireshark?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#272">[ date ]</a>
+              <a href="thread.html#272">[ thread ]</a>
+              <a href="subject.html#272">[ subject ]</a>
+              <a href="author.html#272">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] facing problem while compiling UCTIMS1.0.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20facing%20problem%20while%20compiling%20UCTIMS1.0.5&In-Reply-To=%3C4684E349.9050109%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000123.html">
+   <LINK REL="Next"  HREF="000125.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] facing problem while compiling UCTIMS1.0.5</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20facing%20problem%20while%20compiling%20UCTIMS1.0.5&In-Reply-To=%3C4684E349.9050109%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] facing problem while compiling UCTIMS1.0.5">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Fri Jun 29 12:47:37 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000123.html">[Uctimsclient-users] facing problem while compiling UCTIMS1.0.5
+</A></li>
+        <LI>Next message: <A HREF="000125.html">[Uctimsclient-users] facing problem while compiling UCTIMS1.0.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#124">[ date ]</a>
+              <a href="thread.html#124">[ thread ]</a>
+              <a href="subject.html#124">[ subject ]</a>
+              <a href="author.html#124">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Firstly are you sure that as well as the actual library packages you 
+have the library dev file?
+
+Specifically:
+libosip-dev
+libexosip-dev
+libortp-dev
+libasound-dev
+libgtk-dev
+libxml-dev
+libcurl-dev
+
+If this does'nt solve the problem - what platform are you using?
+
+regards,
+Richard
+
+
+Vishwadeepak Agarwal wrote:
+&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i> While compiling UCTIMSClient 1.0.5.I got this.I have all the libraries 
+</I>&gt;<i> and i have done export LD_LIBRARY_PATH to link.
+</I>&gt;<i> I also have gtk-2.0.can someone help?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> gcc -o uctimsclient `pkg-config --cflags --libs gtk+-2.0 ortp` \
+</I>&gt;<i> -L/usr/local/lib -leXosip2 -lortp -lasound -lxml2 -lcurl 
+</I>&gt;<i> obj/callbacks.o obj/common_exosip_event_handler.
+</I>&gt;<i> o obj/common_interface_event_handler.o obj/DigestAKAv1MD5.o 
+</I>&gt;<i> obj/ims_exosip_event_handler.o obj/ims_interf
+</I>&gt;<i> ace_event_handler.o obj/interface.o obj/imsUA.o obj/media.o 
+</I>&gt;<i> obj/preferences.o obj/presence.o obj/sdp_meth
+</I>&gt;<i> ods.o obj/sip_exosip_event_handler.o obj/sip_interface_event_handler.o 
+</I>&gt;<i> obj/sound_conv.o obj/support.o obj
+</I>&gt;<i> /useful_methods.o obj/watchers.o obj/xcap.o
+</I>&gt;<i> obj/interface.o(.text+0xe9ec): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_new'
+</I>&gt;<i> obj/interface.o(.text+0xea27): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xea30): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_version'
+</I>&gt;<i> obj/interface.o(.text+0xea43): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xea4c): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_name'
+</I>&gt;<i> obj/interface.o(.text+0xea5f): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xea68): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_copyright'
+</I>&gt;<i> obj/interface.o(.text+0xea7b): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xea84): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_comments'
+</I>&gt;<i> obj/interface.o(.text+0xea97): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xeaa0): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_license'
+</I>&gt;<i> obj/interface.o(.text+0xeab3): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xeabc): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_website'
+</I>&gt;<i> obj/interface.o(.text+0xeacf): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xead8): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_website_label'
+</I>&gt;<i> obj/interface.o(.text+0xeaea): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xeaf3): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_authors'
+</I>&gt;<i> obj/interface.o(.text+0xeb04): In function `create_about':
+</I>&gt;<i> : undefined reference to `GTK_ABOUT_DIALOG'
+</I>&gt;<i> obj/interface.o(.text+0xeb0d): In function `create_about':
+</I>&gt;<i> : undefined reference to `gtk_about_dialog_set_translator_credits'
+</I>&gt;<i> obj/preferences.o(.text+0x1806): In function 
+</I>&gt;<i> `preferences_get_preferences_dialog':
+</I>&gt;<i> : undefined reference to `gtk_combo_box_get_active_text'
+</I>&gt;<i> collect2: ld returned 1 exit status
+</I>&gt;<i> make: *** [uctimsclient] Error 1
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Vishwa Deepak Agarwal
+</I>&gt;<i>
+</I>&gt;<i> ______________________________________________________________________
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070629/8d64d1c0/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070629/8d64d1c0/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000123.html">[Uctimsclient-users] facing problem while compiling UCTIMS1.0.5
+</A></li>
+	<LI>Next message: <A HREF="000125.html">[Uctimsclient-users] facing problem while compiling UCTIMS1.0.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#124">[ date ]</a>
+              <a href="thread.html#124">[ thread ]</a>
+              <a href="subject.html#124">[ subject ]</a>
+              <a href="author.html#124">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

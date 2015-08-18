@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Change domain PCRF and PCEF
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Change%20domain%20PCRF%20and%20PCEF&In-Reply-To=%3Ca1604bde0912270442o7fb908dbje2c8dfaa4263e627%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000611.html">
+   <LINK REL="Next"  HREF="000614.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Change domain PCRF and PCEF</H1>
+    <B>agung aryo</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Change%20domain%20PCRF%20and%20PCEF&In-Reply-To=%3Ca1604bde0912270442o7fb908dbje2c8dfaa4263e627%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Change domain PCRF and PCEF">agung.aryo at gmail.com
+       </A><BR>
+    <I>Sun Dec 27 13:42:35 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000611.html">[Uctimsclient-users] Error while trying to start UCT Policy	Control Management System
+</A></li>
+        <LI>Next message: <A HREF="000614.html">[Uctimsclient-users] UCT Client can't register
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#612">[ date ]</a>
+              <a href="thread.html#612">[ thread ]</a>
+              <a href="subject.html#612">[ subject ]</a>
+              <a href="author.html#612">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi all,
+
+I wish to change my pcrf and pcef domain from &quot;open-ims.test&quot; to
+&quot;azunk-ims.stt&quot;, I've tried using configurator.sh and I apply it into
+/opt/OpenIMSCore/uctpcrf/config/*
+and I try to run PCEF :
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at agung-laptop</A>:/opt/OpenIMSCore/uctpcrf# ./pcef.sh
+Building Classpath
+Classpath is
+lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/mysql-connector-java-3.1.13-bin.jar:lib/log4j-1.2.13.jar:lib/junit.jar:lib/commons-logging.jar:lib/commons-httpclient.jar:lib/commons-codec-1.3.jar:src:classes.
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - FQDN:
+pcef.azunk-ims.stt
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Realm:
+azunk-ims.stt
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Vendor_ID :
+10415
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Product
+Name: JavaDiameterPeer
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+AcceptUnknwonPeers: true
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+DropUnknownOnDisconnect: true
+
+INFO: Preparing router for operation
+
+INFO: Changing Status of PCEF #1 to 'On'
+INFO: This is PCEF number: 1*
+**DEBUG: PCRF Address: pcrf.open-ims.test
+*INFO: PCEF Gx Diameter interface started
+
+
+but it still appears *open-ims.test*
+does it mean ,it's not changed yet. . ??
+I've seen in web uct_web_pcm , &quot;pcrf.open-ims.test     status on&quot;
+does any one know ,how could it happen ?
+
+
+thank you ,
+agung aryo
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091227/0dc4ad4d/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091227/0dc4ad4d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000611.html">[Uctimsclient-users] Error while trying to start UCT Policy	Control Management System
+</A></li>
+	<LI>Next message: <A HREF="000614.html">[Uctimsclient-users] UCT Client can't register
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#612">[ date ]</a>
+              <a href="thread.html#612">[ thread ]</a>
+              <a href="subject.html#612">[ subject ]</a>
+              <a href="author.html#612">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users]  Problem with re-invite message
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%20Problem%20with%20re-invite%20message&In-Reply-To=%3CBAY120-W5433068E0854035AC82D29CA840%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000524.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users]  Problem with re-invite message</H1>
+    <B>Zelalem Sintayehu</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%20Problem%20with%20re-invite%20message&In-Reply-To=%3CBAY120-W5433068E0854035AC82D29CA840%40phx.gbl%3E"
+       TITLE="[Uctimsclient-users]  Problem with re-invite message">zelalems at hotmail.com
+       </A><BR>
+    <I>Mon Apr  6 18:03:34 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000524.html">[Uctimsclient-users] Problem with re-invite message
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#523">[ date ]</a>
+              <a href="thread.html#523">[ thread ]</a>
+              <a href="subject.html#523">[ subject ]</a>
+              <a href="author.html#523">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi, i just wanted to extend the iptv server so that it continues to present the other channel when the client presses a particular key on the dtmf. I thought this is accomplished with a reinvite (am i correct?). So, when the user pressess a key i intercepted the dtmf and then send the invite message (which should be considered as re-invite on the client side)  to the client. BTW, I also sent an ok message for the info (dtmf) event that i received before sending teh invite (re-invite). 
+
+With regard to the re-invite, I used je-&gt;did (the dialog id) together with the same content_type_header that the iptv server used for creating the first streaming communication in the eXosip_call_build_request function as 
+            eXosip_call_build_request (je-&gt;did, &quot;INVITE&quot;, &amp;reinvite). 
+
+However, instead of sending the 200ok message, the client sends 100 (trying) for my &quot;invite&quot; message. According to the spec, I think it should have sent me an &quot;ok&quot; message. On the other hand, i also wanted to intercept the &quot;tying&quot; message that i recieved from the client, inorder to send an &quot;ok&quot; message against it. However, almost all (except the &quot;trying&quot; event) are enumerated in the documentation, but not &quot;trying&quot; (<A HREF="http://www.antisip.com/documentation/exosip2/group__eXosip2__event.html">http://www.antisip.com/documentation/exosip2/group__eXosip2__event.html</A>). So, hoping that it is created for this purpose, I also used the MSG_IS_STATUS_1XX function as follows, but got segmentation fault.
+        if (MSG_IS_STATUS_1XX(je-&gt;request)) 
+        { .....}     //je is the incoming sip event.
+
+After trying so many things, i gave up now. So, i ask an advice on the issue? Any advice on this will be highly appreciated. 
+
+Thank you.
+
+- Zelalem S. 
+
+
+_________________________________________________________________
+News, entertainment and everything you care about at Live.com. Get it now!
+<A HREF="http://www.live.com/getstarted.aspx">http://www.live.com/getstarted.aspx</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090406/15d935c5/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090406/15d935c5/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000524.html">[Uctimsclient-users] Problem with re-invite message
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#523">[ date ]</a>
+              <a href="thread.html#523">[ thread ]</a>
+              <a href="subject.html#523">[ subject ]</a>
+              <a href="author.html#523">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

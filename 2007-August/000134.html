@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem installing XCAP service with presence service (Openser)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20installing%20XCAP%20service%20with%0A%20presence%20service%20%28Openser%29&In-Reply-To=%3C46CAEE59.10000%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000133.html">
+   <LINK REL="Next"  HREF="000135.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem installing XCAP service with presence service (Openser)</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20installing%20XCAP%20service%20with%0A%20presence%20service%20%28Openser%29&In-Reply-To=%3C46CAEE59.10000%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Problem installing XCAP service with presence service (Openser)">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Tue Aug 21 15:53:29 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000133.html">[Uctimsclient-users] Problem installing XCAP service with presence	service (Openser)
+</A></li>
+        <LI>Next message: <A HREF="000135.html">[Uctimsclient-users] Experiences, Bugs, Questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Nacho
+
+First let me say that if you don't have a need for presence 
+authorisation then don't bother with the XCAP stuff. It's quite 
+complicated and a lot of things can go wrong. In that case you can just 
+install a basic presence server as described in here: 
+<A HREF="http://uctimsclient.berlios.de/presence_server_howto.html">http://uctimsclient.berlios.de/presence_server_howto.html</A> or set the 
+force_active parameter of the presence_xml module to '1' which will 
+simply set all watchers to active by default.
+
+The way the presence authorisation works is that you must upload your 
+presence rules to the XCAP server which will then update the watchers 
+list (change the watcher from pending to authorised). The interface on 
+the UCT client isn't that clear, but clicking &quot;allow&quot; simply updates 
+your local copy of the presence_rules.xml file. You still need to upload 
+this file to the XCAP server from the XCAP tab and this is the point 
+where you are struggling.
+
+XCAP-lite should be installed to /var/www/xcap-root/ and make sure you 
+have configured your apache virtual host as described in the how-to. 
+type tail -f /var/log/syslog to see what's happening with XCAP-lite. If 
+there are no log messages then you have not installed it correctly. 
+Before you try with the client make sure it works with your web browser.
+
+I found the problem is usually with the XCAP lite config file or the 
+apache virtual host. I have attached my /var/www/xcap-root/config.php 
+file for XCAP-lite and my /etc/apache2/sites-enabled/default file since 
+I know these work. Remember to restart apache after any changes.
+
+Regards
+
+Dave
+
+
+Nacho Conde wrote:
+&gt;<i> Hi everybody !!!
+</I>&gt;<i>
+</I>&gt;<i> I&#180;m working at this moment on a IMS project, I have the following 
+</I>&gt;<i> problem:
+</I>&gt;<i>
+</I>&gt;<i> We have to use the following components installed:
+</I>&gt;<i>
+</I>&gt;<i> -OpenIMSCore
+</I>&gt;<i> -Uctimsclient 1.0.5
+</I>&gt;<i> -Openser 1.3 and its presence modules
+</I>&gt;<i> -XCAP-Lite
+</I>&gt;<i>
+</I>&gt;<i> Once I had all the components installed, we got many troubles.
+</I>&gt;<i>
+</I>&gt;<i> Firstly, I tested the presence server(without having installed yet the 
+</I>&gt;<i> xcap server) I opened two different uctimsclients to test the presence 
+</I>&gt;<i> feature but
+</I>&gt;<i> on the tab &quot;Presence watchers&quot;  appears a user asking about the 
+</I>&gt;<i> presence of the other party (the status appears &quot;pending&quot;), as I 
+</I>&gt;<i> clicked on accept
+</I>&gt;<i> the status doesn&#180;t change and the other party doesn&#180;t receive the 
+</I>&gt;<i> presence. Must xcap server being installed in order to work properly 
+</I>&gt;<i> the presence server ?
+</I>&gt;<i>
+</I>&gt;<i> Secondly, once I installed the apache2 server and configured the 
+</I>&gt;<i> config.php file, I typed the command &quot;openserctl add 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at open-ims.test</A> alice <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at example.com</A>&quot; to create the user and 
+</I>&gt;<i> then I added the presence rules to the xcap_xml table. As I tried to 
+</I>&gt;<i> open the URL 
+</I>&gt;<i> &quot;<A HREF="http://alice:alice@xcap/xcap-root/pres-rules/user/alice/presence_rules.xml">http://alice:alice@xcap/xcap-root/pres-rules/user/alice/presence_rules.xml</A>&quot; 
+</I>&gt;<i> I got the Error &quot;Message 404 not Found&quot;. So now I&#180;m wondering if it is 
+</I>&gt;<i> necessary to create any directory or file on the path 
+</I>&gt;<i> &quot;/var/www/xcap-root/&quot; ?
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance
+</I>&gt;<i>
+</I>&gt;<i> Nacho
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: config.php
+Type: application/x-php
+Size: 4212 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070821/c8b02f9c/attachment.bin">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070821/c8b02f9c/attachment.bin</A>&gt;
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: default
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070821/c8b02f9c/attachment.ksh">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070821/c8b02f9c/attachment.ksh</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000133.html">[Uctimsclient-users] Problem installing XCAP service with presence	service (Openser)
+</A></li>
+	<LI>Next message: <A HREF="000135.html">[Uctimsclient-users] Experiences, Bugs, Questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Error while trying to start UCT Policy	Control Management System
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Error%20while%20trying%20to%20start%20UCT%20Policy%0A%09Control%20Management%20System&In-Reply-To=%3Ca1604bde0912262110h4b4f4b05g260696127a75652e%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000610.html">
+   <LINK REL="Next"  HREF="000612.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Error while trying to start UCT Policy	Control Management System</H1>
+    <B>agung aryo</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Error%20while%20trying%20to%20start%20UCT%20Policy%0A%09Control%20Management%20System&In-Reply-To=%3Ca1604bde0912262110h4b4f4b05g260696127a75652e%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Error while trying to start UCT Policy	Control Management System">agung.aryo at gmail.com
+       </A><BR>
+    <I>Sun Dec 27 06:10:47 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000610.html">[Uctimsclient-users] Route head missing p-cscf address?
+</A></li>
+        <LI>Next message: <A HREF="000612.html">[Uctimsclient-users] Change domain PCRF and PCEF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#611">[ date ]</a>
+              <a href="thread.html#611">[ thread ]</a>
+              <a href="subject.html#611">[ subject ]</a>
+              <a href="author.html#611">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi emina,
+thanks for the solution ,I'm helped
+
+agung aryo,
+
+
+
+
+2009/2/24 Emina Lu&#269;kin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">em.dzindo at gmail.com</A>&gt;
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I solved problem, so I'll write solution in case someone will need it.
+</I>&gt;<i>
+</I>&gt;<i> In file /etc/tomcat5.5/policy.d/03catalina.policy I added following  lines:
+</I>&gt;<i>
+</I>&gt;<i> grant codeBase &quot;file:${catalina.base}/webapps/uct_web_pcm/-&quot; {
+</I>&gt;<i>                        permission java.security.AllPermission;
+</I>&gt;<i> };
+</I>&gt;<i>
+</I>&gt;<i> Works fine now :)
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Emina
+</I>&gt;<i>
+</I>&gt;<i> On Fri, Feb 20, 2009 at 4:41 PM, Emina Lu&#269;kin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">em.dzindo at gmail.com</A>&gt; wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hello everyone,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> in my previous mail I was complaining I couldn't start UCT Policy Control
+</I>&gt;&gt;<i> Management System (web interface).
+</I>&gt;&gt;<i> <A HREF="http://localhost:8180/uct_web_pcm/">http://localhost:8180/uct_web_pcm/</A> results with error: HTTP status 404 -
+</I>&gt;&gt;<i> requested resource () is not available.
+</I>&gt;&gt;<i> As I said before, I did everything exactly as listed in webguide. I tried
+</I>&gt;&gt;<i> everything and nothing works.
+</I>&gt;&gt;<i> Has anyone met this problem?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i> Emina Luckin
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091227/490a2c3f/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091227/490a2c3f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000610.html">[Uctimsclient-users] Route head missing p-cscf address?
+</A></li>
+	<LI>Next message: <A HREF="000612.html">[Uctimsclient-users] Change domain PCRF and PCEF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#611">[ date ]</a>
+              <a href="thread.html#611">[ thread ]</a>
+              <a href="subject.html#611">[ subject ]</a>
+              <a href="author.html#611">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

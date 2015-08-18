@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctimsclient not recognizing Logitech	QuickCam v.10.0A
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20not%20recognizing%20Logitech%0A%09QuickCam%20v.10.0A&In-Reply-To=%3Cec64b0e30811220038l4f07f9d0h875de3d402f44e36%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000438.html">
+   <LINK REL="Next"  HREF="000441.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctimsclient not recognizing Logitech	QuickCam v.10.0A</H1>
+    <B>Yinbo-cheng</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20not%20recognizing%20Logitech%0A%09QuickCam%20v.10.0A&In-Reply-To=%3Cec64b0e30811220038l4f07f9d0h875de3d402f44e36%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] uctimsclient not recognizing Logitech	QuickCam v.10.0A">chengyinbo at gmail.com
+       </A><BR>
+    <I>Sat Nov 22 09:38:23 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000438.html">[Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A
+</A></li>
+        <LI>Next message: <A HREF="000441.html">[Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#439">[ date ]</a>
+              <a href="thread.html#439">[ thread ]</a>
+              <a href="subject.html#439">[ subject ]</a>
+              <a href="author.html#439">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi, libgstreamer-plugins-base0.10-dev is needed.
+
+Best Regards,
+silverwave
+
+2008/11/22 Melbourne Barton &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mbarton at research.telcordia.com</A>&gt;
+
+&gt;<i>  Richard:
+</I>&gt;<i>
+</I>&gt;<i> I am getting two compilation errors:
+</I>&gt;<i>
+</I>&gt;<i>    - curl/curl.h not found - I fixed this by installing
+</I>&gt;<i>    libcurl4-gnutils-dev
+</I>&gt;<i>    - gst/interfaces/xoverlay.h not found - What's missing here?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i>
+</I>&gt;<i> Melbourne
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Richard Spiers wrote:
+</I>&gt;<i>
+</I>&gt;<i> Hi Melbourne
+</I>&gt;<i>
+</I>&gt;<i> By default, the client uses v4lsrc and /dev/video0. You can change this
+</I>&gt;<i> behavior by looking in the source code (most likely gstreamer.c) and
+</I>&gt;<i> changing the v4lsrc to v4l2src, i.e. something like this
+</I>&gt;<i>
+</I>&gt;<i> camera_src = gst_element_factory_make(&quot;v4l2src&quot;, &quot;camera_src&quot;);
+</I>&gt;<i>
+</I>&gt;<i>  and by passing the correct device name as follows:
+</I>&gt;<i>
+</I>&gt;<i> g_object_set (G_OBJECT (camera_src), &quot;device&quot;,&quot;/dev/video1&quot;, NULL);
+</I>&gt;<i>
+</I>&gt;<i> (where camera_src is the v4lsrc or v4l2src element that gets created)
+</I>&gt;<i>
+</I>&gt;<i> Let me know if that sorts you out.
+</I>&gt;<i>
+</I>&gt;<i> Also please be aware that recent changes in the linux kernel have created
+</I>&gt;<i> some webcam problems. Some functioning webcams no longer work - the issue
+</I>&gt;<i> has reportedly been fixed but regressed again in a later version of some
+</I>&gt;<i> modules.
+</I>&gt;<i>
+</I>&gt;<i> Something to bear in mind if you think about upgrading to intrepid,
+</I>&gt;<i> although it should have been fixed by now.
+</I>&gt;<i>
+</I>&gt;<i> Kind Regards
+</I>&gt;<i> Richard Spiers
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Thu, Nov 20, 2008 at 10:00 PM, Melbourne Barton &lt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mbarton at research.telcordia.com</A>&gt; wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have two Logitech QuickCam v.10.0A cameras on two uctimsclients
+</I>&gt;&gt;<i> v1.0.12 installed on ubuntu 8.04.
+</I>&gt;&gt;<i> When I try to make a video call between the two clients I get the
+</I>&gt;&gt;<i> following error.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &quot;/Video_Transmit_Pipeline/Camera.src - Can't initialize the video
+</I>&gt;&gt;<i> pipeline. Either you do not have a
+</I>&gt;&gt;<i> Video-4-Linux compatible camera or it already in use by another
+</I>&gt;&gt;<i> application.&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I ran a test to see if the camera is supported by gstreamer using the
+</I>&gt;&gt;<i> command:
+</I>&gt;&gt;<i> gst-launch-0.10 v4l2src ! ffmpegcolorspace ! ximagesink,
+</I>&gt;&gt;<i> and got the error &quot;could not open device '/dev/video0' for reading and
+</I>&gt;&gt;<i> writing&quot;
+</I>&gt;&gt;<i> I get the same error if I ran the command:
+</I>&gt;&gt;<i> gst-launch-0.10 v4l2src device=&quot;/dev/video0&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> However, the following command runs without any error:
+</I>&gt;&gt;<i> gst-launch-0.10 v4l2src device=&quot;/dev/video1&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any help would be appreciated.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Melbourne
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081122/fae39b51/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081122/fae39b51/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000438.html">[Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A
+</A></li>
+	<LI>Next message: <A HREF="000441.html">[Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#439">[ date ]</a>
+              <a href="thread.html#439">[ thread ]</a>
+              <a href="subject.html#439">[ subject ]</a>
+              <a href="author.html#439">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

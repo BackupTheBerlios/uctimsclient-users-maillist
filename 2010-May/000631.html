@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem : pcrf and pcef always start the	&quot;open-ims.test&quot; domain
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20%3A%20pcrf%20and%20pcef%20always%20start%20the%0A%09%22open-ims.test%22%20domain&In-Reply-To=%3C834638489.19701274963751850.JavaMail.root%40staff.itb.ac.id%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000630.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem : pcrf and pcef always start the	&quot;open-ims.test&quot; domain</H1>
+    <B>Habibur Muhaimin</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20%3A%20pcrf%20and%20pcef%20always%20start%20the%0A%09%22open-ims.test%22%20domain&In-Reply-To=%3C834638489.19701274963751850.JavaMail.root%40staff.itb.ac.id%3E"
+       TITLE="[Uctimsclient-users] Problem : pcrf and pcef always start the	&quot;open-ims.test&quot; domain">habibur at pusat.itb.ac.id
+       </A><BR>
+    <I>Thu May 27 14:35:51 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000630.html">[Uctimsclient-users] [ask] UCTPCRF problem: pcscf.qos.sh error
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#631">[ date ]</a>
+              <a href="thread.html#631">[ thread ]</a>
+              <a href="subject.html#631">[ subject ]</a>
+              <a href="author.html#631">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+my &quot;pcscf.open-ims.itb&quot; success connected to &quot;pcrf.open-ims.itb&quot;.
+FYI: open-ims.itb is my IMS domain.
+here the PCSCF log :
+===============================================================
+ S[I_Open] pcrf.open-ims.itb:4868 D[ ]
+ 9(8308) 	 [16777224,10415]
+ 9(8308) 	 [16777224,0]
+ 9(8308) 	 [16777236,10415]
+ 9(8308) 	 [16777236,0]
+ 9(8308) 	 [16777224,0]
+ 9(8308) 	 [16777236,0]
+===============================================================
+
+However, when i run the pcrf and pcef, there is contrast information between my domain (open-ims.itb) and default domain (open-ims.test.
+here the pcrf log :
+===================================================================================================================
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - FQDN: pcrf.open-ims.itb
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Realm: open-ims.itb
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Vendor_ID : 10415
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Product Name: CDiameterPeer
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - AcceptUnknwonPeers: true
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - DropUnknownOnDisconnect: true
+[Thread-11] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  - StateMachine: Peer pcef.open-ims.itb not responding to connection attempt 
+INFO: Changing Status of PCRF #1 to 'On'
+INFO: This is PCRF number: 1
+INFO: Controlling Domain: open-ims.test
+INFO: PCRF Server #1 started : Thu May 27 05:07:39 PDT 2010
+INFO: PCRF Rx Diameter interface started
+INFO: PCRF Gx Diameter interface started
+===================================================================================================================
+you can see: my domain (open-ims.itb) is acknowledged, but pcrf uses the default domain (open-ims.test).
+The impact is the policy control will not use pcrf in my domain (i see in web interface that &quot;pcrf.open-ims.test&quot; go on whereas &quot;pcrf.open-ims.itb&quot; go off) so that the client can't register with my domain.
+
+Why it can be happen ?
+
+thank you
+best regards
+--
+
+habibur
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000630.html">[Uctimsclient-users] [ask] UCTPCRF problem: pcscf.qos.sh error
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#631">[ date ]</a>
+              <a href="thread.html#631">[ thread ]</a>
+              <a href="subject.html#631">[ subject ]</a>
+              <a href="author.html#631">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

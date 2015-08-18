@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Test UCT IMS CLIENT/Xlite
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Test%20UCT%20IMS%20CLIENT/Xlite&In-Reply-To=%3Ca42e68ed0807300935v4717ab7dy57be0b4a541d7c9c%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000318.html">
+   <LINK REL="Next"  HREF="000321.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Test UCT IMS CLIENT/Xlite</H1>
+    <B>ims.asuser ims.asuser</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Test%20UCT%20IMS%20CLIENT/Xlite&In-Reply-To=%3Ca42e68ed0807300935v4717ab7dy57be0b4a541d7c9c%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Test UCT IMS CLIENT/Xlite">ims.asuser at gmail.com
+       </A><BR>
+    <I>Wed Jul 30 18:35:07 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000318.html">[Uctimsclient-users] client/server diameter
+</A></li>
+        <LI>Next message: <A HREF="000321.html">[Uctimsclient-users] Question about Video Packet on IPTV-Server	(IMS)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#320">[ date ]</a>
+              <a href="thread.html#320">[ thread ]</a>
+              <a href="subject.html#320">[ subject ]</a>
+              <a href="author.html#320">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+I've made some test between the Xlite and UCT IMS Client. The result are
+quite positive but still, there are some parts that not work correctly.
+
+First of all, I wanted to know if UCT IMS client handles MD5 authentication
+( think YES)
+
+Audio Call
+If I make a call from Xlite to UCT Client, both phones are ringing but it
+fails when I answer(in the UCT client part). The Xlite displays &quot;Call
+failed. Media negociation failed&quot;. So I directly went to the audio/video
+codec menu to check whether they were the same on both side. But That did
+not change anything. Attached is the wireshark trace (xlite2uctimscall).
+
+If I make a call from UCT Client to Xlite, both phone are ringing and the
+communication is established. But the only thing we can hear on both side is
+a big noise! (Exactly the same when I used the UCTB2BUA...). Attached is the
+wireshark trace(uctims2xlitecall).
+
+Instant Messaging
+If I write a message from UCT client to Xlite, everything works
+well.Attached is the wireshark trace(xlite2uctimsIM).
+But that is not working from Xlite to UCT Client. Xlite receives a &quot;REQUEST
+TIME OUT&quot;.I do not why the UCTIMS client does not respond with a &quot;200 OK&quot;
+when it receives the a  &quot;MESSAGE&quot;.Attached is the wireshark
+trace(uctims2xliteIM).
+
+
+That would be great if anyone of you could explain thoses issues (maybe
+bugs...)
+
+Thank you all
+Khaldon
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080730/490dda13/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080730/490dda13/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000318.html">[Uctimsclient-users] client/server diameter
+</A></li>
+	<LI>Next message: <A HREF="000321.html">[Uctimsclient-users] Question about Video Packet on IPTV-Server	(IMS)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#320">[ date ]</a>
+              <a href="thread.html#320">[ thread ]</a>
+              <a href="subject.html#320">[ subject ]</a>
+              <a href="author.html#320">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

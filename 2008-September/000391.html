@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] VLC and uctimsclient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20VLC%20and%20uctimsclient&In-Reply-To=%3C97CA8A3DB10ADF47A295BD1248E28CB301370A06%40MADARRMAIL3.indra.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000390.html">
+   <LINK REL="Next"  HREF="000392.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] VLC and uctimsclient</H1>
+    <B>Polo Cortina, Eduardo</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20VLC%20and%20uctimsclient&In-Reply-To=%3C97CA8A3DB10ADF47A295BD1248E28CB301370A06%40MADARRMAIL3.indra.es%3E"
+       TITLE="[Uctimsclient-users] VLC and uctimsclient">epoloc at indra.es
+       </A><BR>
+    <I>Thu Sep 25 17:18:53 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000390.html">[Uctimsclient-users] RV:  VLC and uctimsclient
+</A></li>
+        <LI>Next message: <A HREF="000392.html">[Uctimsclient-users] VLC and uctimsclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#391">[ date ]</a>
+              <a href="thread.html#391">[ thread ]</a>
+              <a href="subject.html#391">[ subject ]</a>
+              <a href="author.html#391">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>That's a good point. In fact, i found out that only with the samples (.mov files) I could make the stream (without the IMS). VLC works fine as well. The problem is when I integrate those servers with the IMS and use the uctimsclient. 
+
+How do you hint the videos without the Quicktime pro? (I guess .mov are not supported by the uctimsclient)
+
+
+-----Mensaje original-----
+De: Bill Friedrich [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bill.friedrich at cal.trlabs.ca</A>] 
+Enviado el: jueves, 25 de septiembre de 2008 17:12
+Para: Polo Cortina, Eduardo
+Asunto: RE: [Uctimsclient-users] VLC and uctimsclient
+
+Were you able to connect to those streams normally with VLC (ie, outside
+of the IMSClient)? I know I had to hint my streams before Darwin
+Streaming Server would actually serve them. When I didn't hint them, I
+would get the video window opening up, but the video would never play.
+
+/bill
+
+On Thu, 2008-09-25 at 09:45 +0200, Polo Cortina, Eduardo wrote:
+&gt;<i> Hi Bill
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for your response. I've checked the key file and this is what I have:
+</I>&gt;<i> 
+</I>&gt;<i> &lt;key-value_pair&gt;
+</I>&gt;<i> 	&lt;key&gt;channel1&lt;/key&gt;
+</I>&gt;<i> 	&lt;value&gt;<A HREF="rtsp://172.30.10.223:554/sample.mov&lt;/value">rtsp://172.30.10.223:554/sample.mov&lt;/value</A>&gt;
+</I>&gt;<i> &lt;/key-value_pair&gt;
+</I>&gt;<i> 
+</I>&gt;<i> &lt;key-value_pair&gt;
+</I>&gt;<i> 	&lt;key&gt;channel2&lt;/key&gt;
+</I>&gt;<i> 	&lt;value&gt;<A HREF="rtp://172.30.10.223:1234/sp.mpg&lt;/value">rtp://172.30.10.223:1234/sp.mpg&lt;/value</A>&gt;
+</I>&gt;<i> &lt;/key-value_pair&gt;
+</I>&gt;<i> 
+</I>&gt;<i> Channel 1 is for DSS and channel 2 is for VLC. 
+</I>&gt;<i> 
+</I>&gt;<i> In the log window, these are the messages showed:
+</I>&gt;<i> 09:42:01&gt; INVITE
+</I>&gt;<i> 09:42:01&gt; trying -- your call is important to us (for INVITE)
+</I>&gt;<i> 09:42:01&gt; Dialog Establishement (for INVITE)
+</I>&gt;<i> 09:42:01&gt; OK (for INVITE)
+</I>&gt;<i> 09:42:01&gt; ACK
+</I>&gt;<i> A new window opens and then nothing happens
+</I>&gt;<i> Any suggest?
+</I>&gt;<i> 
+</I>&gt;<i> Thank you very much
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -----Mensaje original-----
+</I>&gt;<i> De: Bill Friedrich [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bill.friedrich at cal.trlabs.ca</A>] 
+</I>&gt;<i> Enviado el: mi&#233;rcoles, 24 de septiembre de 2008 17:11
+</I>&gt;<i> Para: Polo Cortina, Eduardo
+</I>&gt;<i> Asunto: Re: [Uctimsclient-users] VLC and uctimsclient
+</I>&gt;<i> 
+</I>&gt;<i> Hi, did it with Darwin Streaming Server.
+</I>&gt;<i> 
+</I>&gt;<i> The one problem I noticed in the how to guide is that the XML they used
+</I>&gt;<i> for key/value pairs was the wrong syntax for the newest version of the
+</I>&gt;<i> indirection server. Here is the correct syntax to follow:
+</I>&gt;<i> 
+</I>&gt;<i> &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;<i> &lt;key-value_pairs&gt;
+</I>&gt;<i> 
+</I>&gt;<i> &lt;key-value_pair&gt;
+</I>&gt;<i>         &lt;key&gt;channel1&lt;/key&gt;
+</I>&gt;<i>         &lt;value&gt;<A HREF="rtsp://something.comish/media.mp4&lt;/value">rtsp://something.comish/media.mp4&lt;/value</A>&gt;
+</I>&gt;<i> &lt;/key-value_pair&gt;
+</I>&gt;<i> &lt;/key-value_pairs&gt;
+</I>&gt;<i> 
+</I>&gt;<i> Give this a try!
+</I>&gt;<i> 
+</I>&gt;<i> On Wed, 2008-09-24 at 11:50 +0200, Polo Cortina, Eduardo wrote:
+</I>&gt;<i> &gt; Hi all!
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I've followed your &quot;how to guide&quot; to integrate a VLC acting as a
+</I>&gt;<i> &gt; server within the OpenIMSCore. I've made all the setup steps till the
+</I>&gt;<i> &gt; end.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I've configured the key_value_file of the uctiptv_as to map requests
+</I>&gt;<i> &gt; to the VLC. I've captured packets from uctimsclient to the uctiptv_as
+</I>&gt;<i> &gt; with wireshark and all the SIP dialog is ok. 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; When I register either with bob or alice and make the &quot;channel2&quot;
+</I>&gt;<i> &gt; request, the client closes and in the log I get the following message:
+</I>&gt;<i> &gt; Attempting to open RTSP stream ... segmentation fault (core dumped)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I've also tried to make an udp stream channel:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; # vlc -vvv ~/Videos/sp.mpg --sout udp:172.30.10.223 --ttl 12
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; But I just get: access_output_udp private warning: send error:
+</I>&gt;<i> &gt; connection refused
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Anyone has watched a video on the uctimsclient? Which server do you
+</I>&gt;<i> &gt; use? I also tried the Darwin Streaming Server...
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Thanks in advanced,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Eduardo
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Uctimsclient-users mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000390.html">[Uctimsclient-users] RV:  VLC and uctimsclient
+</A></li>
+	<LI>Next message: <A HREF="000392.html">[Uctimsclient-users] VLC and uctimsclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#391">[ date ]</a>
+              <a href="thread.html#391">[ thread ]</a>
+              <a href="subject.html#391">[ subject ]</a>
+              <a href="author.html#391">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

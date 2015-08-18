@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] policy control in OpenIMSCore
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20policy%20control%20in%20OpenIMSCore&In-Reply-To=%3C1202899929.47b2cbd92306f%40imap.intranet.fh-koeln.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000184.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] policy control in OpenIMSCore</H1>
+    <B>Christoph Obst</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20policy%20control%20in%20OpenIMSCore&In-Reply-To=%3C1202899929.47b2cbd92306f%40imap.intranet.fh-koeln.de%3E"
+       TITLE="[Uctimsclient-users] policy control in OpenIMSCore">christoph.obst at smail.fh-koeln.de
+       </A><BR>
+    <I>Wed Feb 13 11:52:09 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000184.html">[Uctimsclient-users] policy control in OpenIMSCore
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#183">[ date ]</a>
+              <a href="thread.html#183">[ thread ]</a>
+              <a href="subject.html#183">[ subject ]</a>
+              <a href="author.html#183">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello.
+
+I am trying to understand how the policy control for the openimscore works.
+I followed the howto at <A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>
+and it works so far, deleting one codec results in not acceptable here.
+
+1.) I cannot find the point where it starts checking an INIVTE for matching the
+policy. In pcscf.pdf.cfg (which is used for the P-CSCF-SER) I found in row 337:
+
+#P_local_policy(); #check, if sdp is allowed, if not return with allowed sdp
+
+The line is commented out, thats what i do not understand. How can this work
+like that.
+Can you help me giving a hint where the processing starts or how it works?
+
+
+2.) A completely other problem: in the above-mentioned howto it says in step 6
+&quot;The PEP is implemented as a Linux DiffServ router - policy rules are enforced
+using IP Tables. It is recommended that you set up your PEP as an RTP proxy,
+this will force all RTP traffic through this element making testing and
+demonstrations easier.&quot;
+But how do i set up the PEP as an RTP proxy? What has to be done for that?
+I think it is not right/enough to add a force_rtp_proxy() in the cfg. Can you
+tell me how to do it? Or where can i find something to do this?
+
+Thanks!
+Christoph
+
+----------------------------------------------------------------
+This message was sent using IMP, the Internet Messaging Program.
+Fachhochschule Koeln   -  Cologne University of Applied Sciences
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000184.html">[Uctimsclient-users] policy control in OpenIMSCore
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#183">[ date ]</a>
+              <a href="thread.html#183">[ thread ]</a>
+              <a href="subject.html#183">[ subject ]</a>
+              <a href="author.html#183">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

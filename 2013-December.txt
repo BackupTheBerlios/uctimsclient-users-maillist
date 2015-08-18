@@ -1,0 +1,22 @@
+From lt123345 at gmail.com  Thu Dec  5 08:34:03 2013
+From: lt123345 at gmail.com (=?GB2312?B?wLbM7w==?=)
+Date: Thu, 5 Dec 2013 15:34:03 +0800
+Subject: [Uctimsclient-users] blank window poped on callee client at a voice
+	call
+Message-ID: <CADcMG7=cEcn8Nt+0SEojD-Tj2cd8H5XR_SPRnEJjzzSON2yt6A@mail.gmail.com>
+
+Hi all,
+I'm studying open IMS core and I built an IMS network on my ubuntu 12.04.
+Then I compiled the uctimsclient1.0.14 with source code, copied the
+executable file into to folders and run them respectively as Alice and Bob.
+Registering is OKay. But when I make a call from Alice to Bob and after Bob
+answer it, a blank window pops up on Bob's client and show nothing. I'm
+sure that I the vedio is disabled.
+Does anyone know what's going on?
+
+Thanks
+George
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20131205/43eafaa4/attachment.html>
+

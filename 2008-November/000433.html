@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] IPTV Indirection Compliance
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20IPTV%20Indirection%20Compliance&In-Reply-To=%3C49269DE3.3000704%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000430.html">
+   <LINK REL="Next"  HREF="000431.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] IPTV Indirection Compliance</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20IPTV%20Indirection%20Compliance&In-Reply-To=%3C49269DE3.3000704%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] IPTV Indirection Compliance">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Fri Nov 21 12:39:15 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000430.html">[Uctimsclient-users] IPTV Indirection Compliance
+</A></li>
+        <LI>Next message: <A HREF="000431.html">[Uctimsclient-users] UCTIMSCLIENT: Error building presence	subscribe message. Probably an invalid URI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#433">[ date ]</a>
+              <a href="thread.html#433">[ thread ]</a>
+              <a href="subject.html#433">[ subject ]</a>
+              <a href="author.html#433">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+The approach used by the IPTv indirection server is based on RFC 4483 
+that describes a mechanism for content indirection in SIP messages.  We 
+use the libvlc library to deal with the RTSP functionality, but any 
+client that supports SIP content indirection (as specified in RFC 4483) 
+and RTSP should theoretically be able to work with the Indirection 
+server and appropriate media server.
+
+The previous IPTv server simply added each client to the broadcast IPTv 
+stream that they requested.  With a little bit of tweaking this could 
+support VoD as well as broadcast, but none of the RTSP trick commands 
+are supported nor is this approach specified in any standards. But it 
+does work!
+
+There are many many standards out there specifying IPTv - however I 
+think the most comprehensive IMS approach right now is the ETSI TISPAN 
+approach (see TS 183 063 and TS 182 027). 
+
+The UCT IPTv implementation is a first attempt at one of the many 
+possible approaches.
+
+Regards,
+Richard.
+
+Bill Friedrich wrote:
+&gt;<i>
+</I>&gt;<i> Hey everyone,
+</I>&gt;<i>
+</I>&gt;<i> I have a question about how &quot;compliant&quot; the IPTV Indirection Server
+</I>&gt;<i> actually is. I've been messing with the source, and I noticed that it
+</I>&gt;<i> simply puts the indirected URL in the response header. I know the
+</I>&gt;<i> website says it is an attempt at compliancy, but is there any RFC, or
+</I>&gt;<i> other such documentation that says that this is indeed the way things
+</I>&gt;<i> should be done?
+</I>&gt;<i>
+</I>&gt;<i> I ask this because there are several telco's that are seriously looking
+</I>&gt;<i> at moving to IMS, and one of the big selling points for them is
+</I>&gt;<i> indirected content such as IPTV channels, as well as Video On Demand.
+</I>&gt;<i> The UCT's previous IPTV solution (where the video is streamed as a Video
+</I>&gt;<i> Conference), seems more compatible to me, as it could potentially be
+</I>&gt;<i> consumed by any IMS Client capable of video conferencing. The new
+</I>&gt;<i> method, whereby RTSP content is handed off to libvlc, seems like it is
+</I>&gt;<i> just adding a new layer to the IMS client that most other clients (if
+</I>&gt;<i> not all) won't have.
+</I>&gt;<i>
+</I>&gt;<i> If anyone knows any details about this, I would be very interested to
+</I>&gt;<i> hear them!
+</I>&gt;<i>
+</I>&gt;<i> -Bill Friedrich
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081121/5c0fb504/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081121/5c0fb504/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000430.html">[Uctimsclient-users] IPTV Indirection Compliance
+</A></li>
+	<LI>Next message: <A HREF="000431.html">[Uctimsclient-users] UCTIMSCLIENT: Error building presence	subscribe message. Probably an invalid URI
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#433">[ date ]</a>
+              <a href="thread.html#433">[ thread ]</a>
+              <a href="subject.html#433">[ subject ]</a>
+              <a href="author.html#433">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

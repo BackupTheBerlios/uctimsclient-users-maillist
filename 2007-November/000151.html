@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem with IPTV server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20IPTV%20server&In-Reply-To=%3C11926.57778.qm%40web56708.mail.re3.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000150.html">
+   <LINK REL="Next"  HREF="000152.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem with IPTV server</H1>
+    <B>Prateek Shadangi</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20IPTV%20server&In-Reply-To=%3C11926.57778.qm%40web56708.mail.re3.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] Problem with IPTV server">pshadangi at yahoo.com
+       </A><BR>
+    <I>Thu Nov 22 06:24:12 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000150.html">[Uctimsclient-users] Problem with IPTV server
+</A></li>
+        <LI>Next message: <A HREF="000152.html">[Uctimsclient-users] Problem with IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#151">[ date ]</a>
+              <a href="thread.html#151">[ thread ]</a>
+              <a href="subject.html#151">[ subject ]</a>
+              <a href="author.html#151">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Dave,
+Thanks a lot for the Help. I feel that the problem is because my media files are not proper !!!
+I will be very thankful to you if you can provide me some media files (or links) on which you have successfully tested IPTV server.
+
+Regards,
+Prateek
+
+Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>&gt; wrote: As far as I recall the server just hangs at the line &quot;elements linked&quot; 
+if there is an error.
+
+Make sure if you are just using one file you specify one channel, i.e.
+
+./uctiptv 500000 1 media/Dilbert101.avi
+
+I have tried with many different types of files and most work (with the 
+exception of real media). This is what the output looks like if it works:
+
+Initialising 1 on channel1
+Starting channel1
+Elements created
+Pipeline created
+Setting Bitrate to 500000
+Creating Decodebin
+Adding items
+Linking items
+Elements linked
+ffenc_h263p Caps:
+video/x-raw-yuv, width=(int)576, height=(int)432, 
+framerate=(fraction)2997/125, format=(fourcc)I420, 
+pixel-aspect-ratio=(fraction)1/1
+
+Video Caps:
+application/x-rtp, media=(string)video, payload=(int)96, 
+clock-rate=(int)90000, encoding-name=(string)H263-1998, 
+ssrc=(guint)2633027481, clock-base=(guint)3046449868, 
+seqnum-base=(guint)50872
+
+Audio Caps:
+application/x-rtp, media=(string)audio, payload=(int)96, 
+clock-rate=(int)90000, encoding-name=(string)MPA, 
+ssrc=(guint)1111983472, clock-base=(guint)4227231487, 
+seqnum-base=(guint)29113
+
+Returning from channel channel1 init
+IPTV Appserver started on port 7070
+
+Regards
+
+Dave
+
+
+Prateek Shadangi wrote:
+&gt;<i> Hi Dave,
+</I>&gt;<i> When I tried with the files individually I am seeing the same behavior.
+</I>&gt;<i>
+</I>&gt;<i> I am having a question that when the server dosent recognize the file 
+</I>&gt;<i> formats wouldn't it will throw some error or it will simply hang ??
+</I>&gt;<i>
+</I>&gt;<i> It will be gr8 if you can provide me some media files (or link) on 
+</I>&gt;<i> which I can test this server ??
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Prateek
+</I>&gt;<i>
+</I>&gt;<i> */Dave Waiting /* wrote:
+</I>&gt;<i>
+</I>&gt;<i>     Hi Prateek
+</I>&gt;<i>
+</I>&gt;<i>     It looks like the server does not recognise one of the file
+</I>&gt;<i>     formats and
+</I>&gt;<i>     is not starting properly.
+</I>&gt;<i>
+</I>&gt;<i>     Try with each file individually to see which one is giving
+</I>&gt;<i>     problems. My
+</I>&gt;<i>     guess is the MPG.
+</I>&gt;<i>
+</I>&gt;<i>     Regards
+</I>&gt;<i>
+</I>&gt;<i>     Dave
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     Prateek Shadangi wrote:
+</I>&gt;<i>     &gt; Hi All,
+</I>&gt;<i>     &gt; I have successfully compiled IPTV streaming server ans trying to
+</I>&gt;<i>     run
+</I>&gt;<i>     &gt; it with the following command:
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; ./uctiptv 500000 3 ccvt_box.avi air.wmv DELTA.MPG
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; after this I get the following msgs and the server hanges there
+</I>&gt;<i>     &gt; Initialising channel3
+</I>&gt;<i>     &gt; Starting channel3
+</I>&gt;<i>     &gt; Elements created
+</I>&gt;<i>     &gt; Pipeline created
+</I>&gt;<i>     &gt; Setting Bitrate to 500000
+</I>&gt;<i>     &gt; Creating Decodebin
+</I>&gt;<i>     &gt; Adding items
+</I>&gt;<i>     &gt; Linking items
+</I>&gt;<i>     &gt; Elements linked
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; But the problem is server is not listening on port 7070 (I verified
+</I>&gt;<i>     &gt; this from netstat)
+</I>&gt;<i>     &gt; Have I missed anything ??
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; Regards,
+</I>&gt;<i>     &gt; Prateek
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     ------------------------------------------------------------------------
+</I>&gt;<i>     &gt; Be a better pen pal. Text or chat with friends inside Yahoo!
+</I>&gt;<i>     Mail. See
+</I>&gt;<i>     &gt; how.
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     ------------------------------------------------------------------------
+</I>&gt;<i>     &gt;
+</I>&gt;<i>     &gt; _______________________________________________
+</I>&gt;<i>     &gt; Uctimsclient-users mailing list
+</I>&gt;<i>     &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>     &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>     &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> Be a better pen pal. Text or chat with friends inside Yahoo! Mail. See 
+</I>&gt;<i> how.  
+</I>
+
+
+       
+---------------------------------
+Be a better pen pal. Text or chat with friends inside Yahoo! Mail. See how.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20071121/d03cdd88/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20071121/d03cdd88/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000150.html">[Uctimsclient-users] Problem with IPTV server
+</A></li>
+	<LI>Next message: <A HREF="000152.html">[Uctimsclient-users] Problem with IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#151">[ date ]</a>
+              <a href="thread.html#151">[ thread ]</a>
+              <a href="subject.html#151">[ subject ]</a>
+              <a href="author.html#151">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

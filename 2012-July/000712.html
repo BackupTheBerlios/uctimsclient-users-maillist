@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Installation Problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2012-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Installation%20Problem&In-Reply-To=%3CCAD2kg%2B50uXwjgs7z6BhnhdHMX9j9rHR8R-s%2BadmGSWZPk5gPuw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Installation Problem</H1>
+    <B>Sebasti&#225;n Rivas</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Installation%20Problem&In-Reply-To=%3CCAD2kg%2B50uXwjgs7z6BhnhdHMX9j9rHR8R-s%2BadmGSWZPk5gPuw%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Installation Problem">sebastian8 at gmail.com
+       </A><BR>
+    <I>Tue Jul 31 01:12:07 CEST 2012</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#712">[ date ]</a>
+              <a href="thread.html#712">[ thread ]</a>
+              <a href="subject.html#712">[ subject ]</a>
+              <a href="author.html#712">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+
+I'm trying to install the UCT IMS Client 1.0.14 on Ubuntu 10.04. I
+installed the following packages that were available on the apt.
+
+
+libosip2-4
+
+libosip2-dev
+
+libexosip2-4
+
+libexosip2-dev
+
+libgtk2.0-0
+
+libgtk2.0-dev
+
+libxml2
+
+libxml2-dev
+
+libcurl3
+
+libcurl4-openssl-dev
+
+libgstreamer0.10-0
+
+libgstreamer-plugins-base0.10-dev
+
+libgstreamer-plugins-base0.10-0
+
+libvlc2
+
+libvlc-dev
+
+libvlccore2
+
+libvlccore-dev
+
+vlc
+
+gstreamer0.10-plugins-good
+
+gstreamer0.10-plugins-bad
+
+gstreamer0.10-plugins-ugly
+
+gstreamer0.10-ffmpeg
+
+
+However, when I tried to compile the sources, I got the following Error:
+
+
+
+~/uctimsclient$ make
+
+gcc -I/usr/include/libxml2 -I/usr/lib/vlc/include/ `pkg-config --cflags
+gtk+-2.0 gstreamer-0.10` -o obj/rtsp.o -c src/rtsp.c
+
+src/rtsp.c: In function &#8216;rtsp_start_session&#8217;:
+
+src/rtsp.c:41: error: too few arguments to function &#8216;libvlc_new&#8217;
+
+src/rtsp.c:58: error: too few arguments to function
+&#8216;libvlc_media_player_new&#8217;
+
+src/rtsp.c:59: warning: assignment makes pointer from integer without a cast
+
+src/rtsp.c:60: error: too few arguments to function
+&#8216;libvlc_media_player_set_media&#8217;
+
+src/rtsp.c:64: warning: passing argument 1 of &#8216;libvlc_audio_get_volume&#8217;
+from incompatible pointer type
+
+/usr/include/vlc/libvlc_media_player.h:898: note: expected &#8216;struct
+libvlc_instance_t *&#8217; but argument is of type &#8216;struct libvlc_media_player_t
+*&#8217;
+
+src/rtsp.c:64: error: too few arguments to function
+&#8216;libvlc_audio_get_volume&#8217;
+
+src/rtsp.c:77: error: too few arguments to function
+&#8216;libvlc_media_player_play&#8217;
+
+src/rtsp.c: In function &#8216;rtsp_resume_playback&#8217;:
+
+src/rtsp.c:94: error: too few arguments to function
+&#8216;libvlc_media_player_set_rate&#8217;
+
+src/rtsp.c:109: error: too few arguments to function
+&#8216;libvlc_media_player_play&#8217;
+
+src/rtsp.c: In function &#8216;rtsp_pause_playback&#8217;:
+
+src/rtsp.c:123: error: too few arguments to function
+&#8216;libvlc_media_player_set_rate&#8217;
+
+src/rtsp.c: In function &#8216;rtsp_stop_playback&#8217;:
+
+src/rtsp.c:147: error: too few arguments to function
+&#8216;libvlc_media_player_set_rate&#8217;
+
+src/rtsp.c:148: error: too few arguments to function
+&#8216;libvlc_media_player_stop&#8217;
+
+src/rtsp.c:153: error: too few arguments to function
+&#8216;libvlc_media_player_stop&#8217;
+
+src/rtsp.c:158: error: too few arguments to function
+&#8216;libvlc_media_player_stop&#8217;
+
+src/rtsp.c:163: error: too few arguments to function
+&#8216;libvlc_media_player_stop&#8217;
+
+src/rtsp.c: In function &#8216;rtsp_forward_playback&#8217;:
+
+src/rtsp.c:191: error: too few arguments to function
+&#8216;libvlc_media_player_get_rate&#8217;
+
+src/rtsp.c:200: error: too few arguments to function
+&#8216;libvlc_media_player_set_rate&#8217;
+
+src/rtsp.c: In function &#8216;rtsp_change_volume&#8217;:
+
+src/rtsp.c:210: warning: passing argument 1 of &#8216;libvlc_audio_set_volume&#8217;
+from incompatible pointer type
+
+/usr/include/vlc/libvlc_media_player.h:907: note: expected &#8216;struct
+libvlc_instance_t *&#8217; but argument is of type &#8216;struct libvlc_media_player_t
+*&#8217;
+
+src/rtsp.c:210: error: too few arguments to function
+&#8216;libvlc_audio_set_volume&#8217;
+
+make: *** [obj/rtsp.o] Error 1
+
+
+
+It seems that libvlc has a problem, but this new release (1.0.14) should
+work with the new version (which I suppose is libvlc2).
+
+What could I be missing?
+
+
+Thanks in advance.
+
+Regards,
+
+
+Sebastian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20120730/0d4440c2/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20120730/0d4440c2/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#712">[ date ]</a>
+              <a href="thread.html#712">[ thread ]</a>
+              <a href="subject.html#712">[ subject ]</a>
+              <a href="author.html#712">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCTimsClient Crashes while registering
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTimsClient%20Crashes%20while%20registering&In-Reply-To=%3C41916.88.79.82.49.1241020176.squirrel%40crgmail.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000549.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCTimsClient Crashes while registering</H1>
+    <B>rgood at crg.ee.uct.ac.za</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTimsClient%20Crashes%20while%20registering&In-Reply-To=%3C41916.88.79.82.49.1241020176.squirrel%40crgmail.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] UCTimsClient Crashes while registering">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Wed Apr 29 17:49:36 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000549.html">[Uctimsclient-users] UCTimsClient Crashes while registering
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#550">[ date ]</a>
+              <a href="thread.html#550">[ thread ]</a>
+              <a href="subject.html#550">[ subject ]</a>
+              <a href="author.html#550">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Paolo,
+
+This is a problem with using the P-CSCF branch and S-CSCF trunk, as the
+P-CSCF does not support the qop parameter.  You can disable this in the
+scscg.cfg file.  see:
+<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/2009-February/000502.html">https://lists.berlios.de/pipermail/uctimsclient-users/2009-February/000502.html</A>
+
+I will put this issue on the FAQ list.
+
+Richard.
+
+&gt;<i>
+</I>&gt;<i> i've forgotten this:
+</I>&gt;<i>
+</I>&gt;<i> from  uctimsclient  shell window:
+</I>&gt;<i> &quot;
+</I>&gt;<i> (uctimsclient:16391): Gtk-WARNING **: GtkSpinButton: setting an adjustment
+</I>&gt;<i> with non-zero page size is deprecated
+</I>&gt;<i> UCT IMS Client - SIP port 5061 - Audio Port: 23740 - Video Port: 31462
+</I>&gt;<i>
+</I>&gt;<i> Segmentation fault
+</I>&gt;<i> &quot;
+</I>&gt;<i>
+</I>&gt;<i> hi
+</I>&gt;<i> i'm Paolo from University of Genoa, (IT).
+</I>&gt;<i>
+</I>&gt;<i> i'm starting using OpenIMSCore.
+</I>&gt;<i>
+</I>&gt;<i> everything's fine without using UCT Policy Control Management System.
+</I>&gt;<i>
+</I>&gt;<i> the two Uct Clients can send and receive call.
+</I>&gt;<i>
+</I>&gt;<i> BUT after installation of PCFs, they crash when i click on &quot;register&quot;. i
+</I>&gt;<i> tried with and without RTPproxy (i've downloaded the one suggested in FAQ,
+</I>&gt;<i> openimscore.org).
+</I>&gt;<i>
+</I>&gt;<i> wireshark shows that the first REG message is sent and the CSCFs respond
+</I>&gt;<i> with 410 Unauthorized. nothing more after that.
+</I>&gt;<i>
+</I>&gt;<i> p.s. : another question: how to show Diameter messages with wireshark?? i
+</I>&gt;<i> can see all SIP, MySQL, DNS RTP ect packet but it seems not to sniff any
+</I>&gt;<i> Diameter pkt.  OpenIMSCore works, Diameter pkts MUST be exchanged between
+</I>&gt;<i> Hss and the others... or not?
+</I>&gt;<i>
+</I>&gt;<i> Thanks everybody
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _________________________________________________________________
+</I>&gt;<i> &#200; arrivato il nuovo Messenger! Provalo subito
+</I>&gt;<i> <A HREF="http://clk.atdmt.com/GBL/go/140630370/direct/01/______________________________________________">http://clk.atdmt.com/GBL/go/140630370/direct/01/______________________________________________</A>_
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000549.html">[Uctimsclient-users] UCTimsClient Crashes while registering
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#550">[ date ]</a>
+              <a href="thread.html#550">[ thread ]</a>
+              <a href="subject.html#550">[ subject ]</a>
+              <a href="author.html#550">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

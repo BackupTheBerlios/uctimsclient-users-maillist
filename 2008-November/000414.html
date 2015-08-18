@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UserA cannot be de-registered from	OpenIMSCore after starting IPTV VoD
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UserA%20cannot%20be%20de-registered%20from%0A%09OpenIMSCore%20after%20starting%20IPTV%20VoD&In-Reply-To=%3CBAY120-DAV4EE2434F754C2085F0B01B21A0%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000412.html">
+   <LINK REL="Next"  HREF="000415.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UserA cannot be de-registered from	OpenIMSCore after starting IPTV VoD</H1>
+    <B>T K Lee</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UserA%20cannot%20be%20de-registered%20from%0A%09OpenIMSCore%20after%20starting%20IPTV%20VoD&In-Reply-To=%3CBAY120-DAV4EE2434F754C2085F0B01B21A0%40phx.gbl%3E"
+       TITLE="[Uctimsclient-users] UserA cannot be de-registered from	OpenIMSCore after starting IPTV VoD">teckkiong at hotmail.com
+       </A><BR>
+    <I>Mon Nov 10 12:42:23 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000412.html">[Uctimsclient-users] UserA cannot be de-registered from OpenIMSCore after starting IPTV VoD
+</A></li>
+        <LI>Next message: <A HREF="000415.html">[Uctimsclient-users] UserA cannot be de-registered from OpenIMSCore after starting IPTV VoD
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#414">[ date ]</a>
+              <a href="thread.html#414">[ thread ]</a>
+              <a href="subject.html#414">[ subject ]</a>
+              <a href="author.html#414">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Richard,
+ 
+We tested it by running &quot;./ims.sh&quot;, i.e., without the Policy control.  We
+were able to close the VoD window by clicking on &quot;Hangup&quot; button of the UCT
+client.  And no process crash during this test, everything works.
+ 
+Please advice.  Thank you.
+ 
+Regards,
+T K
+ 
+
+  _____  
+
+From: Richard Good [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>] 
+Sent: Monday, 10 November, 2008 3:09 PM
+To: T K Lee
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: Re: [Uctimsclient-users] UserA cannot be de-registered from
+OpenIMSCore after starting IPTV VoD
+
+
+Hi,
+
+Can you please redo the tests without the PCRF and PCEF running and using
+the trunk P/I/S -CSCF instead.  In this way we can see if the problem is
+with the Policy Control framework or something else.  The crashing P-CSCF
+sounds like a bug in the Policy interactions. 
+
+Regards,
+Richard.
+
+
+T K Lee wrote: 
+
+Hi,
+ 
+Using UCT IMS Client v.1.12, i can start playing a remote Videolan VoD via
+UCT IPTV Indirection server.  However, when the VoD finish playing the
+video, the below happens.
+ 
+Installed:
+-  Fokus OpenIMSCore
+-  UCT IMC Client
+-  UCT IPTV Indirection server
+-  UCT Policy control framework
+ 
+Running processes:
+- P/I/S-CSCF, HSS, PCRF, PCEF
+ 
+If i click 'Hangup' on the Client or close the VoD window directly:
+-  P-CSCF terminates immediately
+-  UserA cannot be De-registered from HSS even though P-CSCF was manually
+re-started.  Tried using both UCT and Fokus clients.  UserA HSS status is
+always 'Registered'.  Instead, have to manually delete and then re-create
+UserA in the 'hss_db'.
+ 
+Please advice.  Thank you.
+ 
+Regards,
+T K
+
+
+  _____  
+
+
+_______________________________________________
+
+Uctimsclient-users mailing list
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+
+  
+
+
+
+-- 
+
+
+
+
+
+Richard Good
+
+PhD Candidate
+
+
+Communications Research Group
+University of Cape Town
+
+
+Mobile: +27 72 389 8365
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>
+
+<A HREF="http://coe.uct.ac.za">http://coe.uct.ac.za</A>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081110/7233d320/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081110/7233d320/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000412.html">[Uctimsclient-users] UserA cannot be de-registered from OpenIMSCore after starting IPTV VoD
+</A></li>
+	<LI>Next message: <A HREF="000415.html">[Uctimsclient-users] UserA cannot be de-registered from OpenIMSCore after starting IPTV VoD
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#414">[ date ]</a>
+              <a href="thread.html#414">[ thread ]</a>
+              <a href="subject.html#414">[ subject ]</a>
+              <a href="author.html#414">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

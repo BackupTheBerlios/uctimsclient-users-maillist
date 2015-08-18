@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] No sound for audio call after answering
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20No%20sound%20for%20audio%20call%20after%20answering&In-Reply-To=%3Cae7050fd0904190223w681bc0b6ife6888c2d9fecd92%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000527.html">
+   <LINK REL="Next"  HREF="000536.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] No sound for audio call after answering</H1>
+    <B>Emina Lu&#269;kin</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20No%20sound%20for%20audio%20call%20after%20answering&In-Reply-To=%3Cae7050fd0904190223w681bc0b6ife6888c2d9fecd92%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] No sound for audio call after answering">em.dzindo at gmail.com
+       </A><BR>
+    <I>Sun Apr 19 11:23:42 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000527.html">[Uctimsclient-users] No sound for audio call after answering
+</A></li>
+        <LI>Next message: <A HREF="000536.html">[Uctimsclient-users] Fwd: No sound for audio call after answering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#528">[ date ]</a>
+              <a href="thread.html#528">[ thread ]</a>
+              <a href="subject.html#528">[ subject ]</a>
+              <a href="author.html#528">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Via Sound recorder aplication I can confirm that my headset works.
+I did a wireshark trace too, and it shows RTP trafic between source and
+destination.
+I hear ringing sound on both sides, but when call is established, there's no
+sound in clients' headsets.
+
+Regards,
+Emina
+
+2009/4/17 Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">dwaiting at gmail.com</A>&gt;
+
+&gt;<i> Hi
+</I>&gt;<i>
+</I>&gt;<i> It looks like gStreamer might be struggling to find the alsa input. Can you
+</I>&gt;<i> confirm your microphone works in other applications?
+</I>&gt;<i>
+</I>&gt;<i> It might be helpful to do a wireshark trace of the traffic between the two
+</I>&gt;<i> clients. There should be lots of RTP traffic flowing.
+</I>&gt;<i>
+</I>&gt;<i> The FAQ is a little out of date I'm afraid. It is referring to earlier
+</I>&gt;<i> versions of the client that handled Alsa directly. These days it is all
+</I>&gt;<i> handled by gStreamer.
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i> David
+</I>&gt;<i>
+</I>&gt;<i> 2009/4/17 Emina Lu&#269;kin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">em.dzindo at gmail.com</A>&gt;
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When I try to set up a call between two UCT IMS clients, I hear ringing on
+</I>&gt;&gt;<i> both sides. After answering I hear no sound at all. Message that UCT IMS
+</I>&gt;&gt;<i> client's terminal window displays is:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ** (uctimsclient:10513): WARNING **: GST warning: gstbaseaudiosrc.c(807):
+</I>&gt;&gt;<i> gst_base_audio_src_create ():
+</I>&gt;&gt;<i> /GstPipeline:Audio_Transmit_Pipeline/GstAlsaSrc:alsa_src:
+</I>&gt;&gt;<i> dropped 160 samples
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Berlios site I saw that solution would be changing last two parameters
+</I>&gt;&gt;<i> when calling initialise_alsa() in media.c file, but I can't find media.c
+</I>&gt;&gt;<i> file...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i> Emina
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090419/f1ea4516/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090419/f1ea4516/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000527.html">[Uctimsclient-users] No sound for audio call after answering
+</A></li>
+	<LI>Next message: <A HREF="000536.html">[Uctimsclient-users] Fwd: No sound for audio call after answering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#528">[ date ]</a>
+              <a href="thread.html#528">[ thread ]</a>
+              <a href="subject.html#528">[ subject ]</a>
+              <a href="author.html#528">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

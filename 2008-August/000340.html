@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Installation help with v1.0.12
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Installation%20help%20with%20v1.0.12&In-Reply-To=%3CBAY120-DAV482BE16EF5E9EC4FD43FDB2680%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000339.html">
+   <LINK REL="Next"  HREF="000341.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Installation help with v1.0.12</H1>
+    <B>T K Lee</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Installation%20help%20with%20v1.0.12&In-Reply-To=%3CBAY120-DAV482BE16EF5E9EC4FD43FDB2680%40phx.gbl%3E"
+       TITLE="[Uctimsclient-users] Installation help with v1.0.12">teckkiong at hotmail.com
+       </A><BR>
+    <I>Wed Aug 20 11:21:10 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000339.html">[Uctimsclient-users] Installation help with v1.0.12
+</A></li>
+        <LI>Next message: <A HREF="000341.html">[Uctimsclient-users] Installation help with v1.0.12
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#340">[ date ]</a>
+              <a href="thread.html#340">[ thread ]</a>
+              <a href="subject.html#340">[ subject ]</a>
+              <a href="author.html#340">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+ 
+I managed to install v1.0.12 successfully after i went to download the
+required libx '.deb' packages directly from Ubuntu 'Hardy' website.  One of
+the package's link below:
+ 
+<A HREF="http://packages.ubuntu.com/hardy/libosip2-2">http://packages.ubuntu.com/hardy/libosip2-2</A>
+ 
+Regards,
+T K
+ 
+ 
+
+  _____  
+
+From: Mosiuoa Tsietsi [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mosiuoat at gmail.com</A>] 
+Sent: Wednesday, 20 August 2008 4:12 PM
+To: T K Lee
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: Re: [Uctimsclient-users] Installation help with v1.0.12
+
+
+Hi,
+
+I also experienced the same problems when I tried to install. I got tied up
+after that, but lemme know if when you do a symlink to the libs you do have
+on your system, if it works out.
+
+P.S. The correct name of the lib you referred to is libosip2-2. Just do a
+apt-cache search 'packagename' to search for the correct names of the
+packages.
+
+Mos
+
+
+2008/8/20 T K Lee &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">teckkiong at hotmail.com</A>&gt;
+
+
+
+Hi,
+
+I am only able to install UCT IMS Client v1.0.9.  I am unable to install all
+the new versions because i keep getting dependency problem.
++++
+&gt;<i>  sudo dpkg -i uctimsclient1.0.12.deb
+</I>
+Selecting previously deselected package uctimsclient.
+(Reading database ... 99041 files and directories currently installed.)
+Unpacking uctimsclient (from uctimsclient1.0.12.deb) ...
+dpkg: dependency problems prevent configuration of uctimsclient:
+ uctimsclient depends on libosip2-2 (&gt;= 3.0.3); however:
+ Package libosip2-2 is not installed.
+ uctimsclient depends on libexosip2-4 (&gt;= 3.0.3); however:
+ Package libexosip2-4 is not installed.
+dpkg: error processing uctimsclient (--install):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ uctimsclient
++++
+
+When i tried to install the required 'lib*' packages, the response is that
+such packages do not exist.  Example:
+===
+$ sudo apt-get install libosip2
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Couldn't find package libosip2
+===
+
+I am using Ubuntu v7.10 (Gutsy Gibbon) and i have other package like
+libosip2-3 and libexosip2-5.
+
+Please help.  Thank you.
+
+Regards,
+T K
+_______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080820/5abe5d19/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080820/5abe5d19/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000339.html">[Uctimsclient-users] Installation help with v1.0.12
+</A></li>
+	<LI>Next message: <A HREF="000341.html">[Uctimsclient-users] Installation help with v1.0.12
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#340">[ date ]</a>
+              <a href="thread.html#340">[ thread ]</a>
+              <a href="subject.html#340">[ subject ]</a>
+              <a href="author.html#340">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

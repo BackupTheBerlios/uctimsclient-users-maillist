@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] installing UCT IMS Client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20installing%20UCT%20IMS%20Client&In-Reply-To=%3C20070226113824.96644.qmail%40web27109.mail.ukl.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000021.html">
+   <LINK REL="Next"  HREF="000026.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] installing UCT IMS Client</H1>
+    <B>asma a</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20installing%20UCT%20IMS%20Client&In-Reply-To=%3C20070226113824.96644.qmail%40web27109.mail.ukl.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] installing UCT IMS Client">asmaa_a_m at yahoo.co.uk
+       </A><BR>
+    <I>Mon Feb 26 12:38:24 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000021.html">[Uctimsclient-users] Audio Path issue --- UCTIMSClient with	FOKUS
+</A></li>
+        <LI>Next message: <A HREF="000026.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi;
+
+I have installed &quot;ortp-0.10.1.tar.gz&quot;,  &quot;gtk+-2.8.20&quot;, libexosip2-2.2.3, libosip2-2.2.3, and &quot;alsa-plugins-1.0.11&quot;
+
+and after that I start to install the UCT client, get the following error:
+
+ 
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# make
+
+gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o obj/callbacks.o -c callbacks.c
+
+Package ortp was not found in the pkg-config search path.
+
+Perhaps you should add the directory containing `ortp.pc'
+
+to the PKG_CONFIG_PATH environment variable
+
+No package 'ortp' found
+
+In file included from callbacks.c:6:
+
+includes.h:14:21: error: gtk/gtk.h: No such file or directory
+
+includes.h:20:18: error: glib.h: No such file or directory
+
+ 
+what else is needed to be install???
+
+
+Asma
+
+----- Original Message ----
+From: asma a &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt;
+To: uctims &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+Sent: Monday, 26 February, 2007 12:14:53 PM
+Subject: [Uctimsclient-users] installing UCT IMS Client
+
+Hi all,
+
+I am trying to install the UCT IMS Client on my Fedora Core 6 system,
+my current problem is on installing libexosip2 (2.2.3)
+
+./.libs/libjosua.so: undefined reference to `ortp_set_debug_file'
+collect2: ld returned 1 exit status
+make[2]: *** [josua] Error 1
+make[2]: Leaving directory `/root/UCT_IMS/libeXosip2-2.2.3/josua'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/root/UCT_IMS/libeXosip2-2.2.3'
+make: *** [all] Error 2
+
+It seems that the problem is with the libortp!
+
+I can not find the libortp (1.3.5) package on the <A HREF="http://www.antisip.com/download/">http://www.antisip.com/download/</A> website
+however I downloaded and installed the &quot;ortp-0.10.1.tar.gz&quot;
+but I still have the same problem!!!
+
+where can I find the required packages??
+
+
+Thanks;
+
+Asma
+
+ 
+		
+ 
+The all-new Yahoo! Mail goes wherever you go - free your email address from your Internet provider._______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+
+
+
+
+
+
+
+		
+___________________________________________________________ 
+All new Yahoo! Mail &quot;The new Interface is stunning in its simplicity and ease of use.&quot; - PC Magazine
+<A HREF="http://uk.docs.yahoo.com/nowyoucan.html">http://uk.docs.yahoo.com/nowyoucan.html</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070226/d8435dfd/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070226/d8435dfd/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000021.html">[Uctimsclient-users] Audio Path issue --- UCTIMSClient with	FOKUS
+</A></li>
+	<LI>Next message: <A HREF="000026.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

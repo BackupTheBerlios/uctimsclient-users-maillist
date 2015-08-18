@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] add user with add-imscore-user_newdb.sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20add%20user%20with%20add-imscore-user_newdb.sh&In-Reply-To=%3C170645.92967.qm%40web30305.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000458.html">
+   <LINK REL="Next"  HREF="000459.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] add user with add-imscore-user_newdb.sh</H1>
+    <B>agung aryo</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20add%20user%20with%20add-imscore-user_newdb.sh&In-Reply-To=%3C170645.92967.qm%40web30305.mail.mud.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] add user with add-imscore-user_newdb.sh">agung_aryo_male at yahoo.com
+       </A><BR>
+    <I>Tue Dec 16 21:59:11 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000458.html">[Uctimsclient-users] RTP packets don't go through pcef
+</A></li>
+        <LI>Next message: <A HREF="000459.html">[Uctimsclient-users] the pcscf.qos and pcscf.qos.rtp
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#456">[ date ]</a>
+              <a href="thread.html#456">[ thread ]</a>
+              <a href="subject.html#456">[ subject ]</a>
+              <a href="author.html#456">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi,
+I try to generate user with add-imscore-user_newdb.sh
+I modified for create_script_template to be like this
+insert into hss_db.impi(
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; identity,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; id_imsu,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; k,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; auth_scheme,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; default_auth_scheme,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; amf,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; op)
+values( '$IMPI',
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; (select id from hss_db.imsu where hss_db.imsu.name='&lt;USER&gt;_imsu'),
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; '$PASSWORD',
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; 127,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; 1,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; '00',
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; '0000000000000000');
+
+because in default script it causes error.
+n finally I change and add user is successful
+but when I try to register with uctimsclient,appear error like this :
+
+REGISTER with credentials
+03:36:36&gt; Unauthorized - Challenging the UE (for REGISTER)
+
+and in HSS LOG appear :
+
+2008-12-17 03:13:53,136 DEBUG de.fhg.fokus.hss.main.Task - execute Processing UAR!
+2008-12-17 03:13:53,201 DEBUG de.fhg.fokus.hss.main.Task - execute Processing MAR!
+2008-12-17 03:13:53,224 DEBUG de.fhg.fokus.hss.cx.op.MAR - generateAuthVector Auth-Scheme is Digest-AKA
+2008-12-17 03:13:53,226 DEBUG de.fhg.fokus.hss.auth.DigestAKA - getAuthenticationVector Authentication-Scheme: AKAv1!
+
+and if I see in HSS Web in public user identity appear:
+reg. status --&gt; AUTH-PENDING
+
+and user is failed to register.
+any idea for solving this problem ?
+
+
+thank you,
+
+agung aryo
+
+
+
+
+      
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081216/7787ace5/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081216/7787ace5/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000458.html">[Uctimsclient-users] RTP packets don't go through pcef
+</A></li>
+	<LI>Next message: <A HREF="000459.html">[Uctimsclient-users] the pcscf.qos and pcscf.qos.rtp
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#456">[ date ]</a>
+              <a href="thread.html#456">[ thread ]</a>
+              <a href="subject.html#456">[ subject ]</a>
+              <a href="author.html#456">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

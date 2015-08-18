@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Segmentation fault in imsua_set_message_display
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Segmentation%20fault%20in%20imsua_set_message_display&In-Reply-To=%3C483BBE11.9060907%40tuwien.ac.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000258.html">
+   <LINK REL="Next"  HREF="000259.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Segmentation fault in imsua_set_message_display</H1>
+    <B>Marco Happenhofer</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Segmentation%20fault%20in%20imsua_set_message_display&In-Reply-To=%3C483BBE11.9060907%40tuwien.ac.at%3E"
+       TITLE="[Uctimsclient-users] Segmentation fault in imsua_set_message_display">marco.happenhofer at tuwien.ac.at
+       </A><BR>
+    <I>Tue May 27 09:53:53 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000258.html">[Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory
+</A></li>
+        <LI>Next message: <A HREF="000259.html">[Uctimsclient-users] Problem when start iptv server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#257">[ date ]</a>
+              <a href="thread.html#257">[ thread ]</a>
+              <a href="subject.html#257">[ subject ]</a>
+              <a href="author.html#257">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I found a mysterious segmentation fault in the imsua_set_message_display 
+method @ useful_methods.c. I have changed the code to enable periodic 
+registration. After exact 12 registrations a segmentation fault occurs 
+in this function.
+
+The segmentation fault occurs at the following piece of code:
+
+GtkWidget *message_output_text_view = lookup_widget(GTK_WIDGET(imsUA), 
+&quot;message_display&quot;);
+
+because the imsUA points to a wrong memory region.
+
+I debugged the code and observed the memory region of the imsUA and 
+found there a problem.
+
+...
+Debug 1 7884864
+Debug 1 7884864
+Debug 1 7884864
+Debug 1 134789184
+Segmentation fault
+
+I also observed, if the imsUA is assigned to a new memory region, but 
+this was not the case.
+
+I observed in the 1.0.11 version but not in the 1.0.9 version!
+
+Did anybody observed the same Problem ??
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000258.html">[Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory
+</A></li>
+	<LI>Next message: <A HREF="000259.html">[Uctimsclient-users] Problem when start iptv server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#257">[ date ]</a>
+              <a href="thread.html#257">[ thread ]</a>
+              <a href="subject.html#257">[ subject ]</a>
+              <a href="author.html#257">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

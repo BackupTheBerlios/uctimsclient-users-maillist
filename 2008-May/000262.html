@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Mandatory Segmented QoS analysis.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Mandatory%20Segmented%20QoS%20analysis.&In-Reply-To=%3COF4B66C885.18F8A752-ONC1257457.00322999-C1257457.0033FF37%40amper.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000261.html">
+   <LINK REL="Next"  HREF="000264.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Mandatory Segmented QoS analysis.</H1>
+    <B>Pedro Antonio Vico Solano</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Mandatory%20Segmented%20QoS%20analysis.&In-Reply-To=%3COF4B66C885.18F8A752-ONC1257457.00322999-C1257457.0033FF37%40amper.es%3E"
+       TITLE="[Uctimsclient-users] Mandatory Segmented QoS analysis.">pvsolano at amper.es
+       </A><BR>
+    <I>Wed May 28 11:24:32 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000261.html">[Uctimsclient-users] Problems in running IPTV Server
+</A></li>
+        <LI>Next message: <A HREF="000264.html">[Uctimsclient-users] Mandatory Segmented QoS analysis.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#262">[ date ]</a>
+              <a href="thread.html#262">[ thread ]</a>
+              <a href="subject.html#262">[ subject ]</a>
+              <a href="author.html#262">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+We are testing the Segmented QoS signalling with the UCT IMS Client 1.0.11 
+and we see some issues:
+
+Messages analysis between two UCT IMS Clients:
+
+INVITE: does not show 'Allowed' methods in SIP.
+183 Session Progress: does not show 'Allowed' methods in SIP. It should 
+not wear a &quot;requiere:precondition&quot; (it is an answer).
+PRACK (for 183SP): strange that it requests &quot;a=qos:conf remote sendrecv&quot;
+200 OK (for PRACK): it should carry SDP data.
+UPDATE: strange that it requests &quot;a=qos:conf remote sendrecv&quot;.
+200 OK (for UPDATE): the &quot;require: pre-condition&quot; is wrong typed and can 
+be omited (it is an answer). It requests &quot;a=qos:conf remote sendrecv&quot; but 
+it is already confirmed!!!
+180 RINGING: It should not carry SDP.
+PRACK (for 180R): it should not transport SDP.
+
+I'm following &quot;The 3G IP multimedia Subsystem (IMS)&quot; book.
+
+Best regards.
+Pedro
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080528/5c548649/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080528/5c548649/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000261.html">[Uctimsclient-users] Problems in running IPTV Server
+</A></li>
+	<LI>Next message: <A HREF="000264.html">[Uctimsclient-users] Mandatory Segmented QoS analysis.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#262">[ date ]</a>
+              <a href="thread.html#262">[ thread ]</a>
+              <a href="subject.html#262">[ subject ]</a>
+              <a href="author.html#262">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

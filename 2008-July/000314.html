@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] [Fwd: Re:  Enabling MSRP]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%5BFwd%3A%20Re%3A%20%20Enabling%20MSRP%5D&In-Reply-To=%3C579697.91175.qm%40web57107.mail.re3.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000319.html">
+   <LINK REL="Next"  HREF="000315.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] [Fwd: Re:  Enabling MSRP]</H1>
+    <B>Prateek Shadangi</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%5BFwd%3A%20Re%3A%20%20Enabling%20MSRP%5D&In-Reply-To=%3C579697.91175.qm%40web57107.mail.re3.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] [Fwd: Re:  Enabling MSRP]">pshadangi at yahoo.com
+       </A><BR>
+    <I>Fri Jul 25 11:52:17 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000319.html">[Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</A></li>
+        <LI>Next message: <A HREF="000315.html">[Uctimsclient-users] client/server diameter
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#314">[ date ]</a>
+              <a href="thread.html#314">[ thread ]</a>
+              <a href="subject.html#314">[ subject ]</a>
+              <a href="author.html#314">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Richard,
+Thanks for the help.
+Even after following your advice I am not able to communicate thru MSRP.
+
+I can see that there is m line for MSRP in the INVITE but the MT end is not sending 200 Ok for this.
+My both MO and MT clients are running in the same machine.
+
+Let me know if I have missed something.
+
+- Prateek
+
+------------------------------------
+Hi Prateek,
+
+The MSRP support is not completely integrated yet and is still
+experimental - currently it only supports session based IM over MSRP.
+
+If you enable session IM under the preferences and initiate a session
+(using the normal call button) you will see that the MSRP info is
+included in the SDP body of the messages and an IM window is opened
+upon call establishment - messaging is then sent over MSRP.
+
+The Instant Messaging tab still only uses Pager Mode IM with the SIP
+MESSAGE method used for transport - I should probably include a note
+somewhere that this is the case. It introduced all kinds of
+complications integrating it here as well, but this will be done in the
+next release.
+
+Regards,
+Richard.
+
+
+
+
+Prateek Shadangi wrote: 
+Hi,
+I found out that the latest version of UCT IMS Client supports Session
+based IM thru MSRP.
+Dose it supports File transfer over MSRP too ??
+
+How to enable it ?? I tried Options-&gt;Prefrences-&gt;Session IM =
+Enable 
+but seems it is not working as I cannot see any INVITE with m=message
+TCP/MSRP going out when I start IM. and the IM is still sent over Sip
+MESSAGE instead of MSRP.
+
+Tanks in advance.
+
+- Prateek
+
+
+
+
+________________________________
+
+_______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+
+
+      
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080725/49234cbb/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080725/49234cbb/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000319.html">[Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</A></li>
+	<LI>Next message: <A HREF="000315.html">[Uctimsclient-users] client/server diameter
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#314">[ date ]</a>
+              <a href="thread.html#314">[ thread ]</a>
+              <a href="subject.html#314">[ subject ]</a>
+              <a href="author.html#314">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Need installation help...
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Need%20installation%20help...&In-Reply-To=%3C5c68f57c0808070001q1d7e5028ra439025ee8bf190f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000324.html">
+   <LINK REL="Next"  HREF="000326.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Need installation help...</H1>
+    <B>Naveen Kumashi</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Need%20installation%20help...&In-Reply-To=%3C5c68f57c0808070001q1d7e5028ra439025ee8bf190f%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Need installation help...">naveenkumashi at gmail.com
+       </A><BR>
+    <I>Thu Aug  7 09:01:56 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000324.html">[Uctimsclient-users] FW: How to connect to the HSS
+</A></li>
+        <LI>Next message: <A HREF="000326.html">[Uctimsclient-users] [Fwd: Re:  Need installation help...]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#325">[ date ]</a>
+              <a href="thread.html#325">[ thread ]</a>
+              <a href="subject.html#325">[ subject ]</a>
+              <a href="author.html#325">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello everybody.
+
+I am trying to install Uctimsclient version 1.0.12. I am getting the
+following error on running make.
+
+I have installed vlc too.
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> uctimsclient]# make
+gcc -o uctimsclient `pkg-config --cflags --libs gtk+-2.0` \
+        -L/usr/local/lib -leXosip2 -lxml2 -lcurl -lgstinterfaces-0.10
+-L/usr/lib/vlc/src/.libs/ -lvlc obj/callbacks.o
+obj/common_exosip_event_handler.o obj/common_interface_event_handler.o
+obj/DigestAKAv1MD5.o obj/ims_exosip_event_handler.o
+obj/ims_interface_event_handler.o obj/interface.o obj/imsUA.o obj/media.o
+obj/preferences.o obj/presence.o obj/sdp_methods.o obj/sound_conv.o
+obj/support.o obj/useful_methods.o obj/watchers.o obj/xcap.o obj/gstreamer.o
+obj/uuid.o obj/sysdep.o obj/rtsp.o obj/msrp.o obj/msrp_callback.o
+obj/msrp_message.o obj/msrp_network.o obj/msrp_relay.o obj/msrp_session.o
+obj/msrp_switch.o obj/msrp_utils.o obj/endpointmsrp.o obj/iptv.o
+obj/iptv_epg.o
+/usr/bin/ld: cannot find -lvlc
+collect2: ld returned 1 exit status
+make: *** [uctimsclient] Error 1
+
+Please help me solve this problem...
+
+Regards,
+Naveen.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080807/72348cff/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080807/72348cff/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000324.html">[Uctimsclient-users] FW: How to connect to the HSS
+</A></li>
+	<LI>Next message: <A HREF="000326.html">[Uctimsclient-users] [Fwd: Re:  Need installation help...]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#325">[ date ]</a>
+              <a href="thread.html#325">[ thread ]</a>
+              <a href="subject.html#325">[ subject ]</a>
+              <a href="author.html#325">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

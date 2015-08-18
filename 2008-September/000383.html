@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Error in starting UCTIpTV streaming server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Error%20in%20starting%20UCTIpTV%20streaming%20server&In-Reply-To=%3C01949ABCDD38EF4A95B8C347C399D1CE07A69B36%40BLR-EC-MBX02.wipro.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000382.html">
+   <LINK REL="Next"  HREF="000384.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Error in starting UCTIpTV streaming server</H1>
+    <B>indranil.chatterjee at wipro.com</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Error%20in%20starting%20UCTIpTV%20streaming%20server&In-Reply-To=%3C01949ABCDD38EF4A95B8C347C399D1CE07A69B36%40BLR-EC-MBX02.wipro.com%3E"
+       TITLE="[Uctimsclient-users] Error in starting UCTIpTV streaming server">indranil.chatterjee at wipro.com
+       </A><BR>
+    <I>Wed Sep 17 06:14:55 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000382.html">[Uctimsclient-users] Error in starting UCTIpTV streaming server
+</A></li>
+        <LI>Next message: <A HREF="000384.html">[Uctimsclient-users] Error in starting UCTIpTV streaming server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#383">[ date ]</a>
+              <a href="thread.html#383">[ thread ]</a>
+              <a href="subject.html#383">[ subject ]</a>
+              <a href="author.html#383">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Richard,
+ 
+The other lib files are in /usr/lib. So I moved the libeXosip2.so.4 to
+/usr/lib.
+ 
+Now, I execute the following command :
+ 
+./uctiptv 500000 1 /media/x.wmv
+ 
+I get the following error:
+ 
+Initialising 1 on channel 1
+Starting channel 1
+Elements created
+Pipeline created
+ 
+{&lt;unknown&gt;:4575}: GLib_GOBJECT- CRITICAL **:g_object_set:assertion
+'G_IS_OBJECT(object)' failed.
+Setting Bitrate to 500000
+Creating Decodebin
+Adding Items
+Linking Items
+ 
+{&lt;unknown&gt;:4575}: GStreamer - WARNING **: Trying to connect elements
+that doesn't share a common ancester: ffmpegcolorspace ueuev
+ 
+{&lt;unknown&gt;:4575}: GStreamer - WARNING **: Trying to connect elements
+that doesn't share a common ancester: ffmpegcolorspace ueuev
+ 
+Elements Linked
+If the server gets stuck at this point then there is an error ..perhaps
+an incompatible input file.
+ 
+ 
+Pl help on this.
+ 
+Thanks &amp; Regards,
+Indranil
+ 
+
+________________________________
+
+From: Richard Spiers [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>] 
+Sent: Tuesday, September 16, 2008 6:18 PM
+To: Indranil Chatterjee (WT01 - Testing Services)
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: Re: [Uctimsclient-users] Error in starting UCTIpTV streaming
+server
+
+
+Hi Indranil
+
+What are the other lines of that command looking like - are they all in
+/usr/local/lib ? I.e. something like libgtk-x11-2.0.so.0 =&gt;
+/usr/lib/libgtk-x11-2.0.so.0 ?
+
+Kind Regards
+Richard Spiers
+
+
+On Tue, Sep 16, 2008 at 2:45 PM, &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">indranil.chatterjee at wipro.com</A>&gt; wrote:
+
+
+	Hi Richard,
+	 
+	When I give the command &quot; ldd uctiptv&quot; it says libeXosip2.so.4
+=&gt; not found
+	 
+	But when I give &quot; locate libeXosip2.so.4&quot; it locates the file in
+/usr/local/lib.
+	 
+	Am I untaring the libeXosip2 tar file in wrong place ? Pl direct
+as i am having the tar.gz of the library file.
+	 
+	I am running Red Hat version of linux.
+	 
+	Thanks &amp; Regards,
+	Indranil
+	 
+	 
+
+________________________________
+
+	From: Richard Spiers [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>] 
+	Sent: Tuesday, September 16, 2008 6:06 PM
+	To: Indranil Chatterjee (WT01 - Testing Services)
+	Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+	Subject: Re: [Uctimsclient-users] Error in starting UCTIpTV
+streaming server
+	
+	
+	Hi Indranil
+	
+	Can you run the ldd command on the binary created ? (i.e. ldd
+uctiptv ) ?
+	
+	You should get a list showing something like libeXosip2.so.4 =&gt;
+/usr/lib/libeXosip2.so.4.
+	
+	Where is it looking for the file ? What distribution are you
+running ? Ubuntu places most things in /usr instead of /usr/local
+	
+	Kind Regards
+	Richard Spiers
+	
+	
+	On Tue, Sep 16, 2008 at 2:06 PM, &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">indranil.chatterjee at wipro.com</A>&gt;
+wrote:
+	
+
+		Hi Richard,
+		 
+		I am using the 1.0.2 version of UCT Iptv Server and
+followed all the steps given in UCT IPtv Streaming server section of the
+UCT home page.
+		 
+		Pl help.
+		 
+		Thanks &amp; Regards,
+		Indranil
+
+________________________________
+
+		From: Richard Spiers [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>] 
+		Sent: Tuesday, September 16, 2008 5:25 PM
+		To: Indranil Chatterjee (WT01 - Testing Services)
+		Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+		Subject: Re: [Uctimsclient-users] Error in starting
+UCTIpTV streaming server
+		
+		
+		Hi Indranil
+		
+		What distribution are you running ? What version of the
+uctiptv server are you running ?
+		
+		Kind Regards
+		Richard Spiers
+		
+		
+		On Tue, Sep 16, 2008 at 1:11 PM,
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">indranil.chatterjee at wipro.com</A>&gt; wrote:
+		
+
+			Hi,
+			 
+			I was trying to install UCTiptv streaming
+server. I followed the steps whatever mentioned in the UCT home page.
+			 
+			While trying to run uctiptv, I am getting the
+following error :
+			 
+			./uctiptv:error while loading shared
+libraries:libeXosip2.so.4:cannot open shared object file : No such file
+or directory.
+			 
+			 
+			But the above file is present in /usr/local/lib.
+Pl help in where it might got wrong.
+			 
+			Thanks &amp; Regards,
+			Indranil
+
+			Please do not print this email unless it is
+absolutely necessary. 
+
+			The information contained in this electronic
+message and any attachments to this message are intended for the
+exclusive use of the addressee(s) and may contain proprietary,
+confidential or privileged information. If you are not the intended
+recipient, you should not disseminate, distribute or copy this e-mail.
+Please notify the sender immediately and destroy all copies of this
+message and any attachments. 
+
+			WARNING: Computer viruses can be transmitted via
+email. The recipient should check this email and any attachments for the
+presence of viruses. The company accepts no liability for any damage
+caused by any virus transmitted by this email. 
+
+			www.wipro.com 
+
+
+			_______________________________________________
+			Uctimsclient-users mailing list
+			<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+	
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+			
+			
+
+
+		Please do not print this email unless it is absolutely
+necessary. 
+
+		The information contained in this electronic message and
+any attachments to this message are intended for the exclusive use of
+the addressee(s) and may contain proprietary, confidential or privileged
+information. If you are not the intended recipient, you should not
+disseminate, distribute or copy this e-mail. Please notify the sender
+immediately and destroy all copies of this message and any attachments. 
+
+		WARNING: Computer viruses can be transmitted via email.
+The recipient should check this email and any attachments for the
+presence of viruses. The company accepts no liability for any damage
+caused by any virus transmitted by this email. 
+
+		www.wipro.com 
+
+
+	Please do not print this email unless it is absolutely
+necessary. 
+
+	The information contained in this electronic message and any
+attachments to this message are intended for the exclusive use of the
+addressee(s) and may contain proprietary, confidential or privileged
+information. If you are not the intended recipient, you should not
+disseminate, distribute or copy this e-mail. Please notify the sender
+immediately and destroy all copies of this message and any attachments. 
+
+	WARNING: Computer viruses can be transmitted via email. The
+recipient should check this email and any attachments for the presence
+of viruses. The company accepts no liability for any damage caused by
+any virus transmitted by this email. 
+
+	www.wipro.com 
+
+
+
+Please do not print this email unless it is absolutely necessary. 
+
+The information contained in this electronic message and any attachments to this message are intended for the exclusive use of the addressee(s) and may contain proprietary, confidential or privileged information. If you are not the intended recipient, you should not disseminate, distribute or copy this e-mail. Please notify the sender immediately and destroy all copies of this message and any attachments. 
+
+WARNING: Computer viruses can be transmitted via email. The recipient should check this email and any attachments for the presence of viruses. The company accepts no liability for any damage caused by any virus transmitted by this email. 
+
+www.wipro.com
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080917/d4618757/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080917/d4618757/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000382.html">[Uctimsclient-users] Error in starting UCTIpTV streaming server
+</A></li>
+	<LI>Next message: <A HREF="000384.html">[Uctimsclient-users] Error in starting UCTIpTV streaming server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#383">[ date ]</a>
+              <a href="thread.html#383">[ thread ]</a>
+              <a href="subject.html#383">[ subject ]</a>
+              <a href="author.html#383">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

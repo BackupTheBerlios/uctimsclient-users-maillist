@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem on remote video port
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20on%20remote%20video%20port&In-Reply-To=%3Cd7d566c20804020125t267774d5sbf8533c51e135e9a%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000202.html">
+   <LINK REL="Next"  HREF="000204.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem on remote video port</H1>
+    <B>Richard Spiers</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20on%20remote%20video%20port&In-Reply-To=%3Cd7d566c20804020125t267774d5sbf8533c51e135e9a%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Problem on remote video port">richard.spiers at gmail.com
+       </A><BR>
+    <I>Wed Apr  2 10:25:30 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000202.html">[Uctimsclient-users] Problem on remote video port
+</A></li>
+        <LI>Next message: <A HREF="000204.html">[Uctimsclient-users] FW: Display movie name on ims client frm the	iptv server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#203">[ date ]</a>
+              <a href="thread.html#203">[ thread ]</a>
+              <a href="subject.html#203">[ subject ]</a>
+              <a href="author.html#203">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Shan
+
+To be honest, the IPTV server wasn't designed to only stream audio - Hence
+we reject any calls that do not have video enabled. The rest of the messages
+provided by the server (e.g. ffenc_h263p etc) is what you should see when
+using a compatible file (with more information instead of NULL if there is
+actually a video component).
+
+I think the difficulties you are experiencing have to do with the gstreamer
+plugins you are running.
+
+What version are you using ?
+
+Does a command line like the following work ?
+
+gst-launch-0.10 filesrc location=/path/to/file.avi ! decodebin name=dbin !
+audioconvert ! audioresample ! queue ! ffenc_mp2 !  rtpmpapay ! udpsink
+port=2222 dbin. ! ffmpegcolorspace ! queue ! ffenc_h263p ! rtph263ppay !
+udpsink port=2223
+
+This command starts streaming the file - audio to port 2222 and video to
+port 2223.
+
+To receive the video you can use
+
+ gst-launch-0.10 udpsrc port=2223 caps=&quot;application/x-rtp,
+media=(string)video, clock-rate=(int)90000, encoding-name=(string)H263-1998,
+payload=(int)96, ssrc=(guint)647401835, clock-base=(guint)3452060272,
+seqnum-base=(guint)60746&quot;  ! rtph263pdepay ! ffdec_h263 ! ffmpegcolorspace !
+xvimagesink sync=false
+
+Can you try these out and get back to me ?
+
+(What happens if you run the client and enable video calling - I havn't done
+this myself so I dont know if it will work or not. It can be found in the
+preferences.)
+
+Kind Regards
+Richard Spiers
+
+On Wed, Apr 2, 2008 at 3:33 AM, shan huali &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">shanhuali at gmail.com</A>&gt; wrote:
+
+&gt;<i> Hi all,
+</I>&gt;<i>     I try to install IPTV server with an audio file.Judging by the result,
+</I>&gt;<i> I guess installation is OK(see below). But when I start the uct client to
+</I>&gt;<i> use IPTV service, IPTV server doesn't work. It shows that (part of)
+</I>&gt;<i>
+</I>&gt;<i> *Remote Video Port: 0 *
+</I>&gt;<i>
+</I>&gt;<i> *This client has not provided us with any video port - rejecting this call
+</I>&gt;<i> *
+</I>&gt;<i>
+</I>&gt;<i> The successful installation result is :
+</I>&gt;<i>
+</I>&gt;<i> *[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> uctiptv1.0.1]# ./uctiptv 500000 1 /media/2.wmv *
+</I>&gt;<i>
+</I>&gt;<i> *Initialising 1 on channel1 *
+</I>&gt;<i>
+</I>&gt;<i> *Starting channel1 *
+</I>&gt;<i>
+</I>&gt;<i> *Elements created *
+</I>&gt;<i>
+</I>&gt;<i> *Pipeline created *
+</I>&gt;<i>
+</I>&gt;<i> *Setting Bitrate to 500000  *
+</I>&gt;<i>
+</I>&gt;<i> *Creating Decodebin  *
+</I>&gt;<i>
+</I>&gt;<i> *Adding items  *
+</I>&gt;<i>
+</I>&gt;<i> *Linking items  *
+</I>&gt;<i>
+</I>&gt;<i> *Elements linked *
+</I>&gt;<i>
+</I>&gt;<i> *
+</I>&gt;<i> If the server gets stuck at this point then there is an error... perhaps an incompatible input file
+</I>&gt;<i> *
+</I>&gt;<i>
+</I>&gt;<i> *ffenc_h263p Caps: *
+</I>&gt;<i>
+</I>&gt;<i> **
+</I>&gt;<i>
+</I>&gt;<i> *
+</I>&gt;<i> (&lt;unknown&gt;:7118): GStreamer-WARNING **: pad mpegaudioparse0:src returned caps which are not a real subset of its template caps
+</I>&gt;<i> *
+</I>&gt;<i>
+</I>&gt;<i> **
+</I>&gt;<i>
+</I>&gt;<i> *
+</I>&gt;<i> (&lt;unknown&gt;:7118): GStreamer-WARNING **: pad mpegaudioparse0:src returned caps which are not a real subset of its template caps
+</I>&gt;<i> *
+</I>&gt;<i>
+</I>&gt;<i> *NULL *
+</I>&gt;<i>
+</I>&gt;<i> **
+</I>&gt;<i>
+</I>&gt;<i> *Video Caps: *
+</I>&gt;<i>
+</I>&gt;<i> *NULL *
+</I>&gt;<i>
+</I>&gt;<i> **
+</I>&gt;<i>
+</I>&gt;<i> *Audio Caps: *
+</I>&gt;<i>
+</I>&gt;<i> *
+</I>&gt;<i> application/x-rtp, media=(string)audio, clock-rate=(int)90000, encoding-name=(string)MPA, payload=(int)96, ssrc=(guint)3735939295, clock-base=(guint)2904781530, seqnum-base=(guint)46729
+</I>&gt;<i> *
+</I>&gt;<i>
+</I>&gt;<i> **
+</I>&gt;<i>
+</I>&gt;<i> *Returning from channel channel1 init  *
+</I>&gt;<i>
+</I>&gt;<i> *IPTV Appserver started on port 7070 *
+</I>&gt;<i>
+</I>&gt;<i> *       *Can anyone help me?
+</I>&gt;<i>
+</I>&gt;<i> **
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080402/ce4c2c3b/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080402/ce4c2c3b/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000202.html">[Uctimsclient-users] Problem on remote video port
+</A></li>
+	<LI>Next message: <A HREF="000204.html">[Uctimsclient-users] FW: Display movie name on ims client frm the	iptv server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#203">[ date ]</a>
+              <a href="thread.html#203">[ thread ]</a>
+              <a href="subject.html#203">[ subject ]</a>
+              <a href="author.html#203">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

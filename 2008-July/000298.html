@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Sip request
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Sip%20request&In-Reply-To=%3C487202FC.5030908%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000297.html">
+   <LINK REL="Next"  HREF="000299.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Sip request</H1>
+    <B>Robert Marston</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Sip%20request&In-Reply-To=%3C487202FC.5030908%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Sip request">rmarston at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Mon Jul  7 13:50:20 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000297.html">[Uctimsclient-users] NAT changes?
+</A></li>
+        <LI>Next message: <A HREF="000299.html">[Uctimsclient-users] Sip request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#298">[ date ]</a>
+              <a href="thread.html#298">[ thread ]</a>
+              <a href="subject.html#298">[ subject ]</a>
+              <a href="author.html#298">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+Wathana Hak wrote:
+&gt;<i> Hi
+</I>&gt;<i>
+</I>&gt;<i> I would like to know when you will release your solution.
+</I>&gt;<i>   
+</I>As soon as possible. Sometime this week or the next it just depends on
+how difficult I find it to implement the last few things I need to do,
+currently we are trying to make the solution as standards compliant as
+possible.
+&gt;<i> I also have a question : I would like to save my video position in the hss and get it later. Do you have an idea to do that??
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>What do you mean by save the video position in the HSS? Are you
+referring to the media server's address that contains the video files,
+the file location of the video the user is requesting or the actual
+position in the video the user is watching?
+
+&gt;<i> Thanks in advance
+</I>&gt;<i>
+</I>&gt;<i> Wathana
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i> ----------------------------------------
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Date: Tue, 1 Jul 2008 20:39:19 +0200
+</I>&gt;&gt;<i> Subject: Re: [Uctimsclient-users] Sip request
+</I>&gt;&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rmarston at crg.ee.uct.ac.za</A>
+</I>&gt;&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">wathana35 at hotmail.com</A>
+</I>&gt;&gt;<i> CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> For those of you interested in VoD, I am currently working on an enhanced
+</I>&gt;&gt;<i> IPTV/VoD solution for the UCT IMS client. It will include functionality to
+</I>&gt;&gt;<i> create Electronic Program Guides for IPTV and VoD and an IPTV Application
+</I>&gt;&gt;<i> Server.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I will probably release an initial prototype of the solution by the end of
+</I>&gt;&gt;<i> this week.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards
+</I>&gt;&gt;<i> Robert
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Communications Research Group
+</I>&gt;&gt;<i> Electrical Engineering
+</I>&gt;&gt;<i> University of Cape Town
+</I>&gt;&gt;<i> South Africa
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     
+</I>Richard is currently integrating in some rtsp client support for the UCT
+IMS client which will allow you request a stream via rtsp and play it. I
+have created a server application that at present returns an rtsp
+address to any client that requests an IPTV channel or video on demand.
+
+At present we are working on adding hss lookup authentication for
+clients requesting streams from the IPTV application server and then
+linking that in with a media control function which will be responsible
+for interfacing between the client and the media server (Ensures
+security and will allow the use of any media server you wish, eg
+Videolan, Darwin, etc since it won't need to speak SIP).
+
+Regards
+Robert
+
+-- 
+Communications Research Group
+Electrical Engineering
+University of Cape Town
+South Africa
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000297.html">[Uctimsclient-users] NAT changes?
+</A></li>
+	<LI>Next message: <A HREF="000299.html">[Uctimsclient-users] Sip request
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#298">[ date ]</a>
+              <a href="thread.html#298">[ thread ]</a>
+              <a href="subject.html#298">[ subject ]</a>
+              <a href="author.html#298">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem opening IPTV stream
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20opening%20IPTV%20stream&In-Reply-To=%3C474F646B.1090007%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000156.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem opening IPTV stream</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20opening%20IPTV%20stream&In-Reply-To=%3C474F646B.1090007%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Problem opening IPTV stream">dwaiting at gmail.com
+       </A><BR>
+    <I>Fri Nov 30 02:16:27 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000156.html">[Uctimsclient-users]  Problem opening IPTV stream
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#157">[ date ]</a>
+              <a href="thread.html#157">[ thread ]</a>
+              <a href="subject.html#157">[ subject ]</a>
+              <a href="author.html#157">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Nacho
+
+It looks like the server is working fine but there is a small bug with 
+the client. I put in a method to open up NATs but if it fails I think it 
+keeps the port open and the video cannot bind to that port.
+
+In the common_exosip_event_handler.c just comment out these lines (185 
+and 186) and recompile:
+
+   media_open_nat(ca-&gt;remote_audio_ip, ca-&gt;remote_audio_port, 
+ca-&gt;local_audio_port);
+   media_open_nat(ca-&gt;remote_video_ip, ca-&gt;remote_video_port, 
+ca-&gt;local_video_port);
+
+I hope that solves the problem.
+
+Regards
+
+Dave
+
+Nacho Conde wrote:
+&gt;<i> Hi All,
+</I>&gt;<i>     I've  installed successfully  the IPTV streaming server and I think 
+</I>&gt;<i> the server runs OK:
+</I>&gt;<i>
+</I>&gt;<i>     /uctiptv 1000000 1 House.avi /
+</I>&gt;<i>     /Initialising 1 on channel1/
+</I>&gt;<i>     /Starting channel1/
+</I>&gt;<i>     /Elements created/
+</I>&gt;<i>     /Pipeline created/
+</I>&gt;<i>     /Setting Bitrate to 1000000 /
+</I>&gt;<i>     /Creating Decodebin /
+</I>&gt;<i>     /Adding items /
+</I>&gt;<i>     /Linking items /
+</I>&gt;<i>     /Elements linked/
+</I>&gt;<i>     /ffenc_h263p Caps:/
+</I>&gt;<i>     /video/x-raw-yuv, width=(int)624, height=(int)352,
+</I>&gt;<i>     framerate=(fraction)25/1, format=(fourcc)I420,
+</I>&gt;<i>     pixel-aspect-ratio=(fraction)1/1/
+</I>&gt;<i>
+</I>&gt;<i>     /Video Caps:/
+</I>&gt;<i>     /application/x-rtp, media=(string)video, payload=(int)96,
+</I>&gt;<i>     clock-rate=(int)90000, encoding-name=(string)H263-1998,
+</I>&gt;<i>     ssrc=(guint)4109078151, clock-base=(guint)4256599743,
+</I>&gt;<i>     seqnum-base=(guint)28109/
+</I>&gt;<i>
+</I>&gt;<i>     /Audio Caps:/
+</I>&gt;<i>     /application/x-rtp, media=(string)audio, payload=(int)96,
+</I>&gt;<i>     clock-rate=(int)90000, encoding-name=(string)MPA,
+</I>&gt;<i>     ssrc=(guint)649579945, clock-base=(guint)4260157850,
+</I>&gt;<i>     seqnum-base=(guint)12843/
+</I>&gt;<i>
+</I>&gt;<i>     /Returning from channel channel1 init /
+</I>&gt;<i>     /IPTV Appserver started on port 7070/
+</I>&gt;<i>
+</I>&gt;<i> When I run the uctimsclient and  i make a call to the channel 1 I can 
+</I>&gt;<i> hear the audio but i can't see the video, i haven't any other app 
+</I>&gt;<i> running on this port.
+</I>&gt;<i>
+</I>&gt;<i>     / uctimsclient
+</I>&gt;<i>     UCT IMS Client - SIP port 5060  - Audio Port: 32278 - Video Port: 28561
+</I>&gt;<i>
+</I>&gt;<i>     sendto: Invalid argument
+</I>&gt;<i>
+</I>&gt;<i>     ** (uctimsclient:12791): WARNING **: GStreamer: gstudpsrc.c(818):
+</I>&gt;<i>     gst_udpsrc_start (): /IPTV_Video_Receive_Pipeline/udp_src:
+</I>&gt;<i>     bind failed -1: Address already in use (98) - There may be a problem
+</I>&gt;<i>     opening IPTV stream./
+</I>&gt;<i>
+</I>&gt;<i> The response from the video seems to be Ok:
+</I>&gt;<i>
+</I>&gt;<i>     /Event type: 5 New call received!/
+</I>&gt;<i>     /To: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at iptv.atenea.imscore</A>/
+</I>&gt;<i>     /From: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ics266 at atenea.imscore</A> &quot;Nacho&quot;/
+</I>&gt;<i>     /Local IP: 10.95.31.17/
+</I>&gt;<i>     /Remote IP Audio: 10.95.23.118/
+</I>&gt;<i>     /Remote IP Video: 10.95.23.118/
+</I>&gt;<i>     /Local Audio Port: 2222/
+</I>&gt;<i>     /Local Video Port: 2223/
+</I>&gt;<i>     /Remote Audio Port: 32278/
+</I>&gt;<i>     /Remote Video Port: 28561/
+</I>&gt;<i>     /Channel1/
+</I>&gt;<i>     /Adding host 10.95.23.118 with audio port 32278, video port 28561 to
+</I>&gt;<i>     channel 1 /
+</I>&gt;<i>     /Event type: 27 New request outside call received!/
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance and congratulations for your client development, We 
+</I>&gt;<i> are testing the OpenImsCore with the UctImsclient and it's been a nice 
+</I>&gt;<i> experience because it's works!! :-)
+</I>&gt;<i>
+</I>&gt;<i> Best Regards from Madrid.
+</I>&gt;<i>
+</I>&gt;<i> Nacho.
+</I>&gt;<i> /
+</I>&gt;<i> /
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000156.html">[Uctimsclient-users]  Problem opening IPTV stream
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#157">[ date ]</a>
+              <a href="thread.html#157">[ thread ]</a>
+              <a href="subject.html#157">[ subject ]</a>
+              <a href="author.html#157">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

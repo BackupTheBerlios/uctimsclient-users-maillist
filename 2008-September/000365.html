@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT IPTV/VOD
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20IPTV/VOD&In-Reply-To=%3C41783.41.245.140.120.1220341815.squirrel%40crgmail.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000364.html">
+   <LINK REL="Next"  HREF="000366.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT IPTV/VOD</H1>
+    <B>Robert Marston</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20IPTV/VOD&In-Reply-To=%3C41783.41.245.140.120.1220341815.squirrel%40crgmail.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] UCT IPTV/VOD">rmarston at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Tue Sep  2 09:50:15 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000364.html">[Uctimsclient-users] UCT IPTV/VOD
+</A></li>
+        <LI>Next message: <A HREF="000366.html">[Uctimsclient-users] SIP method to pause the vod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#365">[ date ]</a>
+              <a href="thread.html#365">[ thread ]</a>
+              <a href="subject.html#365">[ subject ]</a>
+              <a href="author.html#365">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Khaldon
+
+Thanks for you feedback, we appreciate it. To answer your question the
+RTSP attached to the 200 OK follows RFC 2017 by inserting the RTSP address
+as a message/external-body in the Content-Type of the reply.
+
+When the client receives this it extracts the RTSP url and uses libvlc to
+establish the RTSP session with the video server and begin viewing the
+stream.
+
+The solution is not fully conformant with ETSI TISPAN standards.The invite
+should in fact be forwarded onto the Media Control Function by the
+Application Server once it has checked that the user is allowed to access
+the content. Also the use of the message/external-body is not correct and
+the SDP should instead contain and &quot;m=&quot; line conveying the RTSP details in
+either the clients initial invite or in the 200 OK sent by the MCF in
+response to the invite.
+
+We are currently looking at implementing an MCF and extending the client
+to to be ETSI TS compliant.
+
+Regards
+Robert
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I've set up the IPTV server and it works well! You have done a great job!
+</I>&gt;<i> I was just wondering if the VOD system was following a kind of RFC or just
+</I>&gt;<i> come from your wn implementation(especially the RTSP address attached to
+</I>&gt;<i> the
+</I>&gt;<i> 200 OK message).
+</I>&gt;<i>
+</I>&gt;<i> Thanks
+</I>&gt;<i> Khaldon
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000364.html">[Uctimsclient-users] UCT IPTV/VOD
+</A></li>
+	<LI>Next message: <A HREF="000366.html">[Uctimsclient-users] SIP method to pause the vod
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#365">[ date ]</a>
+              <a href="thread.html#365">[ thread ]</a>
+              <a href="subject.html#365">[ subject ]</a>
+              <a href="author.html#365">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

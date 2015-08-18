@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctpdf --&gt; web interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctpdf%20--%3E%20web%20interface&In-Reply-To=%3C47D65F1B.2050003%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000192.html">
+   <LINK REL="Next"  HREF="000194.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctpdf --&gt; web interface</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctpdf%20--%3E%20web%20interface&In-Reply-To=%3C47D65F1B.2050003%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] uctpdf --&gt; web interface">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Tue Mar 11 11:29:47 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000192.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+        <LI>Next message: <A HREF="000194.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#193">[ date ]</a>
+              <a href="thread.html#193">[ thread ]</a>
+              <a href="subject.html#193">[ subject ]</a>
+              <a href="author.html#193">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Pedro,
+
+The installation guide is designed to work with Ubuntu, so there are a 
+few differences between distributions.
+
+A blank screen implies that Tomcat cannot find the web application - for 
+Ubuntu the folder for webapps is /var/lib/tomcatX.X/webapps, while I 
+think with Fedora the webapps directory is /usr/share/tomcatX.X/webapps. 
+So this is where you should be copying the uct_web_pcm folder.
+
+There could be other differences - e.g. the default listening port for 
+non secure connections (For Ubuntu this is 8180, check 
+/etc/tomcatX.X/server.xml for this), and the tomcat policy folder.
+
+Regards,
+Richard.
+
+
+Pedro Antonio Vico Solano wrote:
+&gt;<i>
+</I>&gt;<i> Hello all,
+</I>&gt;<i>
+</I>&gt;<i> I'm trying to setup the PDF for Core IMS, everything seem to run OK 
+</I>&gt;<i> except the Web Interface.
+</I>&gt;<i>
+</I>&gt;<i> I'm using a Fedora 5 and the base Tomcat server seems to be OK because 
+</I>&gt;<i> the example webapps and JSPs  work fine.
+</I>&gt;<i>
+</I>&gt;<i> When I try to load the PDF webapp (<A HREF="http://localhost:8180/uct_web_pcm">http://localhost:8180/uct_web_pcm</A>) 
+</I>&gt;<i> I get a blank screen.
+</I>&gt;<i>
+</I>&gt;<i> Can anyone help me?
+</I>&gt;<i>
+</I>&gt;<i> Best regards
+</I>&gt;<i> Pedro
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000192.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+	<LI>Next message: <A HREF="000194.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#193">[ date ]</a>
+              <a href="thread.html#193">[ thread ]</a>
+              <a href="subject.html#193">[ subject ]</a>
+              <a href="author.html#193">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

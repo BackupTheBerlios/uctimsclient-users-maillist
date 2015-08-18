@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20client%20%22Network%20unreachable%22&In-Reply-To=%3Ca42e68ed0807270703g37b0aa68ma083aceb1435207d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000313.html">
+   <LINK REL="Next"  HREF="000314.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT client &quot;Network unreachable&quot;</H1>
+    <B>ims.asuser ims.asuser</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20client%20%22Network%20unreachable%22&In-Reply-To=%3Ca42e68ed0807270703g37b0aa68ma083aceb1435207d%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] UCT client &quot;Network unreachable&quot;">ims.asuser at gmail.com
+       </A><BR>
+    <I>Sun Jul 27 16:03:12 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000313.html">[Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</A></li>
+        <LI>Next message: <A HREF="000314.html">[Uctimsclient-users] [Fwd: Re:  Enabling MSRP]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#319">[ date ]</a>
+              <a href="thread.html#319">[ thread ]</a>
+              <a href="subject.html#319">[ subject ]</a>
+              <a href="author.html#319">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I finally solved the problem. I've set up a &quot;small network&quot; with a switch
+running DHCP. Now it works well :)
+I think that David is right: the client needs a default route...as my switch
+is running DHCP, every works well because the DHCP takes care of everything
+(especiallt default route)
+
+Thanks anyway!
+Khaldon
+
+2008/7/25 David Waiting (DC) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">WaitinDC at telkom.co.za</A>&gt;
+
+&gt;<i>  Hi Khaldon
+</I>&gt;<i>
+</I>&gt;<i> Two questions:
+</I>&gt;<i>
+</I>&gt;<i> 1. Can the second machine that the client is on use the DNS, i.e. can it
+</I>&gt;<i> ping pcsf.open-ims.test, as apposed to the IP address?
+</I>&gt;<i>
+</I>&gt;<i> 2. Do you have a default route setup in linux? I seem to recall that eXosip
+</I>&gt;<i> complains (possibly with a Network Unreachable error) if you don't have a
+</I>&gt;<i> default route, even if you don't need it. Try
+</I>&gt;<i> route add default gw 192.168.1.7
+</I>&gt;<i>
+</I>&gt;<i> Hope that helps.
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i> Dave
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  ------------------------------
+</I>&gt;<i> *From:* <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A> [mailto:
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] *On Behalf Of *ims.asuser
+</I>&gt;<i> ims.asuser
+</I>&gt;<i> *Sent:* 24 July 2008 07:08 PM
+</I>&gt;<i> *To:* <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> *Subject:* [Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</I>&gt;<i>
+</I>&gt;<i>  Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I have a very special issue :)
+</I>&gt;<i> I have installed OpenIMSCore and it works well.
+</I>&gt;<i> I have a LAN with 2 PCs: 1 running OpenIMSCore (192.168.1.7) and another
+</I>&gt;<i> one for the client (192.168.1.8). The machines can &quot;ping&quot; each other.
+</I>&gt;<i> OpenIMSCore is running normally (the P/I/S CSCFs and FHoSS) can communicate
+</I>&gt;<i> each other. The ping is also working with names such pcscf.open-ims.test,
+</I>&gt;<i> pcscf.open-ims.test, icscf.open-ims.test, scscf.open-ims.test,
+</I>&gt;<i> hss.open-ims.test.
+</I>&gt;<i> The problem is that when I run the uctimsclient (with root privileges), a
+</I>&gt;<i> message is displaying &quot;Network unreachable&quot;. My network is well configured.
+</I>&gt;<i> If I run the uctimsclient on a machine connected directly on Internet, that
+</I>&gt;<i> message doesn't appear.
+</I>&gt;<i>
+</I>&gt;<i> I spent the whole day wondering about the reason...Now I really need help.
+</I>&gt;<i>
+</I>&gt;<i> Is anyone knows how to fix this issue?
+</I>&gt;<i>
+</I>&gt;<i> Thanks a lot!
+</I>&gt;<i> Khaldon
+</I>&gt;<i> ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</I>&gt;<i> This e-mail is subject to the Telkom SA electronic communication legal
+</I>&gt;<i> notice, available at :
+</I>&gt;<i> <A HREF="http://www.telkom.co.za/TelkomEMailLegalNotice.PDF">http://www.telkom.co.za/TelkomEMailLegalNotice.PDF</A>
+</I>&gt;<i> ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080727/767c2469/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080727/767c2469/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000313.html">[Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</A></li>
+	<LI>Next message: <A HREF="000314.html">[Uctimsclient-users] [Fwd: Re:  Enabling MSRP]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#319">[ date ]</a>
+              <a href="thread.html#319">[ thread ]</a>
+              <a href="subject.html#319">[ subject ]</a>
+              <a href="author.html#319">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

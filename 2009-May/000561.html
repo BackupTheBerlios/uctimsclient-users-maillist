@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] 6 questions about QoS,	UCT Policy Control Function, SIPp
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%206%20questions%20about%20QoS%2C%0A%09UCT%20Policy%20Control%20Function%2C%20SIPp&In-Reply-To=%3CBAY136-W39D29D0AE3C20694F88A25BF610%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000560.html">
+   <LINK REL="Next"  HREF="000562.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] 6 questions about QoS,	UCT Policy Control Function, SIPp</H1>
+    <B>Paolo M</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%206%20questions%20about%20QoS%2C%0A%09UCT%20Policy%20Control%20Function%2C%20SIPp&In-Reply-To=%3CBAY136-W39D29D0AE3C20694F88A25BF610%40phx.gbl%3E"
+       TITLE="[Uctimsclient-users] 6 questions about QoS,	UCT Policy Control Function, SIPp">pamapa at hotmail.it
+       </A><BR>
+    <I>Wed May 13 17:13:39 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000560.html">[Uctimsclient-users] pstn-ims
+</A></li>
+        <LI>Next message: <A HREF="000562.html">[Uctimsclient-users] 6 questions about QoS, UCT Policy Control Function, SIPp
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#561">[ date ]</a>
+              <a href="thread.html#561">[ thread ]</a>
+              <a href="subject.html#561">[ subject ]</a>
+              <a href="author.html#561">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hi, my first 2 mails were lost, so:
+
+First question about media negotiation and QOS (using UCT PCRF PCEF): 
+- when does the P-cscf send to PCRF the SDP to permit/not permit the session progress? (during 103 &lt;--- ? )
+- which flags in which packets set QoS to mandatory?  (Require: precondition &amp;&amp; Require: sec-agree &amp;&amp; Proxy-Require: sec-agree &amp;&amp; Supported: 100rel ???)
+
+the sip packet flow is:
+ BOB calls ALICE
+bob
+INVITE ----------&gt;                             
+         100 &lt;----------        
+         101 &lt;----------         
+         183 &lt;----------        
+       PRACK ----------&gt;      
+         101 &lt;----------         
+         200 &lt;----------        
+      UPDATE ----------&gt;   
+         180 &lt;----------         
+         200 &lt;----------        
+       PRACK ----------&gt;    
+         180 &lt;----------              
+         200 &lt;----------         
+         200 &lt;----------         
+         ACK ----------&gt;   
+
+alice
+ ----------&gt; INVITE             
+  &lt;---------- 101                
+  &lt;---------- 183                
+  ----------&gt; PRACK          
+  &lt;---------- 200                
+  ----------&gt; INVITE           
+  ----------&gt; UPDATE       
+  &lt;---------- 180                
+  &lt;---------- 200                
+  ----------&gt; PRACK          
+  &lt;---------- 200                
+  &lt;---------- 200               
+  ----------&gt; INVITE           
+  ----------&gt; ACK                
+
+another one:
+- can i reproduce Sip packet exchange between two UCTIMSCLIENT with two SIPp istances? does anyone know where i can found this specific sip paket exchange? (i think that sniffing is not sufficient)...
+
+- Last part:
+i'm trying to reproduce the call setup with qos, usually done using two UCTIMSCLIENTs, this time using two SIPp.
+
+i sniffed all packets excange between two clients and i wrote manually all sip packet headers and bodies into sipp .xml files.
+
+now i would like to connect SIPp with one UCTIMSCLIENT.
+
+after a successful registration (both sides),  SIPp (Alice) waits UCTIMSClient INVITE (Bob).
+i click &quot;Call Alice&quot; from Client interface and SIPp receives the INVITE.
+100 Trying is captured,
+SIPp send 101 and 183
+183 is captured, but 101 seams not to be read by UCTIMSCLIENT and it still retransmitted, until the call progress is released after timeout.
+
+The reverse case is better, one step more!
+SIPp send INVITE to UCTIMSCLIENT
+Client answer, wit 101 and 103
+SIPp receives both packet and send PRACK
+---&gt;PRACK is  propagated into the network but client doesn't respond with any packets and PRACK is bounced between S-&gt;P-&gt;Client.
+
+-Do you know something about this?
+
+if you are interested in this, i can send the two sipp xml files (with and without registration), but i don't know if mailing list can support it.
+
+
+
+_________________________________________________________________
+Messenger 2009: scaricalo gratis!
+<A HREF="http://messenger.it/">http://messenger.it/</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090513/caf12b9e/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090513/caf12b9e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000560.html">[Uctimsclient-users] pstn-ims
+</A></li>
+	<LI>Next message: <A HREF="000562.html">[Uctimsclient-users] 6 questions about QoS, UCT Policy Control Function, SIPp
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#561">[ date ]</a>
+              <a href="thread.html#561">[ thread ]</a>
+              <a href="subject.html#561">[ subject ]</a>
+              <a href="author.html#561">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

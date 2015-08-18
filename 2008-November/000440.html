@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCTIMSCLIENT: Error building presence	subscribe message. Probably an invalid URI
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTIMSCLIENT%3A%20Error%20building%20presence%0A%09subscribe%20message.%20Probably%20an%20invalid%20URI&In-Reply-To=%3Cd7d566c20811220947x3799d49dr2664a2cddb9f680a%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000437.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCTIMSCLIENT: Error building presence	subscribe message. Probably an invalid URI</H1>
+    <B>Richard Spiers</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTIMSCLIENT%3A%20Error%20building%20presence%0A%09subscribe%20message.%20Probably%20an%20invalid%20URI&In-Reply-To=%3Cd7d566c20811220947x3799d49dr2664a2cddb9f680a%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] UCTIMSCLIENT: Error building presence	subscribe message. Probably an invalid URI">richard.spiers at gmail.com
+       </A><BR>
+    <I>Sat Nov 22 18:47:38 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000437.html">[Uctimsclient-users] UCTIMSCLIENT: Error building presence	subscribe message. Probably an invalid URI
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+Have you had a look at a wireshark trace ? Is your presence server sending
+the messages on anywhere or are they just disappearing ?
+
+Do you have something like
+
+alias=presence.open-ims.test:5065
+
+in your opensips cfg file or have the domain set up correctly so it knows
+which messages to process ?
+
+I'm not an opensips expert, but I ran into something similar once where my
+opensips was trying to forward messages to an ICSCF as there was a problem
+with the domain.
+
+Kind Regards
+Richard Spiers
+
+On Fri, Nov 21, 2008 at 3:54 PM, Yinbo-cheng &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">chengyinbo at gmail.com</A>&gt; wrote:
+
+&gt;<i> Richard,
+</I>&gt;<i> Thank you for your help.
+</I>&gt;<i> Now I found that SUBSCRIBE and PUBLISH messages is going to the opensips
+</I>&gt;<i> server. But the presence server (PS) is probably not responding.
+</I>&gt;<i> I got the following message:
+</I>&gt;<i>         Status-Line: SIP/2.0 600 Busy everywhere - Forwarding to S-CSCF
+</I>&gt;<i> failed
+</I>&gt;<i> It seems that PS doesn't respond, then the uctimsclient always tries to
+</I>&gt;<i> send SUBSCRIBE message and S-CSCF forwards the message to PS.
+</I>&gt;<i> Maybe it's something wrong with the PS?  MY opensips config file is
+</I>&gt;<i> attached.
+</I>&gt;<i>
+</I>&gt;<i> Best Regards,
+</I>&gt;<i> Silverwave
+</I>&gt;<i>
+</I>&gt;<i> 2008/11/21 Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;
+</I>&gt;<i>
+</I>&gt;&gt;<i>  Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> It looks like the SUBSCRIBE and PUBLISH messages can not be correctly
+</I>&gt;&gt;<i> forwarded to the presence server.  Have you set up the iFC in the HSS to
+</I>&gt;&gt;<i> forward all presence related messages to the Presence Server?  Have a look
+</I>&gt;&gt;<i> at a wireshark trace at the machine running the OSIMS core, and ensure that
+</I>&gt;&gt;<i> the SUBSCRIBE and PUBLISH messages are correctly forwarded to the presence
+</I>&gt;&gt;<i> server.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i> Richard.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Yinbo-cheng wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> hello,everyone
+</I>&gt;&gt;<i> when I use uctimsclient to register the user &quot;alice&quot; or &quot;bob&quot;, i can make
+</I>&gt;&gt;<i> a call between alice and bob successfully.
+</I>&gt;&gt;<i> Now I have set up  a presence server using opensips, but i failed to use
+</I>&gt;&gt;<i> uctimsclient with presence service.
+</I>&gt;&gt;<i> In the terminal that run uctimsclient, I always get this message:
+</I>&gt;&gt;<i>       &quot;UCTIMSCLIENT: Error building presence subscribe message. Probably
+</I>&gt;&gt;<i> an invalid URI&quot;.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> and the following is the messages in the uctimsclient Messages box:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 16:03:02&gt; REGISTER
+</I>&gt;&gt;<i> 16:03:02&gt; Unauthorized - Challenging the UE (for REGISTER)
+</I>&gt;&gt;<i> 16:03:02&gt; REGISTER with credentials
+</I>&gt;&gt;<i> 16:03:02&gt; OK - SAR succesful and registrar saved (for REGISTER)
+</I>&gt;&gt;<i> 16:03:02&gt; IMPUs: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at open-ims.test</A>&gt;
+</I>&gt;&gt;<i> 16:03:02&gt; SUBSCRIBE (reg event)
+</I>&gt;&gt;<i> 16:03:02&gt; PUBLISH (presence)
+</I>&gt;&gt;<i> 16:03:02&gt; SUBSCRIBE (presence.winfo)
+</I>&gt;&gt;<i> 16:03:02&gt; Subscription to REG saved (for SUBSCRIBE)
+</I>&gt;&gt;<i> 16:03:02&gt; Unresolvable destination (476/TM) (for PUBLISH)
+</I>&gt;&gt;<i> 16:03:03&gt; Unresolvable destination (476/TM) (for SUBSCRIBE)
+</I>&gt;&gt;<i> 16:03:03&gt; NOTIFY
+</I>&gt;&gt;<i> 16:03:03&gt; OK (NOTIFY)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks in advance.
+</I>&gt;&gt;<i> silverwave
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">listUctimsclient-users at lists.berlios.dehttps</A>://lists.berlios.de/mailman/listinfo/uctimsclient-users
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> &#31243;&#38134;&#27874;
+</I>&gt;<i>
+</I>&gt;<i> &#30005;&#35805;: 010-62282296
+</I>&gt;<i> &#22320;&#22336;:&#21271;&#20140;&#37038;&#30005;&#22823;&#23398;&#23398;8&#27004;1223&#23460;
+</I>&gt;<i> &#37038;&#32534;:100876
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081122/eae2cc85/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081122/eae2cc85/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000437.html">[Uctimsclient-users] UCTIMSCLIENT: Error building presence	subscribe message. Probably an invalid URI
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

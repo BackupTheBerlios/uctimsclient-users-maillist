@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctpdf --&gt; web interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctpdf%20--%3E%20web%20interface&In-Reply-To=%3C1205311372.5647.10.camel%40walqa347%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000195.html">
+   <LINK REL="Next"  HREF="000197.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctpdf --&gt; web interface</H1>
+    <B>Eduardo Moreno</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctpdf%20--%3E%20web%20interface&In-Reply-To=%3C1205311372.5647.10.camel%40walqa347%3E"
+       TITLE="[Uctimsclient-users] uctpdf --&gt; web interface">eduardo.moreno at inycom.es
+       </A><BR>
+    <I>Wed Mar 12 09:42:51 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000195.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+        <LI>Next message: <A HREF="000197.html">[Uctimsclient-users] UCTPDF tests with regular SIP phones
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#196">[ date ]</a>
+              <a href="thread.html#196">[ thread ]</a>
+              <a href="subject.html#196">[ subject ]</a>
+              <a href="author.html#196">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hola Pedro.
+
+If tomcat installation was made through package manager we can suppose
+that is correct. So the problem should be an auxiliary issue. Maybe the
+Java installation. It is Java in the place that appear in tomcat5.conf?
+(/usr/lib/jvm/java-1.5.0-sun).
+By other hand the files in webapp directory have read permission for
+TOMCAT_USER=&quot;tomcat&quot;?
+
+See the Tomcat's log, perhaps it helps you. In my installation the log
+is in /var/log/tomcat5.5
+
+Regards...
+
+El mar, 11-03-2008 a las 12:29 +0100, Pedro Antonio Vico Solano
+escribi&#243;:
+
+&gt;<i> 
+</I>&gt;<i> Hola Eduardo and Richard, 
+</I>&gt;<i> 
+</I>&gt;<i> Yes, I followed all the steps on installation guide. The only
+</I>&gt;<i> difference between your Tomcat and mine is that my folders are:
+</I>&gt;<i>  .../tomcat5 instead of ../tomcat5.5 but my (whole) Tomcat version is
+</I>&gt;<i> 5.5.15
+</I>&gt;<i> 
+</I>&gt;<i> In Fedora the configuration and Webapps folders are the 'same' that in
+</I>&gt;<i> Ubuntu: 
+</I>&gt;<i> 
+</I>&gt;<i> Conf:                /etc/tomcat5 
+</I>&gt;<i> Webapps:        /var/lib/tomcat5/webapps 
+</I>&gt;<i> 
+</I>&gt;<i> I attach you the server.xml and tomcat5.conf.
+</I>&gt;<i> Directory /usr/share/tomcat5 is linked to /var/lib/tomcat5 
+</I>&gt;<i> 
+</I>&gt;<i> I think it is a problem with *.jsp files. If I change the PDF's webapp
+</I>&gt;<i> file 'index.jsp' to 'index.html' the server tries to do something. 
+</I>&gt;<i> 
+</I>&gt;<i> Best Regards 
+</I>&gt;<i> Pedro 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Eduardo Moreno
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">eduardo.moreno at inycom.es</A>&gt; 
+</I>&gt;<i> 
+</I>&gt;<i> 11/03/2008 11:44 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i>              Para
+</I>&gt;<i> Pedro Antonio
+</I>&gt;<i> Vico Solano
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">pvsolano at amper.es</A>&gt; 
+</I>&gt;<i>                cc
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A> 
+</I>&gt;<i>            Asunto
+</I>&gt;<i> Re:
+</I>&gt;<i> [Uctimsclient-users] uctpdf --&gt; web interface
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hola Pedro.
+</I>&gt;<i> 
+</I>&gt;<i> Did you follow the step 4 in installation guide?
+</I>&gt;<i> <A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>
+</I>&gt;<i> 
+</I>&gt;<i> In my case with Ubuntu there wasn't problem. Perhaps in Fedora the
+</I>&gt;<i> default configuration of Tomcat is different than the supposed by
+</I>&gt;<i> installation guide (made with Ubuntu in mind).
+</I>&gt;<i> I attach the default configuration file in Ubuntu. Review the Fedora
+</I>&gt;<i> one. It is possible that the default directory root (CATALINA_BASE
+</I>&gt;<i> variable) was in another place.
+</I>&gt;<i> 
+</I>&gt;<i> Saludos...
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> El mar, 11-03-2008 a las 10:43 +0100, Pedro Antonio Vico Solano
+</I>&gt;<i> escribi&#243;: 
+</I>&gt;<i> 
+</I>&gt;<i> Hello all, 
+</I>&gt;<i> 
+</I>&gt;<i> I'm trying to setup the PDF for Core IMS, everything seem to run OK
+</I>&gt;<i> except the Web Interface. 
+</I>&gt;<i> 
+</I>&gt;<i> I'm using a Fedora 5 and the base Tomcat server seems to be OK because
+</I>&gt;<i> the example webapps and JSPs  work fine. 
+</I>&gt;<i> 
+</I>&gt;<i> When I try to load the PDF webapp (<A HREF="http://localhost:8180/uct_web_pcm">http://localhost:8180/uct_web_pcm</A>)
+</I>&gt;<i> I get a blank screen. 
+</I>&gt;<i> 
+</I>&gt;<i> Can anyone help me? 
+</I>&gt;<i> 
+</I>&gt;<i> Best regards 
+</I>&gt;<i> Pedro 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> 
+</I>&gt;<i> AVISO LEGAL 
+</I>&gt;<i> 
+</I>&gt;<i> Este mensaje y los archivos que en su caso lleve adjuntos son privados
+</I>&gt;<i> y confidenciales y se dirigen exclusivamente a su destinatario. Por
+</I>&gt;<i> ello, se informa a quien lo reciba por error que la informaci&#243;n
+</I>&gt;<i> contenida en el mismo es reservada y su utilizaci&#243;n, copia o
+</I>&gt;<i> distribuci&#243;n est&#225; prohibida, por lo que en tal caso le rogamos que nos
+</I>&gt;<i> lo comunique por esta misma v&#237;a o por tel&#233;fono (+34976013300) y
+</I>&gt;<i> proceda a borrarlo de inmediato. 
+</I>&gt;<i>   
+</I>&gt;<i> En cumplimiento del Art. 5 de la Ley Org&#225;nica 15/1999, de 13 de
+</I>&gt;<i> diciembre, de Protecci&#243;n de Datos de Car&#225;cter Personal, se le informa
+</I>&gt;<i> que sus datos personales forman parte de un fichero propiedad de
+</I>&gt;<i> INSTRUMENTACI&#211;N Y COMPONENTES, S.A. En cualquier momento podr&#225;
+</I>&gt;<i> ejercitar sus derechos de acceso, cancelaci&#243;n, rectificaci&#243;n y
+</I>&gt;<i> oposici&#243;n RESPONDIENDO a este correo. 
+</I>&gt;<i>   
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080312/01d44e02/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080312/01d44e02/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000195.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+	<LI>Next message: <A HREF="000197.html">[Uctimsclient-users] UCTPDF tests with regular SIP phones
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#196">[ date ]</a>
+              <a href="thread.html#196">[ thread ]</a>
+              <a href="subject.html#196">[ subject ]</a>
+              <a href="author.html#196">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

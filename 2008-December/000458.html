@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] RTP packets don't go through pcef
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20RTP%20packets%20don%27t%20go%20through%20pcef&In-Reply-To=%3C49489D45.1080801%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000455.html">
+   <LINK REL="Next"  HREF="000456.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] RTP packets don't go through pcef</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20RTP%20packets%20don%27t%20go%20through%20pcef&In-Reply-To=%3C49489D45.1080801%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] RTP packets don't go through pcef">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Wed Dec 17 07:33:41 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000455.html">[Uctimsclient-users] RTP packets don't go through pcef
+</A></li>
+        <LI>Next message: <A HREF="000456.html">[Uctimsclient-users] add user with add-imscore-user_newdb.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#458">[ date ]</a>
+              <a href="thread.html#458">[ thread ]</a>
+              <a href="subject.html#458">[ subject ]</a>
+              <a href="author.html#458">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Yang,
+
+With the separation of media and signaling the RTP packets follow the
+shortest path between the UE's - not necessarily going through the PCEF.
+
+To force the RTP traffic through the PCEF, you need to enable an RTP
+proxy (see <A HREF="http://www.openimscore.org/node/76">http://www.openimscore.org/node/76</A>) and then run the PCEF on
+that machine. This will force all RTP traffic through that machine. In
+the case that you have an RTP proxy configured, you should use the PCSCF
+config file - /pcscf.qos.rtp.cfg.
+
+/Regards,
+Richard.
+
+&#26472;&#20975; wrote:
+&gt;<i> hi,
+</I>&gt;<i> When I use two uctimsclient to make a call, I found that the RTP
+</I>&gt;<i> packets between the two ues didn't go through the pcef. I use the
+</I>&gt;<i> client's default setting. The pcrf and pcef work well(When i remove
+</I>&gt;<i> the gsm codec i found that a session is setup the call is rejected
+</I>&gt;<i> based on policies.) Is that any mistake I make when I configure the
+</I>&gt;<i> UctIMSClient&#65311;
+</I>&gt;<i> regards,
+</I>&gt;<i> Yang Kai.
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+
+
+//Richard Good//
+
+//PhD Candidate
+//
+
+//Communications Research Group
+University of Cape Town
+//
+
+Mobile: +27 72 389 8365
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;
+
+<A HREF="http://coe.uct.ac.za">http://coe.uct.ac.za</A>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081217/e194c723/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081217/e194c723/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000455.html">[Uctimsclient-users] RTP packets don't go through pcef
+</A></li>
+	<LI>Next message: <A HREF="000456.html">[Uctimsclient-users] add user with add-imscore-user_newdb.sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#458">[ date ]</a>
+              <a href="thread.html#458">[ thread ]</a>
+              <a href="subject.html#458">[ subject ]</a>
+              <a href="author.html#458">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

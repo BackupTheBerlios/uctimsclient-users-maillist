@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem about PCEF and PCRF when running in	different PC
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20about%20PCEF%20and%20PCRF%20when%20running%20in%0A%09different%20PC&In-Reply-To=%3Cf0d480080812151815p57232c2y22065743c66a8cf1%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000452.html">
+   <LINK REL="Next"  HREF="000454.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem about PCEF and PCRF when running in	different PC</H1>
+    <B>&#26472;&#20975;</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20about%20PCEF%20and%20PCRF%20when%20running%20in%0A%09different%20PC&In-Reply-To=%3Cf0d480080812151815p57232c2y22065743c66a8cf1%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Problem about PCEF and PCRF when running in	different PC">gabriel827 at gmail.com
+       </A><BR>
+    <I>Tue Dec 16 03:15:45 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000452.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+        <LI>Next message: <A HREF="000454.html">[Uctimsclient-users] Problem about changing the domain and IP	address of PCEF/PCRF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#453">[ date ]</a>
+              <a href="thread.html#453">[ thread ]</a>
+              <a href="subject.html#453">[ subject ]</a>
+              <a href="author.html#453">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi,
+  When i deploy OpenIMSCore and PCRF and PCEF in different PC, i met some
+problem.
+  OpenIMSCore and PCEF are in one PC(59.64.153.100),and the PCRF is in
+another one(59.64.153.227)&#65292;the &quot;open-ims.dnszone(/etc/bind)&quot; is as below&#65306;
+$ORIGIN open-ims.test.
+$TTL 1W
+@                       1D IN SOA       localhost. root.localhost. (
+                                        2006101001      ; serial
+                                        3H              ; refresh
+                                        15M             ; retry
+                                        1W              ; expiry
+                                        1D )            ; minimum
+
+                        1D IN NS        ns
+ns                      1D IN A         59.64.153.100
+
+pcscf                   1D IN A         59.64.153.100
+
+open-ims.test.           1D IN A         59.64.153.100
+icscf                   1D IN A         59.64.153.100
+
+_sip                    1D SRV 0 0 5060 icscf
+_sip._udp               1D SRV 0 0 5060 icscf
+_sip._tcp               1D SRV 0 0 5060 icscf
+
+open-ims.test.        1D IN NAPTR 10 50 &quot;s&quot; &quot;SIP+D2U&quot;    &quot;&quot;    _sip._udp
+open-ims.test.        1D IN NAPTR 20 50 &quot;s&quot; &quot;SIP+D2T&quot;    &quot;&quot;    _sip._tcp
+
+
+scscf                   1D IN A         59.64.153.100
+
+hss                     1D IN A         59.64.153.100
+
+ue                      1D IN A         59.64.153.100
+
+presence                1D IN A            59.64.153.100
+pcrf                    1D IN A         59.64.153.227
+pcef                    1D IN A         59.64.153.100
+
+
+
+
+
+
+And the error in PCRF and PCEF is as below:
+ERROR in PCRF:
+[Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  -
+StateMachine: Peer pcef.open-ims.test not responding to connection attempt
+[Thread-10] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  -
+StateMachine: Peer pcscf.open-ims.test not responding to connection attempt
+ERROR in PCEF:
+[Thread-4] ERROR de.fhg.fokus.diameter.DiameterPeer.peer.StateMachine  -
+StateMachine: Peer pcrf.open-ims.test not responding to connection attempt
+
+
+But when i use OpenIC in these two PCs(alice in 59.64.153.100&#65292; bob in
+59.64.154.227), alice and bob can register and make a call.
+
+So is there anyone who can tell me what is the problem?
+
+regards,
+Yang Kai.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081216/21045fc6/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081216/21045fc6/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000452.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+	<LI>Next message: <A HREF="000454.html">[Uctimsclient-users] Problem about changing the domain and IP	address of PCEF/PCRF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#453">[ date ]</a>
+              <a href="thread.html#453">[ thread ]</a>
+              <a href="subject.html#453">[ subject ]</a>
+              <a href="author.html#453">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Video in Ubuntu Jaunty
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Video%20in%20Ubuntu%20Jaunty&In-Reply-To=%3C4A15570E.2090409%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000574.html">
+   <LINK REL="Next"  HREF="000577.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Video in Ubuntu Jaunty</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Video%20in%20Ubuntu%20Jaunty&In-Reply-To=%3C4A15570E.2090409%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Video in Ubuntu Jaunty">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Thu May 21 15:28:46 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000574.html">[Uctimsclient-users] openser
+</A></li>
+        <LI>Next message: <A HREF="000577.html">[Uctimsclient-users] Video in Ubuntu Jaunty
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#575">[ date ]</a>
+              <a href="thread.html#575">[ thread ]</a>
+              <a href="subject.html#575">[ subject ]</a>
+              <a href="author.html#575">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Anyone using Ubuntu Jaunty will have noticed the video encoding in the 
+UCT IMS Client no longer works - this is because the H263 encoder is 
+missing.  The fix for this is:
+
+sudo apt-get install libavcodec-unstripped-52
+sudo apt-get install ffmpeg
+rm -rf /home/user_name/.gstreamer-0.10/
+
+This makes Gstreamer rebuild the list of plugins.   Thanks to Richard 
+Spiers for this fix.
+
+regards,
+Richard.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000574.html">[Uctimsclient-users] openser
+</A></li>
+	<LI>Next message: <A HREF="000577.html">[Uctimsclient-users] Video in Ubuntu Jaunty
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#575">[ date ]</a>
+              <a href="thread.html#575">[ thread ]</a>
+              <a href="subject.html#575">[ subject ]</a>
+              <a href="author.html#575">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Uctimsclient-users Digest, Vol 18, Issue 11
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Uctimsclient-users%20Digest%2C%20Vol%2018%2C%20Issue%2011&In-Reply-To=%3C4C525A9A3424EA46BE6471D6899FBB25ACF9BB%40esealmw103.eemea.ericsson.se%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000344.html">
+   <LINK REL="Next"  HREF="000347.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Uctimsclient-users Digest, Vol 18, Issue 11</H1>
+    <B>Zerin Y&#252;ce</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Uctimsclient-users%20Digest%2C%20Vol%2018%2C%20Issue%2011&In-Reply-To=%3C4C525A9A3424EA46BE6471D6899FBB25ACF9BB%40esealmw103.eemea.ericsson.se%3E"
+       TITLE="[Uctimsclient-users] Uctimsclient-users Digest, Vol 18, Issue 11">zerin.yuce at ericsson.com
+       </A><BR>
+    <I>Mon Aug 25 15:53:26 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000344.html">[Uctimsclient-users] Call java code in C code
+</A></li>
+        <LI>Next message: <A HREF="000347.html">[Uctimsclient-users] Presence Watcher
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#346">[ date ]</a>
+              <a href="thread.html#346">[ thread ]</a>
+              <a href="subject.html#346">[ subject ]</a>
+              <a href="author.html#346">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Richard,
+
+I could solve my problem, Thanks!
+I am using another Presence Server ( I mean not the OpenSIPS). 
+My other step right now is to add a watcher but for that I need an XCAP Server or? 
+(actually buddy list is working with no problem but adding a wacther is totally different issue I think..., 
+Or can I just consider Alice as a watcher, if I add Bob to the Alice's buddy list)
+
+And one more thing, what actually does the XDMS Server Tab. Is that also involved in the Watcher cofiguration?
+
+Best Regards,
+zerin
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] On Behalf Of <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-request at lists.berlios.de</A>
+Sent: Monday, August 25, 2008 12:02 PM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: Uctimsclient-users Digest, Vol 18, Issue 11
+
+Send Uctimsclient-users mailing list submissions to
+	<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+
+To subscribe or unsubscribe via the World Wide Web, visit
+	<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+or, via email, send a message with subject or body 'help' to
+	<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-request at lists.berlios.de</A>
+
+You can reach the person managing the list at
+	<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-owner at lists.berlios.de</A>
+
+When replying, please edit your Subject line so it is more specific than &quot;Re: Contents of Uctimsclient-users digest...&quot;
+
+
+Today's Topics:
+
+   1. Call java code in C code (Miroslave Gudic)
+   2. Re: User status (Richard Good)
+
+
+----------------------------------------------------------------------
+
+Message: 1
+Date: Mon, 25 Aug 2008 09:14:50 +0200
+From: Miroslave Gudic &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">miro_slave at live.fr</A>&gt;
+Subject: [Uctimsclient-users] Call java code in C code
+To: open ims core &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">openimscore-users at lists.berlios.de</A>&gt;, ims ims
+	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">BAY141-W19FFAB5A0C39EE2B214CCCFD670 at phx.gbl</A>&gt;
+Content-Type: text/plain; charset=&quot;iso-8859-1&quot;
+
+
+Hello,
+
+I have this following problem : 
+i have a C code (libvlc) and a Java code (javadiameterPeer) and i woud like to call some function created in the javaDiameterPeer in my C main() function (it's in order to create a video application). 
+
+Anybody know if it's possible and how?
+
+Best Regards
+
+_________________________________________________________________
+Pendant tout l'?t?, consultez vos emails Hotmail sur votre mobile !
+<A HREF="http://www.messengersurvotremobile.com/?d=hotmail">http://www.messengersurvotremobile.com/?d=hotmail</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080825/33f38a8a/attachment-0001.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080825/33f38a8a/attachment-0001.html</A> 
+
+------------------------------
+
+Message: 2
+Date: Mon, 25 Aug 2008 10:08:04 +0200
+From: Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;
+Subject: Re: [Uctimsclient-users] User status
+To: Zerin Y?ce &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">zerin.yuce at ericsson.com</A>&gt;
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">48B26864.6080403 at crg.ee.uct.ac.za</A>&gt;
+Content-Type: text/plain; charset=&quot;iso-8859-1&quot;
+
+Hi Zerin,
+
+With only this information it is difficult to diagnose your problem - however here are the basic steps you need to follow to use the presence service.
+
+1.    You need to have a presence server enabled (We use OpenSER with 
+its presence module - I notice that OpenSER has become OpenSIPS. see <A HREF="http://www.opensips.org/index.php?n=Resources.DocsPapPa">http://www.opensips.org/index.php?n=Resources.DocsPapPa</A> for presence server info.)
+
+2.    You need to configure iFC in the FHoSS web interface to forward 
+all presence related (SUBSCRIBE and PUBLISH messages with event -
+presence) to the address and port of your running presence server.
+
+3.    Then you can register Alice and Bob (both with presence enabled) 
+and publish their status' under the presence tab.
+
+4.    Add bob as Alice's buddy (and vice versa) and note that when new 
+status' are published, buddies are notified.
+
+If you have followed all these steps and still have problems, post a full wireshark trace.
+
+Regards,
+Richard.
+
+Zerin Y?ce wrote:
+&gt;<i>
+</I>&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> I am trying to set the user status ( located under Presence Tab) in 
+</I>&gt;<i> the UCT IMS Client. I've already configured my Presence Server over 
+</I>&gt;<i> the FHoSS web interface but I get the following messages:
+</I>&gt;<i>
+</I>&gt;<i> 11:54:38&gt; REGISTER
+</I>&gt;<i> 11:54:38&gt; Unauthorized - Challenging the UE (for REGISTER) 11:54:38&gt; 
+</I>&gt;<i> OK - SAR succesful and registrar saved (for REGISTER) 11:54:38&gt; IMPUs: 
+</I>&gt;<i> &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bob at open-ims.test</A>&gt; 11:54:38&gt; SUBSCRIBE (reg event) 11:54:38&gt; 
+</I>&gt;<i> Subscription to REG saved (for SUBSCRIBE) 11:54:40&gt; Forbidden - You 
+</I>&gt;<i> must register first with a S-CSCF (for PUBLISH)
+</I>&gt;<i>
+</I>&gt;<i> How can I solve that problem?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Kind Regards,
+</I>&gt;<i> zerin
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080825/e6514991/attachment-0001.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080825/e6514991/attachment-0001.html</A> 
+
+------------------------------
+
+_______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+
+
+End of Uctimsclient-users Digest, Vol 18, Issue 11
+**************************************************
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000344.html">[Uctimsclient-users] Call java code in C code
+</A></li>
+	<LI>Next message: <A HREF="000347.html">[Uctimsclient-users] Presence Watcher
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#346">[ date ]</a>
+              <a href="thread.html#346">[ thread ]</a>
+              <a href="subject.html#346">[ subject ]</a>
+              <a href="author.html#346">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

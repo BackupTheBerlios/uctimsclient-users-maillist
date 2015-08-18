@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT don't send ACK in INIVTE method
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20don%27t%20send%20ACK%20in%20INIVTE%20method&In-Reply-To=%3C3f2f32b30907200544k9b73463m5ab6d8eb5a1213a2%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000596.html">
+   <LINK REL="Next"  HREF="000599.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT don't send ACK in INIVTE method</H1>
+    <B>Bruno Resende</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20don%27t%20send%20ACK%20in%20INIVTE%20method&In-Reply-To=%3C3f2f32b30907200544k9b73463m5ab6d8eb5a1213a2%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] UCT don't send ACK in INIVTE method">resende.bruno at gmail.com
+       </A><BR>
+    <I>Mon Jul 20 14:44:48 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000596.html">[Uctimsclient-users] UCT IMS Client with OpenXCAP
+</A></li>
+        <LI>Next message: <A HREF="000599.html">[Uctimsclient-users] installation issue
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#598">[ date ]</a>
+              <a href="thread.html#598">[ thread ]</a>
+              <a href="subject.html#598">[ subject ]</a>
+              <a href="author.html#598">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+first, excuse for my very bad english.
+
+I'm trying to use the UCT IMS Client with the IPTV advanced SERVER.
+I configurated the server like the instructions, but in the INVITE method,
+after the response 200 OK, the UCT IMS Client don't return a ACK, it just
+show that I sent a ACK in trace window.
+In really, watching the trace with WIRESHARK, I discovered that the UCT
+don't send a ACK.
+
+Anyone can help me in this case?
+
+
+Trace with wireshark:
+
+INVITE: (caller -&gt; PCSCF)
+----------
+INVITE sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">killbill at iptv.open-ims.test</A> SIP/2.0
+Via: SIP/2.0/UDP 141.11.147.115:5061;rport;branch=z9hG4bK1846083772
+Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">orig at scscf.open-ims.test</A>:6060;lr&gt;
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bruno at open-ims.test</A>
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&gt;&gt;;tag=385394531
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">killbill at iptv.open-ims.test</A>&gt;
+Call-ID: 1541315989
+CSeq: 20 INVITE
+Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bruno at 141.11.147.115</A>:5061&gt;
+Allow: INVITE, ACK, CANCEL, BYE, PRACK, UPDATE, REFER, MESSAGE
+Max-Forwards: 70
+User-Agent: UCT IMS Client
+Subject: IMS Call
+Expires: 120
+Content-Length:  0
+
+
+200 OK: (AS -&gt; caller)
+-----------
+SIP/2.0 200 OK
+Record-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mo at scscf.open-ims.test</A>
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&gt;:6060;lr&gt;
+Record-Route: &lt;sip:mo
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&gt;@pcscf.open-ims.test
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&gt;:4060;lr&gt;
+Via: SIP/2.0/UDP 141.11.147.115:5061;rport=5061;branch=z9hG4bK1846083772
+From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bruno at open-ims.test</A>&gt;;tag=385394531
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">killbill at iptv.open-ims.test</A>&gt;;tag=fc1104342f27c311587022fc44b7299b-9c10
+Call-ID: 1541315989
+CSeq: 20 INVITE
+Content-Type: message/external-body; access-type=&quot;URL&quot;;
+URL=&quot;<A HREF="rtsp://10.11.126.155:8854/killbill.ts">rtsp://10.11.126.155:8854/killbill.ts</A>&quot;
+Server: eXosip/3.1.0
+Content-Length: 0
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090720/ceaa0092/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090720/ceaa0092/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000596.html">[Uctimsclient-users] UCT IMS Client with OpenXCAP
+</A></li>
+	<LI>Next message: <A HREF="000599.html">[Uctimsclient-users] installation issue
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#598">[ date ]</a>
+              <a href="thread.html#598">[ thread ]</a>
+              <a href="subject.html#598">[ subject ]</a>
+              <a href="author.html#598">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

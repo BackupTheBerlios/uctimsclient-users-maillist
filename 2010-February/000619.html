@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] About pcrf ipfilter
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20About%20pcrf%20ipfilter&In-Reply-To=%3C04A856F26940EE42A7D6129D5073F24A022BD43E%40BASIS001152003.basis-audionet.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000618.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] About pcrf ipfilter</H1>
+    <B>Min Wang</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20About%20pcrf%20ipfilter&In-Reply-To=%3C04A856F26940EE42A7D6129D5073F24A022BD43E%40BASIS001152003.basis-audionet.de%3E"
+       TITLE="[Uctimsclient-users] About pcrf ipfilter">wang at basis-audionet.com
+       </A><BR>
+    <I>Mon Feb 15 16:57:01 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000618.html">[Uctimsclient-users] problems with uctiptv_advanced1.0.0.tar.gz
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#619">[ date ]</a>
+              <a href="thread.html#619">[ thread ]</a>
+              <a href="subject.html#619">[ subject ]</a>
+              <a href="author.html#619">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi 
+
+Recently the OpenIms team have added ports to the IPFileter rules
+
+( Please use branch: branches/13_pcc_fixing )
+
+It seems the pcrf/Rx  can not parse the content correctly, please the
+discussion and also log :
+ 
+<A HREF="http://lists.berlios.de/pipermail/openimscore-cscf/2010-February/002570.">http://lists.berlios.de/pipermail/openimscore-cscf/2010-February/002570.</A>
+html
+
+<A HREF="http://lists.berlios.de/pipermail/openimscore-cscf/2010-February/002577.">http://lists.berlios.de/pipermail/openimscore-cscf/2010-February/002577.</A>
+html
+
+
+INFO: Received AAR DIAMETER message from P-CSCF
+DEBUG: Session ID: pcscf.centercall.net;516114338;20
+-DEBUG: Orig Realm: centercall.net
+DEBUG: Dest Realm: centercall.net
+DEBUG: Media Component Number: 1
+DEBUG: Flow Number: 1
+DEBUG: Flow Description: permit out ip from 172.16.8.42 59312 to
+172.16.8.43 31308
+DEBUG: Source IP: 172.16.8.42
+DEBUG: Dest IP: to
+DEBUG: Flow Description: permit in ip from 172.16.8.43 31308 to
+172.16.8.42 59312
+DEBUG: Flow Number: 2
+DEBUG: Flow Description: permit out ip from 172.16.8.42 59313 to
+172.16.8.43 31309
+DEBUG: Source IP: 172.16.8.42
+DEBUG: Dest IP: to
+DEBUG: Flow Description: permit in ip from 172.16.8.43 31309 to
+172.16.8.42 59313
+DEBUG: session id; originating realm; destination realm
+DEBUG: pcscf.centercall.net;516114338;20;centercall.net;centercall.net
+DEBUG: session id; flow id; source ip; dest ip; source port; dest port;
+usage; status; BW ul; BW dl; QoS class; Media Type
+DEBUG:
+pcscf.centercall.net;516114338;20;1,1;172.16.8.42;to;172.16.8.43;31308;5
+9312;0;2;-1;-1;2;0
+DEBUG:
+pcscf.centercall.net;516114338;20;1,2;172.16.8.42;to;172.16.8.43;31309;5
+9313;1;2;-1;-1;2;0
+DEBUG: Codecs: 0;8;3;101
+INFO: Codecs authorised
+INFO: Originating and Destination Domains authorised
+INFO: Session ID: pcscf.centercall.net;516114338;20 does not exist
+
+INFO: Thu Feb 11 14:03:41 EST 2010 Session with ID :
+pcscf.centercall.net;516114338;20 attempted to request more bandwidth
+than the requested QoS class can handle.
+
+INFO: Sending DIAMETER AAA message to P-CSCF
+
+
+Would you kindly change/update the pcrf to handle that?
+
+
+
+
+Kind Regards
+ 
+Min Wang
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000618.html">[Uctimsclient-users] problems with uctiptv_advanced1.0.0.tar.gz
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#619">[ date ]</a>
+              <a href="thread.html#619">[ thread ]</a>
+              <a href="subject.html#619">[ subject ]</a>
+              <a href="author.html#619">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

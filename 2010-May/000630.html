@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] [ask] UCTPCRF problem: pcscf.qos.sh error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%5Bask%5D%20UCTPCRF%20problem%3A%20pcscf.qos.sh%20error&In-Reply-To=%3C1987828350.15451274898616158.JavaMail.root%40staff.itb.ac.id%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000629.html">
+   <LINK REL="Next"  HREF="000631.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] [ask] UCTPCRF problem: pcscf.qos.sh error</H1>
+    <B>Habibur Muhaimin</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%5Bask%5D%20UCTPCRF%20problem%3A%20pcscf.qos.sh%20error&In-Reply-To=%3C1987828350.15451274898616158.JavaMail.root%40staff.itb.ac.id%3E"
+       TITLE="[Uctimsclient-users] [ask] UCTPCRF problem: pcscf.qos.sh error">habibur at pusat.itb.ac.id
+       </A><BR>
+    <I>Wed May 26 20:30:16 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000629.html">[Uctimsclient-users] Video is not playing in UCT IMS CLIENT
+</A></li>
+        <LI>Next message: <A HREF="000631.html">[Uctimsclient-users] Problem : pcrf and pcef always start the	&quot;open-ims.test&quot; domain
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#630">[ date ]</a>
+              <a href="thread.html#630">[ thread ]</a>
+              <a href="subject.html#630">[ subject ]</a>
+              <a href="author.html#630">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi sarette,
+
+my name's habibur and referring your message from here <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/2009-June/000585.html">https://lists.berlios.de/pipermail/uctimsclient-users/2009-June/000585.html</A> ,
+i got some error like you had.
+
+FYI, branch version of ser ims has been integrated to trunk version, see :
+<A HREF="http://svn.berlios.de/wsvn/openimscore/ser_ims/?op=log&amp;rev=949&amp;sr=949&amp;er=1&amp;sc=0&amp;isdir=1&amp;max=30&amp;page=2">http://svn.berlios.de/wsvn/openimscore/ser_ims/?op=log&amp;rev=949&amp;sr=949&amp;er=1&amp;sc=0&amp;isdir=1&amp;max=30&amp;page=2</A>
+
+=================================================================================================================================
+Removed the following branches:
+- 05_cdp_sessions - no activity, superseeded by 13_pcc_fixing
+- 08_cdp_sessions - no activity, superseeded by 13_pcc_fixing
+- 13_pcc_fixing - merged into trunk at r920
+=================================================================================================================================
+
+the problem i have is when i try command ./ims.qos.sh that will trigger pcscf.qos.sh icscf.sh scscf.sh and FHoSS,
+the pcscf.qos.sh will not run with the following error :
+
+ 0(3276) parse error (338,20-21): unknown command, missing loadmodule?
+
+ 0(3276) parse error (365,20-21): unknown command, missing loadmodule?
+
+ 0(3276) parse error (431,20-21): unknown command, missing loadmodule?
+
+ 0(3276) parse error (551,20-21): unknown command, missing loadmodule?
+
+ 0(3276) parse error (569,20-21): unknown command, missing loadmodule?
+
+ 0(3276) parse error (625,20-21): unknown command, missing loadmodule?
+
+ERROR: bad config file (6 errors)
+ 0(3276) INFO:cdp:cdp_exit(): CDiameterPeer stoping ...
+./pcscf.qos.sh: line 7:  3276 Segmentation fault      LD_LIBRARY_PATH=&quot;/usr/local/lib/ser&quot; /opt/OpenIMSCore/ser_ims_qos/ser -f /opt/OpenIMSCore/pcscf.qos.cfg -D -D
+
+
+any suggest, sarette ?
+i have successfully compile the ser and uctpcrf.
+
+thank you
+
+--
+habibur muhaimin
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000629.html">[Uctimsclient-users] Video is not playing in UCT IMS CLIENT
+</A></li>
+	<LI>Next message: <A HREF="000631.html">[Uctimsclient-users] Problem : pcrf and pcef always start the	&quot;open-ims.test&quot; domain
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#630">[ date ]</a>
+              <a href="thread.html#630">[ thread ]</a>
+              <a href="subject.html#630">[ subject ]</a>
+              <a href="author.html#630">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

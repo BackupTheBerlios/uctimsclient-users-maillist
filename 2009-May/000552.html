@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] RLS with Uctimsclient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20RLS%20with%20Uctimsclient&In-Reply-To=%3C9b9e17760905040627p688c2ce1mea1562181edc4c05%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000551.html">
+   <LINK REL="Next"  HREF="000553.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] RLS with Uctimsclient</H1>
+    <B>Mosiuoa Tsietsi</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20RLS%20with%20Uctimsclient&In-Reply-To=%3C9b9e17760905040627p688c2ce1mea1562181edc4c05%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] RLS with Uctimsclient">mosiuoat at gmail.com
+       </A><BR>
+    <I>Mon May  4 15:27:11 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000551.html">[Uctimsclient-users] RLS with Uctimsclient
+</A></li>
+        <LI>Next message: <A HREF="000553.html">[Uctimsclient-users] Silence while calling via HSDPA network?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#552">[ date ]</a>
+              <a href="thread.html#552">[ thread ]</a>
+              <a href="subject.html#552">[ subject ]</a>
+              <a href="author.html#552">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>There are a couple of example on the Internet for this, and it just depends
+on how detailed you want to be. A silly example for Alice is given below:
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;resource-lists xmlns=&quot;urn:ietf:params:xml:ns:resource-lists&quot;&gt;
+    &lt;list name=&quot;Friends&quot;&gt;
+    &lt;display-name&gt;My Friends&lt;/display-name&gt;
+        &lt;entry uri=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bob at open-ims.test</A>&quot;&gt;
+            &lt;display-name&gt;Bob&lt;/display-name&gt;
+        &lt;/entry&gt;
+        &lt;entry uri=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mallory at open-ims.test</A>&quot;&gt;
+            &lt;display-name&gt;Mallory&lt;/display-name&gt;
+        &lt;/entry&gt;
+    &lt;/list&gt;
+&lt;/resource-lists&gt;
+
+Take a look at the xml-schemas in the Openxcap installation for a better
+understanding of how the documents are formatted.
+
+Mos
+
+2009/5/1 Michael Ciupka &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient at michael-ciupka.de</A>&gt;
+
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> oh fine. thanks for the answer and proposing.
+</I>&gt;<i> it would be very nice if somebody (Dave course) can send an example of a
+</I>&gt;<i> resource-list document, which i can upload. for example with bob, alice etc.
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i> Michael
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -------- Original-Nachricht --------
+</I>&gt;<i> &gt; Datum: Wed, 29 Apr 2009 13:02:30 +0200
+</I>&gt;<i> &gt; Von: Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">dwaiting at gmail.com</A>&gt;
+</I>&gt;<i> &gt; An: Michael Ciupka &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient at michael-ciupka.de</A>&gt;
+</I>&gt;<i> &gt; CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; Betreff: Re: [Uctimsclient-users] RLS with Uctimsclient
+</I>&gt;<i>
+</I>&gt;<i> &gt; Hi
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Create your resource list document in a text editor, set the correct XDMS
+</I>&gt;<i> &gt; preferences (XCAP root, username and password) in the client and upload
+</I>&gt;<i> &gt; from
+</I>&gt;<i> &gt; the XDMS tab using the appropriate AUID, i.e. resource-lists
+</I>&gt;<i> &gt; Please note that if you use the Register as Alice / Bob button the XDMS
+</I>&gt;<i> &gt; username and password preferences will also be changed.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; David
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; On Tue, Apr 28, 2009 at 8:13 PM, Michael Ciupka &lt;
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient at michael-ciupka.de</A>&gt; wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; Hello,
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; can sombody help me to explain how can i upload/ download Resouce List
+</I>&gt;<i> &gt; &gt; documents to the OpenXcap with Uctimsclient?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Regards
+</I>&gt;<i> &gt; &gt; Michael
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; Uctimsclient-users mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090504/40754258/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090504/40754258/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000551.html">[Uctimsclient-users] RLS with Uctimsclient
+</A></li>
+	<LI>Next message: <A HREF="000553.html">[Uctimsclient-users] Silence while calling via HSDPA network?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#552">[ date ]</a>
+              <a href="thread.html#552">[ thread ]</a>
+              <a href="subject.html#552">[ subject ]</a>
+              <a href="author.html#552">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

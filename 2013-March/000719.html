@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT advanced iptv installation problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20advanced%20iptv%20installation%20problem&In-Reply-To=%3CCALxVSSQiNY6_mS28%3D8qnPVq%2Bi%2B4gPBGJE5iWs0EMiDT2o0co3Q%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000718.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT advanced iptv installation problem</H1>
+    <B>Usman Akram</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20advanced%20iptv%20installation%20problem&In-Reply-To=%3CCALxVSSQiNY6_mS28%3D8qnPVq%2Bi%2B4gPBGJE5iWs0EMiDT2o0co3Q%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] UCT advanced iptv installation problem">muhammadusmanakram at gmail.com
+       </A><BR>
+    <I>Tue Mar 19 20:07:01 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000718.html">[Uctimsclient-users] UCT Policy Framework into Open IMS Core
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#719">[ date ]</a>
+              <a href="thread.html#719">[ thread ]</a>
+              <a href="subject.html#719">[ subject ]</a>
+              <a href="author.html#719">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I am installing the uct iptv v.1.0.2. I am installing it via tar file. but
+when i try to run the make command it will give me error and unable to
+proceed further,
+=============================================
+usman-ThinkPad-T43:/opt/uctiptv$ make
+gcc -I/usr/include/gstreamer-0.10/gst `pkg-config --cflags gtk+-2.0
+gstreamer-0.10` -o obj/uctiptv.o -c src/uctiptv.c
+In file included from src/uctiptv.c:37:0:
+src/sdp_methods.h:21:23: fatal error: ortp/ortp.h: No such file or directory
+compilation terminated.
+make: *** [obj/uctiptv.o] Error 1
+==============================================
+
+I am installing it for the first time so stuck at the very first step.... I
+have also installed the below mentioned packages as the old ones are not
+available on ubuntu 12.
+libosip 2-7
+libexosip 2-7
+libosip2-dev
+libexosip2-dev
+
+Can somebody guide me why it is giving me error during make command..... Or
+is there be any other intelligent way or steps to execute the tar.gz file
+
+
+Thanks
+
+Best regards,
+
+Usman
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20130319/ea550412/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20130319/ea550412/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000718.html">[Uctimsclient-users] UCT Policy Framework into Open IMS Core
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#719">[ date ]</a>
+              <a href="thread.html#719">[ thread ]</a>
+              <a href="subject.html#719">[ subject ]</a>
+              <a href="author.html#719">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

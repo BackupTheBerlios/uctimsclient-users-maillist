@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Jitter buffer in UCT IMS Client?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Jitter%20buffer%20in%20UCT%20IMS%20Client%3F&In-Reply-To=%3Cb702dc1a0903012250o7576a7c1la9ae2c6ebc185f2e%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000504.html">
+   <LINK REL="Next"  HREF="000505.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Jitter buffer in UCT IMS Client?</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Jitter%20buffer%20in%20UCT%20IMS%20Client%3F&In-Reply-To=%3Cb702dc1a0903012250o7576a7c1la9ae2c6ebc185f2e%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Jitter buffer in UCT IMS Client?">dwaiting at gmail.com
+       </A><BR>
+    <I>Mon Mar  2 07:50:51 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000504.html">[Uctimsclient-users] Jitter buffer in UCT IMS Client?
+</A></li>
+        <LI>Next message: <A HREF="000505.html">[Uctimsclient-users] VOD is terminated after 22 seconds from	uctimsclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#506">[ date ]</a>
+              <a href="thread.html#506">[ thread ]</a>
+              <a href="subject.html#506">[ subject ]</a>
+              <a href="author.html#506">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Jean-Philippe
+
+The client uses the gStreamer libraries for audio and video. gStreamer
+handles everything from capturing the audio from the microphone, encoding
+the voice and transmitting the stream over RTP. If you want to find out how
+the jitter buffer works you will need to dig around in the gStreamer source
+code, not the client. You can see how the client invokes the gStreamer
+library in gstreamer.c.
+
+Regards
+
+David
+
+On Sun, Mar 1, 2009 at 1:47 PM, Jean-Philippe Ou&#233;draogo
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ouedrajp at gmail.com</A>&gt;wrote:
+
+&gt;<i> Hi everyone,
+</I>&gt;<i> I have just successfully installed UCT IMS Client 1.0.13 on my Ubuntu, and
+</I>&gt;<i> I am about to work on a project which involves UCT IMS Client and its jitter
+</I>&gt;<i> buffer.
+</I>&gt;<i> So I was wondering whether someone could explain to me how the jitter
+</I>&gt;<i> buffer is implemented (or at least where I can find some information about
+</I>&gt;<i> it). I have already looked at the source code documentation on the main
+</I>&gt;<i> page, and I have tried to find keywords in the C code, but I couldn't figure
+</I>&gt;<i> it out.
+</I>&gt;<i> Thanks in advance for your help.
+</I>&gt;<i> Jean-Philippe
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090302/76a257cb/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090302/76a257cb/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000504.html">[Uctimsclient-users] Jitter buffer in UCT IMS Client?
+</A></li>
+	<LI>Next message: <A HREF="000505.html">[Uctimsclient-users] VOD is terminated after 22 seconds from	uctimsclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#506">[ date ]</a>
+              <a href="thread.html#506">[ thread ]</a>
+              <a href="subject.html#506">[ subject ]</a>
+              <a href="author.html#506">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] VLC and uctimsclient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20VLC%20and%20uctimsclient&In-Reply-To=%3C1222442630.6623.37.camel%40bill-linux%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000397.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] VLC and uctimsclient</H1>
+    <B>Bill Friedrich</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20VLC%20and%20uctimsclient&In-Reply-To=%3C1222442630.6623.37.camel%40bill-linux%3E"
+       TITLE="[Uctimsclient-users] VLC and uctimsclient">bill.friedrich at cal.trlabs.ca
+       </A><BR>
+    <I>Fri Sep 26 17:23:50 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000397.html">[Uctimsclient-users] VLC and uctimsclient
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#398">[ date ]</a>
+              <a href="thread.html#398">[ thread ]</a>
+              <a href="subject.html#398">[ subject ]</a>
+              <a href="author.html#398">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey, trying putting an HTTP address into your indirection server's
+key-value pairs. This will then open a firefox window with the url that
+you entered in the key/value tags. It's a quick way of knowing that your
+client is at least receiving a proper URL. If that works, then it really
+is an issue of the streaming server and your client not playing well
+together.
+
+Also, don't test your streams with the quicktime client, as this really
+doesn't give you an indication of how VLC will play the streams.
+Instead, make sure that you can play them in VLC, as this is what the
+IMS client uses.
+
+/bill
+
+On Fri, 2008-09-26 at 14:36 +0200, Robert Marston wrote:
+&gt;<i> Hi
+</I>&gt;<i> 
+</I>&gt;<i> Polo Cortina, Eduardo wrote:
+</I>&gt;<i> &gt; Robert, I don't see any rtsp messages in the wireshark, even when I capture packages while I'm getting the video in the quick time player (without the IMSCore).
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;   
+</I>&gt;<i> Ensure that you are listening on all interfaces (any), if the client and 
+</I>&gt;<i> DSS are running on the same machine they will use the loopback interface 
+</I>&gt;<i> and so the RTSP messages will not be seen unless you are listening on 
+</I>&gt;<i> any interface or the loopback interface.
+</I>&gt;<i> 
+</I>&gt;<i> &gt;&gt;&gt; Also when the pop up window appears for 
+</I>&gt;<i> &gt;&gt;&gt;       
+</I>&gt;<i> &gt; the video does the display message box show the correct RTSP address the 
+</I>&gt;<i> &gt; client is suppose to be connecting to?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Yes, it shows sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at iptv.open-ims.test</A>
+</I>&gt;<i> &gt;   
+</I>&gt;<i> 
+</I>&gt;<i> After receiving the 200 OK from the IPTV AS the client should display:
+</I>&gt;<i> 
+</I>&gt;<i> 200 OK Received
+</I>&gt;<i> 
+</I>&gt;<i> RTSP session established with:
+</I>&gt;<i> &lt;<A HREF="rtsp://mediaserver:554/channel1">rtsp://mediaserver:554/channel1</A>&gt;
+</I>&gt;<i> 
+</I>&gt;<i> within the Display tab.
+</I>&gt;<i> &gt; It's true that the last uctimsclient version failed. That's why I installed an older version
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; -----Mensaje original-----
+</I>&gt;<i> &gt; De: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] En nombre de Robert Marston
+</I>&gt;<i> &gt; Enviado el: viernes, 26 de septiembre de 2008 12:32
+</I>&gt;<i> &gt; Para: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; Asunto: Re: [Uctimsclient-users] VLC and uctimsclient
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; It sounds as if the SIP signaling is working but perhaps the RTSP 
+</I>&gt;<i> &gt; signaling is not. In wireshark are you able to see any RTSP describe and 
+</I>&gt;<i> &gt; setup messages going through? Also when the pop up window appears for 
+</I>&gt;<i> &gt; the video does the display message box show the correct RTSP address the 
+</I>&gt;<i> &gt; client is suppose to be connecting to?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The latest client generally segfaults if the RTSP address it has been 
+</I>&gt;<i> &gt; given is incorrect. This appears to be a problem with libvlc but perhaps 
+</I>&gt;<i> &gt; some better error checking needs to be done on our part in order to 
+</I>&gt;<i> &gt; ensure that the RTSP address is valid.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards
+</I>&gt;<i> &gt; Robert
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Polo Cortina, Eduardo wrote:
+</I>&gt;<i> &gt;   
+</I>&gt;<i> &gt;&gt; Thanks for your tips Bill
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; I've installed the gcap suite. 
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; I use the latest version of the indirection server (1.0.0) and the xml file has the key-value_pair tags. 
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; The log of the indirection server shows these messages when I request a channel from the uctimsclient:
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; 	Server is ready to accept client requests... 
+</I>&gt;<i> &gt;&gt; 	Event type: 5 New call received!
+</I>&gt;<i> &gt;&gt; 	Client requesting: channel1
+</I>&gt;<i> &gt;&gt; 	Event type: 15 ACK received!
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; A pop-up window appears and nothing else happens. I tried to monitorize with wireshark the link between the indirection server and the DSS. I checked the HSS configuration (AS, TPs, etc) and everything is right. SIP dialog between the client and the indirection server is ok as well.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Regards
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; -----Mensaje original-----
+</I>&gt;<i> &gt;&gt; De: Bill Friedrich [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bill.friedrich at cal.trlabs.ca</A>] 
+</I>&gt;<i> &gt;&gt; Enviado el: jueves, 25 de septiembre de 2008 17:33
+</I>&gt;<i> &gt;&gt; Para: Polo Cortina, Eduardo
+</I>&gt;<i> &gt;&gt; Asunto: RE: [Uctimsclient-users] VLC and uctimsclient
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; You can hint files for &quot;free&quot; using MP4Box. It is part of the gpac mpeg4
+</I>&gt;<i> &gt;&gt; suite (<A HREF="http://gpac.sourceforge.net/doc_mp4box.php">http://gpac.sourceforge.net/doc_mp4box.php</A>). If you are on Ubuntu
+</I>&gt;<i> &gt;&gt; (maybe Debian and Fedora, but not sure), you can install gpac through
+</I>&gt;<i> &gt;&gt; Synaptic.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; The syntax for MP4Box is quite simple: MP4Box -hint filename
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Because the UCTIMSClient uses libvlc to play the videos, any stream (ie.
+</I>&gt;<i> &gt;&gt; the full streaming url, not just the file) that can be played in VLC
+</I>&gt;<i> &gt;&gt; will play in the imsclient.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Also, are you using the latest indirection server again? Does your XML
+</I>&gt;<i> &gt;&gt; have the following around your individual key-value_pair tags: 
+</I>&gt;<i> &gt;&gt; &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</I>&gt;<i> &gt;&gt; &lt;key-value_pairs&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; 	//key-value_pair
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; &lt;/key-value_pairs&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Lastly, the indirection server will log to the screen when it sees a
+</I>&gt;<i> &gt;&gt; connection. You should see requests being made to &quot;channel1&quot; or whatever
+</I>&gt;<i> &gt;&gt; coming through.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Hope this helps a bit.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; /bill
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Uctimsclient-users mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> &gt;   
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000397.html">[Uctimsclient-users] VLC and uctimsclient
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#398">[ date ]</a>
+              <a href="thread.html#398">[ thread ]</a>
+              <a href="subject.html#398">[ subject ]</a>
+              <a href="author.html#398">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

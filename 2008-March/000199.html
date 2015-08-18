@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCTPDF tests with regular SIP phones
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTPDF%20tests%20with%20regular%20SIP%20phones&In-Reply-To=%3C1205335253.5700.85.camel%40walqa347%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000198.html">
+   <LINK REL="Next"  HREF="000200.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCTPDF tests with regular SIP phones</H1>
+    <B>Eduardo Moreno</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTPDF%20tests%20with%20regular%20SIP%20phones&In-Reply-To=%3C1205335253.5700.85.camel%40walqa347%3E"
+       TITLE="[Uctimsclient-users] UCTPDF tests with regular SIP phones">eduardo.moreno at inycom.es
+       </A><BR>
+    <I>Wed Mar 12 16:20:53 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000198.html">[Uctimsclient-users] UCTPDF tests with regular SIP phones
+</A></li>
+        <LI>Next message: <A HREF="000200.html">[Uctimsclient-users] Problem opening IPTV stream
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#199">[ date ]</a>
+              <a href="thread.html#199">[ thread ]</a>
+              <a href="subject.html#199">[ subject ]</a>
+              <a href="author.html#199">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi.
+
+It seems that the PDF doesn't ends (it doesn't return prompt) because a
+Communicator thread doesn't die. I have seen this running in debug mode
+with Eclipse, but I haven't studied the case in depth.
+
+The mangle entries are not deleted because is missing the execution of
+diffServ_config script inside pdf.LinuxRouter.delFlow method.
+In lines 183:186 appear this:
+
+		try 
+		{
+			Runtime.getRuntime().exec(filter);
+		} 
+
+It could be:
+
+		try 
+		{
+			Runtime.getRuntime().exec(filter);
+			Runtime.getRuntime().exec(diffServ_config);
+		} 
+
+
+By other hand, a few days ago I had a problem testing Scenario 3 (loss
+of bearer) that have a simple solution. The DataCollectorThread parse
+&quot;sudo iptables -L -v -n&quot; command and add up &quot;bytes&quot; column. When that
+number is greater than 1000, it appear a &quot;K&quot; suffix that
+DataCollectorThread is able to manage. But when the number is greater
+than 1000000, it appears (at least in my system) the &quot;M&quot; suffix that
+DataCollectorThread is not able to manage. Then the class raise an
+exception. There is a simple way to overcome this situation. Is to use
+the &quot;x&quot; option to iptables command. As manual:
+
+       -x, --exact
+              Expand numbers.  Display the exact value of the packet and  byte
+              counters,  instead  of only the rounded number in K&#8217;s (multiples
+              of 1000) M&#8217;s (multiples of 1000K) or G&#8217;s (multiples  of  1000M).
+              This option is only relevant for the -L command.
+
+So, the command &quot;sudo iptables -L -v -n -x&quot; doesn't have problems with
+suffix and it doesn't necessary to code the suffix management.
+
+I have found one small bug in PEP. At the end of run method, it
+disconnect itself using the status method corresponding to PDF:
+
+	public void run() throws IOException
+	{
+		//turns current PDF ON
+		System.out.println(&quot;INFO: Changing Status of PEP #&quot; + pepID + &quot; to 'ON'&quot;);
+		policyEngine.statusPEP(pepID, &quot;ON&quot;);
+                ...
+		waitForExit();
+		
+		policyEngine.statusPDF(pepID, &quot;OFF&quot;);
+		diameterStack.shutdown();
+	}
+
+
+Two weeks ago I also try with RTPProxy and have problems, but I won't be
+able to understand the situation clearly.
+
+Regards...
+
+El mi&#233;, 12-03-2008 a las 14:31 +0200, Richard Good escribi&#243;:
+
+&gt;<i> Hi Pedro.
+</I>&gt;<i> 
+</I>&gt;<i> While the IP Flows etc. are identified as 5 tuples (with ports) - you
+</I>&gt;<i> are correct the flows are not separated in the PEP by ports.  This
+</I>&gt;<i> could be fixed by extending the IP Table commands in the scripts. One
+</I>&gt;<i> of the limitations of this implementation is the simplicity of the PEP
+</I>&gt;<i> implementation - I have concentrated largely on the PDF functionality
+</I>&gt;<i> and am planning an overhaul of the PEP using TCNG instead of the IP
+</I>&gt;<i> Table based scripts - this allows more complex configurations
+</I>&gt;<i> specified in XML. This should be part of the next release out in the
+</I>&gt;<i> next few weeks, and this would identify flows in the PEP based on
+</I>&gt;<i> ports as well as session ID.
+</I>&gt;<i> 
+</I>&gt;<i> The RTP Proxy issue is another problem I have noticed - I am not sure
+</I>&gt;<i> if it is an error in the P-CSCF session info extraction or the actual
+</I>&gt;<i> RTPProxy implementation itself.  Essentially incorrect IP addresses
+</I>&gt;<i> are found in the Service info and hence when enforced on the PEP we
+</I>&gt;<i> have the problems you mentioned. I will continue to look into this and
+</I>&gt;<i> keep the list updated with any finding.  Any suggestions/help with
+</I>&gt;<i> this would be welcome.
+</I>&gt;<i> 
+</I>&gt;<i> EF Mangle entries and PDF not always cleaning up correctly are minor
+</I>&gt;<i> bugs - to be fixed soon :-) 
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> Richard.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Pedro Antonio Vico Solano wrote: 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Hello all, 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I'm doing some basic tests with regular SIP phones (neither
+</I>&gt;<i> &gt; preconditions nor P-service-routers) and the RTPProxy active on the
+</I>&gt;<i> &gt; P-CSCF-PDF. Both registered on the same P-CSCF. 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Some strange things when calling A -&gt; B: 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Let the media ports be these:  A:pa &lt;-&gt; R:pr1 &lt;-&gt; R:pr2 &lt;-&gt; B:pb 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - PDF and PEP do not support ports and bandwidth. 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - When the 200 OK is passed thru all the components, three
+</I>&gt;<i> &gt; interactions are made with PDF: 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;         (1) Allow: R:pr1 --&gt; A:pa 
+</I>&gt;<i> &gt;         (2) Deny: R:pa --&gt; A:pr1 (wrong!) 
+</I>&gt;<i> &gt;         (3) Allow: R:pr1 --&gt; A:pa 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; All are done with the same 'Session ID' so, as ports are not
+</I>&gt;<i> &gt; supported, number (2) is the same as number (1) so it is a deny. 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - The only direction reserved is: from P-CSCF to caller. Why? 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - Hanging up: 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;         (4) Deny: R:pa --&gt; A:pr1 (wrong!) 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; But it works because is the same session and ports are not
+</I>&gt;<i> &gt; considered. 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - EF MANGLE entries are not deleted when session ends 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; - The PDF does not end clean typing 'exit' 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Is this behaviour usual? 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Best regards 
+</I>&gt;<i> &gt; Pedro 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; ____________________________________________________________________
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Uctimsclient-users mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> &gt;   
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>
+AVISO LEGAL 
+
+Este mensaje y los archivos que en su caso lleve adjuntos son privados y confidenciales y se dirigen exclusivamente a su destinatario. Por ello, se informa a quien lo reciba por error que la informaci&#243;n contenida en el mismo es reservada y su utilizaci&#243;n, copia o distribuci&#243;n est&#225; prohibida, por lo que en tal caso le rogamos que nos lo comunique por esta misma v&#237;a o por tel&#233;fono (+34976013300) y proceda a borrarlo de inmediato. 
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080312/cba00893/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080312/cba00893/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000198.html">[Uctimsclient-users] UCTPDF tests with regular SIP phones
+</A></li>
+	<LI>Next message: <A HREF="000200.html">[Uctimsclient-users] Problem opening IPTV stream
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#199">[ date ]</a>
+              <a href="thread.html#199">[ thread ]</a>
+              <a href="subject.html#199">[ subject ]</a>
+              <a href="author.html#199">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

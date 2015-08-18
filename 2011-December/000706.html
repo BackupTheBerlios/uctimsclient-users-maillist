@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] help regarding packet capturing using wireshark
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2011-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20help%20regarding%20packet%20capturing%20using%0A%20wireshark&In-Reply-To=%3CC86CA6B754CC444FAED01331196CA25659A9A551BC%40SINNODMBX001.TechMahindra.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000705.html">
+   <LINK REL="Next"  HREF="000707.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] help regarding packet capturing using wireshark</H1>
+    <B>Peeyush.3.Sharma</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20help%20regarding%20packet%20capturing%20using%0A%20wireshark&In-Reply-To=%3CC86CA6B754CC444FAED01331196CA25659A9A551BC%40SINNODMBX001.TechMahindra.com%3E"
+       TITLE="[Uctimsclient-users] help regarding packet capturing using wireshark">PS0083124 at TechMahindra.com
+       </A><BR>
+    <I>Thu Dec 15 09:52:41 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000705.html">[Uctimsclient-users] help regarding packet capturing using	wireshark
+</A></li>
+        <LI>Next message: <A HREF="000707.html">[Uctimsclient-users] help regarding packet capturing using	wireshark
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#706">[ date ]</a>
+              <a href="thread.html#706">[ thread ]</a>
+              <a href="subject.html#706">[ subject ]</a>
+              <a href="author.html#706">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Didier,
+
+I have done that however it is still not showing the diameter traces and it is actually considering them as TCP traces.
+I have checked the traces and for user authentication traces also it is taking up TCP instead of DIAMETER.
+Any particular reason why it is showing this. 
+
+
+Thanks &amp; Regards,
+Peeyush Sharma| NTSS CSU| Tech Mahindra
+Sharda Center, Pune 411 004, INDIA
+ Mobile: +91 8446329959
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ps0083124 at techmahindra.com</A>
+www.techmahindra.com
+
+________________________________________
+From: Didier Pene [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">didier.pene at gmail.com</A>]
+Sent: Wednesday, December 14, 2011 4:25 PM
+To: Peeyush.3.Sharma
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: Re: [Uctimsclient-users] help regarding packet capturing using wireshark
+
+Hi,
+
+It is simply because Wireshark uses diameter defualt port when IMS core uses many different ports for each CSCFs.
+
+You have to check your CSCFs xml files where the diameter peers are declared and add the corresponding diameter ports in the diameter protocol profile of wireshark.
+i.e. the &quot;Acceptor port&quot;.
+
+2011/12/14 Peeyush.3.Sharma &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">PS0083124 at techmahindra.com</A>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">PS0083124 at techmahindra.com</A>&gt;&gt;
+
+Hi Everybody,
+
+I have downloaded and installed open-ims core and I am running all the servers on a single machine i.e. p-cscf, i-cscf, s-cscf and hss.
+I am running uctimsclient on the another machine. I am able to register my clients alice and bob on the servers very well. However when I check the traces of wireshark I am not able to see the diameter protocol related traces in the wireshark.
+I have selected diameter and diameter 3gpp protocol in the protocols list but it not working.
+Kindly share me the preferences or settings that need to be done in wireshark or kindly tell me if I am doing anything wrong.
+
+Thanks &amp; Regards,
+Peeyush Sharma| NTSS CSU| Tech Mahindra
+Sharda Center, Pune 411 004, INDIA
+ Mobile: +91 8446329959&lt;tel:%2B91%208446329959&gt;
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ps0083124 at techmahindra.com</A>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ps0083124 at techmahindra.com</A>&gt;
+www.techmahindra.com&lt;<A HREF="http://www.techmahindra.com">http://www.techmahindra.com</A>&gt;
+
+============================================================================================================================Disclaimer:  This message and the information contained herein is proprietary and confidential and subject to the Tech Mahindra policy statement, you may review the policy at &lt;a href=&quot;<A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A>&quot;&gt;<A HREF="http://www.techmahindra.com/Disclaimer.html&lt;/a">http://www.techmahindra.com/Disclaimer.html&lt;/a</A>&gt; externally and &lt;a href=&quot;<A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A>&quot;&gt;<A HREF="http://tim.techmahindra.com/Disclaimer.html&lt;/a">http://tim.techmahindra.com/Disclaimer.html&lt;/a</A>&gt; internally within Tech Mahindra.============================================================================================================================
+_______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&gt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+
+
+============================================================================================================================Disclaimer:  This message and the information contained herein is proprietary and confidential and subject to the Tech Mahindra policy statement, you may review the policy at &lt;a href=&quot;<A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A>&quot;&gt;<A HREF="http://www.techmahindra.com/Disclaimer.html&lt;/a">http://www.techmahindra.com/Disclaimer.html&lt;/a</A>&gt; externally and &lt;a href=&quot;<A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A>&quot;&gt;<A HREF="http://tim.techmahindra.com/Disclaimer.html&lt;/a">http://tim.techmahindra.com/Disclaimer.html&lt;/a</A>&gt; internally within Tech Mahindra.============================================================================================================================
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000705.html">[Uctimsclient-users] help regarding packet capturing using	wireshark
+</A></li>
+	<LI>Next message: <A HREF="000707.html">[Uctimsclient-users] help regarding packet capturing using	wireshark
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#706">[ date ]</a>
+              <a href="thread.html#706">[ thread ]</a>
+              <a href="subject.html#706">[ subject ]</a>
+              <a href="author.html#706">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem launching IPTV server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20launching%20IPTV%20server&In-Reply-To=%3C47676A1A.7070502%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000165.html">
+   <LINK REL="Next"  HREF="000167.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem launching IPTV server</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20launching%20IPTV%20server&In-Reply-To=%3C47676A1A.7070502%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Problem launching IPTV server">dwaiting at gmail.com
+       </A><BR>
+    <I>Tue Dec 18 07:35:06 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000165.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+        <LI>Next message: <A HREF="000167.html">[Uctimsclient-users] Problem opening IPTV stream
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#166">[ date ]</a>
+              <a href="thread.html#166">[ thread ]</a>
+              <a href="subject.html#166">[ subject ]</a>
+              <a href="author.html#166">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Vincent
+
+It appears there is something wrong with your gstreamer installation if 
+the file won't play from the command line. I assume you've tried with 
+other avi files to rule out the possibility of an incompatible file type.
+
+Unfortunately I have no further suggestions on this topic. The best 
+thing would be to ask for support on the gstreamer mailing list.
+
+Regards
+
+Dave
+
+
+Vincent Nogues wrote:
+&gt;<i> Hi Dave,
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your quick answer. I did already check the different plugins and
+</I>&gt;<i> it seems there are all present unless I miss something. Below are the log of
+</I>&gt;<i> the commands :
+</I>&gt;<i>
+</I>&gt;<i> # gst-launch-0.10 filesrc location=hostel.avi ! decodebin ! queue !
+</I>&gt;<i> ffmpegcolorspace ! ximagesink
+</I>&gt;<i> Setting pipeline to PAUSED ...
+</I>&gt;<i> Pipeline is PREROLLING ...
+</I>&gt;<i> ERROR: from element /pipeline0/decodebin0/avidemux0: Internal data stream
+</I>&gt;<i> error.
+</I>&gt;<i> Additional debug info:
+</I>&gt;<i> gstavidemux.c(3742): gst_avi_demux_loop (): /pipeline0/decodebin0/avidemux0:
+</I>&gt;<i> streaming stopped, reason not-negotiated
+</I>&gt;<i> ERROR: pipeline doesn't want to preroll.
+</I>&gt;<i> Setting pipeline to NULL ...
+</I>&gt;<i> FREEING pipeline ...
+</I>&gt;<i>
+</I>&gt;<i> # gst-inspect-0.10 | grep ffmpegcolorspace
+</I>&gt;<i> ffmpegcolorspace:  ffmpegcolorspace: FFMPEG Colorspace converter
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Vincent
+</I>&gt;<i>
+</I>&gt;<i> -----Message d'origine-----
+</I>&gt;<i> De : Dave Waiting [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>] 
+</I>&gt;<i> Envoy&#233; : lundi 17 d&#233;cembre 2007 15:44
+</I>&gt;<i> &#192; : Vincent Nogues
+</I>&gt;<i> Cc : <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> Objet : Re: [Uctimsclient-users] Problem launching IPTV server
+</I>&gt;<i>
+</I>&gt;<i> Hi Vincent
+</I>&gt;<i>
+</I>&gt;<i> Please confirm that you have gstreamer 0.10 and the necessary plugins; 
+</I>&gt;<i> try this line to test:
+</I>&gt;<i>
+</I>&gt;<i> gst-launch-0.10 filesrc location=hostel.avi ! decodebin ! queue ! 
+</I>&gt;<i> ffmpegcolorspace ! ximagesink
+</I>&gt;<i>
+</I>&gt;<i> My guess from those error messages is that you are missing the ffmpeg 
+</I>&gt;<i> plugins for gstreamer (gstreamer0.10-ffmpeg). Check that you have the 
+</I>&gt;<i> ffmpegcolorspace plugin like this:
+</I>&gt;<i>
+</I>&gt;<i> gst-inspect-0.10 | grep ffmpegcolorspace
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i> Dave
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Vincent Nogues wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have installed uctiptv server but I am not able to use it. When I 
+</I>&gt;&gt;<i> launch uctiptv I have the following errors (see below). It is 
+</I>&gt;&gt;<i> installed on a debian distrib with all the necessary library (I guess).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Can anyone help me ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks in advanced,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Vincent
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> interco-02:/home/interco# uctiptv 100000 1 hostel.avi
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Initialising 1 on channel1
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Starting channel1
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Elements created
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Pipeline created
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (&lt;unknown&gt;:14442): GLib-GObject-CRITICAL **: g_object_set: assertion 
+</I>&gt;&gt;<i> `G_IS_OBJECT (object)' failed
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Setting Bitrate to 100000
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Creating Decodebin
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Adding items
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Linking items
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (&lt;unknown&gt;:14442): GStreamer-WARNING **: Trying to connect elements 
+</I>&gt;&gt;<i> that don't share a common ancestor: ffmpegcolorspace and queuev
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (&lt;unknown&gt;:14442): GStreamer-WARNING **: Trying to connect elements 
+</I>&gt;&gt;<i> that don't share a common ancestor: ffmpegcolorspace and queuev
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Elements linked
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_element_get_pad: 
+</I>&gt;&gt;<i> assertion `GST_IS_ELEMENT (element)' failed
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_pad_link_prepare: 
+</I>&gt;&gt;<i> assertion `GST_IS_PAD (sinkpad)' failed
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_element_get_pad: 
+</I>&gt;&gt;<i> assertion `GST_IS_ELEMENT (element)' failed
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_pad_get_negotiated_caps: 
+</I>&gt;&gt;<i> assertion `GST_IS_PAD (pad)' failed
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ffenc_h263p Caps:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> NULL
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Video Caps:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> NULL
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Audio Caps:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> NULL
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_caps_unref: assertion 
+</I>&gt;&gt;<i> `caps != NULL' failed
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Returning from channel channel1 init
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> IPTV Appserver started on port 7070
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000165.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+	<LI>Next message: <A HREF="000167.html">[Uctimsclient-users] Problem opening IPTV stream
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#166">[ date ]</a>
+              <a href="thread.html#166">[ thread ]</a>
+              <a href="subject.html#166">[ subject ]</a>
+              <a href="author.html#166">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

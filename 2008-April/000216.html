@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem running IPTV service
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20running%20IPTV%20service&In-Reply-To=%3C0BA7EE4D4646E0409D458D347C508B780380ADF9%40MAILSERV1.uni.glam.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000214.html">
+   <LINK REL="Next"  HREF="000217.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem running IPTV service</H1>
+    <B>Balakrishna C (AT)</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20running%20IPTV%20service&In-Reply-To=%3C0BA7EE4D4646E0409D458D347C508B780380ADF9%40MAILSERV1.uni.glam.ac.uk%3E"
+       TITLE="[Uctimsclient-users] Problem running IPTV service">cbalakri at glam.ac.uk
+       </A><BR>
+    <I>Tue Apr 29 13:47:10 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000214.html">[Uctimsclient-users] Problem running IPTV service
+</A></li>
+        <LI>Next message: <A HREF="000217.html">[Uctimsclient-users] Problem Installing UCT IPTV Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#216">[ date ]</a>
+              <a href="thread.html#216">[ thread ]</a>
+              <a href="subject.html#216">[ subject ]</a>
+              <a href="author.html#216">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Richard,
+
+I seem to have sorted out the issue with the IPTV. It was the problem with the video file. It was too small in size  and not in the right format perhaps and also there were some configuration problems at the IMS. 
+
+Now the IPTV server works with the HW acceleration as well.
+
+Thanks for your support. I shall play around with it and will keep the list posted with my findings.
+
+-Chitra
+
+
+-----Original Message-----
+From: Richard Spiers [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>]
+Sent: Mon 4/28/2008 11:30 PM
+To: Balakrishna C (AT)
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: Re: [Uctimsclient-users] Problem running IPTV service
+ 
+Hi Chitra
+
+If those gstreamer commands do not work, then there is a problem with your
+gstreamer and media handling, not necessarily with the IPTV server and ims
+clients.
+
+I have no idea why your gstreamer setup is not working, but if you get those
+log files to me i will try to find out.
+
+You can also try capture the network traffic with wireshark and see if the
+media is actually being sent.
+
+The IPTV window should show up as it is part of the application, and is
+hidden / showned when appropriate - this is based on the session being
+setup, not actually on the media flow.
+
+If you send me a wireshark trace or the log files of those gstreamer
+commands being run with GST_DEBUG=3 I will try find out what is going wrong.
+
+Kind Regards
+Richard
+
+On Mon, Apr 28, 2008 at 10:34 PM, Balakrishna C (AT) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">cbalakri at glam.ac.uk</A>&gt;
+wrote:
+
+&gt;<i>  Richard,
+</I>&gt;<i>
+</I>&gt;<i> I tried everything you have mentioned. I still get a blank window but
+</I>&gt;<i> nothing on it. I also figured that this blank window appears even if I stop
+</I>&gt;<i> the IPTV server. .. what do you think is happening?
+</I>&gt;<i>
+</I>&gt;<i> -Chitra
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Richard Spiers [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&gt;
+</I>&gt;<i> ]
+</I>&gt;<i> Sent: Mon 28/04/2008 13:19
+</I>&gt;<i> To: Balakrishna C (AT)
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [Uctimsclient-users] Problem running IPTV service
+</I>&gt;<i>
+</I>&gt;<i> Okay - it looks like it is some problem with your gstreamer installation
+</I>&gt;<i> and/or plugins then if those gst-launch commands do not work.
+</I>&gt;<i>
+</I>&gt;<i> Can you try run in a terminal:
+</I>&gt;<i>
+</I>&gt;<i> export GST_DEBUG=3
+</I>&gt;<i>
+</I>&gt;<i> followed by the same commands redirected to a file ?
+</I>&gt;<i>
+</I>&gt;<i> i.e.
+</I>&gt;<i>
+</I>&gt;<i> gst-launch-0.10 filesrc location=/home/path/to/video/1
+</I>&gt;<i> .avi ! decodebin name=dbin ! audioconvert ! audioresample ! queue !
+</I>&gt;<i> ffenc_mp2 !  rtpmpapay ! udpsink port=2222 dbin. ! ffmpegcolorspace ! queue
+</I>&gt;<i> ! ffenc_h263p ! rtph263ppay ! udpsink port=2223 host=192.168.0.24 &lt;
+</I>&gt;<i> <A HREF="http://192.168.0.24/">http://192.168.0.24/</A>&gt;  &gt; logfile
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> and then email me the log files ? (Remember to change the ip)
+</I>&gt;<i>
+</I>&gt;<i> Run it for 5 seconds or so - the log files might get a bit big.
+</I>&gt;<i>
+</I>&gt;<i> (Maybe also try run it on one machine and use localhost / 127.0.0.1 as the
+</I>&gt;<i> host parameter or leave the host parameter out)
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i> Richard Spiers
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Mon, Apr 28, 2008 at 2:07 PM, Balakrishna C (AT) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">cbalakri at glam.ac.uk</A>&gt;
+</I>&gt;<i> wrote:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>         Richard,
+</I>&gt;<i>
+</I>&gt;<i>         I do not get the ximage pop-up window. I have attached the output
+</I>&gt;<i> messages.
+</I>&gt;<i>
+</I>&gt;<i>         I'm using Ubuntu 7.10 server on both server and client. I have
+</I>&gt;<i> desktop environment installed on the client machine and not on the server.
+</I>&gt;<i>         I tried double-clicking the IPTV window .. nothing happens other
+</I>&gt;<i> than the window maximising.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>         -Chitra
+</I>&gt;<i>
+</I>&gt;<i>         -----Original Message-----
+</I>&gt;<i>         From: Richard Spiers [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&gt;
+</I>&gt;<i> ]
+</I>&gt;<i>
+</I>&gt;<i>         Sent: Mon 4/28/2008 12:42 PM
+</I>&gt;<i>         To: Balakrishna C (AT)
+</I>&gt;<i>         Subject: Re: [Uctimsclient-users] Problem running IPTV service
+</I>&gt;<i>
+</I>&gt;<i>         Hi
+</I>&gt;<i>
+</I>&gt;<i>         That is a bit odd.
+</I>&gt;<i>
+</I>&gt;<i>         Can you try the following commands ? (Replace 192.168.0.24 with
+</I>&gt;<i> the destination ip to stream to)
+</I>&gt;<i>
+</I>&gt;<i>         To start streaming a video file -&gt;
+</I>&gt;<i>
+</I>&gt;<i>         gst-launch-0.10 filesrc location=/home/path/to/video/1.avi !
+</I>&gt;<i> decodebin name=dbin ! audioconvert ! audioresample ! queue ! ffenc_mp2 !
+</I>&gt;<i> rtpmpapay ! udpsink port=2222 dbin. ! ffmpegcolorspace ! queue ! ffenc_h263p
+</I>&gt;<i> ! rtph263ppay ! udpsink port=2223 host=192.168.0.24
+</I>&gt;<i>
+</I>&gt;<i>         Then while that is running, try
+</I>&gt;<i>
+</I>&gt;<i>          gst-launch-0.10 udpsrc port=2223 caps=&quot;application/x-rtp,
+</I>&gt;<i> media=(string)video, clock-rate=(int)90000, encoding-name=(string)H263-1998,
+</I>&gt;<i> payload=(int)96, ssrc=(guint)647401835, clock-base=(guint)3452060272,
+</I>&gt;<i> seqnum-base=(guint)60746&quot;  ! rtph263pdepay ! ffdec_h263 ! ffmpegcolorspace !
+</I>&gt;<i> ximagesink sync=false
+</I>&gt;<i>
+</I>&gt;<i>         You should get a ximagesink window pop up with the video showing.
+</I>&gt;<i>
+</I>&gt;<i>         What distribution are you running ? Are you running some form of
+</I>&gt;<i> compiz x system / window manager ? Have you tried double clicking on the
+</I>&gt;<i> window that pops up ? (The IPTV window)
+</I>&gt;<i>
+</I>&gt;<i>         Are you getting a new window opening, but the window is just black
+</I>&gt;<i> ?
+</I>&gt;<i>
+</I>&gt;<i>         Regards
+</I>&gt;<i>         Richard Spiers
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>         2008/4/28 Balakrishna C (AT) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">cbalakri at glam.ac.uk</A>&gt;:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>                 Richard,
+</I>&gt;<i>
+</I>&gt;<i>                 The same result, I get a blank screen. Although the
+</I>&gt;<i> ximagesink error messages vanished .. the output messages are attached
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>                 -Chitra
+</I>&gt;<i>
+</I>&gt;<i>                 -----Original Message-----
+</I>&gt;<i>                 From: Richard Spiers [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&gt;
+</I>&gt;<i> ]
+</I>&gt;<i>
+</I>&gt;<i>                 Sent: Mon 28/04/2008 11:58
+</I>&gt;<i>                 To: Balakrishna C (AT)
+</I>&gt;<i>                 Subject: Re: [Uctimsclient-users] Problem running IPTV
+</I>&gt;<i> service
+</I>&gt;<i>
+</I>&gt;<i>                 Hi Chitra
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>                 As you have surmised it is a problem with the xvimagesink
+</I>&gt;<i> - Everything else
+</I>&gt;<i>                 looks okay. In the latest uctimsclient there is an option
+</I>&gt;<i> in the preferences
+</I>&gt;<i>                 to use the ximagesink instead of the xvimagesink.
+</I>&gt;<i>
+</I>&gt;<i>                 Options -&gt; Preferences -&gt; IPtv HW Acceleration Disabled
+</I>&gt;<i>
+</I>&gt;<i>                 Give that a go and let me know how it goes.
+</I>&gt;<i>
+</I>&gt;<i>                 Kind Regards
+</I>&gt;<i>                 Richard Spiers
+</I>&gt;<i>
+</I>&gt;<i>                 On Mon, Apr 28, 2008 at 10:42 AM, Balakrishna C (AT) &lt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">cbalakri at glam.ac.uk</A>&gt;
+</I>&gt;<i>                 wrote:
+</I>&gt;<i>
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; Richard,
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; I have attached the command-line outputs for the server
+</I>&gt;<i> and client for you
+</I>&gt;<i>                 &gt; to diagonise further.
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; Thanks for your help.
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; -Chitra
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; -----Original Message-----
+</I>&gt;<i>
+</I>&gt;<i>                 &gt; From: Richard Spiers [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&gt;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&gt;
+</I>&gt;<i>                 &gt; ]
+</I>&gt;<i>                 &gt; Sent: Mon 28/04/2008 09:31
+</I>&gt;<i>                 &gt; To: Balakrishna C (AT)
+</I>&gt;<i>                 &gt; Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>                 &gt; Subject: Re: [Uctimsclient-users] Problem running IPTV
+</I>&gt;<i> service
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; Hi Chitra
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; Can you run the client and the server in a terminal
+</I>&gt;<i> (command line
+</I>&gt;<i>                 &gt; interface)
+</I>&gt;<i>                 &gt; and email me the output ? It should print out some
+</I>&gt;<i> messages depending on
+</I>&gt;<i>                 &gt; how
+</I>&gt;<i>                 &gt; far it gets, and this will help with the
+</I>&gt;<i> troubleshooting.
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; Kind Regards
+</I>&gt;<i>                 &gt; Richard Spiers
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; On Mon, Apr 28, 2008 at 10:02 AM, Balakrishna C (AT) &lt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">cbalakri at glam.ac.uk</A>&gt;
+</I>&gt;<i>                 &gt; wrote:
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt; &gt; Hi,
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt; &gt; I have successfully installed the UCT server and the
+</I>&gt;<i> client , Upon
+</I>&gt;<i>                 &gt; &gt; successful call establishment , all I can see is a
+</I>&gt;<i> blank screen. I was
+</I>&gt;<i>                 &gt; &gt; following one of the threads where you have solved a
+</I>&gt;<i> similar problem
+</I>&gt;<i>                 &gt; where
+</I>&gt;<i>                 &gt; &gt; you speak about ximagesink / xvimagesink. COuld you
+</I>&gt;<i> elaborate on that
+</I>&gt;<i>                 &gt; &gt; please? or suggest me a work around to this problem?
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt; &gt; Thanks
+</I>&gt;<i>                 &gt; &gt; Chitra
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt; &gt; _______________________________________________
+</I>&gt;<i>                 &gt; &gt; Uctimsclient-users mailing list
+</I>&gt;<i>                 &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt; &gt;
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>                 &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080429/8c907d54/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080429/8c907d54/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000214.html">[Uctimsclient-users] Problem running IPTV service
+</A></li>
+	<LI>Next message: <A HREF="000217.html">[Uctimsclient-users] Problem Installing UCT IPTV Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#216">[ date ]</a>
+              <a href="thread.html#216">[ thread ]</a>
+              <a href="subject.html#216">[ subject ]</a>
+              <a href="author.html#216">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

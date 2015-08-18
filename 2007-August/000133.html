@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem installing XCAP service with presence	service (Openser)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20installing%20XCAP%20service%20with%20presence%0A%09service%20%28Openser%29&In-Reply-To=%3C46CAE630.1010704%40tid.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000132.html">
+   <LINK REL="Next"  HREF="000134.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem installing XCAP service with presence	service (Openser)</H1>
+    <B>Nacho Conde</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20installing%20XCAP%20service%20with%20presence%0A%09service%20%28Openser%29&In-Reply-To=%3C46CAE630.1010704%40tid.es%3E"
+       TITLE="[Uctimsclient-users] Problem installing XCAP service with presence	service (Openser)">ics266 at tid.es
+       </A><BR>
+    <I>Tue Aug 21 15:18:40 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000132.html">[Uctimsclient-users] How to run OpenSER 1.3.X - Test Presence	functionality(UCT IMS Client 1.0.5)
+</A></li>
+        <LI>Next message: <A HREF="000134.html">[Uctimsclient-users] Problem installing XCAP service with presence service (Openser)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#133">[ date ]</a>
+              <a href="thread.html#133">[ thread ]</a>
+              <a href="subject.html#133">[ subject ]</a>
+              <a href="author.html#133">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everybody !!!
+
+I&#180;m working at this moment on a IMS project, I have the following problem:
+
+We have to use the following components installed:
+
+-OpenIMSCore
+-Uctimsclient 1.0.5
+-Openser 1.3 and its presence modules
+-XCAP-Lite
+
+Once I had all the components installed, we got many troubles.
+
+Firstly, I tested the presence server(without having installed yet the 
+xcap server) I opened two different uctimsclients to test the presence 
+feature but
+on the tab &quot;Presence watchers&quot;  appears a user asking about the presence 
+of the other party (the status appears &quot;pending&quot;), as I clicked on accept
+the status doesn&#180;t change and the other party doesn&#180;t receive the 
+presence. Must xcap server being installed in order to work properly the 
+presence server ?
+
+Secondly, once I installed the apache2 server and configured the 
+config.php file, I typed the command &quot;openserctl add <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at open-ims.test</A> 
+alice <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at example.com</A>&quot; to create the user and then I added the 
+presence rules to the xcap_xml table. As I tried to open the URL 
+&quot;<A HREF="http://alice:alice@xcap/xcap-root/pres-rules/user/alice/presence_rules.xml">http://alice:alice@xcap/xcap-root/pres-rules/user/alice/presence_rules.xml</A>&quot; 
+I got the Error &quot;Message 404 not Found&quot;. So now I&#180;m wondering if it is 
+necessary to create any directory or file on the path 
+&quot;/var/www/xcap-root/&quot; ?
+
+Thanks in advance
+
+Nacho
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070821/4467c0fa/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070821/4467c0fa/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000132.html">[Uctimsclient-users] How to run OpenSER 1.3.X - Test Presence	functionality(UCT IMS Client 1.0.5)
+</A></li>
+	<LI>Next message: <A HREF="000134.html">[Uctimsclient-users] Problem installing XCAP service with presence service (Openser)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#133">[ date ]</a>
+              <a href="thread.html#133">[ thread ]</a>
+              <a href="subject.html#133">[ subject ]</a>
+              <a href="author.html#133">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

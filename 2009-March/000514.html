@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] ACK from uctims client,	after receiving 200 OK for INVITE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20ACK%20from%20uctims%20client%2C%0A%09after%20receiving%20200%20OK%20for%20INVITE&In-Reply-To=%3CF05FCAF0AAEE44EE908034FF83D45598%40LIONKING.COM%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000513.html">
+   <LINK REL="Next"  HREF="000516.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] ACK from uctims client,	after receiving 200 OK for INVITE</H1>
+    <B>Sireesha Jakku</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20ACK%20from%20uctims%20client%2C%0A%09after%20receiving%20200%20OK%20for%20INVITE&In-Reply-To=%3CF05FCAF0AAEE44EE908034FF83D45598%40LIONKING.COM%3E"
+       TITLE="[Uctimsclient-users] ACK from uctims client,	after receiving 200 OK for INVITE">sireesha.jakku at info-spectrum.com
+       </A><BR>
+    <I>Fri Mar 13 10:06:09 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000513.html">[Uctimsclient-users] Is there any Device authentication in IMS ?
+</A></li>
+        <LI>Next message: <A HREF="000516.html">[Uctimsclient-users] ACK from uctims client,	after receiving 200 OK for INVITE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#514">[ date ]</a>
+              <a href="thread.html#514">[ thread ]</a>
+              <a href="subject.html#514">[ subject ]</a>
+              <a href="author.html#514">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I am trying to implement 3pcc in my AS.. 
+here is my simple scenario... (just wanted to check whether this scenario works or not..)
+
+
+caller            AS        Callee
+    |                |                |
+  INVITE (SDP1)
+ -----------------&gt;
+                    INVITE (SDP1)
+                    --------------------&gt;
+                        200 (SDP2)                
+                    &lt;-------------------
+  200 (SDP2)
+  &lt;------------------
+
+I am using uctimsclient as both caller and callee UE..
+I am generating the to-tag in the AS and sending 200 OK with SDP back to the caller..
+
+But caller is not responding with ACK...because of that, AS is re-sending the 200OK, after resending it for 3-4 times, uctimsclient is dumping core..
+
+I just want to know:
+
+1. whether uctimsclient validates the to-tag sent with the 200 OK message?
+2. By seeing the INVITE / 200 OK messages, can anyone help me identifying the problem...why uctimsclient is not sending ACK back? Am I missing something here...when sending 200OK back to the UE?
+
+
+
+and here is my INVITE and 200OK messages..
+
+INVITE: (caller -&gt; PCSCF)
+----------
+INVITE sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at info-spectrum.com</A> SIP/2.0
+Via: SIP/2.0/UDP 172.18.2.231:5062;rport;branch=z9hG4bK1846083772
+Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">orig at scscf.info-spectrum.com</A>:6060;lr&gt;
+From: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bob at info-spectrum.com</A>&gt;;tag=385394531
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at info-spectrum.com</A>&gt;
+Call-ID: 1541315989
+CSeq: 20 INVITE
+Contact: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bob at 172.18.2.231</A>:5062&gt;
+Content-Type: application/sdp
+Allow: INVITE, ACK, CANCEL, BYE, PRACK, UPDATE, REFER, MESSAGE
+Max-Forwards: 70
+User-Agent: UCT IMS Client
+Subject: IMS Call
+Expires: 120
+P-Preferred-Identity: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bob at info-spectrum.com</A>&gt;
+P-Preferred-Service: urn:xxx:3gpp-service.ims.icsi.mmtel
+Privacy: none
+P-Access-Network-Info: IEEE-802.11a
+Require: precondition
+Require: sec-agree
+Proxy-Require: sec-agree
+Supported: 100rel
+Content-Length:   331
+
+v=0
+o=- 0 0 IN IP4 172.18.2.231
+s=IMS Call
+c=IN IP4 172.18.2.231
+t=0 0
+m=audio 35717 RTP/AVP 3 0 101
+b=AS:64
+a=rtpmap:3 GSM/8000
+a=rtpmap:0 PCMU/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-11
+a=curr:qos local none
+a=curr:qos remote none
+a=des:qos mandatory local sendrecv
+a=des:qos mandatory remote sendrecv
+
+
+200 OK: (PCSCF -&gt; caller)
+-----------
+SIP/2.0 200 OK
+Record-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mo at scscf.info-spectrum.com</A>:6060;lr&gt;
+Record-Route: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mo at pcscf.info-spectrum.com</A>:4060;lr&gt;
+Via: SIP/2.0/UDP 172.18.2.231:5062;rport=5062;branch=z9hG4bK1846083772
+From: &quot;Bob&quot; &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bob at info-spectrum.com</A>&gt;;tag=385394531
+To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at info-spectrum.com</A>&gt;;tag=fc1104342f27c311587022fc44b7299b-9c10
+Call-ID: 1541315989
+CSeq: 20 INVITE
+Content-Type: application/sdp
+Server: OpenSIPS (1.4.0-notls (i386/linux))
+Content-Length: 360
+
+v=0
+o=- 0 0 IN IP4 172.18.2.231
+s=IMS_Call
+c=IN IP4 172.18.2.231
+t=0 0
+m=audio 35717 RTP/AVP 3 0 101
+b=AS:64
+a=curr:qos remote none
+a=curr:qos local none
+a=des:qos mandatory remote sendrecv
+a=conf:qos remote sendrecv
+a=des:qos mandatory local sendrecv
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=rtpmap:0 PCMU/8000
+a=rtpmap:3 GSM/8000
+
+
+Thankyou in advance.
+
+Regards,
+Sireesha 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090313/be56ff5d/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090313/be56ff5d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000513.html">[Uctimsclient-users] Is there any Device authentication in IMS ?
+</A></li>
+	<LI>Next message: <A HREF="000516.html">[Uctimsclient-users] ACK from uctims client,	after receiving 200 OK for INVITE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#514">[ date ]</a>
+              <a href="thread.html#514">[ thread ]</a>
+              <a href="subject.html#514">[ subject ]</a>
+              <a href="author.html#514">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

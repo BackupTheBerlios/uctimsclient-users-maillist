@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20not%20recognizing%20Logitech%0A%20QuickCam%20v.10.0A&In-Reply-To=%3C492D6852.3090408%40research.telcordia.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000441.html">
+   <LINK REL="Next"  HREF="000421.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A</H1>
+    <B>Melbourne Barton</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20not%20recognizing%20Logitech%0A%20QuickCam%20v.10.0A&In-Reply-To=%3C492D6852.3090408%40research.telcordia.com%3E"
+       TITLE="[Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A">mbarton at research.telcordia.com
+       </A><BR>
+    <I>Wed Nov 26 16:16:34 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000441.html">[Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A
+</A></li>
+        <LI>Next message: <A HREF="000421.html">[Uctimsclient-users] Fwd: UCT IMS Client on Fedora Core 9
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#442">[ date ]</a>
+              <a href="thread.html#442">[ thread ]</a>
+              <a href="subject.html#442">[ subject ]</a>
+              <a href="author.html#442">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Richard:
+
+I updated the code as you suggested, but now I am getting a slightly 
+different error as below:
+
+&quot;/Video_Transmit_Pipeline/Camera.src - *Check your filtered caps, if any*.
+Can't initialize the video pipeline. Either you do not have a Video-4-Linux
+compatible camera or it already in use by another application.&quot;
+
+The video pops up fine, when I tests with
+
+gst-launch-0.10 v4l2src device=&quot;/dev/video1&quot; ! ffmpegcolorspace ! ximagesink
+
+Thanks for your help.
+
+Melbourne
+
+Richard Spiers wrote:
+&gt;<i> Hi Melbourne
+</I>&gt;<i>
+</I>&gt;<i> By default, the client uses v4lsrc and /dev/video0. You can change 
+</I>&gt;<i> this behavior by looking in the source code (most likely gstreamer.c) 
+</I>&gt;<i> and changing the v4lsrc to v4l2src, i.e. something like this
+</I>&gt;<i>
+</I>&gt;<i> camera_src = gst_element_factory_make(&quot;v4l2src&quot;, &quot;camera_src&quot;);
+</I>&gt;<i>
+</I>&gt;<i>  and by passing the correct device name as follows:
+</I>&gt;<i>
+</I>&gt;<i> g_object_set (G_OBJECT (camera_src), &quot;device&quot;,&quot;/dev/video1&quot;, NULL);
+</I>&gt;<i>
+</I>&gt;<i> (where camera_src is the v4lsrc or v4l2src element that gets created)
+</I>&gt;<i>
+</I>&gt;<i> Let me know if that sorts you out.
+</I>&gt;<i>
+</I>&gt;<i> Also please be aware that recent changes in the linux kernel have 
+</I>&gt;<i> created some webcam problems. Some functioning webcams no longer work 
+</I>&gt;<i> - the issue has reportedly been fixed but regressed again in a later 
+</I>&gt;<i> version of some modules.
+</I>&gt;<i>
+</I>&gt;<i> Something to bear in mind if you think about upgrading to intrepid, 
+</I>&gt;<i> although it should have been fixed by now.
+</I>&gt;<i>
+</I>&gt;<i> Kind Regards
+</I>&gt;<i> Richard Spiers
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Thu, Nov 20, 2008 at 10:00 PM, Melbourne Barton 
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mbarton at research.telcordia.com</A> 
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mbarton at research.telcordia.com</A>&gt;&gt; wrote:
+</I>&gt;<i>
+</I>&gt;<i>     Hi,
+</I>&gt;<i>
+</I>&gt;<i>     I have two Logitech QuickCam v.10.0A cameras on two uctimsclients
+</I>&gt;<i>     v1.0.12 installed on ubuntu 8.04.
+</I>&gt;<i>     When I try to make a video call between the two clients I get the
+</I>&gt;<i>     following error.
+</I>&gt;<i>
+</I>&gt;<i>     &quot;/Video_Transmit_Pipeline/Camera.src - Can't initialize the video
+</I>&gt;<i>     pipeline. Either you do not have a
+</I>&gt;<i>     Video-4-Linux compatible camera or it already in use by another
+</I>&gt;<i>     application.&quot;
+</I>&gt;<i>
+</I>&gt;<i>     I ran a test to see if the camera is supported by gstreamer using the
+</I>&gt;<i>     command:
+</I>&gt;<i>     gst-launch-0.10 v4l2src ! ffmpegcolorspace ! ximagesink,
+</I>&gt;<i>     and got the error &quot;could not open device '/dev/video0' for reading and
+</I>&gt;<i>     writing&quot;
+</I>&gt;<i>     I get the same error if I ran the command:
+</I>&gt;<i>     gst-launch-0.10 v4l2src device=&quot;/dev/video0&quot;
+</I>&gt;<i>
+</I>&gt;<i>     However, the following command runs without any error:
+</I>&gt;<i>     gst-launch-0.10 v4l2src device=&quot;/dev/video1&quot;
+</I>&gt;<i>
+</I>&gt;<i>     Any help would be appreciated.
+</I>&gt;<i>
+</I>&gt;<i>     Melbourne
+</I>&gt;<i>     _______________________________________________
+</I>&gt;<i>     Uctimsclient-users mailing list
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>     &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081126/9692a3cf/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081126/9692a3cf/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000441.html">[Uctimsclient-users] uctimsclient not recognizing Logitech QuickCam v.10.0A
+</A></li>
+	<LI>Next message: <A HREF="000421.html">[Uctimsclient-users] Fwd: UCT IMS Client on Fedora Core 9
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#442">[ date ]</a>
+              <a href="thread.html#442">[ thread ]</a>
+              <a href="subject.html#442">[ subject ]</a>
+              <a href="author.html#442">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

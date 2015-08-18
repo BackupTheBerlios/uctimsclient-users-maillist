@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Registration 200ok: Case where the	P-Associated-URI is not supported by the registrar
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Registration%20200ok%3A%20Case%20where%20the%0A%09P-Associated-URI%20is%20not%20supported%20by%20the%20registrar&In-Reply-To=%3Cb702dc1a0903160045v729c9082n67e1f1af582abd2e%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000515.html">
+   <LINK REL="Next"  HREF="000518.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Registration 200ok: Case where the	P-Associated-URI is not supported by the registrar</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Registration%20200ok%3A%20Case%20where%20the%0A%09P-Associated-URI%20is%20not%20supported%20by%20the%20registrar&In-Reply-To=%3Cb702dc1a0903160045v729c9082n67e1f1af582abd2e%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Registration 200ok: Case where the	P-Associated-URI is not supported by the registrar">dwaiting at gmail.com
+       </A><BR>
+    <I>Mon Mar 16 08:45:04 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000515.html">[Uctimsclient-users] Registration 200ok: Case where the P-Associated-URI is not supported by the registrar
+</A></li>
+        <LI>Next message: <A HREF="000518.html">[Uctimsclient-users]  UCT IMS Client crashes when I try to open iptv channels&#8207;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#517">[ date ]</a>
+              <a href="thread.html#517">[ thread ]</a>
+              <a href="subject.html#517">[ subject ]</a>
+              <a href="author.html#517">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Cyril
+
+This makes a lot of sense. Thanks for the code contribution.
+
+We will add this to the next release.
+
+Regards
+
+David
+
+On Sun, Mar 15, 2009 at 3:36 AM, cyril jacob &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">jacobc at hotmail.fr</A>&gt; wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i> In the case that the registrar doesn't support the P-Associated-URI header
+</I>&gt;<i> (e.g OpenSIPS, SER), the client doesnt get any IMPUs locally saved, right ?
+</I>&gt;<i>
+</I>&gt;<i> Also, when registering for the first time, the response sent by the
+</I>&gt;<i> registrar to a REGISTER request if successful, should include in the Contact
+</I>&gt;<i> header the sip uri (rfc3665)and possibly an empty P-Associated-URI (if
+</I>&gt;<i> supported by the registrar):
+</I>&gt;<i>
+</I>&gt;<i> &quot;In case the address-of-record under registration does not have any
+</I>&gt;<i>  other SIP or SIPS URIs associated, the registrar MUST include an
+</I>&gt;<i>  empty P-Associated-URI header value. &quot; (RFC 3455 section 4.1.2.2)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I was thinking about completing the code as following:
+</I>&gt;<i> -After reading the P-Associated-URI, if no IMPUs have been stored, we
+</I>&gt;<i> should store the one in the Contact field header.
+</I>&gt;<i> get IMPU from the contact header field If there is no P-Associated-URI
+</I>&gt;<i>
+</I>&gt;<i> The proposal could look like that:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> void ims_process_registration_200ok(..)
+</I>&gt;<i> ...
+</I>&gt;<i>
+</I>&gt;<i> //get IMPU from the contact header field If there is no P-Associated-URI
+</I>&gt;<i>
+</I>&gt;<i>        if(num_associated_uris==0)
+</I>&gt;<i>        {
+</I>&gt;<i>
+</I>&gt;<i>         osip_contact_t *contact;
+</I>&gt;<i>
+</I>&gt;<i>     int num_contact = 0;
+</I>&gt;<i>
+</I>&gt;<i>     char buffer[200];
+</I>&gt;<i>         char *assoc_uri;
+</I>&gt;<i>
+</I>&gt;<i>         strcpy(buffer, &quot;IMPUs:&quot;);
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>            osip_message_get_contact(je-&gt;response, num_contact, &amp;contact);
+</I>&gt;<i>         {
+</I>&gt;<i>                      osip_uri_t *     url= contact-&gt;url;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> assoc_uri=(char*)malloc(sizeof(url-&gt;scheme)+sizeof(':')+sizeof(url-&gt;username)+sizeof('@')+sizeof(url-&gt;host)+sizeof('\0'));
+</I>&gt;<i>
+</I>&gt;<i>                     sprintf(assoc_uri, &quot;%s:%s@
+</I>&gt;<i> %s&quot;,url-&gt;scheme,url-&gt;username,url-&gt;host);
+</I>&gt;<i>                     strcat(buffer, assoc_uri);
+</I>&gt;<i>
+</I>&gt;<i>             /* add this uri to our list of uris*/
+</I>&gt;<i>
+</I>&gt;<i>                     ims_associated_uris[num_associated_uris]=assoc_uri;
+</I>&gt;<i>                     num_associated_uris ++;
+</I>&gt;<i>         }
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>         imsua_set_message_display(buffer, 0);
+</I>&gt;<i>     }
+</I>&gt;<i>
+</I>&gt;<i> even though incomplete because the contact list can be updated and have
+</I>&gt;<i> more than one entry (rfc3665), it is a step forward the usability of the
+</I>&gt;<i> client with registrar non-supporting P-Associated-URI. Does it make sense ?
+</I>&gt;<i>
+</I>&gt;<i> THx in advance, Cyril
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i> Get news, entertainment and everything you care about at Live.com. Check
+</I>&gt;<i> it out! &lt;<A HREF="http://www.live.com/getstarted.aspx">http://www.live.com/getstarted.aspx</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090316/b0cc36b8/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090316/b0cc36b8/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000515.html">[Uctimsclient-users] Registration 200ok: Case where the P-Associated-URI is not supported by the registrar
+</A></li>
+	<LI>Next message: <A HREF="000518.html">[Uctimsclient-users]  UCT IMS Client crashes when I try to open iptv channels&#8207;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#517">[ date ]</a>
+              <a href="thread.html#517">[ thread ]</a>
+              <a href="subject.html#517">[ subject ]</a>
+              <a href="author.html#517">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

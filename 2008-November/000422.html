@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCTIMSClient blank screen with streaming from DSS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTIMSClient%20blank%20screen%20with%20streaming%0A%20from%20DSS&In-Reply-To=%3C1227172115.9600.24.camel%40rob-desktop%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000419.html">
+   <LINK REL="Next"  HREF="000420.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCTIMSClient blank screen with streaming from DSS</H1>
+    <B>Robert</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTIMSClient%20blank%20screen%20with%20streaming%0A%20from%20DSS&In-Reply-To=%3C1227172115.9600.24.camel%40rob-desktop%3E"
+       TITLE="[Uctimsclient-users] UCTIMSClient blank screen with streaming from DSS">rmarston at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Thu Nov 20 10:08:35 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000419.html">[Uctimsclient-users] error:&quot; Not a trusted party (for	SUBSCRIBE)&quot;with OpenXCAP server integrated
+</A></li>
+        <LI>Next message: <A HREF="000420.html">[Uctimsclient-users] UCTIMSClient blank screen with streaming	from DSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#422">[ date ]</a>
+              <a href="thread.html#422">[ thread ]</a>
+              <a href="subject.html#422">[ subject ]</a>
+              <a href="author.html#422">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi 
+
+It's hard to determine if its the client or DSS that is causing the
+problem. If VLC can play the streams then the client should be able to
+play them as well. It is odd that the RTCP messages are still being sent
+when the RTP messages stop. Although this may be due to some
+functionality of RTCP that I am not aware of. I presume there is no
+pause or stop command that is being sent by the client soon after
+playback starts? Have you tried using the VLM functionality of VLC as
+the media server?
+
+Regards
+Robert
+
+
+On Wed, 2008-11-12 at 15:15 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">pablo.sotres at alumnos.unican.es</A> wrote:
+&gt;<i> Hi everybody!
+</I>&gt;<i> 
+</I>&gt;<i> First of all I have to thank you so much for this program because it has served
+</I>&gt;<i> to me so well in my final degree project concerning IMS technologies.
+</I>&gt;<i> 
+</I>&gt;<i> Having done this, I've a problem with the client when using it with DSS.
+</I>&gt;<i> I've tried the streaming with VLC player and it works fine, but when I try the
+</I>&gt;<i> same with UCTIMSClient and the indirection server the video window pops out and
+</I>&gt;<i> no video is showed although display box shows the RTSP session. Indirection
+</I>&gt;<i> server is working ok and it's not the problem.
+</I>&gt;<i> 
+</I>&gt;<i> Using wireshark I can see RTSP dialog and it's the same as VLC's, but only some
+</I>&gt;<i> RTP frames are sent by DSS to the client and after them nothing happens (well
+</I>&gt;<i> there is continuous RTCP from client to DSS, but I don't know in deep how it
+</I>&gt;<i> works).
+</I>&gt;<i> 
+</I>&gt;<i> I've tested it in two independent machines, one with Ubuntu using .deb release
+</I>&gt;<i> and the other one compiling source code over PCLinuxOS and the results are the
+</I>&gt;<i> same.
+</I>&gt;<i> 
+</I>&gt;<i> Any idea?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks in advance.
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000419.html">[Uctimsclient-users] error:&quot; Not a trusted party (for	SUBSCRIBE)&quot;with OpenXCAP server integrated
+</A></li>
+	<LI>Next message: <A HREF="000420.html">[Uctimsclient-users] UCTIMSClient blank screen with streaming	from DSS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#422">[ date ]</a>
+              <a href="thread.html#422">[ thread ]</a>
+              <a href="subject.html#422">[ subject ]</a>
+              <a href="author.html#422">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

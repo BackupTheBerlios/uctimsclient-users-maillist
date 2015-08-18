@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Error when starting uctiptv server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Error%20when%20starting%20uctiptv%20server&In-Reply-To=%3C5fd52d7a0805260647p682446a0vcfd5f72b51d70fb3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000248.html">
+   <LINK REL="Next"  HREF="000256.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Error when starting uctiptv server</H1>
+    <B>Tomasz Zieleniewski</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Error%20when%20starting%20uctiptv%20server&In-Reply-To=%3C5fd52d7a0805260647p682446a0vcfd5f72b51d70fb3%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Error when starting uctiptv server">tzieleniewski at gmail.com
+       </A><BR>
+    <I>Mon May 26 15:47:03 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000248.html">[Uctimsclient-users] vlc on IPTV Service ??
+</A></li>
+        <LI>Next message: <A HREF="000256.html">[Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#255">[ date ]</a>
+              <a href="thread.html#255">[ thread ]</a>
+              <a href="subject.html#255">[ subject ]</a>
+              <a href="author.html#255">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I encountered issue reported previously but I didn't find the solution
+perhaps someone solved it and could share:
+
+I use Debian sid OS on 64 bit machine. I've installed gstreamer and it's
+plugins.
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ims at venom</A>:~/uct/iptv/trunk$ dpkg-query -W | grep gstreamer
+gstreamer-tools 0.10.19-3
+...
+gstreamer0.10-ffmpeg    0.10.3-6
+..
+libgstreamer-plugins-base0.10-0 0.10.19-2
+..
+
+But I cann'ot find the ffenc_h263p codec present in the ffmpeg plugin?
+
+When I start server I get the following output:
+Initialising 1 on channel1
+Starting channel1
+Elements created
+Pipeline created
+
+(&lt;unknown&gt;:5406): GLib-GObject-CRITICAL **: g_object_set: assertion
+`G_IS_OBJECT (object)' failed
+Setting Bitrate to 500000
+Creating Decodebin
+Adding items
+Linking items
+
+(&lt;unknown&gt;:5406): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: queuea and ffenc_mp2
+
+(&lt;unknown&gt;:5406): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: queuea and ffenc_mp2
+
+(&lt;unknown&gt;:5406): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: ffmpegcolorspace and queuev
+
+(&lt;unknown&gt;:5406): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: ffmpegcolorspace and queuev
+Elements linked
+If the server gets stuck at this point then there is an error... perhaps an
+incompatible input file
+
+(&lt;unknown&gt;:5406): GStreamer-CRITICAL **: gst_element_get_pad: assertion
+`GST_IS_ELEMENT (element)' failed
+
+(&lt;unknown&gt;:5406): GStreamer-CRITICAL **: gst_pad_link_prepare: assertion
+`GST_IS_PAD (sinkpad)' failed
+
+(&lt;unknown&gt;:5406): GStreamer-CRITICAL **: gst_element_get_pad: assertion
+`GST_IS_ELEMENT (element)' failed
+
+(&lt;unknown&gt;:5406): GStreamer-CRITICAL **: gst_pad_get_negotiated_caps:
+assertion `GST_IS_PAD (pad)' failed
+ffenc_h263p Caps:
+NULL
+
+Video Caps:
+NULL
+
+Audio Caps:
+NULL
+
+
+(&lt;unknown&gt;:5406): GStreamer-CRITICAL **: gst_caps_unref: assertion `caps !=
+NULL' failed
+Returning from channel channel1 init
+IPTV Appserver started on port 9070
+
+kind regards
+Waiting for Your support
+
+Tomasz Zieleniewski
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080526/c665bba4/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080526/c665bba4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000248.html">[Uctimsclient-users] vlc on IPTV Service ??
+</A></li>
+	<LI>Next message: <A HREF="000256.html">[Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#255">[ date ]</a>
+              <a href="thread.html#255">[ thread ]</a>
+              <a href="subject.html#255">[ subject ]</a>
+              <a href="author.html#255">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Sip request
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Sip%20request&In-Reply-To=%3C487214F9.2050903%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000298.html">
+   <LINK REL="Next"  HREF="000300.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Sip request</H1>
+    <B>Robert Marston</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Sip%20request&In-Reply-To=%3C487214F9.2050903%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Sip request">rmarston at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Mon Jul  7 15:07:05 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000298.html">[Uctimsclient-users] Sip request
+</A></li>
+        <LI>Next message: <A HREF="000300.html">[Uctimsclient-users] diameter peer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#299">[ date ]</a>
+              <a href="thread.html#299">[ thread ]</a>
+              <a href="subject.html#299">[ subject ]</a>
+              <a href="author.html#299">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Wathana
+
+Is there a particular reason why you would want to store that 
+information in the hss? Why not just store that on the client side and 
+then the client after requesting the video with rtsp can do a seek to 
+that position.
+
+regards
+Robert
+
+Wathana Hak wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I'm speaking about the actual position in the video the user is 
+</I>&gt;<i> watching (in order to continue the video at the last position).
+</I>&gt;<i> Your solution seems to be very interesting.
+</I>&gt;<i>
+</I>&gt;<i> Thanks a lot
+</I>&gt;<i>
+</I>&gt;<i> &gt; Date: Mon, 7 Jul 2008 13:49:35 +0200
+</I>&gt;<i> &gt; From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rmarston at crg.ee.uct.ac.za</A>
+</I>&gt;<i> &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">wathana35 at hotmail.com</A>
+</I>&gt;<i> &gt; Subject: Re: [Uctimsclient-users] Sip request
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Wathana Hak wrote:
+</I>&gt;<i> &gt; &gt; Hi
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; I would like to know when you will release your solution.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; As soon as possible. Sometime this week or the next it just depends on
+</I>&gt;<i> &gt; how difficult I find it to implement the last few things I need to do,
+</I>&gt;<i> &gt; currently we are trying to make the solution as standards compliant as
+</I>&gt;<i> &gt; possible.
+</I>&gt;<i> &gt; &gt; I also have a question : I would like to save my video position in 
+</I>&gt;<i> the hss and get it later. Do you have an idea to do that??
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; What do you mean by save the video position in the HSS? Are you
+</I>&gt;<i> &gt; referring to the media server's address that contains the video files,
+</I>&gt;<i> &gt; the file location of the video the user is requesting or the actual
+</I>&gt;<i> &gt; position in the video the user is watching?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; Thanks in advance
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Wathana
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; ----------------------------------------
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;&gt; Date: Tue, 1 Jul 2008 20:39:19 +0200
+</I>&gt;<i> &gt; &gt;&gt; Subject: Re: [Uctimsclient-users] Sip request
+</I>&gt;<i> &gt; &gt;&gt; From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rmarston at crg.ee.uct.ac.za</A>
+</I>&gt;<i> &gt; &gt;&gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">wathana35 at hotmail.com</A>
+</I>&gt;<i> &gt; &gt;&gt; CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt; Hi
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt; For those of you interested in VoD, I am currently working on an 
+</I>&gt;<i> enhanced
+</I>&gt;<i> &gt; &gt;&gt; IPTV/VoD solution for the UCT IMS client. It will include 
+</I>&gt;<i> functionality to
+</I>&gt;<i> &gt; &gt;&gt; create Electronic Program Guides for IPTV and VoD and an IPTV 
+</I>&gt;<i> Application
+</I>&gt;<i> &gt; &gt;&gt; Server.
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt; I will probably release an initial prototype of the solution by 
+</I>&gt;<i> the end of
+</I>&gt;<i> &gt; &gt;&gt; this week.
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt; Regards
+</I>&gt;<i> &gt; &gt;&gt; Robert
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt; Communications Research Group
+</I>&gt;<i> &gt; &gt;&gt; Electrical Engineering
+</I>&gt;<i> &gt; &gt;&gt; University of Cape Town
+</I>&gt;<i> &gt; &gt;&gt; South Africa
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; &gt;&gt;
+</I>&gt;<i> &gt; Richard is currently integrating in some rtsp client support for the 
+</I>&gt;<i> UCT
+</I>&gt;<i> &gt; IMS client which will allow you request a stream via rtsp and play 
+</I>&gt;<i> it. I
+</I>&gt;<i> &gt; have created a server application that at present returns an rtsp
+</I>&gt;<i> &gt; address to any client that requests an IPTV channel or video on demand.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; At present we are working on adding hss lookup authentication for
+</I>&gt;<i> &gt; clients requesting streams from the IPTV application server and then
+</I>&gt;<i> &gt; linking that in with a media control function which will be responsible
+</I>&gt;<i> &gt; for interfacing between the client and the media server (Ensures
+</I>&gt;<i> &gt; security and will allow the use of any media server you wish, eg
+</I>&gt;<i> &gt; Videolan, Darwin, etc since it won't need to speak SIP).
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards
+</I>&gt;<i> &gt; Robert
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; --
+</I>&gt;<i> &gt; Communications Research Group
+</I>&gt;<i> &gt; Electrical Engineering
+</I>&gt;<i> &gt; University of Cape Town
+</I>&gt;<i> &gt; South Africa
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> Dites-lui &quot;Je t'aime&quot; en direct sur Windows Live Messenger ! 
+</I>&gt;<i> T&#233;l&#233;chargez Messenger, c'est gratuit ! 
+</I>&gt;<i> &lt;<A HREF="http://www.windowslive.fr/majmessenger.asp">http://www.windowslive.fr/majmessenger.asp</A>&gt;
+</I>
+
+-- 
+Communications Research Group
+Electrical Engineering
+University of Cape Town
+South Africa
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000298.html">[Uctimsclient-users] Sip request
+</A></li>
+	<LI>Next message: <A HREF="000300.html">[Uctimsclient-users] diameter peer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#299">[ date ]</a>
+              <a href="thread.html#299">[ thread ]</a>
+              <a href="subject.html#299">[ subject ]</a>
+              <a href="author.html#299">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

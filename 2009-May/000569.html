@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctimsclient crashes when requesting vod with	ubuntu 8.10
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20crashes%20when%20requesting%20vod%20with%0A%09ubuntu%208.10&In-Reply-To=%3C4A129BA2.3040709%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000568.html">
+   <LINK REL="Next"  HREF="000570.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctimsclient crashes when requesting vod with	ubuntu 8.10</H1>
+    <B>Manuel Fontan Garcia</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20crashes%20when%20requesting%20vod%20with%0A%09ubuntu%208.10&In-Reply-To=%3C4A129BA2.3040709%40gmail.com%3E"
+       TITLE="[Uctimsclient-users] uctimsclient crashes when requesting vod with	ubuntu 8.10">manuel.fontan.garcia at gmail.com
+       </A><BR>
+    <I>Tue May 19 13:44:34 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000568.html">[Uctimsclient-users] precondition in the invite
+</A></li>
+        <LI>Next message: <A HREF="000570.html">[Uctimsclient-users] installation of opensips
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#569">[ date ]</a>
+              <a href="thread.html#569">[ thread ]</a>
+              <a href="subject.html#569">[ subject ]</a>
+              <a href="author.html#569">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi I'm Manuel Font&#225;n
+
+This is my first mail to the list I'm a Telecommunications Student from 
+Universidad de Vigo Spain.
+I'm testing uctiptvadvanced with openimscore, after setting everything 
+seems signaling its working right but I have a problem with the 
+uctimsclient.
+After calling for a video it crashes.
+
+I'm Using :
+
+ubuntu 8.10 Intrepid
+vlc 0.9.4
+uctimsclient1.0.13
+
+I first tried with the .deb package and finally with the .tar.gz and 
+compiling but neither work.
+
+I'm using two computers to make my tests one of the hosting the 
+Openismscore sw and the other one hostin VLC and advancedIPTV.
+I tested to register from both and everything is ok, calls between them 
+are also going well.The problem comes when I call for a video to  the  
+advancediptv, VLC is set and working properly so I can watch video using 
+it from both machines.
+
+I guess the problem is on the client because it crashes and the server 
+still works and receives the video request correctly.
+
+The steps I took before the client crash are:
+
+1.Run all the components on machine1 ./pcscf.sh ./scscf.sh ./icscf.sh 
+./fhoss.sh
+2.Run the components on machine2  uctiptv_as /key_value_file.xml , vlc 
+-ttl12 -vvv -color -I telnet --telnet-password videolan --rtsp-host 
+server_ip:port
+3.Run the client on machine1 uctimsclient
+4.Set the preferences to connect to mydomain
+5.Call to <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at myiptv.mydomain.com</A>:8010
+6.XXXXXXXXXXX client crashes
+    server msg: Event type 5: New call received!
+                         Client requesting: channel1
+
+Running the client under gdb and making a backtrace I've got this, I 
+have no great skills debugging so I hope it helps
+
+GNU gdb 6.8-debian
+Copyright (C) 2008 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later 
+&lt;<A HREF="http://gnu.org/licenses/gpl.html">http://gnu.org/licenses/gpl.html</A>&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type &quot;show copying&quot;
+and &quot;show warranty&quot; for details.
+This GDB was configured as &quot;i486-linux-gnu&quot;...
+(gdb) run
+Starting program: /home/uctimsclient/uctimsclient
+[Thread debugging using libthread_db enabled]
+[New Thread 0xb6b87a30 (LWP 20085)]
+[New Thread 0xb69fcb90 (LWP 20089)]
+
+(uctimsclient:20085): Gtk-WARNING **: GtkSpinButton: setting an 
+adjustment with non-zero page size is deprecated
+[New Thread 0xb5cc9b90 (LWP 20090)]
+UCT IMS Client - SIP port 5061 - Audio Port: 25302 - Video Port: 36752
+
+Attempting to open RTSP stream ...
+[00000001] main libvlc debug: VLC media player - version 0.9.4 Grishenko 
+- (c) 1996-2008 the VideoLAN team
+[00000001] main libvlc debug: libvlc was configured with ./configure  
+'--build=i486-linux-gnu' '--enable-maintaner-mode' '--enable-release' 
+'--prefix=/usr' '--enable-libtool' '--enable-fast-install' 
+'--with-binary-version=1ubuntu3.1' '--disable-update-check' 
+'--disable-gnome' '--disable-gtk' '--disable-familiar' '--disable-fb' 
+'--enable-ggi' '--enable-sdl' '--enable-esd' '--enable-mad' 
+'--enable-arts' '--enable-jack' '--enable-pulse' '--enable-lirc' 
+'--enable-a52' '--enable-aa' '--enable-dvbpsi' '--enable-mozilla' 
+'--with-mozilla-pkg=libxul-plugin' '--disable-kde' '--enable-mp4' 
+'--enable-dvb' '--disable-satellite' '--enable-ogg' '--enable-vorbis' 
+'--enable-shout' '--enable-qt4' '--disable-slp' '--enable-flac' 
+'--disable-skins' '--disable-basic-skins' '--enable-skins2' 
+'--enable-freetype' '--enable-mkv' '--enable-speex' '--enable-caca' 
+'--enable-live555' '--enable-libmpeg2' '--enable-fribidi' 
+'--enable-cdio' '--enable-mod' '--enable-theora' '--enable-modplug' 
+'--enable-dvdnav' '--enable-gnutls' '--enable-ffmpeg' '--enable-ncurses' 
+'--enable-smb' '--disable-gnomevfs' '--enable-bonjour' '--enable-mpc' 
+'--enable-vcd' '--enable-vcdx' '--enable-notify' '--enable-twolame' 
+'--enable-x264' '--enable-faad' '--disable-zvbi' '--enable-telx' 
+'--enable-mediacontrol-bindings' '--disable-atmo' '--enable-taglib' 
+'--enable-libass' '--enable-libdca' '--enable-alsa' '--enable-dv' 
+'--enable-v4l' '--enable-v4l2' '--enable-pvr' '--enable-svgalib' 
+'--enable-dvd' '--without-dvdcss' 'build_alias=i486-linux-gnu' 
+'CFLAGS=-g -O2' 'LDFLAGS=-Wl,--as-needed' 'CPPFLAGS=' 'CXXFLAGS=-g -O2'
+[00000001] main libvlc debug: translation test: code is &quot;C&quot;
+[New Thread 0xb5237b90 (LWP 20144)]
+[New Thread 0xb4a36b90 (LWP 20145)]
+[New Thread 0xb4235b90 (LWP 20146)]
+[New Thread 0xb3a34b90 (LWP 20147)]
+[New Thread 0xb3233b90 (LWP 20148)]
+[New Thread 0xb2a32b90 (LWP 20149)]
+[New Thread 0xb2231b90 (LWP 20150)]
+
+(uctimsclient:20085): Gtk-WARNING **: GtkSpinButton: setting an 
+adjustment with non-zero page size is deprecated
+
+Program received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0xb6b87a30 (LWP 20085)]
+0xb74cb2fb in strlen () from /lib/tls/i686/cmov/libc.so.6
+(gdb) bt
+#0  0xb74cb2fb in strlen () from /lib/tls/i686/cmov/libc.so.6
+#1  0xb7497848 in vfprintf () from /lib/tls/i686/cmov/libc.so.6
+#2  0xb74987a0 in ?? () from /lib/tls/i686/cmov/libc.so.6
+#3  0xb7493c6e in vfprintf () from /lib/tls/i686/cmov/libc.so.6
+#4  0xb754c2d7 in __fprintf_chk () from /lib/tls/i686/cmov/libc.so.6
+#5  0xb75b7eb4 in libvlc_exception_raise () from /usr/lib/libvlc.so.2
+#6  0x00000001 in ?? ()
+Backtrace stopped: previous frame inner to this frame (corrupt stack?)
+(gdb)
+
+
+Thank you in advanced
+
+Manuel Font&#225;n
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000568.html">[Uctimsclient-users] precondition in the invite
+</A></li>
+	<LI>Next message: <A HREF="000570.html">[Uctimsclient-users] installation of opensips
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#569">[ date ]</a>
+              <a href="thread.html#569">[ thread ]</a>
+              <a href="subject.html#569">[ subject ]</a>
+              <a href="author.html#569">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

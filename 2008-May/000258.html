@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Installing%20UCT%20Policy%20Control%20Framework%0A%20not%20in%09default%20Open%20IMS%20Core%20directory&In-Reply-To=%3C483BCDC8.9090400%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000256.html">
+   <LINK REL="Next"  HREF="000257.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Installing%20UCT%20Policy%20Control%20Framework%0A%20not%20in%09default%20Open%20IMS%20Core%20directory&In-Reply-To=%3C483BCDC8.9090400%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Tue May 27 11:00:56 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000256.html">[Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory
+</A></li>
+        <LI>Next message: <A HREF="000257.html">[Uctimsclient-users] Segmentation fault in imsua_set_message_display
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#258">[ date ]</a>
+              <a href="thread.html#258">[ thread ]</a>
+              <a href="subject.html#258">[ subject ]</a>
+              <a href="author.html#258">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Unfortunately this option is not catered for in the compilation - I will 
+rectify this in the next release.
+
+For now we can hack it.  I have attached a modified configurator.sh 
+script that will replace all /opt/OpenIMSCore/uctpcrf with the given 
+installation location.
+
+This script should be run on all config files, all JSP files, and all 
+PCRF java files - so copy the script to the PCRF directory and:
+./configurator config/*
+./configurator src/pcrf/*
+./configurator uct_web_pcm/pages/*
+ 
+The script will prompt you for the new installation location - To cater 
+for escape characters etc. your installation location should be entered 
+as followed:
+if your installation location is /home/ims/pcrf you should enter 
+\\/home\\/ims\\/pcrf
+
+hope this helps,
+
+Regards,
+Richard.
+
+
+Tomasz Zieleniewski wrote:
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> I am trying to setup UCT Policy Control Framework.
+</I>&gt;<i> Is the a possibility to specify (maybe during compilation)
+</I>&gt;<i> the path to OpenIMS Core installation.
+</I>&gt;<i> I have the OIMS installed in the different directory than
+</I>&gt;<i> /opt/OpenIMSCore so I look for a way to make it work.
+</I>&gt;<i>
+</I>&gt;<i> Thank You in advance
+</I>&gt;<i> Kind regards
+</I>&gt;<i> Tomasz Zieleniewski
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080527/0b794f07/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080527/0b794f07/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: configurator.sh
+Type: application/x-shellscript
+Size: 1177 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080527/0b794f07/attachment.bin">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080527/0b794f07/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000256.html">[Uctimsclient-users] Installing UCT Policy Control Framework not in	default Open IMS Core directory
+</A></li>
+	<LI>Next message: <A HREF="000257.html">[Uctimsclient-users] Segmentation fault in imsua_set_message_display
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#258">[ date ]</a>
+              <a href="thread.html#258">[ thread ]</a>
+              <a href="subject.html#258">[ subject ]</a>
+              <a href="author.html#258">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

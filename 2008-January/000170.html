@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem running IPTV server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-January/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20running%20IPTV%20server&In-Reply-To=%3COF2A439C9C.96C26FDE-ON652573D9.002324A5-652573D9.002324B4%40tcs.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000171.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem running IPTV server</H1>
+    <B>Abhinav Rajawat</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20running%20IPTV%20server&In-Reply-To=%3COF2A439C9C.96C26FDE-ON652573D9.002324A5-652573D9.002324B4%40tcs.com%3E"
+       TITLE="[Uctimsclient-users] Problem running IPTV server">abhinav.rajawat at tcs.com
+       </A><BR>
+    <I>Wed Jan 23 07:23:51 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000171.html">[Uctimsclient-users] Problem running IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#170">[ date ]</a>
+              <a href="thread.html#170">[ thread ]</a>
+              <a href="subject.html#170">[ subject ]</a>
+              <a href="author.html#170">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi All,
+
+I have been facing the same problem as previously posted here. It has been
+listed in the november archives. But I could not find the solution to it.
+The problem is as follows....
+
+***************************************
+&gt;<i>Hi All,
+</I>&gt;<i>I have successfully compiled IPTV streaming server ans trying to run it
+</I>with &gt;the following command:
+
+&gt;<i>./uctiptv 500000 1 ccvt_box.avi
+</I>
+&gt;<i>after this I get the following msgs and the server hanges there
+</I>
+&gt;<i>Initialising channel3
+</I>&gt;<i>Starting channel3
+</I>&gt;<i>Elements created
+</I>&gt;<i>Pipeline created
+</I>&gt;<i>Setting Bitrate to 500000
+</I>&gt;<i>Creating Decodebin
+</I>&gt;<i>Adding items
+</I>&gt;<i>Linking items
+</I>&gt;<i>Elements linked
+</I>
+&gt;<i>But the problem is server is not listening on port 7070 (I verified this
+</I>&gt;<i>from netstat)
+</I>
+&gt;<i>Have I missed anything ??
+</I>
+&gt;<i>Regards,
+</I>&gt;<i>Prateek
+</I>**************************************
+
+
+I have installed all the gstreamer plugins like good, bad, ugly etc but it
+doesn't seems to be working. It looks like xvimagesink is not working on my
+machine. The output of the
+
+gst-launch-0.10 videotestsrc ! xvimagesink is
+
+Setting pipeline to PAUSED ...
+ERROR: Pipeline doesn't want to pause.
+ERROR: from element /pipeline0/xvimagesink0: Could not initialise Xv output
+Additional debug info:
+xvimagesink.c(1322): gst_xvimagesink_get_xv_support ():
+/pipeline0/xvimagesink0:
+No port available
+Setting pipeline to NULL ...
+FREEING pipeline ...
+
+
+And the output from the xvinfo command is
+
+X-Video Extension version 2.2
+screen #0
+no adaptors present
+
+
+But gst-launch-0.10 videotestsrc ! ximagesink works on my machine.
+Is there any patch to make IPTV work with ximagesink.
+
+
+Thanks in advance,
+Abhinav
+
+=====-----=====-----=====
+Notice: The information contained in this e-mail
+message and/or attachments to it may contain 
+confidential or privileged information. If you are 
+not the intended recipient, any dissemination, use, 
+review, distribution, printing or copying of the 
+information contained in this e-mail message 
+and/or attachments to it are strictly prohibited. If 
+you have received this communication in error, 
+please notify us by reply e-mail or telephone and 
+immediately and permanently delete the message 
+and any attachments. Thank you
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000171.html">[Uctimsclient-users] Problem running IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#170">[ date ]</a>
+              <a href="thread.html#170">[ thread ]</a>
+              <a href="subject.html#170">[ subject ]</a>
+              <a href="author.html#170">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

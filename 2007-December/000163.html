@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users]  Problem launching IPTV server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%20Problem%20launching%20IPTV%20server&In-Reply-To=%3C004801c840b5%24845c0320%242902320a%40ouest.teamlog.intra%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000161.html">
+   <LINK REL="Next"  HREF="000164.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users]  Problem launching IPTV server</H1>
+    <B>Vincent Nogues</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%20Problem%20launching%20IPTV%20server&In-Reply-To=%3C004801c840b5%24845c0320%242902320a%40ouest.teamlog.intra%3E"
+       TITLE="[Uctimsclient-users]  Problem launching IPTV server">vincent.nogues at teamlog.com
+       </A><BR>
+    <I>Mon Dec 17 15:02:35 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000161.html">[Uctimsclient-users] Problem opening IPTV stream
+</A></li>
+        <LI>Next message: <A HREF="000164.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#163">[ date ]</a>
+              <a href="thread.html#163">[ thread ]</a>
+              <a href="subject.html#163">[ subject ]</a>
+              <a href="author.html#163">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+ 
+
+I have installed uctiptv server but I am not able to use it. When I launch
+uctiptv I have the following errors (see below). It is installed on a debian
+distrib with all the necessary library (I guess).
+
+Can anyone help me ?
+
+ 
+
+Thanks in advanced,
+
+Vincent
+
+ 
+
+interco-02:/home/interco# uctiptv 100000 1 hostel.avi
+
+Initialising 1 on channel1
+
+Starting channel1
+
+Elements created
+
+Pipeline created
+
+ 
+
+(&lt;unknown&gt;:14442): GLib-GObject-CRITICAL **: g_object_set: assertion
+`G_IS_OBJECT (object)' failed
+
+Setting Bitrate to 100000
+
+Creating Decodebin
+
+Adding items
+
+Linking items
+
+ 
+
+(&lt;unknown&gt;:14442): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: ffmpegcolorspace and queuev
+
+ 
+
+(&lt;unknown&gt;:14442): GStreamer-WARNING **: Trying to connect elements that
+don't share a common ancestor: ffmpegcolorspace and queuev
+
+Elements linked
+
+ 
+
+(&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_element_get_pad: assertion
+`GST_IS_ELEMENT (element)' failed
+
+ 
+
+(&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_pad_link_prepare: assertion
+`GST_IS_PAD (sinkpad)' failed
+
+ 
+
+(&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_element_get_pad: assertion
+`GST_IS_ELEMENT (element)' failed
+
+ 
+
+(&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_pad_get_negotiated_caps:
+assertion `GST_IS_PAD (pad)' failed
+
+ffenc_h263p Caps:
+
+NULL
+
+ 
+
+Video Caps:
+
+NULL
+
+ 
+
+Audio Caps:
+
+NULL
+
+ 
+
+ 
+
+(&lt;unknown&gt;:14442): GStreamer-CRITICAL **: gst_caps_unref: assertion `caps !=
+NULL' failed
+
+Returning from channel channel1 init
+
+IPTV Appserver started on port 7070
+
+ 
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20071217/567403b2/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20071217/567403b2/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000161.html">[Uctimsclient-users] Problem opening IPTV stream
+</A></li>
+	<LI>Next message: <A HREF="000164.html">[Uctimsclient-users] Problem launching IPTV server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#163">[ date ]</a>
+              <a href="thread.html#163">[ thread ]</a>
+              <a href="subject.html#163">[ subject ]</a>
+              <a href="author.html#163">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

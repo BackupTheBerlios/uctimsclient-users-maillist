@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] presence support: not been notified while change status
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-June/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20presence%20support%3A%20not%20been%20notified%20while%0A%20change%20status&In-Reply-To=%3C4666BC0B.4090407%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000114.html">
+   <LINK REL="Next"  HREF="000117.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] presence support: not been notified while change status</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20presence%20support%3A%20not%20been%20notified%20while%0A%20change%20status&In-Reply-To=%3C4666BC0B.4090407%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] presence support: not been notified while change status">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Wed Jun  6 15:52:11 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000114.html">[Uctimsclient-users] presence support: not been notified while change status
+</A></li>
+        <LI>Next message: <A HREF="000117.html">[Uctimsclient-users] presence support: not been notified while	change status
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Li,
+
+Q1
+The basic field is either open or closed (to denote whether you are off 
+or online) while the status field holds the actual status message.
+
+Q2
+I think that this is a bug in the OpenIMSCore fixed as of release 281. 
+If you are pre-281 please update your core and retry. If your revision 
+is after 281, please let me know and we can try and diagnose the bug.
+
+regards,
+Richard
+
+li wang wrote:
+&gt;<i> Dear all,
+</I>&gt;<i>
+</I>&gt;<i> I have some question with the presence support of UCTIMSClient.
+</I>&gt;<i>
+</I>&gt;<i> First i explain my scenario:
+</I>&gt;<i>
+</I>&gt;<i> Alice and Bob register to CoreOpenIMS and subscribe to Presence Server.
+</I>&gt;<i> Then Alice add Bob to her buddy list. So every time Bob changes status, 
+</I>&gt;<i> Alice should be notified.
+</I>&gt;<i>
+</I>&gt;<i> My question is:
+</I>&gt;<i>
+</I>&gt;<i> 1. &quot;change status&quot; sends always a message PUBLISH with status OPEN?
+</I>&gt;<i>
+</I>&gt;<i> 2. When Alice adds Bob to her buddy list, she sends a message SUBSCRIBE and 
+</I>&gt;<i> receives
+</I>&gt;<i> NOTIFY with current status of Bob. Then when i do &quot;change status&quot; of Bob, 
+</I>&gt;<i> Bob send a message PUBLISH but Alice is not been notified. Sometime It shows 
+</I>&gt;<i> &quot;SIP/2.0 403 Forbidden - Dialog not found on S-CSCF or Terminating user not 
+</I>&gt;<i> suitable for unregistered services&quot; in wireshark, sometimes there is 
+</I>&gt;<i> nothing.
+</I>&gt;<i>
+</I>&gt;<i> I don't know where is the problem.
+</I>&gt;<i> Thanks for your hint.
+</I>&gt;<i>
+</I>&gt;<i> li
+</I>&gt;<i>
+</I>&gt;<i> _________________________________________________________________
+</I>&gt;<i> Windows Live Messenger sur i-mode&#8482; : dialoguez avec vos amis depuis votre 
+</I>&gt;<i> mobile comme sur PC ! <A HREF="http://mobile.live.fr/messenger/bouygues/">http://mobile.live.fr/messenger/bouygues/</A>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000114.html">[Uctimsclient-users] presence support: not been notified while change status
+</A></li>
+	<LI>Next message: <A HREF="000117.html">[Uctimsclient-users] presence support: not been notified while	change status
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

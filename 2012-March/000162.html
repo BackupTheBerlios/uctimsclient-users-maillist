@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.5.1331738968.13725.uctimsclient-users%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000029.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.5.1331738968.13725.uctimsclient-users%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 16:29:27 CET 2012</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000029.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#162">[ date ]</a>
+              <a href="thread.html#162">[ thread ]</a>
+              <a href="subject.html#162">[ subject ]</a>
+              <a href="author.html#162">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&lt;pre&gt;The first sub-field is the media type.  Currently defined media are
+&quot;audio&quot;, &quot;video&quot;, &quot;application&quot;, &quot;data&quot; and &quot;control&quot;
+
+&lt;/pre&gt;
+When you set your media type to &quot;videom=video&quot; there is an error when
+parsing the SDP.&nbsp; I'm not sure if this is a bug in the SBC but if not
+and you want the media type to be set to this , you can change line 443
+in sdp_methods.c to &lt;br&gt;
+&lt;font size=&quot;3&quot;&gt;&lt;br&gt;
+else if (strstr (remote_med-&gt;m_media, &quot;video&quot;) != NULL)&lt;br&gt;
+&lt;br&gt;
+&lt;/font&gt;&lt;font size=&quot;3&quot;&gt;This will look for an occurence rather than the
+exact string.&lt;br&gt;
+&lt;br&gt;
+regards,&lt;br&gt;
+&lt;br&gt;
+Richard&lt;br&gt;
+&lt;/font&gt;&lt;font size=&quot;3&quot;&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;/font&gt;Nacho Conde wrote:
+&lt;blockquote cite=&quot;mid:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">47613021.3000000 at tid.es</A>&quot; type=&quot;cite&quot;&gt;Hi all,
+  &lt;br&gt;
+Capture attached.
+  &lt;br&gt;
+  &lt;br&gt;
+Regards
+  &lt;br&gt;
+Nacho.
+  &lt;br&gt;
+  &lt;br&gt;
+Richard Good wrote:
+  &lt;br&gt;
+  &lt;blockquote type=&quot;cite&quot;&gt;Hi Nacho,
+    &lt;br&gt;
+    &lt;br&gt;
+Please send a trace.
+    &lt;br&gt;
+    &lt;br&gt;
+regards,
+    &lt;br&gt;
+    &lt;br&gt;
+Richard
+    &lt;br&gt;
+    &lt;br&gt;
+Nacho Conde wrote:
+    &lt;br&gt;
+    &lt;blockquote type=&quot;cite&quot;&gt;&nbsp; Hi Dave, I commented these lines and now
+all work OK. thanks!!
+      &lt;br&gt;
+      &lt;br&gt;
+Now We are experimenting a new issue; We are trying to reach de AS
+using&nbsp; a SBC, the SBC must open the RTP ports that the AS and the
+client are negociating.
+      &lt;br&gt;
+      &lt;br&gt;
+When the client send the ACK to the AS, in the SDP the video port have
+the value 0. The SBC close the port previously negociated and the video
+don't reach de client.
+      &lt;br&gt;
+      &lt;br&gt;
+Media Description, name and address (m): videom=video 0 RTP/AVP
+      &lt;br&gt;
+Media Description, name and address (m): audio 29482 RTP/AVP 14
+      &lt;br&gt;
+      &lt;br&gt;
+I think this could be a small bug in the uct??
+      &lt;br&gt;
+Regards
+      &lt;br&gt;
+      &lt;br&gt;
+Nacho.
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+Dave Waiting wrote:
+      &lt;br&gt;
+&nbsp;
+      &lt;blockquote type=&quot;cite&quot;&gt;Hi Nacho
+        &lt;br&gt;
+        &lt;br&gt;
+It looks like the server is working fine but there is a small bug with
+the client. I put in a method to open up NATs but if it fails I think
+it keeps the port open and the video cannot bind to that port.
+        &lt;br&gt;
+        &lt;br&gt;
+In the common_exosip_event_handler.c just comment out these lines (185
+and 186) and recompile:
+        &lt;br&gt;
+        &lt;br&gt;
+&nbsp; media_open_nat(ca-&gt;remote_audio_ip, ca-&gt;remote_audio_port,
+ca-&gt;local_audio_port);
+        &lt;br&gt;
+&nbsp; media_open_nat(ca-&gt;remote_video_ip, ca-&gt;remote_video_port,
+ca-&gt;local_video_port);
+        &lt;br&gt;
+        &lt;br&gt;
+I hope that solves the problem.
+        &lt;br&gt;
+        &lt;br&gt;
+Regards
+        &lt;br&gt;
+        &lt;br&gt;
+Dave
+        &lt;br&gt;
+        &lt;br&gt;
+Nacho Conde wrote:
+        &lt;br&gt;
+&nbsp;&nbsp;&nbsp;
+        &lt;blockquote type=&quot;cite&quot;&gt;Hi All,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; I've&nbsp; installed successfully&nbsp; the IPTV streaming server and I think
+the server runs OK:
+          &lt;br&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /uctiptv 1000000 1 House.avi /
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Initialising 1 on channel1/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Starting channel1/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Elements created/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Pipeline created/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Setting Bitrate to 1000000 /
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Creating Decodebin /
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Adding items /
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Linking items /
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Elements linked/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /ffenc_h263p Caps:/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /video/x-raw-yuv, width=(int)624, height=(int)352,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; framerate=(fraction)25/1, format=(fourcc)I420,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; pixel-aspect-ratio=(fraction)1/1/
+          &lt;br&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Video Caps:/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /application/x-rtp, media=(string)video, payload=(int)96,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; clock-rate=(int)90000, encoding-name=(string)H263-1998,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; ssrc=(guint)4109078151, clock-base=(guint)4256599743,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; seqnum-base=(guint)28109/
+          &lt;br&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Audio Caps:/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /application/x-rtp, media=(string)audio, payload=(int)96,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; clock-rate=(int)90000, encoding-name=(string)MPA,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; ssrc=(guint)649579945, clock-base=(guint)4260157850,
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; seqnum-base=(guint)12843/
+          &lt;br&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Returning from channel channel1 init /
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /IPTV Appserver started on port 7070/
+          &lt;br&gt;
+          &lt;br&gt;
+When I run the uctimsclient and&nbsp; i make a call to the channel 1 I can
+hear the audio but i can't see the video, i haven't any other app
+running on this port.
+          &lt;br&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; / uctimsclient
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; UCT IMS Client - SIP port 5060&nbsp; - Audio Port: 32278 - Video Port:
+28561
+          &lt;br&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; sendto: Invalid argument
+          &lt;br&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; ** (uctimsclient:12791): WARNING **: GStreamer: gstudpsrc.c(818):
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; gst_udpsrc_start (): /IPTV_Video_Receive_Pipeline/udp_src:
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; bind failed -1: Address already in use (98) - There may be a
+problem
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; opening IPTV stream./
+          &lt;br&gt;
+          &lt;br&gt;
+The response from the video seems to be Ok:
+          &lt;br&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Event type: 5 New call received!/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /To: &lt;a class=&quot;moz-txt-link-freetext&quot; href=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at iptv.atenea.imscore</A>/&quot;&gt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at iptv.atenea.imscore</A>/&lt;/a&gt;
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /From: &lt;a class=&quot;moz-txt-link-freetext&quot; href=&quot;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ics266 at atenea.imscore</A>&quot;&gt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ics266 at atenea.imscore</A>&lt;/a&gt; &quot;Nacho&quot;/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Local IP: 10.95.31.17/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Remote IP Audio: 10.95.23.118/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Remote IP Video: 10.95.23.118/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Local Audio Port: 2222/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Local Video Port: 2223/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Remote Audio Port: 32278/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Remote Video Port: 28561/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Channel1/
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Adding host 10.95.23.118 with audio port 32278, video port 28561
+to
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; channel 1 /
+          &lt;br&gt;
+&nbsp;&nbsp;&nbsp; /Event type: 27 New request outside call received!/
+          &lt;br&gt;
+          &lt;br&gt;
+          &lt;br&gt;
+Thanks in advance and congratulations for your client development, We
+are testing the OpenImsCore with the UctImsclient and it's been a nice
+experience because it's works!! :-)
+          &lt;br&gt;
+          &lt;br&gt;
+Best Regards from Madrid.
+          &lt;br&gt;
+          &lt;br&gt;
+Nacho.
+          &lt;br&gt;
+/
+          &lt;br&gt;
+/
+          &lt;br&gt;
+_______________________________________________
+          &lt;br&gt;
+Uctimsclient-users mailing list
+          &lt;br&gt;
+&lt;a class=&quot;moz-txt-link-abbreviated&quot; href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&lt;/a&gt;
+          &lt;br&gt;
+&lt;a class=&quot;moz-txt-link-freetext&quot; href=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users&lt;/a">https://lists.berlios.de/mailman/listinfo/uctimsclient-users&lt;/a</A>&gt;
+          &lt;br&gt;
+&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/blockquote&gt;
+__________ NOD32 2694 (20071130) Information __________
+        &lt;br&gt;
+        &lt;br&gt;
+This message was checked by NOD32 antivirus system.
+        &lt;br&gt;
+&lt;a class=&quot;moz-txt-link-freetext&quot; href=&quot;<A HREF="http://www.eset.com">http://www.eset.com</A>&quot;&gt;<A HREF="http://www.eset.com&lt;/a">http://www.eset.com&lt;/a</A>&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+&nbsp;&nbsp;&nbsp; &lt;/blockquote&gt;
+      &lt;br&gt;
+_______________________________________________
+      &lt;br&gt;
+Uctimsclient-users mailing list
+      &lt;br&gt;
+&lt;a class=&quot;moz-txt-link-abbreviated&quot; href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&lt;/a&gt;
+      &lt;br&gt;
+&lt;a class=&quot;moz-txt-link-freetext&quot; href=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users&lt;/a">https://lists.berlios.de/mailman/listinfo/uctimsclient-users&lt;/a</A>&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+&nbsp; &lt;/blockquote&gt;
+    &lt;br&gt;
+  &lt;/blockquote&gt;
+  &lt;br&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+--------------000501060307040909010004--
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000029.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#162">[ date ]</a>
+              <a href="thread.html#162">[ thread ]</a>
+              <a href="subject.html#162">[ subject ]</a>
+              <a href="author.html#162">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

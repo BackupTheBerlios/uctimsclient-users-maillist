@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctimsclient on ARM platform - not even	registering
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20on%20ARM%20platform%20-%20not%20even%0A%09registering&In-Reply-To=%3CCABkKHSbjX5bzF7rpuMoiGwyS4ChwbhhYc%2BP7dSt72TmWYWnBHg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000699.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctimsclient on ARM platform - not even	registering</H1>
+    <B>Aleksander Dutkowski</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20on%20ARM%20platform%20-%20not%20even%0A%09registering&In-Reply-To=%3CCABkKHSbjX5bzF7rpuMoiGwyS4ChwbhhYc%2BP7dSt72TmWYWnBHg%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] uctimsclient on ARM platform - not even	registering">adutkowski at gmail.com
+       </A><BR>
+    <I>Thu Nov 17 17:31:49 CET 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000699.html">[Uctimsclient-users] uctimsclient on ARM platform - not even	registering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#698">[ date ]</a>
+              <a href="thread.html#698">[ thread ]</a>
+              <a href="subject.html#698">[ subject ]</a>
+              <a href="author.html#698">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>hi!
+I am modifying uct ims client 1.0.13. On x86 registeration is working
+- it sends register packet, recieves 401 unauthorized and then resend
+REGISTER with auth informations. But on ARM platform, when it
+processes 401, it crashes on eXosip_register_build_register - it
+returns -3 ( OSIP_WRONG_STATE ). I've tried deleting 'state' file but
+it doesn't help. The major modyfication was moving get_exosip_events
+to separate process with infinite loop.
+Here's first register
+code:<A HREF="https://bitbucket.org/adutkowski/armphone/src/45d6b46ab325/uctimsclient-1.0.13-armphone/src/ims_interface_event_handler.c#cl-625">https://bitbucket.org/adutkowski/armphone/src/45d6b46ab325/uctimsclient-1.0.13-armphone/src/ims_interface_event_handler.c#cl-625</A>
+here's processing 401 sip code (crash code is in line
+130)<A HREF="https://bitbucket.org/adutkowski/armphone/src/45d6b46ab325/uctimsclient-1.0.13-armphone/src/ims_exosip_event_handler.c#cl-34">https://bitbucket.org/adutkowski/armphone/src/45d6b46ab325/uctimsclient-1.0.13-armphone/src/ims_exosip_event_handler.c#cl-34</A>
+main loop for processing incoming exosip events (running in separate
+thread)<A HREF="https://bitbucket.org/adutkowski/armphone/src/45d6b46ab325/uctimsclient-1.0.13-armphone/src/imsUA.c#cl-50">https://bitbucket.org/adutkowski/armphone/src/45d6b46ab325/uctimsclient-1.0.13-armphone/src/imsUA.c#cl-50</A>
+-- 
+regards
+aleek
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000699.html">[Uctimsclient-users] uctimsclient on ARM platform - not even	registering
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#698">[ date ]</a>
+              <a href="thread.html#698">[ thread ]</a>
+              <a href="subject.html#698">[ subject ]</a>
+              <a href="author.html#698">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,398 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] installing UCT IMS Client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20installing%20UCT%20IMS%20Client&In-Reply-To=%3C20070227101619.37237.qmail%40web27103.mail.ukl.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000030.html">
+   <LINK REL="Next"  HREF="000038.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] installing UCT IMS Client</H1>
+    <B>asma a</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20installing%20UCT%20IMS%20Client&In-Reply-To=%3C20070227101619.37237.qmail%40web27103.mail.ukl.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] installing UCT IMS Client">asmaa_a_m at yahoo.co.uk
+       </A><BR>
+    <I>Tue Feb 27 11:16:19 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000030.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+        <LI>Next message: <A HREF="000038.html">[Uctimsclient-users] Audio Path issue --- UCTIMSClient withFOKUS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>thank you,
+
+It works now
+
+Asma
+
+----- Original Message ----
+From: Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>&gt;
+To: asma a &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt;
+Cc: uctims &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+Sent: Tuesday, 27 February, 2007 11:40:40 AM
+Subject: Re: [Uctimsclient-users] installing UCT IMS Client
+
+
+
+
+  
+
+Something like this should do it.
+
+
+
+export LD_LIBRARY_PATH=&quot;/usr/local/lib&quot;
+
+
+
+(or wherever the library is located)
+
+
+
+- Dave
+
+
+
+
+
+asma a wrote:
+
+  
+  
+  yes
+I installed them manually from source code.
+
+  
+
+I found the &quot;ortp.pc&quot; file in the path &quot;/usr/local/lib/pkgconfig&quot; and
+export it to the PKG_CONFIG_PATH environment variable.  now the make
+step work. 
+
+  
+
+but it seems that there is another environment variable need to be set,
+because as I execute the uctimsclient I get this
+
+  
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# ./uctimsclient
+
+./uctimsclient: error while loading shared libraries: libortp.so.5:
+cannot open shared object file: No such file or directory
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# 
+
+  
+
+what is the environment variable I need to set the libortp.so path in
+it??
+
+  
+
+Thanks;
+
+  
+
+Asma
+
+  -----
+Original Message ----
+
+From: Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;
+
+To: asma a &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt;
+
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+
+Sent: Monday, 26 February, 2007 2:20:28 PM
+
+Subject: Re: [Uctimsclient-users] installing UCT IMS Client
+
+  
+
+  Hi Asma,
+
+  
+
+It sounds like you manually installed these packages and may not have 
+
+put them in their default locations.  Wherever possible use package 
+
+managers to install software as these use the default locations.
+
+  
+
+From the error message it seemd that the PKG_CONFIG_PATH environment 
+
+variable needs to point to the folder containing the ortp package.  Try
+  
+
+a search for ortp.pc then set the environment variable to this location.
+
+i.e. /export PKG_CONFIG_PATH=&quot;/rtp/package/location&quot;
+
+  
+
+/regards,
+
+  
+
+Richard
+
+/
+
+  
+
+/asma a wrote:
+
+  
+
+&gt;<i> hi;
+</I>
+&gt;<i>
+</I>
+&gt;<i> I have installed &quot;ortp-0.10.1.tar.gz&quot;,  &quot;gtk+-2.8.20&quot;, 
+</I>
+&gt;<i> libexosip2-2.2.3, libosip2-2.2.3, and &quot;alsa-plugins-1.0.11&quot;
+</I>
+&gt;<i>
+</I>
+&gt;<i> and after that I start to install the UCT client, get the
+</I>following error:
+
+&gt;<i>
+</I>
+&gt;<i>  
+</I>
+&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# make
+</I>
+&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o 
+</I>
+&gt;<i> obj/callbacks.o -c callbacks.c
+</I>
+&gt;<i> Package ortp was not found in the pkg-config search path.
+</I>
+&gt;<i> Perhaps you should add the directory containing `ortp.pc'
+</I>
+&gt;<i> to the PKG_CONFIG_PATH environment variable
+</I>
+&gt;<i> No package 'ortp' found
+</I>
+&gt;<i> In file included from callbacks.c:6:
+</I>
+&gt;<i> includes.h:14:21: error: gtk/gtk.h: No such file or directory
+</I>
+&gt;<i> includes.h:20:18: error: glib.h: No such file or directory
+</I>
+&gt;<i>  
+</I>
+&gt;<i> what else is needed to be install???
+</I>
+&gt;<i>
+</I>
+&gt;<i>
+</I>
+&gt;<i> Asma
+</I>
+&gt;<i>
+</I>
+&gt;<i> ----- Original Message ----
+</I>
+&gt;<i> From: asma a &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt;
+</I>
+&gt;<i> To: uctims &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+</I>
+&gt;<i> Sent: Monday, 26 February, 2007 12:14:53 PM
+</I>
+&gt;<i> Subject: [Uctimsclient-users] installing UCT IMS Client
+</I>
+&gt;<i>
+</I>
+&gt;<i> Hi all,
+</I>
+&gt;<i>
+</I>
+&gt;<i> I am trying to install the UCT IMS Client on my Fedora Core 6
+</I>system,
+
+&gt;<i> my current problem is on installing libexosip2 (2.2.3)
+</I>
+&gt;<i>
+</I>
+&gt;<i> ./.libs/libjosua.so: undefined reference to `ortp_set_debug_file'
+</I>
+&gt;<i> collect2: ld returned 1 exit status
+</I>
+&gt;<i> make[2]: *** [josua] Error 1
+</I>
+&gt;<i> make[2]: Leaving directory `/root/UCT_IMS/libeXosip2-2.2.3/josua'
+</I>
+&gt;<i> make[1]: *** [all-recursive] Error 1
+</I>
+&gt;<i> make[1]: Leaving directory `/root/UCT_IMS/libeXosip2-2.2.3'
+</I>
+&gt;<i> make: *** [all] Error 2
+</I>
+&gt;<i>
+</I>
+&gt;<i> It seems that the problem is with the libortp!
+</I>
+&gt;<i>
+</I>
+&gt;<i> I can not find the libortp (1.3.5) package on the 
+</I>
+&gt;<i> <A HREF="http://www.antisip.com/download/">http://www.antisip.com/download/</A>
+</I>website
+
+&gt;<i> however I downloaded and installed the &quot;ortp-0.10.1.tar.gz&quot;
+</I>
+&gt;<i> but I still have the same problem!!!
+</I>
+&gt;<i>
+</I>
+&gt;<i> where can I find the required packages??
+</I>
+&gt;<i>
+</I>
+&gt;<i>
+</I>
+&gt;<i> Thanks;
+</I>
+&gt;<i>
+</I>
+&gt;<i> Asma
+</I>
+&gt;<i>
+</I>
+&gt;<i>
+</I>------------------------------------------------------------------------
+
+&gt;<i> The all-new Yahoo! Mail 
+</I>
+&gt;<i> &lt;<A HREF="http://us.rd.yahoo.com/mail/uk/taglines/default/nowyoucan/free_from_isp/*http://us.rd.yahoo.com/evt=40565/*http://uk.docs.yahoo.com/nowyoucan.html">http://us.rd.yahoo.com/mail/uk/taglines/default/nowyoucan/free_from_isp/*http://us.rd.yahoo.com/evt=40565/*http://uk.docs.yahoo.com/nowyoucan.html</A>&gt;
+</I>  
+
+&gt;<i> goes wherever you go - free your email address from your Internet 
+</I>
+&gt;<i> provider.
+</I>
+&gt;<i> _______________________________________________
+</I>
+&gt;<i> Uctimsclient-users mailing list
+</I>
+&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>
+&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>
+&gt;<i>
+</I>
+&gt;<i>
+</I>
+&gt;<i>
+</I>------------------------------------------------------------------------
+
+&gt;<i> What kind of emailer are you? Find out today - get a free analysis
+</I>of 
+
+&gt;<i> your email personality. Take the quiz at the Yahoo! Mail
+</I>Championship 
+
+&gt;<i> &lt;<A HREF="http://uk.rd.yahoo.com/mail/uk/taglines/yahoo_co_uk/championships/quiz/*http://uk.rd.yahoo.com/evt=44106/*http://mail.yahoo.net/uk/">http://uk.rd.yahoo.com/mail/uk/taglines/yahoo_co_uk/championships/quiz/*http://uk.rd.yahoo.com/evt=44106/*http://mail.yahoo.net/uk/</A>&gt;.
+</I>  
+
+&gt;<i>
+</I>
+&gt;<i>
+</I>
+&gt;<i>------------------------------------------------------------------------
+</I>
+&gt;<i>
+</I>
+&gt;<i>_______________________________________________
+</I>
+&gt;<i>Uctimsclient-users mailing list
+</I>
+&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>
+&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>
+&gt;<i>  
+</I>
+&gt;<i>
+</I>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+   New Yahoo! Mail is the ultimate force in competitive
+emailing. Find out more at the Yahoo!
+Mail Championships. Plus: play games and win prizes.
+  
+_______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+  
+
+
+
+
+
+
+
+		
+___________________________________________________________ 
+What kind of emailer are you? Find out today - get a free analysis of your email personality. Take the quiz at the Yahoo! Mail Championship. 
+<A HREF="http://uk.rd.yahoo.com/evt=44106/*http://mail.yahoo.net/uk">http://uk.rd.yahoo.com/evt=44106/*http://mail.yahoo.net/uk</A> 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070227/baabb038/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070227/baabb038/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000030.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+	<LI>Next message: <A HREF="000038.html">[Uctimsclient-users] Audio Path issue --- UCTIMSClient withFOKUS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#37">[ date ]</a>
+              <a href="thread.html#37">[ thread ]</a>
+              <a href="subject.html#37">[ subject ]</a>
+              <a href="author.html#37">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

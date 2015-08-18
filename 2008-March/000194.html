@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctpdf --&gt; web interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctpdf%20--%3E%20web%20interface&In-Reply-To=%3C1205232246.6511.27.camel%40walqa347%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000193.html">
+   <LINK REL="Next"  HREF="000195.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctpdf --&gt; web interface</H1>
+    <B>Eduardo Moreno</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctpdf%20--%3E%20web%20interface&In-Reply-To=%3C1205232246.6511.27.camel%40walqa347%3E"
+       TITLE="[Uctimsclient-users] uctpdf --&gt; web interface">eduardo.moreno at inycom.es
+       </A><BR>
+    <I>Tue Mar 11 11:44:06 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000193.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+        <LI>Next message: <A HREF="000195.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hola Pedro.
+
+Did you follow the step 4 in installation guide?
+<A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>
+
+In my case with Ubuntu there wasn't problem. Perhaps in Fedora the
+default configuration of Tomcat is different than the supposed by
+installation guide (made with Ubuntu in mind).
+I attach the default configuration file in Ubuntu. Review the Fedora
+one. It is possible that the default directory root (CATALINA_BASE
+variable) was in another place.
+
+Saludos...
+
+
+El mar, 11-03-2008 a las 10:43 +0100, Pedro Antonio Vico Solano
+escribi&#243;:
+
+&gt;<i> 
+</I>&gt;<i> Hello all, 
+</I>&gt;<i> 
+</I>&gt;<i> I'm trying to setup the PDF for Core IMS, everything seem to run OK
+</I>&gt;<i> except the Web Interface. 
+</I>&gt;<i> 
+</I>&gt;<i> I'm using a Fedora 5 and the base Tomcat server seems to be OK because
+</I>&gt;<i> the example webapps and JSPs  work fine. 
+</I>&gt;<i> 
+</I>&gt;<i> When I try to load the PDF webapp (<A HREF="http://localhost:8180/uct_web_pcm">http://localhost:8180/uct_web_pcm</A>)
+</I>&gt;<i> I get a blank screen. 
+</I>&gt;<i> 
+</I>&gt;<i> Can anyone help me? 
+</I>&gt;<i> 
+</I>&gt;<i> Best regards 
+</I>&gt;<i> Pedro 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>
+AVISO LEGAL 
+
+Este mensaje y los archivos que en su caso lleve adjuntos son privados y confidenciales y se dirigen exclusivamente a su destinatario. Por ello, se informa a quien lo reciba por error que la informaci&#243;n contenida en el mismo es reservada y su utilizaci&#243;n, copia o distribuci&#243;n est&#225; prohibida, por lo que en tal caso le rogamos que nos lo comunique por esta misma v&#237;a o por tel&#233;fono (+34976013300) y proceda a borrarlo de inmediato. 
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080311/491d81f7/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080311/491d81f7/attachment.html</A>&gt;
+-------------- next part --------------
+# Run Tomcat as this user ID. Not setting this or leaving it blank will use the
+# default of tomcat55.
+#TOMCAT5_USER=tomcat55
+
+# The home directory of the Java development kit (JDK). You need at least
+# JDK version 1.4. If JAVA_HOME is not set, some common directories for 
+# the Sun JDK, various J2SE 1.4 versions, and the free runtimes
+# java-gcj-compat-dev and kaffe are tried.
+#JAVA_HOME=/usr/lib/jvm/java-6-sun
+
+# Directory for per-instance configuration files and webapps. It contain the
+# directories conf, logs, webapps, work and temp. See RUNNING.txt for details.
+# Default: /var/lib/tomcat5.5
+#CATALINA_BASE=/var/lib/tomcat5.5
+
+# Arguments to pass to the Java virtual machine (JVM).
+#JAVA_OPTS=&quot;-Djava.awt.headless=true -Xmx128M&quot;
+
+# Java compiler to use for translating JavaServer Pages (JSPs). You can use all
+# compilers that are accepted by Ant's build.compiler property.
+#JSP_COMPILER=jikes
+
+# Use the Java security manager? (yes/no, default: yes)
+# WARNING: Do not disable the security manager unless you understand
+# the consequences!
+# NOTE: java-gcj-compat-dev currently doesn't support a security
+# manager. 
+#TOMCAT5_SECURITY=yes
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000193.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+	<LI>Next message: <A HREF="000195.html">[Uctimsclient-users] uctpdf --&gt; web interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] problem in gstreamer installation
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20problem%20in%20gstreamer%20installation&In-Reply-To=%3C22a270010902250352j57e22d6dgbaf2d32e5363e3f7%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000493.html">
+   <LINK REL="Next"  HREF="000497.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] problem in gstreamer installation</H1>
+    <B>gayathri reddy</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20problem%20in%20gstreamer%20installation&In-Reply-To=%3C22a270010902250352j57e22d6dgbaf2d32e5363e3f7%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] problem in gstreamer installation">gayathri409 at gmail.com
+       </A><BR>
+    <I>Wed Feb 25 12:52:45 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000493.html">[Uctimsclient-users] Error while trying to start UCT Policy	Control Management System
+</A></li>
+        <LI>Next message: <A HREF="000497.html">[Uctimsclient-users] problem in gstreamer installation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#494">[ date ]</a>
+              <a href="thread.html#494">[ thread ]</a>
+              <a href="subject.html#494">[ subject ]</a>
+              <a href="author.html#494">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+I m trying to install uctimsclient and uctiptv in fedoracore-7 version, but
+i m facing so many problems. i m keep on installing dependency soft wares.
+but i couldn't proceed forward because of the gstreamer installation
+problem.
+
+while installing gstreamer-0.10.22.tar.gz
+-------------------------------------------
+
+i have downloaded gstreamer-0.10.22.tar.gz and followed the installation
+instructions....
+
+./configure
+
+make
+
+after make i gave &quot;make check&quot; and all 8 tests failed, below is my output
+for make check...
+
+make  check-TESTS
+make[4]: Entering directory
+`/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual'
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual/.libs/lt-bin:
+symbol lookup error:
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/gst/.libs/libgstreamer-0.10.so.0:
+undefined symbol: g_type_register_static_simple
+FAIL: bin
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual/.libs/lt-elementcreate:
+symbol lookup error:
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/gst/.libs/libgstreamer-0.10.so.0:
+undefined symbol: g_type_register_static_simple
+FAIL: elementcreate
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual/.libs/lt-elementfactory:
+symbol lookup error:
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/gst/.libs/libgstreamer-0.10.so.0:
+undefined symbol: g_type_register_static_simple
+FAIL: elementfactory
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual/.libs/lt-elementget:
+symbol lookup error:
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/gst/.libs/libgstreamer-0.10.so.0:
+undefined symbol: g_type_register_static_simple
+FAIL: elementget
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual/.libs/lt-elementlink:
+symbol lookup error:
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/gst/.libs/libgstreamer-0.10.so.0:
+undefined symbol: g_type_register_static_simple
+FAIL: elementlink
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual/.libs/lt-elementmake:
+symbol lookup error:
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/gst/.libs/libgstreamer-0.10.so.0:
+undefined symbol: g_type_register_static_simple
+FAIL: elementmake
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual/.libs/lt-ghostpad:
+symbol lookup error:
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/gst/.libs/libgstreamer-0.10.so.0:
+undefined symbol: g_type_register_static_simple
+FAIL: ghostpad
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual/.libs/lt-init:
+symbol lookup error:
+/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/gst/.libs/libgstreamer-0.10.so.0:
+undefined symbol: g_type_register_static_simple
+FAIL: init
+==========================================================================
+8 of 8 tests failed
+Please report to <A HREF="http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer">http://bugzilla.gnome.org/enter_bug.cgi?product=GStreamer</A>
+==========================================================================
+make[4]: *** [check-TESTS] Error 1
+make[4]: Leaving directory
+`/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual'
+make[3]: *** [check-am] Error 2
+make[3]: Leaving directory
+`/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples/manual'
+make[2]: *** [check-recursive] Error 1
+make[2]: Leaving directory
+`/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests/examples'
+make[1]: *** [check-recursive] Error 1
+make[1]: Leaving directory
+`/root/Desktop/IMS_softwares/dependent_softwares/gstreamer-0.10.22/tests'
+make: *** [check-recursive] Error 1
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> gstreamer-0.10.22]#
+
+please anyone can help in this issue? is there any gstreamer-dev package for
+FC-7? is this problem because of this dependency package?
+waiting for your replies......
+
+
+Thanks in advance
+Gayathri
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090225/1663eb82/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090225/1663eb82/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000493.html">[Uctimsclient-users] Error while trying to start UCT Policy	Control Management System
+</A></li>
+	<LI>Next message: <A HREF="000497.html">[Uctimsclient-users] problem in gstreamer installation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#494">[ date ]</a>
+              <a href="thread.html#494">[ thread ]</a>
+              <a href="subject.html#494">[ subject ]</a>
+              <a href="author.html#494">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

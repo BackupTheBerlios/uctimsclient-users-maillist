@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] problems with uctiptv_advanced1.0.0.tar.gz
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20problems%20with%20uctiptv_advanced1.0.0.tar.gz&In-Reply-To=%3C697FA5D6BAA3BD47961272D9916B6A6E0EDA9B%40MADARRMAIL7.indra.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000617.html">
+   <LINK REL="Next"  HREF="000619.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] problems with uctiptv_advanced1.0.0.tar.gz</H1>
+    <B>&quot;Mart&#237;nez Garc&#237;a, Rebeca&quot;</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20problems%20with%20uctiptv_advanced1.0.0.tar.gz&In-Reply-To=%3C697FA5D6BAA3BD47961272D9916B6A6E0EDA9B%40MADARRMAIL7.indra.es%3E"
+       TITLE="[Uctimsclient-users] problems with uctiptv_advanced1.0.0.tar.gz">remartinez at indra.es
+       </A><BR>
+    <I>Thu Feb 11 09:34:24 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000617.html">[Uctimsclient-users] problems with uctiptv_advanced1.0.0.tar.gz
+</A></li>
+        <LI>Next message: <A HREF="000619.html">[Uctimsclient-users] About pcrf ipfilter
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#618">[ date ]</a>
+              <a href="thread.html#618">[ thread ]</a>
+              <a href="subject.html#618">[ subject ]</a>
+              <a href="author.html#618">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+You were right! Thanks!
+
+Rebeca
+
+-----Original Message-----
+From: Bill Friedrich [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bill.friedrich at trlabs.ca</A>]
+Sent: Wed 10/02/2010 17:38
+To: Mart&#237;nez Garc&#237;a, Rebeca
+Subject: Re: [Uctimsclient-users] problems with uctiptv_advanced1.0.0.tar.gz
+ 
+Looks like the files aren't gzip compressed, even though the file 
+extension says they are. Just unzip them using the following and it 
+should work:
+tar -xvf uctiptv_advanced1.0.0.tar.gz
+
+/bill
+
+Mart&#237;nez Garc&#237;a, Rebeca wrote:
+&gt;<i>
+</I>&gt;<i> Thanks Bill for the link but still the same problem.
+</I>&gt;<i> I have download it in both the SLES and Ubuntu machine but again both 
+</I>&gt;<i> are not capable of unzipping the file...
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Rebeca
+</I>&gt;<i>
+</I>&gt;<i> -----Mensaje original-----
+</I>&gt;<i> De: Bill Friedrich [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bill.friedrich at trlabs.ca</A>]
+</I>&gt;<i> Enviado el: mar 09/02/2010 17:56
+</I>&gt;<i> Para: Mart&#237;nez Garc&#237;a, Rebeca
+</I>&gt;<i> Asunto: Re: [Uctimsclient-users] problems with 
+</I>&gt;<i> uctiptv_advanced1.0.0.tar.gz
+</I>&gt;<i>
+</I>&gt;<i> You probably have a bad download of the file. Try this link and see if
+</I>&gt;<i> that works:
+</I>&gt;<i> <A HREF="http://download.berlios.de/uctimsclient/uctiptv_advanced1.0.0.tar.gz">http://download.berlios.de/uctimsclient/uctiptv_advanced1.0.0.tar.gz</A>
+</I>&gt;<i>
+</I>&gt;<i> /bill
+</I>&gt;<i>
+</I>&gt;<i> Mart&#237;nez Garc&#237;a, Rebeca wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hello all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I am trying to install the UCT IPtv service but, as I am using SLES
+</I>&gt;<i> &gt; 11, I have to use directly the uctiptv_advanced1.0.0.tar.gz.
+</I>&gt;<i> &gt; The problem is that I cannot unzip it. There is always the same error:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">cng at cng</A>:~/Descargas$ tar -xvzf uctiptv_advanced1.0.0.tar.gz
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; gzip: stdin: not in gzip format
+</I>&gt;<i> &gt; tar: Child returned status 1
+</I>&gt;<i> &gt; tar: Saliendo con fallos debido a errores anteriores
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I have tried it not only in the SLES machine but also in an Ubuntu one
+</I>&gt;<i> &gt; and I always get the same error.
+</I>&gt;<i> &gt; Is there any other way to obtain this server?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks in advance,
+</I>&gt;<i> &gt; Rebeca
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i> Join us at the 2010 TRLabs ICT Symposium to learn and get connected 
+</I>&gt;<i> with the people creating the next great communications revolution 
+</I>&gt;<i> using Converged Digital Media.   <A HREF="http://www.trlabs.ca/icts">http://www.trlabs.ca/icts</A>
+</I>&gt;<i>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20100211/d0e7843d/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20100211/d0e7843d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000617.html">[Uctimsclient-users] problems with uctiptv_advanced1.0.0.tar.gz
+</A></li>
+	<LI>Next message: <A HREF="000619.html">[Uctimsclient-users] About pcrf ipfilter
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#618">[ date ]</a>
+              <a href="thread.html#618">[ thread ]</a>
+              <a href="subject.html#618">[ subject ]</a>
+              <a href="author.html#618">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

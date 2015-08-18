@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20SIP%20message%20SUBSCRIBE/PUBLISH&In-Reply-To=%3CBAY133-F341C6604F9B89FCDC51DA9C23C0%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000076.html">
+   <LINK REL="Next"  HREF="000078.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH</H1>
+    <B>li wang</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20SIP%20message%20SUBSCRIBE/PUBLISH&In-Reply-To=%3CBAY133-F341C6604F9B89FCDC51DA9C23C0%40phx.gbl%3E"
+       TITLE="[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH">li.wang119 at hotmail.com
+       </A><BR>
+    <I>Wed May 16 17:17:57 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000076.html">[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+</A></li>
+        <LI>Next message: <A HREF="000078.html">[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#77">[ date ]</a>
+              <a href="thread.html#77">[ thread ]</a>
+              <a href="subject.html#77">[ subject ]</a>
+              <a href="author.html#77">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi dave,
+
+Thanks! So it means i have to implement them myself.
+
+But there is something i don't understand in my test senario when i connect 
+uctIMSClient with OpenIMSCore.
+
+When i register alice, i found the SIP message exchage in wireshark like 
+this:
+
+1. ------&gt;    REGISTER
+2. &lt;------    401 Unauthorized
+3. ------&gt;    REGISTER
+4. &lt;------    200 OK
+5. ------&gt;    SUBSCRIBE
+6. &lt;------    200 Subscription to REG saved
+6. &lt;------    NOTIFY
+7. ------&gt;    200 OK
+
+The first 4 messages seems to be correct. But why uctIMSClient can send 
+SUBSCRIBE while register ??
+
+
+Thanks in advance,
+
+
+Li
+
+
+
+&gt;<i>From: Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>&gt;
+</I>&gt;<i>To: li wang &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">li.wang119 at hotmail.com</A>&gt;
+</I>&gt;<i>CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>Subject: Re: [Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+</I>&gt;<i>Date: Tue, 15 May 2007 17:56:49 +0200
+</I>&gt;<i>
+</I>&gt;<i>Hi Li
+</I>&gt;<i>
+</I>&gt;<i>We are currently building presence functionality into the client but this 
+</I>&gt;<i>will not be released for a while.
+</I>&gt;<i>
+</I>&gt;<i>The client is built on the eXosip library which has full support for these 
+</I>&gt;<i>messages, but you have to add these fetaures to the client code yourself.
+</I>&gt;<i>
+</I>&gt;<i>Regards
+</I>&gt;<i>
+</I>&gt;<i>Dave
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>li wang wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i>hi all,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>Is uctImsClient be able to send SIP message SUBSCRIBE/PUBLISH?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>Thanks and best regard,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>li
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>_________________________________________________________________
+</I>&gt;&gt;<i>Ten :  Messenger en illimit&#233; sur votre mobile !  
+</I>&gt;&gt;<i><A HREF="http://mobile.live.fr/messenger/ten/">http://mobile.live.fr/messenger/ten/</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>_______________________________________________
+</I>&gt;&gt;<i>Uctimsclient-users mailing list
+</I>&gt;&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>
+_________________________________________________________________
+Gagnez des pc Windows Vista avec Live.com <A HREF="http://www.image-addict.fr/">http://www.image-addict.fr/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000076.html">[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+</A></li>
+	<LI>Next message: <A HREF="000078.html">[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#77">[ date ]</a>
+              <a href="thread.html#77">[ thread ]</a>
+              <a href="subject.html#77">[ subject ]</a>
+              <a href="author.html#77">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

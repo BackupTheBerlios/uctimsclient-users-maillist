@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctimsclient Segmentation fault
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20Segmentation%20fault&In-Reply-To=%3C49EB5377.5070405%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000530.html">
+   <LINK REL="Next"  HREF="000534.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctimsclient Segmentation fault</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20Segmentation%20fault&In-Reply-To=%3C49EB5377.5070405%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] uctimsclient Segmentation fault">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Sun Apr 19 18:38:15 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000530.html">[Uctimsclient-users] uctimsclient Segmentation fault
+</A></li>
+        <LI>Next message: <A HREF="000534.html">[Uctimsclient-users] uctimsclient Segmentation fault
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#533">[ date ]</a>
+              <a href="thread.html#533">[ thread ]</a>
+              <a href="subject.html#533">[ subject ]</a>
+              <a href="author.html#533">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Have you configured your IMS core to use your domain name (&quot;my.domain&quot;) 
+and not the default &quot;open-ims.test&quot;??
+You can do this using the configuration script - included in 
+/opt/OpenIMSCore/ser_ims/cfg.
+
+
+Richard.
+
+
+
+
+Bobi St wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> for some reasons I cannot reproduce the segmentation fault. If I have 
+</I>&gt;<i> it once again, I will paste the packet trace.
+</I>&gt;<i>
+</I>&gt;<i> Some two other questions appeared (regarding registration):
+</I>&gt;<i>
+</I>&gt;<i> When I register, in the FHoSS terminal I see the following message&gt;
+</I>&gt;<i>
+</I>&gt;<i>  DEBUG de.fhg.fokus.hss.main.Task - execute Processing UAR!
+</I>&gt;<i> de.fhg.fokus.hss.cx.CxExperimentalResultException: 
+</I>&gt;<i> IMS_Diameter_Error_Roaming_Not_Allowed
+</I>&gt;<i>     at de.fhg.fokus.hss.cx.op.UAR.processRequest(UAR.java:108)
+</I>&gt;<i>     at de.fhg.fokus.hss.main.Task.execute(Task.java:169)
+</I>&gt;<i>     at de.fhg.fokus.hss.main.Worker.run(Worker.java:66)
+</I>&gt;<i>
+</I>&gt;<i> And further in the IMS Client I see: Forbidden - HSS Roaming not 
+</I>&gt;<i> allowed (for REGISTER)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Packet trace is:
+</I>&gt;<i> REGISTER sip:my.domain SIP/2.0
+</I>&gt;<i> Via: SIP/2.0/UDP 192.168.234.xxx:5061;rport;branch=z9hG4bK1335563719
+</I>&gt;<i> From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at my.domain</A>&gt;;tag=989559132
+</I>&gt;<i> To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at my.domain</A>&gt;
+</I>&gt;<i> Call-ID: 304689485
+</I>&gt;<i> CSeq: 4 REGISTER
+</I>&gt;<i> Contact: 
+</I>&gt;<i> &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at 192.168.234.xxx</A>:5061;line=cbbc4fc9a12df59&gt;;+sip.instance=&quot;&lt;urn:uuid:d801f12e-2c9f-11de-a333-47a53426474e&gt;&quot; 
+</I>&gt;<i>
+</I>&gt;<i> Authorization: Digest username=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at my.domain</A>&quot;, realm=&quot;my.domain&quot;, 
+</I>&gt;<i> nonce=&quot; &quot;, uri=&quot;sip:my.domain&quot;, response=&quot; &quot;
+</I>&gt;<i> Max-Forwards: 70
+</I>&gt;<i> User-Agent: UCT IMS Client
+</I>&gt;<i> Expires: 3600
+</I>&gt;<i> Supported: path
+</I>&gt;<i> Supported: gruu
+</I>&gt;<i> Content-Length: 0
+</I>&gt;<i>  
+</I>&gt;<i> jaK.SIP/2.0 403 Forbidden - HSS Roaming not allowed
+</I>&gt;<i> Via: SIP/2.0/UDP 192.168.234.xxx:5061;rport=5061;branch=z9hG4bK1335563719
+</I>&gt;<i> From: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at my.domain</A>&gt;;tag=989559132
+</I>&gt;<i> To: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">alice at my.domain</A>&gt;;tag=7a08b5a19d262db58e46c4d6d3b71b3f-ffbc
+</I>&gt;<i> Call-ID: 304689485
+</I>&gt;<i> CSeq: 4 REGISTER
+</I>&gt;<i> Server: Sip EXpress router (2.1.0-dev1 OpenIMSCore (i386/linux))
+</I>&gt;<i> Content-Length: 0
+</I>&gt;<i> Warning: 392 192.168.234.xxx:5060 &quot;Noisy feedback tells:  pid=13076 
+</I>&gt;<i> req_src_ip=192.168.234.xxx req_src_port=4060 in_uri=sip:my.domain 
+</I>&gt;<i> out_uri=sip:my.domain via_cnt==2&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --- Richard Good /&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;/ schrieb am *So, 19.4.2009:
+</I>&gt;<i> *
+</I>&gt;<i>
+</I>&gt;<i>     *Von: Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;
+</I>&gt;<i>     Betreff: Re: [Uctimsclient-users] uctimsclient Segmentation fault
+</I>&gt;<i>     An: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">temporarybobi at yahoo.de</A>
+</I>&gt;<i>     Datum: Sonntag, 19. April 2009, 16:38
+</I>&gt;<i>
+</I>&gt;<i>     *
+</I>&gt;<i>     * Hi,
+</I>&gt;<i>
+</I>&gt;<i>     Please send a wireshark trace of the registration.
+</I>&gt;<i>
+</I>&gt;<i>     Richard.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     Bobi St wrote: *
+</I>&gt;&gt;<i>     * *
+</I>&gt;&gt;<i>     Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     does the client has some verbosity mode ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     After starting it, I try to register, and get a Segmentation
+</I>&gt;&gt;<i>     fault, with no reason.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     The only messages I get are:
+</I>&gt;&gt;<i>     Gtk-WARNING **: GtkSpinButton: setting an adjustment with
+</I>&gt;&gt;<i>     non-zero page size is deprecated
+</I>&gt;&gt;<i>     UCT IMS Client - SIP port 5060 - Audio Port: 30965 - Video Port:
+</I>&gt;&gt;<i>     29219
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     Maybe I should switch the client? Which clients do you recommend
+</I>&gt;&gt;<i>     under Linux for working with OpenIMS? And under Windows ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     Regards,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     *
+</I>&gt;&gt;<i>     *
+</I>&gt;&gt;<i>     ------------------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     *_______________________________________________
+</I>&gt;&gt;<i>     Uctimsclient-users mailing list
+</I>&gt;&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>       *
+</I>&gt;<i>     * *
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+-- 
+
+
+//Richard Good//
+
+//PhD Candidate
+//
+
+//Communications Research Group
+University of Cape Town
+//
+
+Mobile: +27 72 389 8365
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;
+
+<A HREF="http://coe.uct.ac.za">http://coe.uct.ac.za</A>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090419/e3e473d6/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090419/e3e473d6/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000530.html">[Uctimsclient-users] uctimsclient Segmentation fault
+</A></li>
+	<LI>Next message: <A HREF="000534.html">[Uctimsclient-users] uctimsclient Segmentation fault
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#533">[ date ]</a>
+              <a href="thread.html#533">[ thread ]</a>
+              <a href="subject.html#533">[ subject ]</a>
+              <a href="author.html#533">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

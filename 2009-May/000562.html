@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] 6 questions about QoS, UCT Policy Control Function, SIPp
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%206%20questions%20about%20QoS%2C%0A%20UCT%20Policy%20Control%20Function%2C%20SIPp&In-Reply-To=%3C4A0C00D4.6050501%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000561.html">
+   <LINK REL="Next"  HREF="000563.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] 6 questions about QoS, UCT Policy Control Function, SIPp</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%206%20questions%20about%20QoS%2C%0A%20UCT%20Policy%20Control%20Function%2C%20SIPp&In-Reply-To=%3C4A0C00D4.6050501%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] 6 questions about QoS, UCT Policy Control Function, SIPp">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Thu May 14 13:30:28 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000561.html">[Uctimsclient-users] 6 questions about QoS,	UCT Policy Control Function, SIPp
+</A></li>
+        <LI>Next message: <A HREF="000563.html">[Uctimsclient-users] ims-gsm
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#562">[ date ]</a>
+              <a href="thread.html#562">[ thread ]</a>
+              <a href="subject.html#562">[ subject ]</a>
+              <a href="author.html#562">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Paolo,
+
+Comments are inline:
+
+Richard.
+
+Paolo M wrote:
+&gt;<i> Hi, my first 2 mails were lost, so:
+</I>&gt;<i>
+</I>&gt;<i> First question about media negotiation and QOS (using UCT PCRF PCEF):
+</I>&gt;<i> - when does the P-cscf send to PCRF the SDP to permit/not permit the 
+</I>&gt;<i> session progress? (during 103 &lt;--- ? )
+</I>/There is a method in the P-CSCF that upon receipt of a SIP response 
+checks whether the  response and associated request have SDP bodies - if 
+they do then a Diameter AAR message is created and sent to the PCRF.  So 
+in full session setup including preconditions it typically occurs  after 
+receipt of 183 session progress for the INVITE request, 200 OK for the 
+UPDATE, etc./
+
+
+&gt;<i> - which flags in which packets set QoS to mandatory?  (Require: 
+</I>&gt;<i> precondition &amp;&amp; Require: sec-agree &amp;&amp; Proxy-Require: sec-agree 
+</I>&gt;<i> &amp;&amp;Supported: 100rel ???)
+</I>///In the initial INVITE request the following is set
+    osip_message_set_require(invite, &quot;sec-agree&quot;);
+    osip_message_set_proxy_require(invite, &quot;sec-agree&quot;);
+    osip_message_set_supported(invite, &quot;100rel&quot;);
+and
+//    if (pref-&gt;qos_strength != QOS_NONE)
+        osip_message_set_require(invite, &quot;precondition&quot;);
+
+The end-to-end or segmented QoS options and QoS strength also effects 
+the 'a' attribute in the SDP body.
+//
+An extract from ims_interface_event_handler.c for generating an INVITE
+
+/* require preconditions if QoS required */
+    if (pref-&gt;qos_strength != QOS_NONE)
+        osip_message_set_require(invite, &quot;precondition&quot;);
+
+osip_message_set_require(invite, &quot;sec-agree&quot;);
+    osip_message_set_proxy_require(invite, &quot;sec-agree&quot;);
+    osip_message_set_supported(invite, &quot;100rel&quot;);
+
+// set the desired QoS level and type
+    // see RFC3312 - Integration of Resource Management and Session 
+Initiation Protocol (SIP)
+    char qos_info[200];
+    if (pref-&gt;qos_strength == QOS_NONE)
+        sprintf(qos_info, &quot;a=curr:qos local none\r\n&quot;
+        &quot;a=curr:qos remote none\r\n&quot;
+        &quot;a=des:qos none local sendrecv\r\n&quot;
+        &quot;a=des:qos none remote sendrecv\r\n&quot;);
+    else if ((pref-&gt;qos_strength == QOS_OPTIONAL) &amp;&amp; (pref-&gt;qos_type == 
+QOS_SEGMENTED))
+        sprintf(qos_info, &quot;a=curr:qos local none\r\n&quot;
+        &quot;a=curr:qos remote none\r\n&quot;
+        &quot;a=des:qos optional local sendrecv\r\n&quot;
+        &quot;a=des:qos optional remote sendrecv\r\n&quot;);
+    else if ((pref-&gt;qos_strength == QOS_MANDATORY) &amp;&amp; (pref-&gt;qos_type == 
+QOS_SEGMENTED))
+        sprintf(qos_info, &quot;a=curr:qos local none\r\n&quot;
+        &quot;a=curr:qos remote none\r\n&quot;
+        &quot;a=des:qos mandatory local sendrecv\r\n&quot;
+        &quot;a=des:qos mandatory remote sendrecv\r\n&quot;);
+    else if ((pref-&gt;qos_strength == QOS_OPTIONAL) &amp;&amp; (pref-&gt;qos_type == 
+QOS_E2E))
+        sprintf(qos_info, &quot;a=curr:qos e2e none\r\n&quot;
+        &quot;a=des:qos optional e2e sendrecv\r\n&quot;);
+    else if ((pref-&gt;qos_strength == QOS_MANDATORY) &amp;&amp; (pref-&gt;qos_type == 
+QOS_E2E))
+        sprintf(qos_info, &quot;a=curr:qos e2e none\r\n&quot;
+        &quot;a=des:qos mandatory e2e sendrecv\r\n&quot;);/
+&gt;<i>
+</I>&gt;<i> the sip packet flow is:
+</I>&gt;<i>  BOB calls ALICE
+</I>&gt;<i> bob
+</I>&gt;<i> INVITE ----------&gt;                            
+</I>&gt;<i>          100 &lt;----------       
+</I>&gt;<i>          101 &lt;----------        
+</I>&gt;<i>          183 &lt;----------       
+</I>&gt;<i>        PRACK ----------&gt;     
+</I>&gt;<i>          101 &lt;----------        
+</I>&gt;<i>          200 &lt;----------       
+</I>&gt;<i>       UPDATE ----------&gt;  
+</I>&gt;<i>          180 &lt;----------        
+</I>&gt;<i>          200 &lt;----------       
+</I>&gt;<i>        PRACK ----------&gt;   
+</I>&gt;<i>          180 &lt;----------             
+</I>&gt;<i>          200 &lt;----------        
+</I>&gt;<i>          200 &lt;----------        
+</I>&gt;<i>          ACK ----------&gt;  
+</I>&gt;<i>
+</I>&gt;<i> alice
+</I>&gt;<i>  ----------&gt; INVITE            
+</I>&gt;<i>   &lt;---------- 101               
+</I>&gt;<i>   &lt;---------- 183               
+</I>&gt;<i>   ----------&gt; PRACK         
+</I>&gt;<i>   &lt;---------- 200               
+</I>&gt;<i>   ----------&gt; INVITE          
+</I>&gt;<i>   ----------&gt; UPDATE      
+</I>&gt;<i>   &lt;---------- 180               
+</I>&gt;<i>   &lt;---------- 200               
+</I>&gt;<i>   ----------&gt; PRACK         
+</I>&gt;<i>   &lt;---------- 200               
+</I>&gt;<i>   &lt;---------- 200              
+</I>&gt;<i>   ----------&gt; INVITE          
+</I>&gt;<i>   ----------&gt; ACK               
+</I>&gt;<i>
+</I>&gt;<i> another one:
+</I>&gt;<i> - can i reproduce Sip packet exchange between two UCTIMSCLIENT with 
+</I>&gt;<i> two SIPp istances? does anyone know where i can found this specific 
+</I>&gt;<i> sip paket exchange? (i think that sniffing is not sufficient)...
+</I>/You want SIPp clients to generate IMS session setup?  See 
+<A HREF="http://sipp.sourceforge.net/wiki/index.php/Howto_test_on_Open_Source_IMS_platform_using_SIPp">http://sipp.sourceforge.net/wiki/index.php/Howto_test_on_Open_Source_IMS_platform_using_SIPp</A>  
+- though this does not have preconditions (though still results in 
+P-CSCF and PCRF interaction after the receipt of the 200 OK response to 
+the INVITE request)
+/
+&gt;<i>
+</I>&gt;<i> - Last part:
+</I>&gt;<i> i'm trying to reproduce the call setup with qos, usually done using 
+</I>&gt;<i> two UCTIMSCLIENTs, this time using two SIPp.
+</I>&gt;<i>
+</I>&gt;<i> i sniffed all packets excange between two clients and i wrote manually 
+</I>&gt;<i> all sip packet headers and bodies into sipp .xml files.
+</I>&gt;<i>
+</I>&gt;<i> now i would like to connect SIPp with one UCTIMSCLIENT.
+</I>&gt;<i>
+</I>&gt;<i> after a successful registration (both sides),  SIPp (Alice) waits 
+</I>&gt;<i> UCTIMSClient INVITE (Bob).
+</I>&gt;<i> i click &quot;Call Alice&quot; from Client interface and SIPp receives the INVITE.
+</I>&gt;<i> 100 Trying is captured,
+</I>&gt;<i> SIPp send 101 and 183
+</I>&gt;<i> 183 is captured, but 101 seams not to be read by UCTIMSCLIENT and it 
+</I>&gt;<i> still retransmitted, until the call progress is released after timeout.
+</I>&gt;<i>
+</I>&gt;<i> The reverse case is better, one step more!
+</I>&gt;<i> SIPp send INVITE to UCTIMSCLIENT
+</I>&gt;<i> Client answer, wit 101 and 103
+</I>&gt;<i> SIPp receives both packet and send PRACK
+</I>&gt;<i> ---&gt;PRACK is  propagated into the network but client doesn't respond 
+</I>&gt;<i> with any packets and PRACK is bounced between S-&gt;P-&gt;Client.
+</I>&gt;<i>
+</I>/I looked into this briefly a while back and remember an issue with 
+PRACK messages and cseq and rACK numbers  - see 
+<A HREF="http://www.mail-archive.com/sipp-users@lists.sourceforge.net/msg01500.html">http://www.mail-archive.com/sipp-users@lists.sourceforge.net/msg01500.html</A>
+
+Please send me your XML scenarios directly - I will have a look at my 
+old scenarios and see if I can find the problem.
+/
+&gt;<i> -Do you know something about this?
+</I>&gt;<i>
+</I>&gt;<i> if you are interested in this, i can send the two sipp xml files (with 
+</I>&gt;<i> and without registration), but i don't know if mailing list can 
+</I>&gt;<i> support it.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &lt;<A HREF="http://livesearch.it.msn.com/">http://livesearch.it.msn.com/</A>&gt;
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> Tante nuove funzioni su Messenger! Scarica la nuova versione! 
+</I>&gt;<i> &lt;<A HREF="http://messenger.it/">http://messenger.it/</A>&gt;
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090514/84d40246/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090514/84d40246/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000561.html">[Uctimsclient-users] 6 questions about QoS,	UCT Policy Control Function, SIPp
+</A></li>
+	<LI>Next message: <A HREF="000563.html">[Uctimsclient-users] ims-gsm
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#562">[ date ]</a>
+              <a href="thread.html#562">[ thread ]</a>
+              <a href="subject.html#562">[ subject ]</a>
+              <a href="author.html#562">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

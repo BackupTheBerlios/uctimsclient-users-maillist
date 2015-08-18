@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20P-CSCF/PCRF%20Rx%20interface%20would%20not%20be%20used&In-Reply-To=%3CBANLkTikm%2BxY4UDmdfvk_gdcpfBkcpU%2B12Q%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000677.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used</H1>
+    <B>Fosters</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20P-CSCF/PCRF%20Rx%20interface%20would%20not%20be%20used&In-Reply-To=%3CBANLkTikm%2BxY4UDmdfvk_gdcpfBkcpU%2B12Q%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used">comeonleech at gmail.com
+       </A><BR>
+    <I>Fri Apr 15 14:57:10 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000677.html">[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#676">[ date ]</a>
+              <a href="thread.html#676">[ thread ]</a>
+              <a href="subject.html#676">[ subject ]</a>
+              <a href="author.html#676">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there,
+
+I have installed and successfully configured the OpenIMSCore, and the UCT
+Policy Control Framework following the howto guide &quot;
+<A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>&quot; which goes with
+the updated ser_ims_qos (branch 12 as the branch 8 doesn't exist any more).
+
+But I have the following problem : it seems that the SDP messages with
+communication parameters are not transmitted to the PCRF for policy checking
+(through the diameter requests).
+According to the Step7 (Testing) of the tutorial, I should see in the PCRF
+window a trace of these exchange if they occured : &quot;Examine the PCRF
+terminal window - with  each exchange of SDP offer and answer a Diameter
+request is sent to the PCRF&quot;.
+But I don't have anything, which is confirmed by my analysis in wireshark,
+where such diameter exchanges between P-CSCF and PCRF does not take place.
+
+I am launching the PCSCF (192.168.20.2) on eth0 so that it can be reched
+from other machine in my network, ICSCF(10.1.22.103), SCSCF(10.1.22.104) and
+HSS(10.1.22.105) locally on virtual interface of the loopback.
+PCRF(10.1.22.107) and PCEF(10.1.22.108) are also launched on virtual
+interface of the loopback.
+
+Basically PCSCF, ICSCF, SCSCF and HSS are running correctly, PCRF and PCEF
+are also started correctly and their Rx and Gx interface are started.
+The launching logs of those entities are attached to the mail.
+
+I am using the pcscf.qos.cfg file with the 2 following line enables that
+should enable usage of the Rx interface if I understood well :
+modparam(&quot;pcscf&quot;,&quot;forced_qos_peer&quot;,&quot;pcrf.open-ims.test&quot;)
+modparam(&quot;pcscf&quot;,&quot;qos_release7&quot;,1)
+
+But when I connect a UCTIMSClient as Bob on a remote machine, and as Alice
+on the local machine with QoS Strength &quot;mandatory&quot;, type either &quot;end-to-end&quot;
+or &quot;mandatory&quot; and access &quot;IEEE 802.11a&quot; and and making a call between them,
+nothing happens at PCRF and PCEF level, the call is going well anyway, but
+it didn't go through QoS or policy decision !
+
+I have seen some post in this mailing list mentioning the activation of the
+Rx interface or being in push mode for the P-CSCF, isn't it already well
+configured in the pcscf.qos.cfg file provided with the uctpcrf1.0.2.tar.gz ?
+
+If somebody could help me, I would appreciated as I am searching what could
+possibly be wrong for days now !
+
+
+Regards,
+
+Didier.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20110415/f017d429/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20110415/f017d429/attachment.html</A>&gt;
+-------------- next part --------------
+===PCSCF log==========================================
+/opt/OpenIMSCore/pcscf.qos.sh: line 3: killser : commande introuvable
+pfkey_open: Operation not permitted
+pfkey_open: Operation not permitted
+Listening on
+             udp: 192.168.20.2 [192.168.20.2]:4060
+             tcp: 192.168.20.2 [192.168.20.2]:4060
+Aliases:
+             tcp: WS22:4060
+             udp: WS22:4060
+             *: pcscf.open-ims.test:4060
+
+ 0(3249) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(3249) Maxfwd module- initializing
+ 0(3249) INFO:P-CSCF:mod_init: Initialization of module
+ 0(3249) INFOP-CSCF:mod_init: E-CSCF uri is sip:ecscf.open-ims.test:7060
+ 0(3249) INFOP-CSCF:mod_init: E-CSCF uri is sip:ecscf.open-ims.test:7060
+ 0(3249) INFO:cdp:cdp_init(): CDiameterPeer initializing
+ 0(3249) Diameter Peer Config:
+ 0(3249)     FQDN    : pcscf.open-ims.test
+ 0(3249)     Realm   : open-ims.test
+ 0(3249)     VendorID: 10415
+ 0(3249)     ProdName: CDiameterPeer
+ 0(3249)     AcceptUn: [X]
+ 0(3249)     DropUnkn: [X]
+ 0(3249)     Tc      : 30
+ 0(3249)     Workers : 4
+ 0(3249)     QueueLen: 8
+ 0(3249)     TranTime: 5
+ 0(3249)     SessHash: 128
+ 0(3249)     Peers   : 1
+ 0(3249)         FQDN:  pcrf.open-ims.test      Realm: open-ims.test      Port: 4868
+ 0(3249)     Acceptors : 1
+ 0(3249)         Port:  3879      Bind: 192.168.20.2
+ 0(3249)     Applications : 2
+ 0(3249)         Auth ID:  16777236      Vendor: 10415
+ 0(3249)         Auth ID:  16777236      Vendor: 0
+ 0(3249)     Routing Table :
+ 0(3249)         Realm: open-ims.test
+ 0(3249)             Route: [  11] pcrf.open-ims.test:4868
+ 0(3249)         DefaultRoute: [  15] pcrf.open-ims.test
+ 0(3249) INFO: udp_init: SO_RCVBUF is initially 114688
+ 0(3249) INFO: udp_init: SO_RCVBUF is finally 262142
+ 0(3249) INFO:P-CSCF:mod_init: Initialization of module in child [0]
+ 0(3249) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+ 4(3276) INFO:P-CSCF:mod_init: Initialization of module in child [1001]
+ 4(3276) INFO:[0] Worker process started...
+ 1(3271) INFO:P-CSCF:mod_init: Initialization of module in child [1]
+ 5(3279) INFO:P-CSCF:mod_init: Initialization of module in child [1002]
+ 2(3273) INFO:P-CSCF:mod_init: Initialization of module in child [-1]
+ 5(3279) INFO:[1] Worker process started...
+ 3(3275) INFO:P-CSCF:mod_init: Initialization of module in child [-1]
+ 6(3280) INFO:P-CSCF:mod_init: Initialization of module in child [1003]
+ 6(3280) INFO:[2] Worker process started...
+ 0(3249) DBG:peer_timer(): Peer pcrf.open-ims.test     State 0
+ 0(3249) DBG:I_Snd_Conn_Req(): Peer pcrf.open-ims.test
+ 8(3284) INFO:P-CSCF:mod_init: Initialization of module in child [1000]
+ 8(3284) INFO:receiver_process(): [pcrf.open-ims.test] Receiver process doing init on new process...
+ 8(3284) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for peer [pcrf.open-ims.test]
+ 8(3284) INFO:receiver_process(): [pcrf.open-ims.test] Receiver process starting up...
+ 8(3284) --- Receiver [cdp_receiver_peer=pcrf.open-ims.test] Serviced Peers: ---
+ 8(3284)  Peer: [pcrf.open-ims.test]  TCP Socket: [-1] Recv.State: [0]
+ 8(3284) --------------------------------------------------------
+ 0(3249) INFO:peer_connect(): Trying to connect to 10.1.22.107 port 4868
+ 0(3249) INFO:peer_connect(): Peer pcrf.open-ims.test:4868 connected
+ 0(3249) --- Peer List: ---
+ 0(3249)  S[Wait_Conn_Ack] pcrf.open-ims.test:4868 D[ ]
+ 0(3249) ------------------
+ 0(3249) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+10(3287)  9(3286) INFO:P-CSCF:mod_init: Initialization of module in child [1000]
+INFO:P-CSCF:mod_init: Initialization of module in child [999]
+ 9(3286) INFO:receiver_process(): [] Receiver process doing init on new process...
+10(3287)  9(3286) INFO:Acceptor process starting up...
+INFO:receiver_process(): [] Receiver process starting up...
+ 9(3286) --- Receiver [cdp receiver peer unknown] Serviced Peers: ---
+ 9(3286) --------------------------------------------------------
+10(3287) INFO:create_socket(): Trying to open/bind/listen on 192.168.20.2 port 3879
+ 7(3283) INFO:P-CSCF:mod_init: Initialization of module in child [1004]
+10(3287) INFO:create_socket(): Successful socket open/bind/listen on 192.168.20.2 port 3879
+10(3287) INFO:... Acceptor opened sockets. Entering accept loop ...
+ 7(3283) INFO:[3] Worker process started...
+12(3291) INFO:P-CSCF:mod_init: Initialization of module in child [2]
+13(3292) INFO:P-CSCF:mod_init: Initialization of module in child [-4]
+11(3290) INFO:P-CSCF:mod_init: Initialization of module in child [1001]
+11(3290) INFO:Timer process starting up...
+ 8(3284) --- Peer List: ---
+ 8(3284)  S[I_Open] pcrf.open-ims.test:4868 D[ ]
+ 8(3284)      [16777224,10415]
+ 8(3284)      [16777224,0]
+ 8(3284)      [16777236,10415]
+ 8(3284)      [16777236,0]
+ 8(3284)      [16777224,0]
+ 8(3284)      [16777236,0]
+ 8(3284) ------------------
+
+===ICSCF log==========================================
+/opt/OpenIMSCore/icscf.sh: line 3: ./ser_ims/cfg/killser: Aucun fichier ou dossier de ce type
+ 0(3243) WARNING: fix_socket_list: could not rev. resolve 10.1.22.103
+ 0(3243) WARNING: fix_socket_list: could not rev. resolve 10.1.22.103
+Listening on
+             udp: 10.1.22.103 [10.1.22.103]:5060
+             tcp: 10.1.22.103 [10.1.22.103]:5060
+Aliases:
+             *: open-ims.test:*
+             *: icscf.open-ims.test:*
+
+ 0(3243) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(3243) Maxfwd module- initializing
+ 0(3243) INFO:I-CSCF:mod_init: Initialization of module
+ 0(3243) INF:I-CSCF:icscf_db_get_nds: Loaded 1 trusted domains
+ 0(3243) INF:I-CSCF:icscf_db_get_capabilities: Loaded 2 capabilities for 1 S-CSCFs (0 invalid entries in db)
+ 0(3243) Twofish encryption ready
+ 0(3243) INFO:cdp:cdp_init(): CDiameterPeer initializing
+ 0(3243) Diameter Peer Config:
+ 0(3243)     FQDN    : icscf.open-ims.test
+ 0(3243)     Realm   : open-ims.test
+ 0(3243)     VendorID: 10415
+ 0(3243)     ProdName: CDiameterPeer
+ 0(3243)     AcceptUn: [X]
+ 0(3243)     DropUnkn: [X]
+ 0(3243)     Tc      : 30
+ 0(3243)     Workers : 4
+ 0(3243)     QueueLen: 8
+ 0(3243)     ConnTime: 5
+ 0(3243)     TranTime: 5
+ 0(3243)     SessHash: 128
+ 0(3243)     DefAuthT: 60
+ 0(3243)     MaxAuthT: 300
+ 0(3243)     Peers   : 1
+ 0(3243)         FQDN:  hss.open-ims.test      Realm: open-ims.test      Port: 3868
+ 0(3243)     Acceptors : 1
+ 0(3243)         Port:  3869      Bind: 10.1.22.103
+ 0(3243)     Applications : 3
+ 0(3243)         Auth ID:  16777216      Vendor: 10415
+ 0(3243)         Auth ID:  16777216      Vendor: 4491
+ 0(3243)         Auth ID:  16777216      Vendor: 13019
+ 0(3243)     Routing Table :
+ 0(3243)         DefaultRoute: [  10] hss.open-ims.test
+ 0(3243) INFO: udp_init: SO_RCVBUF is initially 114688
+ 0(3243) INFO: udp_init: SO_RCVBUF is finally 262142
+ 0(3243) INFO:I-CSCF:mod_init: Initialization of module in child [0] main
+ 0(3243) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+ 1(3256) INFO:I-CSCF:mod_init: Initialization of module in child [1] receiver child=0 sock=10.1.22.103:5060
+ 2(3257) INFO:I-CSCF:mod_init: Initialization of module in child [2] receiver child=1 sock=10.1.22.103:5060
+ 3(3258) INFO:I-CSCF:mod_init: Initialization of module in child [3] receiver child=2 sock=10.1.22.103:5060
+ 5(3260) INFO:I-CSCF:mod_init: Initialization of module in child [-1] slow timer
+ 7(3262) INFO:I-CSCF:mod_init: Initialization of module in child [1001] cdp_worker
+ 7(3262) INFO:[0] Worker process started...
+ 0(3243) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+ 4(3259) INFO:I-CSCF:mod_init: Initialization of module in child [4] receiver child=3 sock=10.1.22.103:5060
+ 6(3261) INFO:I-CSCF:mod_init: Initialization of module in child [-1] timer
+ 8(3263) INFO:I-CSCF:mod_init: Initialization of module in child [1002] cdp_worker
+ 8(3263) INFO:[1] Worker process started...
+ 9(3264) INFO:I-CSCF:mod_init: Initialization of module in child [1003] cdp_worker
+ 9(3264) INFO:[2] Worker process started...
+10(3265) INFO:I-CSCF:mod_init: Initialization of module in child [1004] cdp_worker
+10(3265) INFO:[3] Worker process started...
+11(3266) INFO:I-CSCF:mod_init: Initialization of module in child [1002] cdp_receiver_peer_unkown
+11(3266) INFO:receiver_process(): [] Receiver process doing init on new process...
+11(3266) INFO:receiver_process(): [] Receiver process starting up...
+11(3266) --- Receiver [cdp receiver peer unknown] Serviced Peers: ---
+11(3266) --------------------------------------------------------
+12(3267) INFO:I-CSCF:mod_init: Initialization of module in child [1000] cdp_receiver_peer
+12(3267) INFO:receiver_process(): [hss.open-ims.test] Receiver process doing init on new process...
+12(3267) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for peer [hss.open-ims.test]
+12(3267) INFO:receiver_process(): [hss.open-ims.test] Receiver process starting up...
+12(3267) --- Receiver [cdp_receiver_peer=hss.open-ims.test] Serviced Peers: ---
+12(3267)  Peer: [hss.open-ims.test]  TCP Socket: [-1] Recv.State: [0]
+12(3267) --------------------------------------------------------
+13(3268) INFO:I-CSCF:mod_init: Initialization of module in child [1000] cdp_acceptor
+13(3268) INFO:Acceptor process starting up...
+13(3268) INFO:create_socket(): Trying to open/bind/listen on 10.1.22.103 port 3869
+13(3268) INFO:create_socket(): Successful socket open/bind/listen on 10.1.22.103 port 3869
+13(3268) INFO:... Acceptor opened sockets. Entering accept loop ...
+14(3269) INFO:I-CSCF:mod_init: Initialization of module in child [1001] cdp_timer
+14(3269) INFO:Timer process starting up...
+15(3270) INFO:I-CSCF:mod_init: Initialization of module in child [5] tcp receiver child=0
+16(3272) INFO:I-CSCF:mod_init: Initialization of module in child [6] tcp receiver child=1
+17(3274) INFO:I-CSCF:mod_init: Initialization of module in child [7] tcp receiver child=2
+18(3277) INFO:I-CSCF:mod_init: Initialization of module in child [8] tcp receiver child=3
+19(3278) INFO:I-CSCF:mod_init: Initialization of module in child [-4] tcp main process
+14(3269) DBG:peer_timer(): Peer hss.open-ims.test     State 0
+14(3269) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test
+14(3269) INFO:peer_connect(): Trying to connect to 10.1.22.105 port 3868
+14(3269) WARNING:peer_connect(): Error opening connection to to 10.1.22.105 port 3868 &gt;Connection refused
+14(3269) --- Peer List: ---
+14(3269)  S[Closed] hss.open-ims.test:3868 D[ ]
+14(3269) ------------------
+13(3268) INFO:accept_connection(): new tcp connection accepted!
+11(3266) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for peer []
+11(3266) INFO:drop_serviced_peer(): Dropping serviced_peer_t from receiver for peer [hss.open-ims.test]
+11(3266) --- Peer List: ---
+11(3266)  S[R_Open] hss.open-ims.test:3868 D[ ]
+11(3266)      [16777216,10415]
+11(3266)      [16777216,4491]
+11(3266)      [16777216,13019]
+11(3266)      [16777217,10415]
+11(3266)      [16777221,10415]
+11(3266) ------------------
+
+===SCSCF log==========================================
+/opt/OpenIMSCore/scscf.sh: line 5: ./ser_ims/cfg/killser: Aucun fichier ou dossier de ce type
+ 0(3247) WARNING: fix_socket_list: could not rev. resolve 10.1.22.104
+ 0(3247) WARNING: fix_socket_list: could not rev. resolve 10.1.22.104
+Listening on
+             udp: 10.1.22.104 [10.1.22.104]:6060
+             tcp: 10.1.22.104 [10.1.22.104]:6060
+Aliases:
+             *: scscf.open-ims.test:6060
+
+ 0(3247) init_tcp: using epoll_lt as the io watch method (auto detected)
+ 0(3247) Maxfwd module- initializing
+ 0(3247) INFO:S-CSCF:mod_init: Initialization of module
+ 0(3247) INFO:ISC: - init
+ 0(3247) INFO:cdp:cdp_init(): CDiameterPeer initializing
+ 0(3247) Diameter Peer Config:
+ 0(3247)     FQDN    : scscf.open-ims.test
+ 0(3247)     Realm   : open-ims.test
+ 0(3247)     VendorID: 10415
+ 0(3247)     ProdName: CDiameterPeer
+ 0(3247)     AcceptUn: [X]
+ 0(3247)     DropUnkn: [X]
+ 0(3247)     Tc      : 30
+ 0(3247)     Workers : 4
+ 0(3247)     QueueLen: 8
+ 0(3247)     ConnTime: 5
+ 0(3247)     TranTime: 5
+ 0(3247)     SessHash: 128
+ 0(3247)     DefAuthT: 60
+ 0(3247)     MaxAuthT: 300
+ 0(3247)     Peers   : 1
+ 0(3247)         FQDN:  hss.open-ims.test      Realm: open-ims.test      Port: 3868
+ 0(3247)     Acceptors : 1
+ 0(3247)         Port:  3870      Bind: 10.1.22.104
+ 0(3247)     Applications : 3
+ 0(3247)         Auth ID:  16777216      Vendor: 10415
+ 0(3247)         Auth ID:  16777216      Vendor: 4491
+ 0(3247)         Auth ID:  16777216      Vendor: 13019
+ 0(3247)     Routing Table :
+ 0(3247)         DefaultRoute: [  10] hss.open-ims.test
+ 0(3247) INFO: udp_init: SO_RCVBUF is initially 114688
+ 0(3247) INFO: udp_init: SO_RCVBUF is finally 262142
+ 0(3247) INFO:S-CSCF:mod_child_init: Initialization of module in child [0]
+ 0(3247) INFO:ISC: - child init [0]
+ 0(3247) INFO:cdp:cdp_child_init(): CDiameterPeer starting ...
+ 0(3247) INFO:cdp:cdp_child_init(): ... CDiameterPeer started
+ 2(3294) INFO:S-CSCF:mod_child_init: Initialization of module in child [2]
+ 1(3293) INFO:S-CSCF:mod_child_init: Initialization of module in child [1]
+ 3(3295) INFO:S-CSCF:mod_child_init: Initialization of module in child [3]
+ 4(3296) INFO:S-CSCF:mod_child_init: Initialization of module in child [4]
+ 3(3295) INFO:ISC: - child init [3]
+ 5(3297) INFO:S-CSCF:mod_child_init: Initialization of module in child [-1]
+ 6(3298)  5(3297) INFO:S-CSCF:mod_child_init: Initialization of module in child [-1]
+INFO:ISC: - child init [-1]
+ 7(3299) INFO:S-CSCF:mod_child_init: Initialization of module in child [1001]
+ 6(3298) INFO:ISC: - child init [-1]
+ 7(3299) INFO:ISC: - child init [1001]
+ 7(3299) INFO:[0] Worker process started...
+ 8(3300) INFO:S-CSCF:mod_child_init: Initialization of module in child [1002]
+ 9(3301) INFO:S-CSCF:mod_child_init: Initialization of module in child [1003]
+10(3302) INFO:S-CSCF:mod_child_init: Initialization of module in child [1004]
+ 9(3301) INFO:ISC: - child init [1003]
+ 9(3301) INFO:[2] Worker process started...
+11(3303) INFO:S-CSCF:mod_child_init: Initialization of module in child [1002]
+10(3302) INFO:ISC: - child init [1004]
+10(3302) INFO:[3] Worker process started...
+11(3303) INFO:ISC: - child init [1002]
+11(3303) INFO:receiver_process(): [] Receiver process doing init on new process...
+11(3303) INFO:receiver_process(): [] Receiver process starting up...
+11(3303) --- Receiver [cdp receiver peer unknown] Serviced Peers: ---
+11(3303) --------------------------------------------------------
+ 2(3294) INFO:ISC: - child init [2]
+13(3305) INFO:S-CSCF:mod_child_init: Initialization of module in child [1000]
+12(3304) INFO:S-CSCF:mod_child_init: Initialization of module in child [1000]
+15(3307) INFO:S-CSCF:mod_child_init: Initialization of module in child [5]
+ 1(3293) INFO:ISC: - child init [1]
+ 4(3296) INFO:ISC: - child init [4]
+14(3306) INFO:S-CSCF:mod_child_init: Initialization of module in child [1001]
+15(3307) INFO:ISC: - child init [5]
+17(3309) INFO:S-CSCF:mod_child_init: Initialization of module in child [7]
+14(3306) INFO:ISC: - child init [1001]
+14(3306) INFO:Timer process starting up...
+16(3308) INFO:S-CSCF:mod_child_init: Initialization of module in child [6]
+16(3308) INFO:ISC: - child init [6]
+18(3310) INFO:S-CSCF:mod_child_init: Initialization of module in child [8]
+19(3311) INFO:S-CSCF:mod_child_init: Initialization of module in child [-4]
+19(3311) INFO:ISC: - child init [-4]
+18(3310) INFO:ISC: - child init [8]
+ 8(3300) INFO:ISC: - child init [1002]
+ 8(3300) INFO:[1] Worker process started...
+12(3304) INFO:ISC: - child init [1000]
+12(3304) INFO:receiver_process(): [hss.open-ims.test] Receiver process doing init on new process...
+12(3304) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for peer [hss.open-ims.test]
+12(3304) INFO:receiver_process(): [hss.open-ims.test] Receiver process starting up...
+12(3304) --- Receiver [cdp_receiver_peer=hss.open-ims.test] Serviced Peers: ---
+12(3304)  Peer: [hss.open-ims.test]  TCP Socket: [-1] Recv.State: [0]
+12(3304) --------------------------------------------------------
+13(3305) INFO:ISC: - child init [1000]
+13(3305) INFO:Acceptor process starting up...
+17(3309) INFO:ISC: - child init [7]
+13(3305) INFO:create_socket(): Trying to open/bind/listen on 10.1.22.104 port 3870
+13(3305) INFO:create_socket(): Successful socket open/bind/listen on 10.1.22.104 port 3870
+13(3305) INFO:... Acceptor opened sockets. Entering accept loop ...
+14(3306) DBG:peer_timer(): Peer hss.open-ims.test     State 0
+14(3306) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.test
+14(3306) INFO:peer_connect(): Trying to connect to 10.1.22.105 port 3868
+14(3306) WARNING:peer_connect(): Error opening connection to to 10.1.22.105 port 3868 &gt;Connection refused
+14(3306) --- Peer List: ---
+14(3306)  S[Closed] hss.open-ims.test:3868 D[ ]
+14(3306) ------------------
+13(3305) INFO:accept_connection(): new tcp connection accepted!
+11(3303) INFO:add_serviced_peer(): Adding serviced_peer_t to receiver for peer []
+11(3303) INFO:drop_serviced_peer(): Dropping serviced_peer_t from receiver for peer [hss.open-ims.test]
+11(3303) --- Peer List: ---
+11(3303)  S[R_Open] hss.open-ims.test:3868 D[ ]
+11(3303)      [16777216,10415]
+11(3303)      [16777216,4491]
+11(3303)      [16777216,13019]
+11(3303)      [16777217,10415]
+11(3303)      [16777221,10415]
+11(3303) ------------------
+
+===PCRF log==========================================
+INFO: Changing Status of PCRF #1 to 'On'
+INFO: This is PCRF number: 1
+INFO: Controlling Domain: open-ims.test
+INFO: PCRF Server #1 started : Fri Apr 15 13:46:45 CEST 2011
+INFO: PCRF Rx Diameter interface started
+INFO: PCRF Gx Diameter interface started
+
+===PCEF log==========================================
+INFO: Preparing router for operation
+INFO: Changing Status of PCEF #1 to 'On'
+INFO: This is PCEF number: 1
+DEBUG: PCRF Address: pcrf.open-ims.test
+INFO: PCEF Gx Diameter interface started
+====================================================
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000677.html">[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#676">[ date ]</a>
+              <a href="thread.html#676">[ thread ]</a>
+              <a href="subject.html#676">[ subject ]</a>
+              <a href="author.html#676">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

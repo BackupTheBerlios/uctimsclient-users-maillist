@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uctimsclient craches with advanced iptv
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20craches%20with%20advanced%20iptv&In-Reply-To=%3C3df4af750906021345l76158b30p9147fd0a8f654ab3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000580.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uctimsclient craches with advanced iptv</H1>
+    <B>manal rifki</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uctimsclient%20craches%20with%20advanced%20iptv&In-Reply-To=%3C3df4af750906021345l76158b30p9147fd0a8f654ab3%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] uctimsclient craches with advanced iptv">manal.rifki at gmail.com
+       </A><BR>
+    <I>Tue Jun  2 22:45:49 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000580.html">[Uctimsclient-users] openser (busy everywhere)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#579">[ date ]</a>
+              <a href="thread.html#579">[ thread ]</a>
+              <a href="subject.html#579">[ subject ]</a>
+              <a href="author.html#579">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I want to enable advanced iptv service in the openimscore plateforme. this
+plateforme works correctly, also with the uctimsclient we have made sip
+calls. but the problem with uctimsclient occures when we requested a channel
+to test advanced iptv service.
+
+here are the details:
+
+i have followed the steps in that link to configure uct advanced iptv :
+<A HREF="http://uctimsclient.berlios.de/uctiptv_advanced_howto.html">http://uctimsclient.berlios.de/uctiptv_advanced_howto.html</A>
+
+the Indirection AS is configured and runs normally, the Darwin Streaming
+Server (DSS) is also installed correctly.
+
+here is the content of *&quot;/usr/share/uctiptv_advanced/key_value_file&quot;* file,
+where *192.168.100.20* is the IP Address of the Darwing Streaming Server
+(DSS) also *channel1.avi* and *sample_300kbit.mp4* are videos put on *
+&quot;usr/local/movie&quot;* directory.
+
+&lt;key-value_pair&gt;
+
+    &lt;key&gt;channel1&lt;/key&gt;
+    &lt;value&gt;<A HREF="rtsp://192.168.100.20:554/sample_300kbit.mp4&lt;/value">rtsp://192.168.100.20:554/sample_300kbit.mp4&lt;/value</A>&gt;
+&lt;/key-value_pair&gt;
+
+&lt;key-value_pair&gt;
+    &lt;key&gt;channel2&lt;/key&gt;
+    &lt;value&gt;<A HREF="rtsp://192.168.100.20:554/channel1.avi&lt;/value">rtsp://192.168.100.20:554/channel1.avi&lt;/value</A>&gt;
+&lt;/key-value_pair&gt;
+
+&lt;/key-value_pairs&gt;
+
+below is the result in the terminal when i run the Indirection AS:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kossay at kossay-laptop</A>:/$ uctiptv_as
+/usr/share/uctiptv_advanced/key_value_file
+UCT Media Control Function
+
+Dave Waiting and Robert Marston (2008)
+eXosip started and listening on port = 8010
+Creating Hashtable...
+Populating table with key-value pairs...
+Number of key-value pairs found in file
+/usr/share/uctiptv_advanced/key_value_file is 2
+Done.
+Server is ready to accept client requests...
+Event type: 5 New call received!
+Client requesting: channel1
+Event type: 22 4xx received for request!
+Event type: 26 Call Context is released!
+Event type: 5 New call received!
+
+so after that i startup the UCT IMS Client, register with the core and type
+into the address bar:
+sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at 192.168.100.167</A>:8010&lt;<A HREF="http://sip:channel@192.168.100.167:8010/">http://sip:channel@192.168.100.167:8010/</A>&gt;.
+where* 192.168.100.167* is the IP Address of the IPTV_AS and *8010* is its
+port.
+
+But  when i initiate  the call the uctimsclient crashes
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kossay at kossay-laptop</A>:~$ uctimsclient
+
+(uctimsclient:8002): Gtk-WARNING **: GtkSpinButton: setting an adjustment
+with non-zero page size is deprecated
+UCT IMS Client - SIP port 5061 - Audio Port: 36834 - Video Port: 36483
+
+Attempting to open RTSP stream ...
+[00000001] main private error: no memcpy module matched &quot;any&quot;
+[00000284] main interface error: no interface module matched &quot;hotkeys,none&quot;
+[00000284] main interface error: no suitable interface module
+[00000001] main private error: interface &quot;hotkeys,none&quot; initialization
+failed
+[00000285] main interface error: no interface module matched
+&quot;screensaver,none&quot;
+[00000285] main interface error: no suitable interface module
+[00000001] main private error: interface &quot;screensaver,none&quot; initialization
+failed
+
+(uctimsclient:8002): Gtk-WARNING **: GtkSpinButton: setting an adjustment
+with non-zero page size is deprecated
+Erreur de segmentation
+
+how can I deal with that segmentation error? can this have a relation with
+the space of my hard disk (maybe not enough memory)?
+
+please we need your help!
+thank you in advance!
+
+Best regards,
+Manal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090602/17882440/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090602/17882440/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000580.html">[Uctimsclient-users] openser (busy everywhere)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#579">[ date ]</a>
+              <a href="thread.html#579">[ thread ]</a>
+              <a href="subject.html#579">[ subject ]</a>
+              <a href="author.html#579">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

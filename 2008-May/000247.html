@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Some problem with the iptv source code
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Some%20problem%20with%20the%20iptv%20source%20code&In-Reply-To=%3CBAY141-W5490B4FD1B86EF4B7BC5DCFDC20%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000246.html">
+   <LINK REL="Next"  HREF="000249.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Some problem with the iptv source code</H1>
+    <B>Miroslave Gudic</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Some%20problem%20with%20the%20iptv%20source%20code&In-Reply-To=%3CBAY141-W5490B4FD1B86EF4B7BC5DCFDC20%40phx.gbl%3E"
+       TITLE="[Uctimsclient-users] Some problem with the iptv source code">miro_slave at live.fr
+       </A><BR>
+    <I>Mon May 26 11:43:19 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000246.html">[Uctimsclient-users] vlc on IPTV Service??
+</A></li>
+        <LI>Next message: <A HREF="000249.html">[Uctimsclient-users] Some problem with the iptv source code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#247">[ date ]</a>
+              <a href="thread.html#247">[ thread ]</a>
+              <a href="subject.html#247">[ subject ]</a>
+              <a href="author.html#247">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello everybody
+
+When I try to execute the makefile (with the command make) some errors appear related to the video.c.
+I don't understand why it says the variables are undeclared...
+I'm working on a debian station.
+
+
+sh-3.1$ make
+gcc -I/usr/include/gstreamer-0.10/gst `pkg-config --cflags gtk+-2.0 gstreamer-0.10` -o obj/video.o -c src/video.c
+src/video.c:3: error: expected &#8216;=&#8217;, &#8216;,&#8217;, &#8216;;&#8217;, &#8216;asm&#8217; or &#8216;__attribute__&#8217; before &#8216;*&#8217; token
+src/video.c:7: error: expected &#8216;)&#8217; before &#8216;*&#8217; token
+src/video.c:31: error: expected &#8216;=&#8217;, &#8216;,&#8217;, &#8216;;&#8217;, &#8216;asm&#8217; or &#8216;__attribute__&#8217; before &#8216;bus_callback&#8217;
+src/video.c:66: error: expected declaration specifiers or &#8216;...&#8217; before &#8216;gchar&#8217;
+src/video.c:67: error: conflicting types for &#8216;add_client&#8217;
+video.h:8: error: previous declaration of &#8216;add_client&#8217; was here
+src/video.c: In function &#8216;add_client&#8217;:
+src/video.c:68: error: &#8216;GstElement&#8217; undeclared (first use in this function)
+src/video.c:68: error: (Each undeclared identifier is reported only once
+src/video.c:68: error: for each function it appears in.)
+src/video.c:68: error: &#8216;multiudpsinka&#8217; undeclared (first use in this function)
+src/video.c:68: error: &#8216;multiudpsinkv&#8217; undeclared (first use in this function)
+src/video.c:72: error: &#8216;stream1&#8217; undeclared (first use in this function)
+src/video.c:76: error: &#8216;stream2&#8217; undeclared (first use in this function)
+src/video.c:80: error: &#8216;stream3&#8217; undeclared (first use in this function)
+src/video.c:85: error: &#8216;host&#8217; undeclared (first use in this function)
+src/video.c:85: error: &#8216;NULL&#8217; undeclared (first use in this function)
+src/video.c: At top level:
+src/video.c:90: error: expected declaration specifiers or &#8216;...&#8217; before &#8216;gchar&#8217;
+src/video.c:91: error: conflicting types for &#8216;remove_client&#8217;
+video.h:9: error: previous declaration of &#8216;remove_client&#8217; was here
+src/video.c: In function &#8216;remove_client&#8217;:
+src/video.c:92: error: &#8216;GstElement&#8217; undeclared (first use in this function)
+src/video.c:92: error: &#8216;multiudpsinka&#8217; undeclared (first use in this function)
+src/video.c:92: error: &#8216;multiudpsinkv&#8217; undeclared (first use in this function)
+src/video.c:97: error: &#8216;stream1&#8217; undeclared (first use in this function)
+src/video.c:101: error: &#8216;stream2&#8217; undeclared (first use in this function)
+src/video.c:105: error: &#8216;stream3&#8217; undeclared (first use in this function)
+src/video.c:110: error: &#8216;host&#8217; undeclared (first use in this function)
+src/video.c:110: error: &#8216;NULL&#8217; undeclared (first use in this function)
+src/video.c: At top level:
+src/video.c:115: error: expected &#8216;=&#8217;, &#8216;,&#8217;, &#8216;;&#8217;, &#8216;asm&#8217; or &#8216;__attribute__&#8217; before &#8216;*&#8217; token
+make: *** [obj/video.o] Erreur 1
+Thanks 
+
+Miroslave
+
+_________________________________________________________________
+Caroline vient de mettre &#224; jour son profil Messenger ! Connectez-vous !
+<A HREF="http://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=10&amp;ct=1198837564&amp;rver=4.0.1534.0&amp;wp=MBI&amp;wreply=http:%2F%2Fhome.services.spaces.live.com%2F&amp;lc=1036&amp;id=73625">http://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=10&amp;ct=1198837564&amp;rver=4.0.1534.0&amp;wp=MBI&amp;wreply=http:%2F%2Fhome.services.spaces.live.com%2F&amp;lc=1036&amp;id=73625</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080526/7ae65d1d/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080526/7ae65d1d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000246.html">[Uctimsclient-users] vlc on IPTV Service??
+</A></li>
+	<LI>Next message: <A HREF="000249.html">[Uctimsclient-users] Some problem with the iptv source code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#247">[ date ]</a>
+              <a href="thread.html#247">[ thread ]</a>
+              <a href="subject.html#247">[ subject ]</a>
+              <a href="author.html#247">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

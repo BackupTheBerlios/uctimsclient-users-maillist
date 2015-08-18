@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Error on UCTIPTV Startup
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Error%20on%20UCTIPTV%20Startup&In-Reply-To=%3Cd7d566c20805011237k6781a739i3575e9963a5ddfa5%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000219.html">
+   <LINK REL="Next"  HREF="000221.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Error on UCTIPTV Startup</H1>
+    <B>Richard Spiers</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Error%20on%20UCTIPTV%20Startup&In-Reply-To=%3Cd7d566c20805011237k6781a739i3575e9963a5ddfa5%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Error on UCTIPTV Startup">richard.spiers at gmail.com
+       </A><BR>
+    <I>Thu May  1 21:37:34 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000219.html">[Uctimsclient-users] Error on UCTIPTV Startup
+</A></li>
+        <LI>Next message: <A HREF="000221.html">[Uctimsclient-users] Error on UCTIPTV Startup
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#220">[ date ]</a>
+              <a href="thread.html#220">[ thread ]</a>
+              <a href="subject.html#220">[ subject ]</a>
+              <a href="author.html#220">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Jeremy
+
+I think you are missing the ffmpeg plugins for gstreamer. The package should
+look something like gstreamer0.10-ffmpeg.
+
+Kind Regards
+Richard Spiers
+
+On Thu, May 1, 2008 at 7:51 PM, Jeremy Thorson &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">jeremy.thorson at gmail.com</A>&gt;
+wrote:
+
+&gt;<i> Richard,
+</I>&gt;<i>
+</I>&gt;<i> It looks like the ffenc_h263p is missing.
+</I>&gt;<i>
+</I>&gt;<i> I've installed the gstreamer0.10-plugin-base, good, bad, and ugly sets,
+</I>&gt;<i> along with libgstreamer0.10-0 and libgstreamer0.10-dev.  Rather ... the
+</I>&gt;<i> student I had working on this has installed all of the above before the end
+</I>&gt;<i> of his term - I'm trying to pick up where he left off.
+</I>&gt;<i>
+</I>&gt;<i> There's a couple others missing when I try your posted commands, as well
+</I>&gt;<i> ... so I'm obviously missing a library package or something.  What package
+</I>&gt;<i> should these be coming from?
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance,
+</I>&gt;<i>
+</I>&gt;<i> - Jeremy
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 4/28/08, Richard Spiers &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">richard.spiers at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi Jeremy
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Do you have ffenc_h263p installed ? This can be checked by the command &quot;
+</I>&gt;<i> &gt; gst-inspect-0.10 ffenc_h263p &quot;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Your gst-launch file decodes the file and plays it locally, which does
+</I>&gt;<i> &gt; not include the appropriate encoders / rtp payload packers etc.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Do the gst-launch commands I have mentioned in previous emails today
+</I>&gt;<i> &gt; work ? (i.e. the commands to start streaming video and receive it on the
+</I>&gt;<i> &gt; command line prompt ? )
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Kind Regards
+</I>&gt;<i> &gt; Richard Spiers
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;  On Mon, Apr 28, 2008 at 10:16 PM, Jeremy Thorson &lt;
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">jeremy.thorson at gmail.com</A>&gt; wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt;  Greetings all.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; I am working on turning up the IPTV server on a VM (Debian Sid).
+</I>&gt;<i> &gt; &gt; Installation was from the debian repositories at
+</I>&gt;<i> &gt; &gt; <A HREF="https://developer.berlios.de/project/showfiles.php?group_id=7844">https://developer.berlios.de/project/showfiles.php?group_id=7844</A>
+</I>&gt;<i> &gt; &gt; (version 1.0.1, 2008-01-31 23:00)
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; When I start the server, I get the following response:
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; IPtv:/# uctiptv 100000 1 /media/movie2.avi
+</I>&gt;<i> &gt; &gt; Initialising 1 on channel1
+</I>&gt;<i> &gt; &gt; Starting channel1
+</I>&gt;<i> &gt; &gt; Elements created
+</I>&gt;<i> &gt; &gt; Pipeline created
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GLib-GObject-CRITICAL **: g_object_set: assertion
+</I>&gt;<i> &gt; &gt; `G_IS_OBJECT (object)' failed
+</I>&gt;<i> &gt; &gt; Setting Bitrate to 100000
+</I>&gt;<i> &gt; &gt; Creating Decodebin
+</I>&gt;<i> &gt; &gt; Adding items
+</I>&gt;<i> &gt; &gt; Linking items
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-WARNING **: Trying to connect elements
+</I>&gt;<i> &gt; &gt; that don't share a common ancestor: queuea and ffenc_mp2
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-WARNING **: Trying to connect elements
+</I>&gt;<i> &gt; &gt; that don't share a common ancestor: queuea and ffenc_mp2
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-WARNING **: Trying to connect elements
+</I>&gt;<i> &gt; &gt; that don't share a common ancestor: ffmpegcolorspace and queuev
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-WARNING **: Trying to connect elements
+</I>&gt;<i> &gt; &gt; that don't share a common ancestor: ffmpegcolorspace and queuev
+</I>&gt;<i> &gt; &gt; Elements linked
+</I>&gt;<i> &gt; &gt; If the server gets stuck at this point then there is an error...
+</I>&gt;<i> &gt; &gt; perhaps an incompatible input file
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-CRITICAL **: gst_element_get_pad:
+</I>&gt;<i> &gt; &gt; assertion `GST_IS_ELEMENT (element)' failed
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-CRITICAL **: gst_pad_link_prepare:
+</I>&gt;<i> &gt; &gt; assertion `GST_IS_PAD (sinkpad)' failed
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-CRITICAL **: gst_element_get_pad:
+</I>&gt;<i> &gt; &gt; assertion `GST_IS_ELEMENT (element)' failed
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-CRITICAL **: gst_pad_get_negotiated_caps:
+</I>&gt;<i> &gt; &gt; assertion `GST_IS_PAD (pad)' failed
+</I>&gt;<i> &gt; &gt; ffenc_h263p Caps:
+</I>&gt;<i> &gt; &gt; NULL
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Video Caps:
+</I>&gt;<i> &gt; &gt; NULL
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Audio Caps:
+</I>&gt;<i> &gt; &gt; NULL
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; (&lt;unknown&gt;:1867): GStreamer-CRITICAL **: gst_caps_unref: assertion
+</I>&gt;<i> &gt; &gt; `caps != NULL' failed
+</I>&gt;<i> &gt; &gt; Returning from channel channel1 init
+</I>&gt;<i> &gt; &gt; IPTV Appserver started on port 7070
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; An invite to the IPTV server results in a blank white screen.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; However, playing the movie with
+</I>&gt;<i> &gt; &gt;      $ gst-launch-0.10 filesrc location=/media/movie2.avi ! decodebin
+</I>&gt;<i> &gt; &gt; ! queue ! ffmpegcolorspace ! ximagesink
+</I>&gt;<i> &gt; &gt; works properly.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Any suggestions on where to start with the troubleshooting process?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Thanks in advance,
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; - Jeremy
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">jthorson at NOSPAMsasktel.net</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; Uctimsclient-users mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080501/6a26b423/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080501/6a26b423/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000219.html">[Uctimsclient-users] Error on UCTIPTV Startup
+</A></li>
+	<LI>Next message: <A HREF="000221.html">[Uctimsclient-users] Error on UCTIPTV Startup
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#220">[ date ]</a>
+              <a href="thread.html#220">[ thread ]</a>
+              <a href="subject.html#220">[ subject ]</a>
+              <a href="author.html#220">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

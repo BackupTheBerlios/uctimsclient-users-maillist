@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Redirect an INVITE when client recieves a 302	response message
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Redirect%20an%20INVITE%20when%20client%20recieves%20a%20302%0A%09response%20message&In-Reply-To=%3C1203327969.5498.18.camel%40peer1%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000185.html">
+   <LINK REL="Next"  HREF="000187.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Redirect an INVITE when client recieves a 302	response message</H1>
+    <B>Enrique de Meer</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Redirect%20an%20INVITE%20when%20client%20recieves%20a%20302%0A%09response%20message&In-Reply-To=%3C1203327969.5498.18.camel%40peer1%3E"
+       TITLE="[Uctimsclient-users] Redirect an INVITE when client recieves a 302	response message">enrique.demeer at inycom.es
+       </A><BR>
+    <I>Mon Feb 18 10:46:09 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000185.html">[Uctimsclient-users] Requirements for IPTV-Server
+</A></li>
+        <LI>Next message: <A HREF="000187.html">[Uctimsclient-users] Redirect an INVITE when client recieves a 302	response message
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#186">[ date ]</a>
+              <a href="thread.html#186">[ thread ]</a>
+              <a href="subject.html#186">[ subject ]</a>
+              <a href="author.html#186">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have two uct ims clients registered in IMS core, and also an
+Application Server and a Media Server. The client <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">em_IMPU1 at open-ims.test</A>
+is calling <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">em_IMPU2 at open-ims.test.</A> But the call goes to the AS according
+to my IFC and TP. I want the AS to redirect the INVITE to another Media
+Server depending on the time the call takes place. To do that I've found
+in RFC 2543:
+
+-----------------------------------------------------------------------
+7.3.3 302 Moved Temporarily
+
+   The requesting client SHOULD retry the request at the new address(es)
+   given by the Contact header field (Section 6.13). The duration of
+   the redirection can be indicated through an Expires (Section 6.20)
+   header. If there is no explicit expiration time, the address is only
+   valid for this call and MUST NOT be cached for future calls.
+-------------------------------------------------------------------------
+
+
+So i create the response to the INVITE in the AS setting in the Contact
+header the value of the new address, like that (req is the INVITE
+request):
+
+---------------------------------------------------------------------------
+SipServletResponse resp =
+req.createResponse(SipServletResponse.SC_MOVED_TEMPORARILY,&quot;Redirect to
+the Media Server&quot;);
+
+resp.setHeader(&quot;Contact&quot;, &quot;&lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">123 at 192.168.11.84</A>:5060&gt;&quot;);
+
+resp.send();
+----------------------------------------------------------------------
+
+I make the call and everything goes well till the response arrives at
+the caller client. I've got the response and i can see in the messages
+box the message in the response &quot;Redirect to the Media Server (for
+INVITE)&quot;, but the client sends an ACK to the PSCSF and nothing else. 
+
+I attached the wireshark trace for the IMScore capture in 192.168.11.3
+and the clients and AS capture in 192.168.11.12:
+ 
+-192.168.11.3 is the IMScore
+-192.168.11.12:
+    5060 is the AS
+    5061 is <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">em_IMPU1 at open-ims.test</A>
+    5062 is <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">em_IMPU2 at open-ims.test</A>
+-192.168.11.84:5060 is the Media Server.
+
+
+Am I doing anything wrong??? is this redirect operation to a 302
+response message not implemented in uctIMSclient??? Any help?
+
+Thank you very much in advance.
+
+Regards
+
+Enrique de Meer
+
+AVISO LEGAL 
+
+Este mensaje y los archivos que en su caso lleve adjuntos son privados y confidenciales y se dirigen exclusivamente a su destinatario. Por ello, se informa a quien lo reciba por error que la informaci&#243;n contenida en el mismo es reservada y su utilizaci&#243;n, copia o distribuci&#243;n est&#225; prohibida, por lo que en tal caso le rogamos que nos lo comunique por esta misma v&#237;a o por tel&#233;fono (+34976013300) y proceda a borrarlo de inmediato. 
+
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: IMScoreCapture.pcap
+Type: application/octet-stream
+Size: 12369 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080218/e5dadcd8/attachment.obj">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080218/e5dadcd8/attachment.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: uctAndASCapture.pcap
+Type: application/octet-stream
+Size: 5405 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080218/e5dadcd8/attachment-0001.obj">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080218/e5dadcd8/attachment-0001.obj</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000185.html">[Uctimsclient-users] Requirements for IPTV-Server
+</A></li>
+	<LI>Next message: <A HREF="000187.html">[Uctimsclient-users] Redirect an INVITE when client recieves a 302	response message
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#186">[ date ]</a>
+              <a href="thread.html#186">[ thread ]</a>
+              <a href="subject.html#186">[ subject ]</a>
+              <a href="author.html#186">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

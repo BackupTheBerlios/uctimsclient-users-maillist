@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] FW: FW:  unable to communicate pcacf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20FW%3A%20FW%3A%20%20unable%20to%20communicate%20pcacf&In-Reply-To=%3C460CC606.20501%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000052.html">
+   <LINK REL="Next"  HREF="000054.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] FW: FW:  unable to communicate pcacf</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20FW%3A%20FW%3A%20%20unable%20to%20communicate%20pcacf&In-Reply-To=%3C460CC606.20501%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] FW: FW:  unable to communicate pcacf">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Fri Mar 30 10:10:46 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000052.html">[Uctimsclient-users] FW: FW:  unable to communicate pcacf
+</A></li>
+        <LI>Next message: <A HREF="000054.html">[Uctimsclient-users] FW: FW:  unable to communicate pcscf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#53">[ date ]</a>
+              <a href="thread.html#53">[ thread ]</a>
+              <a href="subject.html#53">[ subject ]</a>
+              <a href="author.html#53">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Naga
+
+The register as alice/bob buttons still use the IMS preferences (p-cscsf 
+and realm). The buttons simply overide the public and private user 
+identities and the password field.
+
+Send me your .imsuapref file from the src/ directory and maybe I can 
+spot something wrong. At this stage I'm not sure if your problem lies on 
+the client, the core or the DNS.
+
+- Dave
+
+
+Nagaraj K wrote:
+
+&gt;<i> The problem still persists.
+</I>&gt;<i>
+</I>&gt;<i> I found that register request first sent to 5060 port instead of 4060.
+</I>&gt;<i>
+</I>&gt;<i> I have used default configuration like register as alice &amp; register as 
+</I>&gt;<i> bob option
+</I>&gt;<i>
+</I>&gt;<i> Is there anything to be configured when we compile?
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Naga
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> *From:* Nagaraj K
+</I>&gt;<i> *Sent:* Sunday, April 29, 2007 6:53 PM
+</I>&gt;<i> *To:* 'Dave Waiting'
+</I>&gt;<i> *Subject:* RE: FW: [Uctimsclient-users] unable to communicate pcacf
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Hi Dave,
+</I>&gt;<i>
+</I>&gt;<i> Thanks.
+</I>&gt;<i>
+</I>&gt;<i> It's listening on 127.0.0.1 only.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Naga
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> *From:* Dave Waiting [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>]
+</I>&gt;<i> *Sent:* Thursday, March 29, 2007 6:08 PM
+</I>&gt;<i> *To:* Nagaraj K
+</I>&gt;<i> *Subject:* Re: FW: [Uctimsclient-users] unable to communicate pcacf
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> In your pcscf.cfg file, is the p-cscf listening on 127.0.0.1 or on 
+</I>&gt;<i> 10.20.2.189?
+</I>&gt;<i>
+</I>&gt;<i> I guess this could be the problem. Otherwise I'm afraid I don't know 
+</I>&gt;<i> what is wrong.
+</I>&gt;<i>
+</I>&gt;<i> - Dave
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Nagaraj K wrote:
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Hi Dave,
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your response.
+</I>&gt;<i>
+</I>&gt;<i> I can able to register with ims-communicator downloaded from 
+</I>&gt;<i> <A HREF="http://developer.berlios.de/projects/imscommunicator/">http://developer.berlios.de/projects/imscommunicator/</A> site.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Ping pcscf.open-ims.test works well.
+</I>&gt;<i>
+</I>&gt;<i> I tried with sip: 127.0.0.1:4060 as pcscf address it also given same 
+</I>&gt;<i> problem.
+</I>&gt;<i>
+</I>&gt;<i> Anybody has come across this kind of problem?
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Naga
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> *From:* Dave Waiting [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>]
+</I>&gt;<i> *Sent:* Thursday, March 29, 2007 4:14 PM
+</I>&gt;<i> *To:* Nagaraj K
+</I>&gt;<i> *Cc:* <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A> 
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;<i> *Subject:* Re: [Uctimsclient-users] unable to communicate pcacf
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Hi Naga
+</I>&gt;<i>
+</I>&gt;<i> If your DNS is setup correctly as in the openIMScore installation 
+</I>&gt;<i> instructions, you should set your P-CSCF to sip:pcscf.open-ims.test:4060
+</I>&gt;<i>
+</I>&gt;<i> You can test your DNS by trying to ping pcscf.open-ims.test and see if 
+</I>&gt;<i> you get a response.
+</I>&gt;<i>
+</I>&gt;<i> If not the core probably won't work anyway, but you can try: 
+</I>&gt;<i> sip:127.0.0.1:4060
+</I>&gt;<i>
+</I>&gt;<i> - Dave
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Nagaraj K wrote:
+</I>&gt;<i>
+</I>&gt;<i> Hello all,
+</I>&gt;<i>
+</I>&gt;<i> I have installed all the open IMS components.
+</I>&gt;<i>
+</I>&gt;<i> I have used UCT ims client to send register message, but the UCT 
+</I>&gt;<i> client unable to send request to pcscf.
+</I>&gt;<i>
+</I>&gt;<i> I have attached sip trace and icmp trace.
+</I>&gt;<i>
+</I>&gt;<i> How to configure local port local ip address?
+</I>&gt;<i>
+</I>&gt;<i> Give me some hints...
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Naga
+</I>&gt;<i>
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i> Tech Mahindra, formerly Mahindra-British Telecom.
+</I>&gt;<i>
+</I>&gt;<i> Disclaimer:
+</I>&gt;<i>
+</I>&gt;<i> This message and the information contained herein is proprietary and 
+</I>&gt;<i> confidential and subject to the Tech Mahindra policy statement, you 
+</I>&gt;<i> may review at <A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A> externally 
+</I>&gt;<i> and <A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A> internally within Tech 
+</I>&gt;<i> Mahindra.
+</I>&gt;<i>
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i> Tech Mahindra, formerly Mahindra-British Telecom.
+</I>&gt;<i>
+</I>&gt;<i> Disclaimer:
+</I>&gt;<i>
+</I>&gt;<i> This message and the information contained herein is proprietary and 
+</I>&gt;<i> confidential and subject to the Tech Mahindra policy statement, you 
+</I>&gt;<i> may review at <A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A> externally 
+</I>&gt;<i> and <A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A> internally within Tech 
+</I>&gt;<i> Mahindra.
+</I>&gt;<i>
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i>------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>_______________________________________________
+</I>&gt;<i>Uctimsclient-users mailing list
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070330/5985009d/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070330/5985009d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000052.html">[Uctimsclient-users] FW: FW:  unable to communicate pcacf
+</A></li>
+	<LI>Next message: <A HREF="000054.html">[Uctimsclient-users] FW: FW:  unable to communicate pcscf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#53">[ date ]</a>
+              <a href="thread.html#53">[ thread ]</a>
+              <a href="subject.html#53">[ subject ]</a>
+              <a href="author.html#53">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

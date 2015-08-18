@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.9.1331738974.13725.uctimsclient-users%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000498.html">
+   <LINK REL="Next"  HREF="000597.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.9.1331738974.13725.uctimsclient-users%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 16:29:27 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000498.html">No subject
+</A></li>
+        <LI>Next message: <A HREF="000597.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#500">[ date ]</a>
+              <a href="thread.html#500">[ thread ]</a>
+              <a href="subject.html#500">[ subject ]</a>
+              <a href="author.html#500">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>call
+&quot; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Test at iptv.open-ims.test</A> &quot; i didn't get any messages.
+
+any idea on this? why i am not getting any messages while running
+uctiptv_advance in different machine? is there any DNS issue? or i need to
+change resolv.conf?
+
+case 2
+---------
+so then i installed uctiptv_advanced in the same PC where IMSCore is
+running. and started application server with key_value_file.
+then from IMS client i send INVITE to &quot; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Test at iptv.open-ims.test</A> &quot; then
+my uctimsclient is terminating and saying that segmentation fault like given
+below...
+
+*<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at password-laptop</A>:/home/**password# uctimsclient
+
+(uctimsclient:21032): Gtk-WARNING **: Locale not supported by C library.
+        Using the fallback 'C' locale.
+
+
+UCT IMS Client - SIP port 5061  - Audio Port: 36086 - Video Port: 38973
+
+Segmentation fault
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at password-laptop</A>:/home/**password# uctimsclient
+
+*
+
+here, Test  = video file name
+        iptv    = application server name
+
+my  key_value_file is like below
+=================
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--    This is an example of the file that the server looks for when
+starting the UCT IMS IPTV Application Server
+        The key is any text between the SIP: and the @domain that the server
+recieves in an invite.
+        So for example sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at open-ims.test</A> will be parsed to
+channel1.
+
+        The value is the rtsp address of the server along with the path of
+the media file the client is requesting.
+--&gt;
+
+&lt;!--    What follows is some example key-value pairs. Replace these with
+real files that you have on your network
+--&gt;
+&lt;key-value_pairs&gt;
+
+&lt;key-value_pair&gt;
+        &lt;key&gt;Test&lt;/key&gt;
+        &lt;value&gt;<A HREF="rtsp://192.168.1.245:5554/Test&lt;/value">rtsp://192.168.1.245:5554/Test&lt;/value</A>&gt;
+&lt;/key-value_pair&gt;
+
+&lt;/key-value_pairs&gt;
+
+=================
+But in my ethereal trace the call flow is like INVITE, 100 trying, 101
+dialog Establishment, 200 ok, BYE.
+
+Below is the messages displayed for uctiptv_advance server
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at gayathri</A> uctiptv_advanced]# ./uctiptv_as key_value_file
+UCT Media Control Function
+
+Dave Waiting and Robert Marston (2008)
+eXosip started and listening on port = 8010
+Creating Hashtable...
+Populating table with key-value pairs...
+Number of key-value pairs found in file key_value_file is 1
+Done.
+Server is ready to accept client requests...
+Event type: 5 New call received!
+Client requesting: Test
+Event type: 22 4xx received for request!
+Event type: 22 4xx received for request!
+Event type: 26 Call Context is released!
+
+can onyone please guide me on this where i m doing wrong?
+
+Thanks in advance
+Gayathri
+
+--0016e652f56a5b2aef0463cc930f
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Hi,&lt;br&gt;&lt;br&gt;I have installed uctiptv_advanced application server and i confi=
+gured HSS by following the steps mentioned in the site.&lt;br&gt;&lt;br&gt;case 1&lt;br&gt;--=
+--------&lt;br&gt;I am running IMS core in one PC( fedora-6) and=A0 uctiptv_advan=
+ced application server(fedora-7) in another PC.&lt;br&gt;
+
+and installed uctimsclient with vlc media server in different PC which has =
+ubuntu-6 version.&lt;br&gt;From uctimsclient i am able to register to the IMSCore=
+, but if i try to call=A0=A0=A0=A0 &lt;br&gt;&quot; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Test at iptv.open-ims.test</A> &amp;=
+quot; i didn&#39;t get any messages.&lt;br&gt;
+
+&lt;br&gt;any idea on this? why i am not getting any messages while running
+uctiptv_advance in different machine? is there any DNS issue? or i need
+to change resolv.conf?&lt;br&gt;&lt;br&gt;case 2&lt;br&gt;---------&lt;br&gt;so then i installed uc=
+tiptv_advanced in the same PC where IMSCore is
+running. and started application server with key_value_file.&lt;br&gt;then
+from IMS client i send INVITE to &quot; sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Test at iptv.open-ims.test</A> &quot; =
+then
+my uctimsclient is terminating and saying that segmentation fault like
+given below...&lt;br&gt;&lt;pre&gt;&lt;b&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at password-laptop</A>:/home/&lt;/b&gt;&lt;b&gt;password# uctim=
+sclient&lt;br&gt;&lt;br&gt;(uctimsclient:21032): Gtk-WARNING **: Locale not supported b=
+y C library.&lt;br&gt;        Using the fallback &#39;C&#39; locale.&lt;br&gt;&lt;br&gt;
+&lt;br&gt;UCT IMS Client - SIP port 5061  - Audio Port: 36086 - Video Port: 38973=
+&lt;br&gt;&lt;br&gt;Segmentation fault&lt;br&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at password-laptop</A>:/home/&lt;/b&gt;&lt;b&gt;password# u=
+ctimsclient&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;/pre&gt;&lt;div&gt;here, Test=A0 =3D video file name&lt;br&gt;
+
+
+=A0=A0=A0=A0=A0=A0=A0 iptv=A0=A0=A0 =3D application server name&lt;br&gt;
+&lt;br&gt;
+my=A0 key_value_file is like below&lt;br&gt;
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D&lt;br&gt;
+&lt;?xml version=3D&quot;1.0&quot; encoding=3D&quot;UTF-8&quot;?&gt;&lt;br&gt;
+&lt;!--=A0=A0=A0 This is an example of the file that the server looks for w=
+hen starting the UCT IMS IPTV Application Server&lt;br&gt;
+=A0=A0=A0=A0=A0=A0=A0 The key is any text between the SIP: and the @domain =
+that the server recieves in an invite.&lt;br&gt;
+=A0=A0=A0=A0=A0=A0=A0 So for example sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at open-ims.test</A> will be par=
+sed to channel1. &lt;br&gt;
+=A0=A0=A0=A0=A0=A0=A0 &lt;br&gt;
+=A0=A0=A0=A0=A0=A0=A0 The value is the rtsp address of the server along wit=
+h the path of the media file the client is requesting.&lt;br&gt;
+--&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;!--=A0=A0=A0 What follows is some example key-value pairs. Replace thes=
+e with real files that you have on your network&lt;br&gt;
+--&gt;&lt;br&gt;
+&lt;key-value_pairs&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;key-value_pair&gt;&lt;br&gt;
+=A0=A0=A0=A0=A0=A0=A0 &lt;key&gt;Test&lt;/key&gt;&lt;br&gt;
+=A0=A0=A0=A0=A0=A0=A0 &lt;value&gt;<A HREF="rtsp://&lt;a">rtsp://&lt;a</A> href=3D&quot;<A HREF="http://192.168.1.245:5=">http://192.168.1.245:5=</A>
+554/Test&quot; target=3D&quot;_blank&quot;&gt;192.168.1.245:5554/Test&lt;/a&gt;&lt;/value&gt;&lt;br&gt;
+&lt;/key-value_pair&gt;&lt;br&gt;
+&lt;br&gt;
+&lt;/key-value_pairs&gt;&lt;br&gt;
+&lt;br&gt;
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D&lt;br&gt;
+But in my ethereal trace the call flow is like INVITE, 100 trying, 101=A0 d=
+ialog Establishment, 200 ok, BYE.&lt;br&gt;&lt;br&gt;Below is the messages displayed fo=
+r uctiptv_advance server&lt;br&gt;[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at gayathri</A> uctiptv_advanced]# ./uctiptv_as =
+key_value_file&lt;br&gt;
+
+UCT Media Control Function&lt;br&gt;&lt;br&gt;Dave Waiting and Robert Marston (2008)&lt;br=
+&gt;<i>eXosip started and listening on port =3D 8010&lt;br&gt;Creating Hashtable...&lt;br&gt;=
+</I>Populating table with key-value pairs...&lt;br&gt;Number of key-value pairs found=
+ in file key_value_file is 1&lt;br&gt;
+
+Done.&lt;br&gt;Server is ready to accept client requests... &lt;br&gt;Event type: 5 New=
+ call received!&lt;br&gt;Client requesting: Test&lt;br&gt;Event type: 22 4xx received f=
+or request!&lt;br&gt;Event type: 22 4xx received for request!&lt;br&gt;Event type: 26 C=
+all Context is released!&lt;br&gt;
+
+&lt;/div&gt;&lt;br&gt;can onyone please guide me on this where i m doing wrong?&lt;br&gt;&lt;br&gt;=
+Thanks in advance&lt;br&gt;Gayathri=20
+
+--0016e652f56a5b2aef0463cc930f--
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000498.html">No subject
+</A></li>
+	<LI>Next message: <A HREF="000597.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#500">[ date ]</a>
+              <a href="thread.html#500">[ thread ]</a>
+              <a href="subject.html#500">[ subject ]</a>
+              <a href="author.html#500">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

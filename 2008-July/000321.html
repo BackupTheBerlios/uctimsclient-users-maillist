@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Question about Video Packet on IPTV-Server	(IMS)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Question%20about%20Video%20Packet%20on%20IPTV-Server%0A%09%28IMS%29&In-Reply-To=%3Cb702dc1a0807302327p7bb96c9dv9a48513b1ad31895%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000320.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Question about Video Packet on IPTV-Server	(IMS)</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Question%20about%20Video%20Packet%20on%20IPTV-Server%0A%09%28IMS%29&In-Reply-To=%3Cb702dc1a0807302327p7bb96c9dv9a48513b1ad31895%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Question about Video Packet on IPTV-Server	(IMS)">dwaiting at gmail.com
+       </A><BR>
+    <I>Thu Jul 31 08:27:33 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000320.html">[Uctimsclient-users] Test UCT IMS CLIENT/Xlite
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#321">[ date ]</a>
+              <a href="thread.html#321">[ thread ]</a>
+              <a href="subject.html#321">[ subject ]</a>
+              <a href="author.html#321">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Khoirush
+
+The IPtv server was written by a collegue Richard Spiers and he might have
+some more information on this so I am cc-ing this reply to the mailing list.
+
+The media parts of the UCT IMS client and the IPtv server are all
+implemented using the gStreamer libraries. These libraries handle the video
+compression, packetisation and transmission of both the audio and video
+media. As far as I know the video codec is the H.263 codec supplied by
+gStreamer. I believe there are various versions of this codec so it is
+possible that the Java version is not the same as the gStreamer version.
+
+My suggestion would be to fiddle with the IPtv server code and change the
+video codec to one of the others supported by gStreamer. The code is not too
+complicated and generally the gStreamer parts are very easy to manipulate.
+You will of course then need to change the SIP SDP negotiation to handle a
+new codec.
+
+Perhaps Richard has some more insight into this problem and further
+suggestions.
+
+Regards
+
+Dave
+
+
+
+On 7/31/08, khoirus sholih &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kh01rus at yahoo.com</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i>  Dear mr.David,
+</I>&gt;<i>
+</I>&gt;<i> I'm khoirush, an undergraduate student from Bandung Institute of
+</I>&gt;<i> Technology.
+</I>&gt;<i> I really need help right now on the UCT IMS Client Implementation.
+</I>&gt;<i> Right now i and my friends are developing a video streaming application
+</I>&gt;<i> (java-based app using JAIN-SIP and JMF) that will stream the video from the
+</I>&gt;<i> UCT IPTV server. All the connection (SIP implementation) is done and work
+</I>&gt;<i> very well. There is one issue left which is the video data packet can't be
+</I>&gt;<i> decoded and played. But the audio packet can be decoded and played with no
+</I>&gt;<i> problem, meaning the application has already able to access the streamed
+</I>&gt;<i> data packet. It just can't decode the video data.
+</I>&gt;<i>
+</I>&gt;<i> I also have tried to use the JVLC application to stream the video, and
+</I>&gt;<i> giving the same result.
+</I>&gt;<i> It also shows that the video is already fetched but it's just can't be
+</I>&gt;<i> decoded.
+</I>&gt;<i>
+</I>&gt;<i> The only reason that i can think right now is that the video data was
+</I>&gt;<i> tweaked before it packeted and streamed to client.
+</I>&gt;<i> But that's only our hypothesis.
+</I>&gt;<i> So could you give us some clue why the video can't be decoded and how to
+</I>&gt;<i> decode the video packet ?
+</I>&gt;<i>
+</I>&gt;<i> ps: sorry for my bad english and my impolite manner, but we really need
+</I>&gt;<i> help from the creator of the UCT IMS Client.
+</I>&gt;<i> : )
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Khoirush Sholih R. A.
+</I>&gt;<i> Bandung Institute of Technology
+</I>&gt;<i> Indonesia
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080731/fd64c948/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080731/fd64c948/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000320.html">[Uctimsclient-users] Test UCT IMS CLIENT/Xlite
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#321">[ date ]</a>
+              <a href="thread.html#321">[ thread ]</a>
+              <a href="subject.html#321">[ subject ]</a>
+              <a href="author.html#321">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20SIP%20message%20SUBSCRIBE/PUBLISH&In-Reply-To=%3C464B24BD.5090005%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000077.html">
+   <LINK REL="Next"  HREF="000079.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20SIP%20message%20SUBSCRIBE/PUBLISH&In-Reply-To=%3C464B24BD.5090005%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Wed May 16 17:35:25 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000077.html">[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+</A></li>
+        <LI>Next message: <A HREF="000079.html">[Uctimsclient-users] UCT IMS Client compilation error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Li
+
+This is an IMS feature. The user subscribes to their own registration 
+state, so that if they are ever deregistered by the network they will be 
+informed. This is more commonly known as the reg event. If you look at 
+the reg event tab you will see the data from the NOTIFY message. This 
+also serves to inform the user which other IMPUs are currently registered.
+
+At present the client does not use this information for anything (except 
+to display it), it's more just to test that the IMS core is working 
+properly.
+
+Regards
+
+Dave
+
+
+
+li wang wrote:
+
+&gt;<i> Hi dave,
+</I>&gt;<i>
+</I>&gt;<i> Thanks! So it means i have to implement them myself.
+</I>&gt;<i>
+</I>&gt;<i> But there is something i don't understand in my test senario when i 
+</I>&gt;<i> connect uctIMSClient with OpenIMSCore.
+</I>&gt;<i>
+</I>&gt;<i> When i register alice, i found the SIP message exchage in wireshark 
+</I>&gt;<i> like this:
+</I>&gt;<i>
+</I>&gt;<i> 1. ------&gt;    REGISTER
+</I>&gt;<i> 2. &lt;------    401 Unauthorized
+</I>&gt;<i> 3. ------&gt;    REGISTER
+</I>&gt;<i> 4. &lt;------    200 OK
+</I>&gt;<i> 5. ------&gt;    SUBSCRIBE
+</I>&gt;<i> 6. &lt;------    200 Subscription to REG saved
+</I>&gt;<i> 6. &lt;------    NOTIFY
+</I>&gt;<i> 7. ------&gt;    200 OK
+</I>&gt;<i>
+</I>&gt;<i> The first 4 messages seems to be correct. But why uctIMSClient can 
+</I>&gt;<i> send SUBSCRIBE while register ??
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Li
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;&gt;<i> From: Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>&gt;
+</I>&gt;&gt;<i> To: li wang &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">li.wang119 at hotmail.com</A>&gt;
+</I>&gt;&gt;<i> CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> Subject: Re: [Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+</I>&gt;&gt;<i> Date: Tue, 15 May 2007 17:56:49 +0200
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi Li
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> We are currently building presence functionality into the client but 
+</I>&gt;&gt;<i> this will not be released for a while.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The client is built on the eXosip library which has full support for 
+</I>&gt;&gt;<i> these messages, but you have to add these fetaures to the client code 
+</I>&gt;&gt;<i> yourself.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Dave
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> li wang wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> hi all,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Is uctImsClient be able to send SIP message SUBSCRIBE/PUBLISH?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Thanks and best regard,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> li
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> _________________________________________________________________
+</I>&gt;&gt;&gt;<i> Ten :  Messenger en illimit&#233; sur votre mobile !  
+</I>&gt;&gt;&gt;<i> <A HREF="http://mobile.live.fr/messenger/ten/">http://mobile.live.fr/messenger/ten/</A>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _________________________________________________________________
+</I>&gt;<i> Gagnez des pc Windows Vista avec Live.com <A HREF="http://www.image-addict.fr/">http://www.image-addict.fr/</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000077.html">[Uctimsclient-users] SIP message SUBSCRIBE/PUBLISH
+</A></li>
+	<LI>Next message: <A HREF="000079.html">[Uctimsclient-users] UCT IMS Client compilation error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#78">[ date ]</a>
+              <a href="thread.html#78">[ thread ]</a>
+              <a href="subject.html#78">[ subject ]</a>
+              <a href="author.html#78">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

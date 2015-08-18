@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] PRACK mechanism incorrect
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20PRACK%20mechanism%20incorrect&In-Reply-To=%3C001b01c76499%24f2b34fc0%240200a8c0%40notebookFE%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000040.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] PRACK mechanism incorrect</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20PRACK%20mechanism%20incorrect&In-Reply-To=%3C001b01c76499%24f2b34fc0%240200a8c0%40notebookFE%3E"
+       TITLE="[Uctimsclient-users] PRACK mechanism incorrect">franz.edler at inode.at
+       </A><BR>
+    <I>Mon Mar 12 12:31:11 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000040.html">[Uctimsclient-users] PRACK mechanism incorrect
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I have just started to use the UCT-IMS client for testing OpenIMSCore. First
+of all I am very happy about the initiative to offer an Open Source IMS
+client. An important missing part is going to be closed now.
+
+But one of the first observations I made is, that the implementation of
+PRACK is not correct. According to RFC 3262 the UAS who wants to send a
+provisional response reliably MUST include a Require header field containing
+the option tag 100rel and MUST include a RSeq header field. Both header
+fields are missing in the provisional response, but the UAC sends a PRACK
+request anyway. This PRACK request cannot be matched to any provisional
+response without RAck header field, so it is useless.
+
+I hope my comment is helpful. Maybe the problem is already known and the
+implementation of the PRACK mechanism is still to be finalised. 
+
+cheers
+Franz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000040.html">[Uctimsclient-users] PRACK mechanism incorrect
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#39">[ date ]</a>
+              <a href="thread.html#39">[ thread ]</a>
+              <a href="subject.html#39">[ subject ]</a>
+              <a href="author.html#39">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Fwd: UCT IMS Client compilation error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Fwd%3A%20UCT%20IMS%20Client%20compilation%20error&In-Reply-To=%3C33ef80d30705220952p2b82f4f0ke44428f867a14bf9%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000082.html">
+   <LINK REL="Next"  HREF="000084.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Fwd: UCT IMS Client compilation error</H1>
+    <B>Bhavin</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Fwd%3A%20UCT%20IMS%20Client%20compilation%20error&In-Reply-To=%3C33ef80d30705220952p2b82f4f0ke44428f867a14bf9%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Fwd: UCT IMS Client compilation error">bp.ims100 at gmail.com
+       </A><BR>
+    <I>Tue May 22 18:52:19 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000082.html">[Uctimsclient-users] Fwd:  UCT IMS Client compilation error
+</A></li>
+        <LI>Next message: <A HREF="000084.html">[Uctimsclient-users] Presence HOWTO
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#83">[ date ]</a>
+              <a href="thread.html#83">[ thread ]</a>
+              <a href="subject.html#83">[ subject ]</a>
+              <a href="author.html#83">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>It has the source file, it doesn't have the binary... Is there any web site
+from where we can get these binary package?
+
+On 5/22/07, Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i>  <A HREF="http://www.gtk.org/download/">http://www.gtk.org/download/</A>
+</I>&gt;<i>
+</I>&gt;<i> Bhavin wrote:
+</I>&gt;<i>
+</I>&gt;<i> Where can I find these binary...
+</I>&gt;<i>
+</I>&gt;<i> ---------- Forwarded message ----------
+</I>&gt;<i> From: Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A> &gt;
+</I>&gt;<i> Date: May 22, 2007 10:31 AM
+</I>&gt;<i> Subject: Re: [Uctimsclient-users] UCT IMS Client compilation error
+</I>&gt;<i> To: Bhavin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bp.ims100 at gmail.com</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> That look okay to me. Maybe it's too old.
+</I>&gt;<i>
+</I>&gt;<i> I have 2.10.11
+</I>&gt;<i>
+</I>&gt;<i> - Dave
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Bhavin wrote:
+</I>&gt;<i>
+</I>&gt;<i> Dave,
+</I>&gt;<i>
+</I>&gt;<i> I have following gtk2 package installed.
+</I>&gt;<i>
+</I>&gt;<i> # rpm -qa | grep gtk2
+</I>&gt;<i> gtk2-devel-2.2.4-125.17
+</I>&gt;<i> gtk2-2.2.4-125.17
+</I>&gt;<i> gtk2-engines-2.2.0-395.1
+</I>&gt;<i>
+</I>&gt;<i> Is libgtk2 is different than above package?
+</I>&gt;<i>
+</I>&gt;<i> Bhavin
+</I>&gt;<i>
+</I>&gt;<i> On 5/22/07, Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A> &gt; wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi Bhavin
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Looks like you might not have the libgkt2-0-dev library installed.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Dave
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Bhavin wrote:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I am compiling an UCT client from the src dir and it is giving me
+</I>&gt;<i> &gt; following error (using a SLES 9 SP3):
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; : undefined reference to `GTK_COMBO_BOX'
+</I>&gt;<i> &gt; obj/preferences.o(.text+0xf27): In function `preferences_get_preferences_dialog':
+</I>&gt;<i> &gt; : undefined reference to `gtk_combo_box_get_active'
+</I>&gt;<i> &gt; collect2: ld returned 1 exit status
+</I>&gt;<i> &gt; make: *** [uctimsclient] Error 1
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; has anyone encountered the above issue and can help....
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks,
+</I>&gt;<i> &gt; Bhavin
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ------------------------------
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; Uctimsclient-users mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>   ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.dehttps</A>://lists.berlios.de/mailman/listinfo/uctimsclient-users
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070522/4cd3be4c/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070522/4cd3be4c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000082.html">[Uctimsclient-users] Fwd:  UCT IMS Client compilation error
+</A></li>
+	<LI>Next message: <A HREF="000084.html">[Uctimsclient-users] Presence HOWTO
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#83">[ date ]</a>
+              <a href="thread.html#83">[ thread ]</a>
+              <a href="subject.html#83">[ subject ]</a>
+              <a href="author.html#83">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

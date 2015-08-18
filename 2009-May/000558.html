@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] iptv advanced server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20iptv%20advanced%20server&In-Reply-To=%3C3df4af750905090847q55101b1do95d54c6cd9c5249d%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000557.html">
+   <LINK REL="Next"  HREF="000559.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] iptv advanced server</H1>
+    <B>manal rifki</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20iptv%20advanced%20server&In-Reply-To=%3C3df4af750905090847q55101b1do95d54c6cd9c5249d%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] iptv advanced server">manal.rifki at gmail.com
+       </A><BR>
+    <I>Sat May  9 17:47:21 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000557.html">[Uctimsclient-users] installing the client
+</A></li>
+        <LI>Next message: <A HREF="000559.html">[Uctimsclient-users] pstn-ims
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#558">[ date ]</a>
+              <a href="thread.html#558">[ thread ]</a>
+              <a href="subject.html#558">[ subject ]</a>
+              <a href="author.html#558">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+i am trying to run iptv advanced server, and i am blocked at this step:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">manal at manal-laptop</A>:/usr/share/uctiptv_advanced$ uctiptv_as key_value_pairs
+UCT Media Control Function
+
+Dave Waiting and Robert Marston (2008)
+eXosip started and listening on port = 8010
+Creating Hashtable...
+Populating table with key-value pairs...
+I/O warning : failed to load external entity &quot;key_value_pairs&quot;
+ERROR: XML key-value file not parsed successfully
+Destroying hashtable and freeing up memory...
+Complete... exiting.
+
+
+please help me! i have made several changes in my &quot;key_value_pairs&quot; but
+without results. the content of this file is:
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--     This is an example of the file that the server looks for when
+starting the UCT IMS IPTV Application Server
+         The key is any text between the SIP: and the @domain that the
+server recieves in an invite.
+    So for example sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at open-ims.test</A> will be parsed to channel1.
+
+    The value is the rtsp address of the server along with the path of the
+media file the client is requesting.
+--&gt;
+
+&lt;!--    What follows is some example key-value pairs. Replace these with
+real files that you have on your network
+--&gt;
+
+&lt;key-value_pairs&gt;
+
+ &lt;key-value_pair&gt;
+
+        &lt;key&gt;channel1&lt;/key&gt;
+        &lt;value&gt;<A HREF="rtsp://iptv2.open.ims.test:8010/channel1&lt;/value">rtsp://iptv2.open.ims.test:8010/channel1&lt;/value</A>&gt;
+
+ &lt;/key-value_pair&gt;
+
+&lt;/key-value_pairs&gt;
+
+iptv2 is the name i have gave to the application server in the FHoSS but i
+think i didn't put the correct parameters!
+
+cheers,
+Manal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090509/ae7187a3/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090509/ae7187a3/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000557.html">[Uctimsclient-users] installing the client
+</A></li>
+	<LI>Next message: <A HREF="000559.html">[Uctimsclient-users] pstn-ims
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#558">[ date ]</a>
+              <a href="thread.html#558">[ thread ]</a>
+              <a href="subject.html#558">[ subject ]</a>
+              <a href="author.html#558">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Test UCT IMS CLIENT/Xlite
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Test%20UCT%20IMS%20CLIENT/Xlite&In-Reply-To=%3C2E187115F1424CBF9DE49FF0715AC06D%40notebook%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000330.html">
+   <LINK REL="Next"  HREF="000335.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Test UCT IMS CLIENT/Xlite</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Test%20UCT%20IMS%20CLIENT/Xlite&In-Reply-To=%3C2E187115F1424CBF9DE49FF0715AC06D%40notebook%3E"
+       TITLE="[Uctimsclient-users] Test UCT IMS CLIENT/Xlite">franz.edler at inode.at
+       </A><BR>
+    <I>Thu Aug  7 21:34:24 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000330.html">[Uctimsclient-users] Test UCT IMS CLIENT/Xlite
+</A></li>
+        <LI>Next message: <A HREF="000335.html">[Uctimsclient-users] Test UCT IMS CLIENT/Xlite
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#334">[ date ]</a>
+              <a href="thread.html#334">[ thread ]</a>
+              <a href="subject.html#334">[ subject ]</a>
+              <a href="author.html#334">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Khaldon,
+ 
+&gt;<i> Audio Call
+</I>&gt;<i> If I make a call from Xlite to UCT Client, both phones are ringing but it
+</I>&gt;<i> fails when I answer(in the UCT client part). The Xlite displays &quot;Call
+</I>&gt;<i> failed. Media negociation failed&quot;. So I directly went to the audio/video
+</I>&gt;<i> codec menu to check whether they were the same on both side. But That did
+</I>&gt;<i> not change anything. Attached is the wireshark trace (xlite2uctimscall).
+</I>
+I have looked at your trace and found that the main problem is the forking
+issue, which is well known (the CANCEL is generated autonomously by the SER
+part in this case and does not comply with IMS). See packets 85 and 86.
+
+&gt;<i> If I make a call from UCT Client to Xlite, both phone are ringing and the
+</I>&gt;<i> communication is established. But the only thing we can hear on both side
+</I>&gt;<i> is a big noise! (Exactly the same when I used the UCTB2BUA...). Attached
+</I>&gt;<i> is the wireshark trace(uctims2xlitecall).
+</I>
+In this case the problem is at the client side (two clients at on machine):
+One client detects a merged request (482 Merged Request, packet 35, 36).
+
+A brief summary to your tests between XLite and UCTIMS -  and to my
+experience is the following:
+- Forking does not work because of the CANCEL issue
+- If you make tests without forking you have two situations:
+  - Call from XLite to UCTIMS works
+  - Call from UCTIMS to XLITE does not work because of &quot;Require:
+precondition) which is not supported by XLite.
+
+&gt;<i> Instant Messaging
+</I>&gt;<i> If I write a message from UCT client to Xlite, everything works
+</I>&gt;<i> well.Attached is the wireshark trace(xlite2uctimsIM).
+</I>
+Yes.
+
+&gt;<i> But that is not working from Xlite to UCT Client. Xlite receives a
+</I>&gt;<i> &quot;REQUEST TIME OUT&quot;.I do not why the UCTIMS client does not respond with a
+</I>&gt;<i> &quot;200 OK&quot; when it receives the a  &quot;MESSAGE&quot;.Attached is the wireshark
+</I>&gt;<i> trace(uctims2xliteIM).
+</I>
+I see that the UAS (bob) does not respond to the MESSAGE, but cannot say
+why? Is there any log of the client?
+
+I attach all szenario-files which I have created to quickly see what
+happens.
+
+Regards
+Franz
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: UCTIMS-XLite.zip
+Type: application/x-zip-compressed
+Size: 21136 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080807/900a5967/attachment.bin">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080807/900a5967/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000330.html">[Uctimsclient-users] Test UCT IMS CLIENT/Xlite
+</A></li>
+	<LI>Next message: <A HREF="000335.html">[Uctimsclient-users] Test UCT IMS CLIENT/Xlite
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#334">[ date ]</a>
+              <a href="thread.html#334">[ thread ]</a>
+              <a href="subject.html#334">[ subject ]</a>
+              <a href="author.html#334">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problems with Notify Messages
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problems%20with%20Notify%20Messages&In-Reply-To=%3C48318F1A.4090605%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000231.html">
+   <LINK REL="Next"  HREF="000229.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problems with Notify Messages</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problems%20with%20Notify%20Messages&In-Reply-To=%3C48318F1A.4090605%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Problems with Notify Messages">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Mon May 19 16:30:50 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000231.html">[Uctimsclient-users] Problems with Notify Messages
+</A></li>
+        <LI>Next message: <A HREF="000229.html">[Uctimsclient-users] presence.winfo Subscribe goes directly to the	S-CSCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#232">[ date ]</a>
+              <a href="thread.html#232">[ thread ]</a>
+              <a href="subject.html#232">[ subject ]</a>
+              <a href="author.html#232">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Marco
+
+Thanks for the bug fixes - I will include these in the next release.
+
+Regards
+
+Dave
+
+
+Marco Happenhofer wrote:
+&gt;<i> To enable the parsing again, do not forget to remove following piece of 
+</I>&gt;<i> code in watchers.c and presence.c:
+</I>&gt;<i>
+</I>&gt;<i> notify_str[notify_len] = '\0';
+</I>&gt;<i>
+</I>&gt;<i> Marco Happenhofer wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i> I have downloaded the latests Version of UCTIMSClient 1.0.11.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I had some problems with the Notify Messages. In the cases the client 
+</I>&gt;&gt;<i> received the Notify successfully a segmentation fault occurred. And I 
+</I>&gt;&gt;<i> remembered to older Version I used (1.0.9) that in the Registration 
+</I>&gt;&gt;<i> State always some additional symbols were  displayed.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> So I found a problem with the changing of the notifybody to a string.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I replaced all:
+</I>&gt;&gt;<i> osip_body_to_str(notify_body, &amp;notify_str, &amp;reg_len);
+</I>&gt;&gt;<i> by
+</I>&gt;&gt;<i> notify_str = notify_body-&gt;body;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I use:
+</I>&gt;&gt;<i> Ubuntu 8.04
+</I>&gt;&gt;<i> libosip2-2	3.0.3-2-1
+</I>&gt;&gt;<i> libexosip2-4	3.0.3-3-1
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Could somebody verify this problem?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> greets
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000231.html">[Uctimsclient-users] Problems with Notify Messages
+</A></li>
+	<LI>Next message: <A HREF="000229.html">[Uctimsclient-users] presence.winfo Subscribe goes directly to the	S-CSCF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#232">[ date ]</a>
+              <a href="thread.html#232">[ thread ]</a>
+              <a href="subject.html#232">[ subject ]</a>
+              <a href="author.html#232">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

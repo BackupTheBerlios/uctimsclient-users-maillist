@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Fail to make a call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Fail%20to%20make%20a%20call&In-Reply-To=%3C114266.77513.qm%40web73806.mail.tp2.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000289.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Fail to make a call</H1>
+    <B>sssere as</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Fail%20to%20make%20a%20call&In-Reply-To=%3C114266.77513.qm%40web73806.mail.tp2.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] Fail to make a call">cwchungcwchung at yahoo.com.tw
+       </A><BR>
+    <I>Tue Jul  1 08:27:11 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000289.html">[Uctimsclient-users] VoD
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#288">[ date ]</a>
+              <a href="thread.html#288">[ thread ]</a>
+              <a href="subject.html#288">[ subject ]</a>
+              <a href="author.html#288">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+My environment is:
+Computer A (Fedora 8): OpenIMSCore r570
+Computer B (Fedora 8): UCT IMS Client v1.0.11 registered as bob
+Computer C (Fedora 8): UCT IMS Client v1.0.11 registered as alice
+
+And bob fails to call alice. The messages of bob:
+
+13:44:30&gt; INVITE
+13:44:30&gt; trying -- your call is important to us (for INVITE)
+13:44:30&gt; Dialog Establishement (for INVITE)
+13:44:30&gt; Session Progress (for INVITE)
+13:44:30&gt; PRACK
+13:44:30&gt; PRACK
+13:46:30&gt; ACK
+
+The messages of alice:
+
+13:44:30&gt; INVITE
+13:44:30&gt; 183 Session Progress
+13:46:30&gt; Request Cancelled (for INVITE)
+
+It seems that bob has sent and received PRACK, but there is no PRACK on Wireshark and alice's messages. Do you have any suggestion? Any response would be appericiated.
+
+CW Chung
+
+
+
+      ______________________________________________________________________________________________________
+&#20184;&#36027;&#25165;&#23481;&#37327;&#28961;&#19978;&#38480;&#65311;Yahoo!&#22855;&#25705;&#38651;&#23376;&#20449;&#31665;2.0&#20813;&#36027;&#32102;&#20320;&#65292;&#20449;&#20214;&#27704;&#36960;&#19981;&#24517;&#21034;&#65281; <A HREF="http://tw.mg0.mail.yahoo.com/dc/landing">http://tw.mg0.mail.yahoo.com/dc/landing</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080701/696e2eb3/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080701/696e2eb3/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000289.html">[Uctimsclient-users] VoD
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#288">[ date ]</a>
+              <a href="thread.html#288">[ thread ]</a>
+              <a href="subject.html#288">[ subject ]</a>
+              <a href="author.html#288">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

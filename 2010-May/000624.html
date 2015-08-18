@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT IMS Client and VoD service with QoS	policies
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20IMS%20Client%20and%20VoD%20service%20with%20QoS%0A%09policies&In-Reply-To=%3CEC9CE4963AE88348A22A731948A0757E02C45979%40MADARRMAIL5.indra.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000625.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT IMS Client and VoD service with QoS	policies</H1>
+    <B>&quot;Huertas Garc&#237;a, Victor&quot;</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20IMS%20Client%20and%20VoD%20service%20with%20QoS%0A%09policies&In-Reply-To=%3CEC9CE4963AE88348A22A731948A0757E02C45979%40MADARRMAIL5.indra.es%3E"
+       TITLE="[Uctimsclient-users] UCT IMS Client and VoD service with QoS	policies">vhuertas at indra.es
+       </A><BR>
+    <I>Mon May  3 10:56:22 CEST 2010</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000625.html">[Uctimsclient-users] [ask]UCT PCRF installation in IMS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#624">[ date ]</a>
+              <a href="thread.html#624">[ thread ]</a>
+              <a href="subject.html#624">[ subject ]</a>
+              <a href="author.html#624">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello all,
+
+ 
+
+I am running UCT IMS Client with the UCT IPTV indirection AS plus VLC as streaming server. I am testing the QoS policy with a DIAMETER server connected to the P-CSCF of the Open IMS Core. I have already activated the Rx interface and I just wanted to know how the P-CSCF issues the AAR messages during the VoD session establishment.
+
+ 
+
+However, when I start a VoD session from UCT IMS Client against the UCT IPTV Indirection AS, the INVITE's SDP includes the Multimedia information related to the Audio codecs configured in &quot;Preferences&quot;. I think this should not be that way. It should include and SDP with the bandwidth necessary for the RTSP session that will be established.
+
+ 
+
+Furthermore, when RTSP session is established with a PLAY commando, the UCT IMS Client doesn't send any SIP INVITE + SPD towards the P-CSCF in order to reserve bandwidth for video and audio traffic. According to the standard this second SIP Session should be started from UCT IM Client before issuing the PLAY command (once all resources has been reserved).
+
+ 
+
+Does anybody know it this is or will be implemented?
+
+ 
+
+ 
+
+Thanks a lot
+
+ 
+
+Victor
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20100503/222d23a8/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20100503/222d23a8/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000625.html">[Uctimsclient-users] [ask]UCT PCRF installation in IMS
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#624">[ date ]</a>
+              <a href="thread.html#624">[ thread ]</a>
+              <a href="subject.html#624">[ subject ]</a>
+              <a href="author.html#624">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

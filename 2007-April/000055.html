@@ -1,0 +1,422 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Media path is a problem with UCTIMSClient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Media%20path%20is%20a%20problem%20with%20UCTIMSClient&In-Reply-To=%3C46138BD6.8050401%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000056.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Media path is a problem with UCTIMSClient</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Media%20path%20is%20a%20problem%20with%20UCTIMSClient&In-Reply-To=%3C46138BD6.8050401%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Media path is a problem with UCTIMSClient">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Wed Apr  4 13:28:22 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000056.html">[Uctimsclient-users] Have you used UCT-ims Client in Fedora Core 6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#55">[ date ]</a>
+              <a href="thread.html#55">[ thread ]</a>
+              <a href="subject.html#55">[ subject ]</a>
+              <a href="author.html#55">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>How many sound cards are installed on that machine? When you go to 
+preferences is this more than one option under media sound card?
+
+The client always chooses the first card on the list (this is a bug 
+which I will look into).
+
+- Dave
+
+
+
+Ramachandran wrote:
+
+&gt;<i>Hi David, 
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>I have installed uctimsclient on Ubuntu 6.10 linux and replicated the same
+</I>&gt;<i>with one another machine. However these two linux machines have different on
+</I>&gt;<i>board Intel audio cards. 
+</I>&gt;<i>
+</I>&gt;<i>Machine 1 has ,  I82801BAICH2 [Intel 82801BA-ICH2], device 0: Intel ICH
+</I>&gt;<i>[Intel 82801BA-ICH2]
+</I>&gt;<i>
+</I>&gt;<i>Machine 2 has got Intel-had-snd card with chipset 8280 1G (ICH 7 family),
+</I>&gt;<i>with the device being to STAC92XX analog. 
+</I>&gt;<i>
+</I>&gt;<i>These two clients were registered with FOKUS SER running on FC6.0 on third
+</I>&gt;<i>machine.
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>When I make a call between these two uct, I don't see any RTP packets
+</I>&gt;<i>sent/received at the both the ends, But sometimes  172 bytes of RTP packets
+</I>&gt;<i>sent by Machine 1, But Machine 2 is neither sending nor receiving the RTP
+</I>&gt;<i>packets sent. Instead, I get the following on the console on Machine 2, 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] Oops: 0000 [#1]
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] SMP
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] CPU:    0
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] EIP is at snd_pcm_attach_substream+0xca/0x3b0
+</I>&gt;<i>[snd_pcm]
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] eax: 00006bda   ebx: df8a7ca8   ecx: 00100100
+</I>&gt;<i>edx: 00100100
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] esi: df8a7c00   edi: 00000000   ebp: e14d7e90
+</I>&gt;<i>esp: e14d7e58
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] ds: 007b   es: 007b   ss: 0068
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] Process uctimsclient (pid: 27610,
+</I>&gt;<i>threadinfo=e14d6000 task=dff5c030)
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] Stack: c017a8a1 df8a7f4c df8a7f70 f109a380
+</I>&gt;<i>ceacec00 df8a7e00 df8a7e00 00000101
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]        e14d7e90 e14d7ec4 df8a7d18 df8a7c00
+</I>&gt;<i>f89b4825 e14d7e90 00000000 e14d6000
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]        e14d6000 f89b499e e14d7ec4 df8a7d28
+</I>&gt;<i>00000000 f109a380 00000000 dff5c030
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] Call Trace:
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;c017a8a1&gt; link_path_walk+0x71/0xf0
+</I>&gt;<i>&lt;f89b4825&gt; snd_pcm_open_substream+0x15/0x90 [snd_pcm]
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;f89b499e&gt; snd_pcm_open+0xfe/0x210 [snd_pcm]
+</I>&gt;<i>&lt;c011b170&gt; default_wake_function+0x0/0x10
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;f8939443&gt; snd_open+0x83/0x1c0 [snd]
+</I>&gt;<i>&lt;c01dfedf&gt; kobject_get+0xf/0x20
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;f89393c0&gt; snd_open+0x0/0x1c0 [snd]
+</I>&gt;<i>&lt;c01735ac&gt; chrdev_open+0xac/0x190
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;c0173500&gt; chrdev_open+0x0/0x190  &lt;c01685b6&gt;
+</I>&gt;<i>__dentry_open+0xb6/0x1e0
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;c0168795&gt; nameidata_to_filp+0x35/0x40
+</I>&gt;<i>&lt;c01687eb&gt; do_filp_open+0x4b/0x60
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;f8939682&gt; snd_card_file_remove+0x52/0xb0
+</I>&gt;<i>[snd]  &lt;c0168493&gt; get_unused_fd+0x53/0xc0
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;c016884a&gt; do_sys_open+0x4a/0xe0  &lt;c016891c&gt;
+</I>&gt;<i>sys_open+0x1c/0x20
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000]  &lt;c0102f8b&gt; sysenter_past_esp+0x54/0x75
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] Code: a0 00 00 00 3b 42 0c 75 20 e9 ef 00 00
+</I>&gt;<i>00 8d 76 00 b8 00 e0 ff ff 21 e0 8b 00 8b 80 a0 00 00 00 39 42 0c 0f 84 d4
+</I>&gt;<i>00 00 00 89 ca &lt;8b&gt; 09 0f 18 01 90 39 54 24 08 75 da c7 04 24 ff ff ff ff ba
+</I>&gt;<i>ff
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Message from <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">syslogd at d338</A> at Wed Apr  4 03:02:41 2007 ...
+</I>&gt;<i>
+</I>&gt;<i>d338 kernel: [43029454.140000] EIP: [pg0+944869386/1068913664]
+</I>&gt;<i>snd_pcm_attach_substream+0xca/0x3b0 [snd_pcm] SS:ESP 0068:e14d7e58
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>More important to add here is that, After killing the uctimsclient process
+</I>&gt;<i>on the machine 2 where I got the above messages,  if I issue a command 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> $ aplay or $ arecord , I get the following errors.
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>ALSA lib confmisc.c:670:(snd_func_card_driver) cannot find card '0'
+</I>&gt;<i>
+</I>&gt;<i>ALSA lib conf.c:3479:(_snd_config_evaluate) function snd_func_card_driver
+</I>&gt;<i>returned error: No such device
+</I>&gt;<i>
+</I>&gt;<i>ALSA lib confmisc.c:391:(snd_func_concat) error evaluating strings
+</I>&gt;<i>
+</I>&gt;<i>ALSA lib conf.c:3479:(_snd_config_evaluate) function snd_func_concat
+</I>&gt;<i>returned error: No such device
+</I>&gt;<i>
+</I>&gt;<i>ALSA lib confmisc.c:1070:(snd_func_refer) error evaluating name
+</I>&gt;<i>
+</I>&gt;<i>ALSA lib conf.c:3479:(_snd_config_evaluate) function snd_func_refer returned
+</I>&gt;<i>error: No such device
+</I>&gt;<i>
+</I>&gt;<i>ALSA lib conf.c:3947:(snd_config_expand) Evaluate error: No such device
+</I>&gt;<i>
+</I>&gt;<i>ALSA lib pcm.c:2143:(snd_pcm_open_noupdate) Unknown PCM default
+</I>&gt;<i>
+</I>&gt;<i>aplay: main:550: audio open error: No such device
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> Can you please let me know what could be the issues here?  Did u face any
+</I>&gt;<i>such errors while testing the same? If so what would you suggest to avoid
+</I>&gt;<i>such errors?  Please help.
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Thanks, 
+</I>&gt;<i>
+</I>&gt;<i>Ramachandran 
+</I>&gt;<i>
+</I>&gt;<i>                                                                           
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>-----Original Message-----
+</I>&gt;<i>From: Ramachandran [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgunasekaran at velankani.com</A>] 
+</I>&gt;<i>Sent: Wednesday, March 28, 2007 5:56 PM
+</I>&gt;<i>To: 'Ramachandran'; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>
+</I>&gt;<i>Subject: RE: Media path is a problem with UCTIMSClient
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Hello David, 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your response. 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> Can you please tell me, on what hardware platform you have tested the basic
+</I>&gt;<i>voice call with UCTIMSClient? This is to replicate the same at my lab and
+</I>&gt;<i>test it once. 
+</I>&gt;<i>
+</I>&gt;<i> What is the operating system? Which vendors sound card present in your
+</I>&gt;<i>basic test setup? If possible please share the alsaconf on your system.
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> Thanks a lot in advance.
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i>Ramachandran
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>-----Original Message-----
+</I>&gt;<i>From: Ramachandran [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgunasekaran at velankani.com</A>] 
+</I>&gt;<i>Sent: Tuesday, March 27, 2007 2:18 PM
+</I>&gt;<i>To: '<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>'; '<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>'
+</I>&gt;<i>Cc: 'Vinod Kumar Singh'
+</I>&gt;<i>Subject: Media path is a problem with UCTIMSClient
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Hi David and Richard, 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>I got both of your reference from media.c file of uctimsclient source base.
+</I>&gt;<i>Long back I posted this to uctimscleint mailing as well, so far nobody has
+</I>&gt;<i>replied to that.
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> I have installed uctimsclient and FOKUS IMS on FC 6.0 machines.  These are
+</I>&gt;<i>physically separated like one machine having installed X-CSCF/HSS and other
+</I>&gt;<i>two identical machines having installed UCTIMSClient's.
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> I am able to get the phones registered with FOKUS X-CSXCF/HSS successfully,
+</I>&gt;<i>also the phone GUI says call is established.  Whenever I make a call from
+</I>&gt;<i>one phone to other, I am able here the ringing sound properly, but the
+</I>&gt;<i>moment other phone answers the call, No sound at both the ends. 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Can you please tell me, what should be the issue here? My FC machine has
+</I>&gt;<i>intel-had-snd cards with ensonique chitpset. For some reason there is no
+</I>&gt;<i>audio flowing between these two phones. 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> Expecting a favorable response from both of  you.
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i>Thanks, 
+</I>&gt;<i>
+</I>&gt;<i>Ramachandran 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000056.html">[Uctimsclient-users] Have you used UCT-ims Client in Fedora Core 6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#55">[ date ]</a>
+              <a href="thread.html#55">[ thread ]</a>
+              <a href="subject.html#55">[ subject ]</a>
+              <a href="author.html#55">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

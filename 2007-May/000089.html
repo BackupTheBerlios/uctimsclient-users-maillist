@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Presence HOWTO
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Presence%20HOWTO&In-Reply-To=%3C465EA94D.4080000%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000087.html">
+   <LINK REL="Next"  HREF="000090.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Presence HOWTO</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Presence%20HOWTO&In-Reply-To=%3C465EA94D.4080000%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Presence HOWTO">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Thu May 31 12:54:05 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000087.html">[Uctimsclient-users] Presence HOWTO
+</A></li>
+        <LI>Next message: <A HREF="000090.html">[Uctimsclient-users] Presence HOWTO
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#89">[ date ]</a>
+              <a href="thread.html#89">[ thread ]</a>
+              <a href="subject.html#89">[ subject ]</a>
+              <a href="author.html#89">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Kiran,
+
+That config file has worked correctly with OpenSER v1.2.0 and OpenSER 
+presence module v1.2.0 on a Debian architecture (see  
+<A HREF="http://www.openser.org/pub/openser/1.2.0/packages/deb-stable/">http://www.openser.org/pub/openser/1.2.0/packages/deb-stable/</A>)  What 
+version do you have running?  Are the presence module and OpenSER 
+package the same version?  Also I noticed openSER is running on a 
+different port, what other changes did you make to the config file?
+
+Also have you run openser_mysql create to setup the neccessary presence 
+MySQL tables correctly?
+
+regards,
+Richard
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kiran.bkumar at wipro.com</A> wrote:
+&gt;<i>
+</I>&gt;<i> *Hi Dave,*
+</I>&gt;<i>
+</I>&gt;<i> * *
+</I>&gt;<i>
+</I>&gt;<i> *Thanks for the quick reference link on presence how-to. Such a useful 
+</I>&gt;<i> link!!*
+</I>&gt;<i>
+</I>&gt;<i> * *
+</I>&gt;<i>
+</I>&gt;<i> *But when I use the config file to start presence server, I get the 
+</I>&gt;<i> below error,*
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at mkd149633</A> openser]# ./openser start -f etc/openser.presence.cfg
+</I>&gt;<i>
+</I>&gt;<i>  0(3677) set_mod_param_regex: parameter &lt;lock_set_size&gt; not found in 
+</I>&gt;<i> module &lt;presence&gt;
+</I>&gt;<i>
+</I>&gt;<i>  0(3677) parse error (101,19-20): Can't set module parameter
+</I>&gt;<i>
+</I>&gt;<i> ERROR: bad config file (1 errors)
+</I>&gt;<i>
+</I>&gt;<i>  0(3677) INFO:mi_fifo:mi_destroy:memory for the child's mi_fifo_pid 
+</I>&gt;<i> was not allocated -&gt; nothing to destroy
+</I>&gt;<i>
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at mkd149633</A> openser]#
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> *But when I comment out this line in the config file, *
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> #modparam(&quot;presence&quot;, &quot;lock_set_size&quot;, 8)
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> *The server starts but with some errors. Any Idea why this is happening.*
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at mkd149633</A> openser]#
+</I>&gt;<i>
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at mkd149633</A> openser]# ./openser start -f etc/openser.presence.cfg
+</I>&gt;<i>
+</I>&gt;<i> Listening on
+</I>&gt;<i>
+</I>&gt;<i>              udp: 127.0.0.1 [127.0.0.1]:5000
+</I>&gt;<i>
+</I>&gt;<i>              tcp: 127.0.0.1 [127.0.0.1]:5000
+</I>&gt;<i>
+</I>&gt;<i> Aliases:
+</I>&gt;<i>
+</I>&gt;<i>              tcp: localhost:5000
+</I>&gt;<i>
+</I>&gt;<i>              tcp: localhost.localdomain:5000
+</I>&gt;<i>
+</I>&gt;<i>              udp: localhost:5000
+</I>&gt;<i>
+</I>&gt;<i>              udp: localhost.localdomain:5000
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  0(3721) init_tcp: using epoll_lt as the io watch method (auto detected)
+</I>&gt;<i>
+</I>&gt;<i>  0(0) INFO: statistics manager successfully initialized
+</I>&gt;<i>
+</I>&gt;<i>  0(0) StateLess module - initializing
+</I>&gt;<i>
+</I>&gt;<i>  0(0) TM - initializing...
+</I>&gt;<i>
+</I>&gt;<i>  0(0) PRESENCE:mod_init: *Wrong version v0 for table &lt;xcaps&gt;, need v1*
+</I>&gt;<i>
+</I>&gt;<i>  0(0) init_mod(): Error while initializing module presence
+</I>&gt;<i>
+</I>&gt;<i> ERROR: error while initializing modules
+</I>&gt;<i>
+</I>&gt;<i>  0(0) INFO:mi_fifo:mi_destroy:memory for the child's mi_fifo_pid was 
+</I>&gt;<i> not allocated -&gt; nothing to destroy
+</I>&gt;<i>
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at mkd149633</A> openser]#
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> *Thanks and Regards,*
+</I>&gt;<i>
+</I>&gt;<i> *Kiran.*
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A> 
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] On Behalf Of Dave 
+</I>&gt;<i> Waiting
+</I>&gt;<i> Sent: Thursday, May 31, 2007 2:26 PM
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>; 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">openimscore-users at lists.berlios.de</A>
+</I>&gt;<i> Subject: [Uctimsclient-users] Presence HOWTO
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Hi all
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Due to popular demand I wrote a quick presence HowTo on our website if
+</I>&gt;<i>
+</I>&gt;<i> you want to get a presence server going:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://uctimsclient.berlios.de/presence_server_howto.html">http://uctimsclient.berlios.de/presence_server_howto.html</A>
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> I'm sure our implementation isn't 100% correct, so feel free to send
+</I>&gt;<i>
+</I>&gt;<i> corrections, bugs, etc.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Dave
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i>
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The information contained in this electronic message and any 
+</I>&gt;<i> attachments to this message are intended for the exclusive use of the 
+</I>&gt;<i> addressee(s) and may contain proprietary, confidential or privileged 
+</I>&gt;<i> information. If you are not the intended recipient, you should not 
+</I>&gt;<i> disseminate, distribute or copy this e-mail. Please notify the sender 
+</I>&gt;<i> immediately and destroy all copies of this message and any attachments.
+</I>&gt;<i>
+</I>&gt;<i> WARNING: Computer viruses can be transmitted via email. The recipient 
+</I>&gt;<i> should check this email and any attachments for the presence of 
+</I>&gt;<i> viruses. The company accepts no liability for any damage caused by any 
+</I>&gt;<i> virus transmitted by this email.
+</I>&gt;<i>
+</I>&gt;<i> www.wipro.com
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070531/bcc71b3e/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070531/bcc71b3e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000087.html">[Uctimsclient-users] Presence HOWTO
+</A></li>
+	<LI>Next message: <A HREF="000090.html">[Uctimsclient-users] Presence HOWTO
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#89">[ date ]</a>
+              <a href="thread.html#89">[ thread ]</a>
+              <a href="subject.html#89">[ subject ]</a>
+              <a href="author.html#89">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

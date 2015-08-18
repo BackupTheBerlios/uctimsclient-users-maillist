@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] How to integrate UCT Policy ControlFrameworkinto Open IMS Core
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20How%20to%20integrate%20UCT%20Policy%0A%20ControlFrameworkinto%20Open%20IMS%20Core&In-Reply-To=%3C1BCF1075B10F2C4F90D4F2EABD68730BB15AA797CD%40MADARRMAILBOX05.indra.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000642.html">
+   <LINK REL="Next"  HREF="000644.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] How to integrate UCT Policy ControlFrameworkinto Open IMS Core</H1>
+    <B>Huertas Garc&#237;a, Victor</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20How%20to%20integrate%20UCT%20Policy%0A%20ControlFrameworkinto%20Open%20IMS%20Core&In-Reply-To=%3C1BCF1075B10F2C4F90D4F2EABD68730BB15AA797CD%40MADARRMAILBOX05.indra.es%3E"
+       TITLE="[Uctimsclient-users] How to integrate UCT Policy ControlFrameworkinto Open IMS Core">vhuertas at indra.es
+       </A><BR>
+    <I>Thu Jul 22 10:24:48 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000642.html">[Uctimsclient-users] How to integrate UCT Policy	ControlFrameworkinto Open IMS Core
+</A></li>
+        <LI>Next message: <A HREF="000644.html">[Uctimsclient-users] How to integrate UCT Policy	ControlFrameworkinto Open IMS Core
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#643">[ date ]</a>
+              <a href="thread.html#643">[ thread ]</a>
+              <a href="subject.html#643">[ subject ]</a>
+              <a href="author.html#643">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>First of all you have to tune Wireshark in order to see DIAMETER captured packets through non standard ports such as 4858.
+
+Look at this link with instructions to tune Wireshark: <A HREF="http://mobilesociety.typepad.com/mobile_life/2008/10/an-ims-wireshark-trace.html">http://mobilesociety.typepad.com/mobile_life/2008/10/an-ims-wireshark-trace.html</A>
+
+Regarding the error when you execute pcrf.sh I cannot help you because, as I have said before, we are developing our own SPDF/A-RACF from scratch.
+
+Finally, CLF is the entity located at NASS (Network Attachment Sub-system) which perform end user location. The communication between CLF and P-CSCF is via e2 interface based con DIAMETER as well. The e2 interface should not be activated at P-CSCF (be careful with the lines you have to uncomment in the P-CSCF configuration files when activating just Rx interface). Anyway, in the traces there are [Closed]tag related to clf.open-ims.test. So e2 interfaces is not activated in my opinion. The fact that these CLF traces appear is not a problem. I don't have e2 interface activated and I see the same traces. So don't worry about that.
+
+I hope this explanation helps you.
+
+Best regards
+
+Victor
+
+-----Mensaje original-----
+De: tran quoc tuan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">tuantq84 at gmail.com</A>] 
+Enviado el: mi&#233;rcoles, 21 de julio de 2010 16:58
+Para: Huertas Garc&#237;a, Victor
+CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">franz.edler at technikum-wien.at</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Asunto: Re: [Uctimsclient-users] How to integrate UCT Policy ControlFrameworkinto Open IMS Core
+
+Hi,
+I have implement :
+- Active the Rx interface
+- Make PCRF receive the ressource request from P-CSCF
+
+When I run pcrf.sh, it have NPE in windows command line, for example :
+INFO: Received STR DIAMETER message from P-CSCF
+DEBUGGING: Session ID: pcscf.open-ims.test;3548709769;7
+Exception in thread &quot;Thread-10&quot; java.lang.NullPointerException
+	at pcrf.xcap.getIPFlows(xcap.java:1219)
+	at pcrf.DecisionEngine.termination_request(DecisionEngine.java:548)
+	at de.fhg.fokus.pcrf_diam.rx.STRCommandListener.recvMessage(STRCommandListener.java:145)
+	at de.fhg.fokus.diameter.DiameterPeer.DiameterWorker.run(DiameterWorker.java:100)
+
+And in P-CSCF, it has a connection to clf.open-ims.test:3868, but I
+don't know what module is clf.open-ims.test. So there is log in P-CSCF
+:<i>
+</I> --- Peer List: ---
+15(12094)  S[Closed] clf.open-ims.test:3868 D[ ]
+15(12094)  S[I_Open] pcrf.open-ims.test:4868 D[ ]
+15(12094) 	 [16777224,10415]
+15(12094) 	 [16777224,0]
+15(12094) 	 [16777236,10415]
+15(12094) 	 [16777236,0]
+15(12094) 	 [16777224,0]
+15(12094) 	 [16777236,0]
+
+What is way to implement successfully PCRF and PCEF ?
+Because I use Wireshark to sniff packets, but it is not packet in
+protocol &quot;Diameter&quot; as the link following :
+<A HREF="http://uctimsclient.berlios.de/policy_control_scenario.html">http://uctimsclient.berlios.de/policy_control_scenario.html</A>
+
+B.R
+T.Q.Tuan
+
+
+2010/7/21 tran quoc tuan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">tuantq84 at gmail.com</A>&gt;:
+&gt;<i> Yes, I want to implement QoS policy control in Open IMS Core.
+</I>&gt;<i> Could you instruct me to implement QoS policy Control in Open IMS Core
+</I>&gt;<i> or could you send me the document to implement :
+</I>&gt;<i> - Activate the Rx interface
+</I>&gt;<i> - make the PRCF receive the resources requests from P-CSCF
+</I>&gt;<i>
+</I>&gt;<i> B.R
+</I>&gt;<i> T.Q.Tuan
+</I>&gt;<i>
+</I>&gt;<i> 2010/7/21 Huertas Garc&#237;a, Victor &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">vhuertas at indra.es</A>&gt;:
+</I>&gt;&gt;<i> From my point of view, in order to implement QoS policy control using Open IMS Core, you must activate the Rx interface (based on DIAMETER) and make the PRCF receive the resources requests from P-CSCF (that is, &quot;push mode&quot; request). At least, this is the solution proposed by the ITU and ETSI TISPAN standard. So I don't know any other possible solution for QoS managing.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Victor
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -----Mensaje original-----
+</I>&gt;&gt;<i> De: tran quoc tuan [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">tuantq84 at gmail.com</A>]
+</I>&gt;&gt;<i> Enviado el: mi&#233;rcoles, 21 de julio de 2010 14:52
+</I>&gt;&gt;<i> Para: Huertas Garc&#237;a, Victor
+</I>&gt;&gt;<i> CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">franz.edler at technikum-wien.at</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> Asunto: Re: [Uctimsclient-users] How to integrate UCT Policy ControlFrameworkinto Open IMS Core
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thank for your reply,
+</I>&gt;&gt;<i> But I'm interested at problem QoS in Open IMS Core.
+</I>&gt;&gt;<i> What are solutions to integrate Policy Control in Open IMS Core to
+</I>&gt;&gt;<i> support QoS ?
+</I>&gt;&gt;<i> B.R
+</I>&gt;&gt;<i> T.Q.Tuan
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 2010/7/21 Huertas Garc&#237;a, Victoolutionsr &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">vhuertas at indra.es</A>&gt;:
+</I>&gt;&gt;&gt;<i> We are using Rx interface at P-CSCF. But our case is different. We are developing our own SPDF and A-RACF (in ETSI TISPAN standard) and we cannot help you this problem.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -----Mensaje original-----
+</I>&gt;&gt;&gt;<i> De: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] En nombre de tran quoc tuan
+</I>&gt;&gt;&gt;<i> Enviado el: mi&#233;rcoles, 21 de julio de 2010 14:24
+</I>&gt;&gt;&gt;<i> Para: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">franz.edler at technikum-wien.at</A>
+</I>&gt;&gt;&gt;<i> CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> Asunto: Re: [Uctimsclient-users] How to integrate UCT Policy ControlFrameworkinto Open IMS Core
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Could anyone help me this problem ?
+</I>&gt;&gt;&gt;<i> BR
+</I>&gt;&gt;&gt;<i> T.Q.Tuan
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> On Tue, Jul 20, 2010 at 8:15 PM, Franz Edler
+</I>&gt;&gt;&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">franz.edler at technikum-wien.at</A>&gt; wrote:
+</I>&gt;&gt;&gt;&gt;&gt;<i> I have installed and compiled PCRF, PCEF.
+</I>&gt;&gt;&gt;&gt;&gt;<i> But I run PCRF, it has errors ...
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Sorry, but I do not have experience with the UCT Policy Control Framework,
+</I>&gt;&gt;&gt;&gt;<i> maybe in 2 month.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> BR
+</I>&gt;&gt;&gt;&gt;<i> Franz
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000642.html">[Uctimsclient-users] How to integrate UCT Policy	ControlFrameworkinto Open IMS Core
+</A></li>
+	<LI>Next message: <A HREF="000644.html">[Uctimsclient-users] How to integrate UCT Policy	ControlFrameworkinto Open IMS Core
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#643">[ date ]</a>
+              <a href="thread.html#643">[ thread ]</a>
+              <a href="subject.html#643">[ subject ]</a>
+              <a href="author.html#643">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

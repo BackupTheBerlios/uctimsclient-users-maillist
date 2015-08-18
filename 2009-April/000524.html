@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem with re-invite message
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20re-invite%20message&In-Reply-To=%3C25909.67.110.22.130.1239065679.squirrel%40crgmail.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000523.html">
+   <LINK REL="Next"  HREF="000525.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem with re-invite message</H1>
+    <B>rgood at crg.ee.uct.ac.za</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20re-invite%20message&In-Reply-To=%3C25909.67.110.22.130.1239065679.squirrel%40crgmail.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Problem with re-invite message">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Tue Apr  7 02:54:39 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000523.html">[Uctimsclient-users]  Problem with re-invite message
+</A></li>
+        <LI>Next message: <A HREF="000525.html">[Uctimsclient-users] Problem with re-invite message
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#524">[ date ]</a>
+              <a href="thread.html#524">[ thread ]</a>
+              <a href="subject.html#524">[ subject ]</a>
+              <a href="author.html#524">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+Just to confirm what you want to do - from the client side you want to
+send a DTMF tone and receive this on the server side (send 200 OK for it)
+and then send a reINVITE to the client for the new channel.
+
+I'm not sure how standards compliant that is - but is doesn't sound like
+it breaks any SIP rules as the IPtv server is acting as a terminating SIP
+UA.
+
+You say you use the je-&gt;did - for which exosip_event object (je) is this??
+You need to be using the same DID as the original INVITE request that
+initiated the session.  If you are receiving the DTMF tone and using that
+exosip_event object then it obviously will not work.
+
+Richard.
+
+
+
+&gt;<i>
+</I>&gt;<i> Hi, i just wanted to extend the iptv server so that it continues to
+</I>&gt;<i> present the other channel when the client presses a particular key on the
+</I>&gt;<i> dtmf. I thought this is accomplished with a reinvite (am i correct?). So,
+</I>&gt;<i> when the user pressess a key i intercepted the dtmf and then send the
+</I>&gt;<i> invite message (which should be considered as re-invite on the client
+</I>&gt;<i> side)  to the client. BTW, I also sent an ok message for the info (dtmf)
+</I>&gt;<i> event that i received before sending teh invite (re-invite).
+</I>&gt;<i>
+</I>&gt;<i> With regard to the re-invite, I used je-&gt;did (the dialog id) together with
+</I>&gt;<i> the same content_type_header that the iptv server used for creating the
+</I>&gt;<i> first streaming communication in the eXosip_call_build_request function as
+</I>&gt;<i>             eXosip_call_build_request (je-&gt;did, &quot;INVITE&quot;, &amp;reinvite).
+</I>&gt;<i>
+</I>&gt;<i> However, instead of sending the 200ok message, the client sends 100
+</I>&gt;<i> (trying) for my &quot;invite&quot; message. According to the spec, I think it should
+</I>&gt;<i> have sent me an &quot;ok&quot; message. On the other hand, i also wanted to
+</I>&gt;<i> intercept the &quot;tying&quot; message that i recieved from the client, inorder to
+</I>&gt;<i> send an &quot;ok&quot; message against it. However, almost all (except the &quot;trying&quot;
+</I>&gt;<i> event) are enumerated in the documentation, but not &quot;trying&quot;
+</I>&gt;<i> (<A HREF="http://www.antisip.com/documentation/exosip2/group__eXosip2__event.html">http://www.antisip.com/documentation/exosip2/group__eXosip2__event.html</A>).
+</I>&gt;<i> So, hoping that it is created for this purpose, I also used the
+</I>&gt;<i> MSG_IS_STATUS_1XX function as follows, but got segmentation fault.
+</I>&gt;<i>         if (MSG_IS_STATUS_1XX(je-&gt;request))
+</I>&gt;<i>         { .....}     //je is the incoming sip event.
+</I>&gt;<i>
+</I>&gt;<i> After trying so many things, i gave up now. So, i ask an advice on the
+</I>&gt;<i> issue? Any advice on this will be highly appreciated.
+</I>&gt;<i>
+</I>&gt;<i> Thank you.
+</I>&gt;<i>
+</I>&gt;<i> - Zelalem S.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _________________________________________________________________
+</I>&gt;<i> News, entertainment and everything you care about at Live.com. Get it now!
+</I>&gt;<i> <A HREF="http://www.live.com/getstarted.aspx______________________________________________">http://www.live.com/getstarted.aspx______________________________________________</A>_
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000523.html">[Uctimsclient-users]  Problem with re-invite message
+</A></li>
+	<LI>Next message: <A HREF="000525.html">[Uctimsclient-users] Problem with re-invite message
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#524">[ date ]</a>
+              <a href="thread.html#524">[ thread ]</a>
+              <a href="subject.html#524">[ subject ]</a>
+              <a href="author.html#524">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

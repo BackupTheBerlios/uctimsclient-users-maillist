@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20client%20%22Network%20unreachable%22&In-Reply-To=%3CA00CCFC6ACF6704A898E7471F02F9D21018321F2%40PRTRRA06-XCS05.telkom.co.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000312.html">
+   <LINK REL="Next"  HREF="000319.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT client &quot;Network unreachable&quot;</H1>
+    <B>David Waiting (DC)</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20client%20%22Network%20unreachable%22&In-Reply-To=%3CA00CCFC6ACF6704A898E7471F02F9D21018321F2%40PRTRRA06-XCS05.telkom.co.za%3E"
+       TITLE="[Uctimsclient-users] UCT client &quot;Network unreachable&quot;">WaitinDC at telkom.co.za
+       </A><BR>
+    <I>Fri Jul 25 08:44:48 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000312.html">[Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</A></li>
+        <LI>Next message: <A HREF="000319.html">[Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#313">[ date ]</a>
+              <a href="thread.html#313">[ thread ]</a>
+              <a href="subject.html#313">[ subject ]</a>
+              <a href="author.html#313">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Khaldon
+ 
+Two questions:
+ 
+1. Can the second machine that the client is on use the DNS, i.e. can
+it ping pcsf.open-ims.test, as apposed to the IP address?
+ 
+2. Do you have a default route setup in linux? I seem to recall that
+eXosip complains (possibly with a Network Unreachable error) if you
+don't have a default route, even if you don't need it. Try
+route add default gw 192.168.1.7
+ 
+Hope that helps.
+ 
+Regards
+ 
+Dave
+ 
+
+________________________________
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] On Behalf Of
+ims.asuser ims.asuser
+Sent: 24 July 2008 07:08 PM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: [Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+
+
+Hi all,
+
+I have a very special issue :)
+I have installed OpenIMSCore and it works well.
+I have a LAN with 2 PCs: 1 running OpenIMSCore (192.168.1.7) and
+another one for the client (192.168.1.8). The machines can &quot;ping&quot; each
+other. OpenIMSCore is running normally (the P/I/S CSCFs and FHoSS) can
+communicate each other. The ping is also working with names such
+pcscf.open-ims.test, pcscf.open-ims.test, icscf.open-ims.test,
+scscf.open-ims.test, hss.open-ims.test.
+The problem is that when I run the uctimsclient (with root
+privileges), a message is displaying &quot;Network unreachable&quot;. My network
+is well configured.
+If I run the uctimsclient on a machine connected directly on Internet,
+that message doesn't appear.
+
+I spent the whole day wondering about the reason...Now I really need
+help.
+
+Is anyone knows how to fix this issue?
+
+Thanks a lot!
+Khaldon
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This e-mail is subject to the Telkom SA electronic communication legal notice, available at :
+<A HREF="http://www.telkom.co.za/TelkomEMailLegalNotice.PDF">http://www.telkom.co.za/TelkomEMailLegalNotice.PDF</A>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080725/5ea5451d/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080725/5ea5451d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000312.html">[Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</A></li>
+	<LI>Next message: <A HREF="000319.html">[Uctimsclient-users] UCT client &quot;Network unreachable&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#313">[ date ]</a>
+              <a href="thread.html#313">[ thread ]</a>
+              <a href="subject.html#313">[ subject ]</a>
+              <a href="author.html#313">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

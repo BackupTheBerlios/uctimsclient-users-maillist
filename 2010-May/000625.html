@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] [ask]UCT PCRF installation in IMS
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%5Bask%5DUCT%20PCRF%20installation%20in%20IMS&In-Reply-To=%3Cj2j6be8b8731005050635hbe062ed7g647cefa8b9c4d4ac%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000624.html">
+   <LINK REL="Next"  HREF="000626.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] [ask]UCT PCRF installation in IMS</H1>
+    <B>Carsten Bock</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%5Bask%5DUCT%20PCRF%20installation%20in%20IMS&In-Reply-To=%3Cj2j6be8b8731005050635hbe062ed7g647cefa8b9c4d4ac%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] [ask]UCT PCRF installation in IMS">lists at bock.info
+       </A><BR>
+    <I>Wed May  5 15:35:31 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000624.html">[Uctimsclient-users] UCT IMS Client and VoD service with QoS	policies
+</A></li>
+        <LI>Next message: <A HREF="000626.html">[Uctimsclient-users] no clear explanation why the uct ims client	crashed ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#625">[ date ]</a>
+              <a href="thread.html#625">[ thread ]</a>
+              <a href="subject.html#625">[ subject ]</a>
+              <a href="author.html#625">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+did you use the Debian/Ubuntu-Packages? What version are you running?
+Probably you should try the client using 32-Bit Ubuntu 9.10...
+I think the UCT-Client has some problems on 64 Bit and later
+libvlc-versions, but i do not know much about the client.
+It has been a while since last time i used it...
+
+Sorry, i cannot help more on this subject. Probably the best address would
+be the uctimsclient-users-List, which i put on CC (sorry for cross-posting).
+
+Best regards,
+Carsten
+
+2010/5/5 Habibur Muhaimin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">habibur at pusat.itb.ac.id</A>&gt;
+
+&gt;<i> thank you carsten.
+</I>&gt;<i> i get more clear understanding.
+</I>&gt;<i> i have one question that i don't know where i can ask.
+</I>&gt;<i>
+</I>&gt;<i> i am trying Video on Demand service using VLC as 3rd party media server.
+</I>&gt;<i>
+</I>&gt;<i> i have done to configure IMS Core (HSS and CSCFs) and it works. (alice and
+</I>&gt;<i> bob can chat each other)
+</I>&gt;<i> i did also installation of Application Server and added to FHoSS management
+</I>&gt;<i> web.
+</I>&gt;<i>
+</I>&gt;<i> But, when alice try to see video that streamed by VLC, the UCTIMS Client
+</I>&gt;<i> suddenly disappeared and gave the error :
+</I>&gt;<i>
+</I>&gt;<i> (uctimsclient:7737): Gtk-WARNING **: GtkSpinButton: setting an adjustment
+</I>&gt;<i> with non-zero page size is deprecated
+</I>&gt;<i> Segmentation fault
+</I>&gt;<i>
+</I>&gt;<i> My IMS's testbed is
+</I>&gt;<i> - HSS, CSCFs, UCTIPTV_AS are in server 1
+</I>&gt;<i> - VLC is in server 2
+</I>&gt;<i> - UCTIMSCLIENT is in client 1
+</I>&gt;<i>
+</I>&gt;<i> here the procedure i did :
+</I>&gt;<i> 1. run FHOSS and CSCF
+</I>&gt;<i>
+</I>&gt;<i> 2. create file (vod.vlm) in VLC's server
+</I>&gt;<i> nano vod.vlm
+</I>&gt;<i> new test vod enabled
+</I>&gt;<i> setup test input &#8220;/home/habibur/Music/Bolt.avi&#8221;
+</I>&gt;<i>
+</I>&gt;<i> 3. run the VLC
+</I>&gt;<i> cvlc -vv --ttl 12 --intf telnet --rtsp-host XXX.XXX.XXX.XXX:5554 --vlm-conf
+</I>&gt;<i> vod.vlm
+</I>&gt;<i> XXX.XXX.XXX.XXX means VLC's IP
+</I>&gt;<i>
+</I>&gt;<i> 4. create file (share) in uct iptv advance's hardware
+</I>&gt;<i> nano share
+</I>&gt;<i> &lt;key-value_pairs&gt;
+</I>&gt;<i> &lt;key-value_pair&gt;
+</I>&gt;<i> &lt;key&gt;channel1&lt;/key&gt;
+</I>&gt;<i> &lt;value&gt;<A HREF="rtsp://10.14.200.159:5554/test&lt;/value">rtsp://10.14.200.159:5554/test&lt;/value</A>&gt;
+</I>&gt;<i> &lt;/key-value_pair&gt;
+</I>&gt;<i> &lt;/key-value_pairs&gt;
+</I>&gt;<i>
+</I>&gt;<i> 5. run uctiptv_advanced
+</I>&gt;<i> uctiptv_as /home/habibur/share
+</I>&gt;<i>
+</I>&gt;<i> 5. run UCTIMSClient and register
+</I>&gt;<i> i have succeeded register as alice and try to connect to
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at iptv.open-ims.itb</A>
+</I>&gt;<i> *open-ims.itb is my IMS's domain.
+</I>&gt;<i>
+</I>&gt;<i> But, suddently the UCTIMSClient disappear and give the error message:
+</I>&gt;<i> (uctimsclient:7737): Gtk-WARNING **: GtkSpinButton: setting an adjustment
+</I>&gt;<i> with non-zero page size is deprecated
+</I>&gt;<i> Segmentation fault
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> anyone can help me ?
+</I>&gt;<i> i did downgrade the UCTIMSClient version and it stills not work.
+</I>&gt;<i>
+</I>&gt;<i> thank you very much all of you, masters
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> habibur muhaimin
+</I>&gt;<i> ----- Original Message -----
+</I>&gt;<i> From: &quot;Carsten Bock&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kaiserbock2 at googlemail.com</A>&gt;
+</I>&gt;<i> To: &quot;Habibur Muhaimin&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">habibur at pusat.itb.ac.id</A>&gt;
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">openimscore-users at lists.berlios.de</A>
+</I>&gt;<i> Sent: Wednesday, May 5, 2010 3:28:23 PM GMT +07:00 Bangkok, Hanoi, Jakarta
+</I>&gt;<i> Subject: Re: [ask]UCT PCRF installation in IMS
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> here the note from the SVN-History:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Removed the following branches:
+</I>&gt;<i> - 05_cdp_sessions - no activity, superseeded by 13_pcc_fixing
+</I>&gt;<i> - 08_cdp_sessions - no activity, superseeded by 13_pcc_fixing
+</I>&gt;<i> - 13_pcc_fixing - merged into trunk at r920
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Source:
+</I>&gt;<i> <A HREF="http://svn.berlios.de/wsvn/openimscore/ser_ims/?op=log&amp;rev=0&amp;sc=0&amp;isdir=1">http://svn.berlios.de/wsvn/openimscore/ser_ims/?op=log&amp;rev=0&amp;sc=0&amp;isdir=1</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The changes were finalized in 13_pcc_fixing, which later was merged into
+</I>&gt;<i> the Trunk. That's why the branch was removed. You find the proper Version in
+</I>&gt;<i> the Trunk-Version of the OpenIMS-Core.
+</I>&gt;<i>
+</I>&gt;<i> Kind regards,
+</I>&gt;<i> Carsten
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> P.S: Please always CC the list...
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 2010/5/5 Habibur Muhaimin &lt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">habibur at pusat.itb.ac.id</A> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Hi again Carsten,
+</I>&gt;<i>
+</I>&gt;<i> i have checked <A HREF="http://www.openimscore.org/download">http://www.openimscore.org/download</A>
+</I>&gt;<i> and
+</I>&gt;<i> do you mean files that i desire to get is included in
+</I>&gt;<i> svn checkout <A HREF="svn://">svn://</A> svn.berlios.de/openimscore/JavaDiameterPeer/trunk
+</I>&gt;<i> svn checkout <A HREF="svn://">svn://</A> svn.berlios.de/openimscore/CDiameterPeer/trunk
+</I>&gt;<i> ?
+</I>&gt;<i>
+</I>&gt;<i> FYI:
+</I>&gt;<i> - I have succeed to build IMS Core (HSS and CSCFs) that alice and bob can
+</I>&gt;<i> chat each other.
+</I>&gt;<i> - I want to get these files in
+</I>&gt;<i> <A HREF="http://svn.berlios.de/svnroot/repos/openimscore/ser_ims/branches/08_cdp_sessions,that">http://svn.berlios.de/svnroot/repos/openimscore/ser_ims/branches/08_cdp_sessions,that</A> the URL is no longer available.
+</I>&gt;<i>
+</I>&gt;<i> kind regards,
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> habibur muhaimin
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----- Original Message -----
+</I>&gt;<i> From: &quot;Carsten Bock&quot; &lt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kaiserbock2 at googlemail.com</A> &gt;
+</I>&gt;<i> To: &quot;Habibur Muhaimin&quot; &lt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">habibur at pusat.itb.ac.id</A> &gt;
+</I>&gt;<i> Sent: Tuesday, May 4, 2010 9:33:30 PM GMT +07:00 Bangkok, Hanoi, Jakarta
+</I>&gt;<i> Subject: Re: [ask]UCT PCRF installation in IMS
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> please check the following links:
+</I>&gt;<i> - <A HREF="http://www.openimscore.org/download">http://www.openimscore.org/download</A> (SVN Download)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> or:
+</I>&gt;<i> - <A HREF="http://uctimsclient.berlios.de/openimscore_on_ubuntu_howto.html">http://uctimsclient.berlios.de/openimscore_on_ubuntu_howto.html</A> (works
+</I>&gt;<i> for Debian, Redhat, etc.)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Best regards,
+</I>&gt;<i> Carsten
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 2010/5/3 Habibur Muhaimin &lt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">habibur at pusat.itb.ac.id</A> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> hi Carsten,
+</I>&gt;<i> let me introduce myself, my name's habibur who is trying to install the
+</I>&gt;<i> policy control framework in IMS.
+</I>&gt;<i>
+</I>&gt;<i> i have the same problem like martinez had, attached in the below paragraph:
+</I>&gt;<i> how to install uctpcrf from the url that not existed anymore.
+</I>&gt;<i>
+</I>&gt;<i> maybe i miss something that you could give me the explanation.
+</I>&gt;<i> i want to know how you solve the problem.
+</I>&gt;<i>
+</I>&gt;<i> where can i checkout the current openimscore ?
+</I>&gt;<i>
+</I>&gt;<i> here the email you sent to milist :
+</I>&gt;<i>
+</I>&gt;<i> referring to your email to <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> ***
+</I>&gt;<i> Thanks Carsten for the information.
+</I>&gt;<i> I will take a look at it.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Rebeca Mart&#237;nez
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----Mensaje original-----
+</I>&gt;<i> De: kaiserbock2 at googlemail.com en nombre de Carsten Bock
+</I>&gt;<i> Enviado el: vie 26/03/2010 14:05
+</I>&gt;<i> Para: Mart&#237;nez Garc&#237;a, Rebeca
+</I>&gt;<i> CC: uctimsclient-users at lists.berlios.de ; Huertas Garc&#237;a, Victor
+</I>&gt;<i> Asunto: Re: [Uctimsclient-users] uctpcrf
+</I>&gt;<i>
+</I>&gt;<i> Hi Rebeca,
+</I>&gt;<i>
+</I>&gt;<i> you just need to checkout the current openimscore (someone correct me, if i
+</I>&gt;<i> am wrong). All changes regarding CDP and the Rx-Interface have been merged
+</I>&gt;<i> into trunk....
+</I>&gt;<i>
+</I>&gt;<i> I hope, i could help,
+</I>&gt;<i> Carsten
+</I>&gt;<i>
+</I>&gt;<i> 2010/3/26 &quot;Mart&#237;nez Garc&#237;a, Rebeca&quot; &lt;remartinez at indra.es &gt;
+</I>&gt;<i>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I am very interested in installing the uctpcrf module in mi current
+</I>&gt;<i> &gt; OpenIMSCore platform.
+</I>&gt;<i> &gt; However, when I tried to download the ser_ims_qos, it seems that it now
+</I>&gt;<i> &gt; does not exists.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; indra at indra-desktop:~/Escritorio$ svn checkout
+</I>&gt;<i> &gt;
+</I>&gt;<i> <A HREF="http://svn.berlios.de/svnroot/repos/openimscore/ser_ims/branches/08_cdp_sessionsser_ims_qos">http://svn.berlios.de/svnroot/repos/openimscore/ser_ims/branches/08_cdp_sessionsser_ims_qos</A>
+</I>&gt;<i> &gt; svn: El URL '
+</I>&gt;<i> &gt;
+</I>&gt;<i> <A HREF="http://svn.berlios.de/svnroot/repos/openimscore/ser_ims/branches/08_cdp_sessions">http://svn.berlios.de/svnroot/repos/openimscore/ser_ims/branches/08_cdp_sessions</A>'&lt;
+</I>&gt;<i> <A HREF="http://svn.berlios.de/svnroot/repos/openimscore/ser_ims/branches/08_cdp_sessions%27">http://svn.berlios.de/svnroot/repos/openimscore/ser_ims/branches/08_cdp_sessions%27</A>&gt;no existe
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; How can I download the ser_ims_qos module?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks in advance,
+</I>&gt;<i> &gt; Rebeca Mart&#237;nez
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i> ***
+</I>&gt;<i>
+</I>&gt;<i> thank you very much
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> habibur
+</I>&gt;<i> undergraduate student
+</I>&gt;<i> Indonesia
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20100505/442b38b4/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20100505/442b38b4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000624.html">[Uctimsclient-users] UCT IMS Client and VoD service with QoS	policies
+</A></li>
+	<LI>Next message: <A HREF="000626.html">[Uctimsclient-users] no clear explanation why the uct ims client	crashed ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#625">[ date ]</a>
+              <a href="thread.html#625">[ thread ]</a>
+              <a href="subject.html#625">[ subject ]</a>
+              <a href="author.html#625">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

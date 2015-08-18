@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] iptv advanced server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20iptv%20advanced%20server&In-Reply-To=%3C3df4af750905301632x77ffc6b1uae1cda6383e612c0%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000576.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] iptv advanced server</H1>
+    <B>manal rifki</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20iptv%20advanced%20server&In-Reply-To=%3C3df4af750905301632x77ffc6b1uae1cda6383e612c0%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] iptv advanced server">manal.rifki at gmail.com
+       </A><BR>
+    <I>Sun May 31 01:32:13 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000576.html">[Uctimsclient-users] openser 1.3.2-2
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#578">[ date ]</a>
+              <a href="thread.html#578">[ thread ]</a>
+              <a href="subject.html#578">[ subject ]</a>
+              <a href="author.html#578">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+i have followed the steps in that link to configure uct advanced iptv :
+<A HREF="http://uctimsclient.berlios.de/uctiptv_advanced_howto.html">http://uctimsclient.berlios.de/uctiptv_advanced_howto.html</A>
+
+the Indirection AS is configured and runs normally, the Darwin Streaming
+Server (DSS) is also installed correctly and we can access the web browser.
+
+here is the content of *&quot;/usr/share/uctiptv_advanced/key_value_file&quot;* file,
+where *192.168.100.20* is the IP Address of the Darwing Streaming Server
+(DSS) also *channel1.avi* and *sample_300kbit.mp4* are videos put on *
+&quot;usr/local/movie&quot;* directory.
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;key-value_pairs&gt;
+
+&lt;key-value_pair&gt;
+    &lt;key key_val=&quot;channel&quot;/&gt;
+    &lt;value val_val=&quot;<A HREF="rtsp://192.168.100.20:554/channel1.avi">rtsp://192.168.100.20:554/channel1.avi</A>&quot;/&gt;
+&lt;/key-value_pair&gt;
+
+&lt;key-value_pair&gt;
+    &lt;key key_val=&quot;exemple&quot;/&gt;
+    &lt;value val_val=&quot;<A HREF="rtsp://192.168.100.20:554/sample_300kbit.mp4">rtsp://192.168.100.20:554/sample_300kbit.mp4</A>&quot;/&gt;
+&lt;/key-value_pair&gt;
+
+&lt;/key-value_pairs&gt;
+
+ below is the result in the terminal when i run the Indirection AS:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kossay at kossay-laptop</A>:~$ sudo uctiptv_as
+/usr/share/uctiptv_advanced/key_value_file
+UCT Media Control Function
+
+Dave Waiting and Robert Marston (2008)
+eXosip started and listening on port = 8010
+Creating Hashtable...
+Populating table with key-value pairs...
+Number of key-value pairs found in file
+/usr/share/uctiptv_advanced/key_value_file is 2
+Done.
+Server is ready to accept client requests...
+sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel at 192.168.100.167</A>:8010
+
+ where* 192.168.100.167* is the IP Address of the IPTV_AS and *8010* is its
+port.
+
+so after that i startup the UCT IMS Client, register with the core and type
+into the address bar: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel at 192.168.100.167</A>:8010.  But  when i
+initiate  the call, i got that error:
+
+Event type: 5 New call received!
+Client requesting: channel
+Error: key not found
+Event type: 25 Bye Received!
+Event type: 26 Call Context is released!
+
+what's the reason for that? how can we resolve it?
+
+please we need your help!
+
+Best regards,
+Manal
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090530/4ca2ba62/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090530/4ca2ba62/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000576.html">[Uctimsclient-users] openser 1.3.2-2
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#578">[ date ]</a>
+              <a href="thread.html#578">[ thread ]</a>
+              <a href="subject.html#578">[ subject ]</a>
+              <a href="author.html#578">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

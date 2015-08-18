@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem with ims_process_401(eXosip_event_t	*je)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20ims_process_401%28eXosip_event_t%0A%09%2Aje%29&In-Reply-To=%3Cf0d480080805090217u5e5f7ac6r900666f8b18b9171%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000224.html">
+   <LINK REL="Next"  HREF="000226.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem with ims_process_401(eXosip_event_t	*je)</H1>
+    <B>&#26472;&#20975;</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20ims_process_401%28eXosip_event_t%0A%09%2Aje%29&In-Reply-To=%3Cf0d480080805090217u5e5f7ac6r900666f8b18b9171%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Problem with ims_process_401(eXosip_event_t	*je)">gabriel827 at gmail.com
+       </A><BR>
+    <I>Fri May  9 11:17:57 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000224.html">[Uctimsclient-users] Problems on UCT IMS Client1.0.10
+</A></li>
+        <LI>Next message: <A HREF="000226.html">[Uctimsclient-users] Problem Installing UCT IPTV Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#225">[ date ]</a>
+              <a href="thread.html#225">[ thread ]</a>
+              <a href="subject.html#225">[ subject ]</a>
+              <a href="author.html#225">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+
+
+Recently I'm writing a simple IMS Client on windows like UCT IMS Client, but
+it crashed on the ims_process_401() part. Because my md5 function has some
+bugs, so When I use the ims_process_401() to send the new register message,
+IMS will send back another 401 message. Because of my md5 function's bug,
+the &quot;responseMD5&quot; isn't correct, so the process will repeat. But the problem
+is that when use ims_process_401() to send the 3rd(sometimes more than 3)
+register message, the client will crash. I guess maybe there are some
+problems with heap or thread when using the eXosip_register_send_register
+(reg_id, reg2) function.  But what's the problem using
+&quot;eXosip_register_send_register (reg_id, reg2)&quot;  or  exosip_lock()/unlock() ?
+
+
+
+My code:
+
+void ims_process_401(eXosip_event_t *je)
+{
+    osip_cseq_t *cseq;
+    cseq = osip_message_get_cseq(je-&gt;response);
+    CString tempStr;
+
+    int tempi=strcmp(cseq-&gt;number,&quot;6&quot;);
+
+
+    if(tempi==0)
+    {
+
+        AfxMessageBox(_T(&quot;Error with registration.\n\nCheck password.&quot;));
+        return ;
+    }
+
+    osip_www_authenticate_t *www_header;
+    osip_message_get_www_authenticate(je-&gt;response, 0, &amp;www_header);
+
+    char *nonce64, *algorithm, *nonce64_no_quotes;
+    int aka_version=1;
+
+    algorithm = osip_www_authenticate_get_algorithm(www_header);
+
+    int temp1=strcmp(algorithm, &quot;AKAv1-MD5&quot;);
+    int temp2=strcmp(algorithm, &quot;AKAv2-MD5&quot;);
+    int temp3=strcmp(algorithm, &quot;MD5&quot;);
+
+     if(temp1==0)
+     {
+            aka_version=1;
+     }
+        //
+
+    else if(temp2==0)
+        aka_version = 2;
+
+    else if(temp3==0)
+        aka_version = 0;
+    else
+    {
+
+        tempStr=algorithm;
+        AfxMessageBox(_T(&quot;CNLIMSCLIENT: Authentication scheme
+&quot;)+tempStr+_T(&quot; is not supported&quot;));
+        return ;
+    }
+
+    nonce64 = osip_www_authenticate_get_nonce(www_header);
+    nonce64_no_quotes = imsua_remove_quotes(nonce64);
+
+
+    str response={0,0};
+    str nonce={0,0};
+    str k={0,0};
+    str responseMD5={0,0};
+    str username={0,0};
+    str realm={0,0};
+    str uri={0,0};
+
+
+
+    nonce.s = &quot;SKc+IDGOzIMPmmLpaPDTpvz5xejo+gAAclufrKplNoI=&quot;;
+    char *tempChar=&quot;SKc+IDGOzIMPmmLpaPDTpvz5xejo+gAAclufrKplNoI=&quot;;
+    nonce.len = strlen(tempChar);
+
+
+    k.s = pref-&gt;password;
+
+    k.len = strlen(pref-&gt;password);
+
+
+
+    username.s=pref-&gt;impi;
+
+    username.len = strlen(username.s);
+
+    realm.s = pref-&gt;realm;
+
+    realm.len = strlen(realm.s);
+
+    char new_realm[128];
+    char *sip_str = &quot;sip:&quot;;
+    char *sip_strs = &quot;sips:&quot;;
+
+    if((strstr(pref-&gt;realm, sip_str) != pref-&gt;realm) &amp;&amp; (strstr(pref-&gt;realm,
+sip_strs) != pref-&gt;realm))
+
+    {
+        strcpy(new_realm, &quot;sip:&quot;);
+        strcat(new_realm, pref-&gt;realm);
+    }
+    else
+        return ;
+
+    uri.s = new_realm;
+    uri.len = strlen(uri.s);
+
+    if (aka_version &gt; 0)
+    response=AKA(aka_version,nonce,k);
+    else
+    {
+    response = k;
+    }
+
+    if (response.s){
+    //response AKA MD5
+    responseMD5 = MD5(response,username,realm,nonce,uri);
+    // free(response.s);
+    }
+
+    osip_message_t *reg2 = NULL;
+
+    int expires;
+
+    if (is_message_deregister)
+        expires = 0;
+    else
+        expires = 600000;
+
+    eXosip_lock ();
+    int r = eXosip_register_build_register(reg_id, expires, &amp;reg2);
+    eXosip_unlock ();
+
+    if (r &lt; 0)
+        return ;
+
+    /* Set user agent header */
+    osip_header_t *user_agent_header;
+    osip_message_get_user_agent(reg2, 0, &amp;user_agent_header);
+    strcpy(user_agent_header-&gt;hvalue, &quot;UCT IMS Client&quot;);
+
+    /* Hack to stop eXosip from setting expires to 3600 */
+    osip_header_t *expires_header;
+    osip_message_get_expires(reg2, 0, &amp;expires_header);
+
+    int temp4=strcmp(expires_header-&gt;hvalue, &quot;3600&quot;);
+
+    if (temp4 &amp;&amp; (expires == 600000))
+    strcpy(expires_header-&gt;hvalue, &quot;600000&quot;);
+
+    osip_authorization_t *auth_header;
+    osip_authorization_init(&amp;auth_header);
+
+    osip_authorization_set_auth_type(auth_header, &quot;Digest&quot;);
+    osip_authorization_set_username(auth_header, add_quotes(username.s));
+    osip_authorization_set_realm(auth_header, add_quotes(realm.s));
+
+    osip_authorization_set_nonce(auth_header, add_quotes(nonce.s));
+    osip_authorization_set_uri(auth_header, add_quotes(uri.s));
+    osip_authorization_set_response(auth_header, add_quotes(responseMD5.s));
+    osip_authorization_set_algorithm(auth_header, algorithm);
+
+    char *h_value;
+    osip_authorization_to_str(auth_header, &amp;h_value);
+    int temp5=osip_message_set_authorization(reg2,h_value);
+
+    if (temp5!=0    )
+        AfxMessageBox(_T(&quot;Can't set authorisation&quot;));
+
+
+    *eXosip_lock();
+
+    if (eXosip_register_send_register (reg_id, reg2) != 0)
+    {
+        //set_display(&quot;Error sending registration&quot;);
+        AfxMessageBox(_T(&quot;Error sending registration&quot;));
+        eXosip_unlock ();
+        return ;
+    }
+    eXosip_unlock ();                /*    Debug interrupt here.*   */
+
+}
+
+P.S.: I'm using the VS2005 with osip 3.0.1 and exosip 3.0.1.
+
+
+
+YangKai
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080509/8d8f75f4/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080509/8d8f75f4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000224.html">[Uctimsclient-users] Problems on UCT IMS Client1.0.10
+</A></li>
+	<LI>Next message: <A HREF="000226.html">[Uctimsclient-users] Problem Installing UCT IPTV Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#225">[ date ]</a>
+              <a href="thread.html#225">[ thread ]</a>
+              <a href="subject.html#225">[ subject ]</a>
+              <a href="author.html#225">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

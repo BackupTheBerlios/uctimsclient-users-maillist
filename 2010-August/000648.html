@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCT IMS Client v1.0.13 registration error	- Diameter Cx interface failed (for REGISTER)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20IMS%20Client%20v1.0.13%20registration%20error%0A%09-%20Diameter%20Cx%20interface%20failed%20%28for%20REGISTER%29&In-Reply-To=%3CAANLkTimyxYGG_xetry9bLTKOu810nG_zZKGva64E6dzo%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000647.html">
+   <LINK REL="Next"  HREF="000649.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCT IMS Client v1.0.13 registration error	- Diameter Cx interface failed (for REGISTER)</H1>
+    <B>Jeffrey Lou</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCT%20IMS%20Client%20v1.0.13%20registration%20error%0A%09-%20Diameter%20Cx%20interface%20failed%20%28for%20REGISTER%29&In-Reply-To=%3CAANLkTimyxYGG_xetry9bLTKOu810nG_zZKGva64E6dzo%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] UCT IMS Client v1.0.13 registration error	- Diameter Cx interface failed (for REGISTER)">jeffrey5337 at gmail.com
+       </A><BR>
+    <I>Mon Aug  2 13:37:32 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000647.html">[Uctimsclient-users] UCT IMS Client v1.0.13 registration error	- Diameter Cx interface failed (for REGISTER)
+</A></li>
+        <LI>Next message: <A HREF="000649.html">[Uctimsclient-users] HSS Roaming not allowed (registration problem)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#648">[ date ]</a>
+              <a href="thread.html#648">[ thread ]</a>
+              <a href="subject.html#648">[ subject ]</a>
+              <a href="author.html#648">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>yups, i think there is some problem with the connection of HSS to others,
+still figuring out the problem.
+Thanks ya
+
+On 2 August 2010 18:33, Asma Elmangosh &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt; wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> What about the HSS, is it working without errors.
+</I>&gt;<i>
+</I>&gt;<i> you write:
+</I>&gt;<i> In the meantime, icscf and scscf keep reporting:
+</I>&gt;<i> WARNING:peer_connect(): Error opening connection to hss.test:3868 &gt;No
+</I>&gt;<i> address associated with hostname
+</I>&gt;<i>
+</I>&gt;<i> the icscf and scscf ic not connecting  with the HSS.
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i> *From:* Jeffrey Lou &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">jeffrey5337 at gmail.com</A>&gt;
+</I>&gt;<i> *To:* Asma Elmangosh &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt;
+</I>&gt;<i> *Cc:* uctims &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+</I>&gt;<i> *Sent:* Mon, 2 August, 2010 12:19:52
+</I>&gt;<i> *Subject:* Re: [Uctimsclient-users] UCT IMS Client v1.0.13 registration
+</I>&gt;<i> error - Diameter Cx interface failed (for REGISTER)
+</I>&gt;<i>
+</I>&gt;<i> Dear Asma,
+</I>&gt;<i> Thanks for your reply.
+</I>&gt;<i> But I have try to ping all 3 elements: pcscf, scscf and icscf, all of them
+</I>&gt;<i> give me good responses, any other ideas?
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Jeffrey Lou
+</I>&gt;<i>
+</I>&gt;<i> On 2 August 2010 18:07, Asma Elmangosh &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt; wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Dear Jeffrey,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> It seems to be that you missed the DNS configuration. check that you can
+</I>&gt;&gt;<i> ping all main IMS core component
+</I>&gt;&gt;<i> ping pcscf.open-ims.test
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> the Icscf and scscf can not contact to the HSS.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> regards,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Asma
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;<i> *From:* Jeffrey Lou &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">jeffrey5337 at gmail.com</A>&gt;
+</I>&gt;&gt;<i> *To:* <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> *Sent:* Mon, 2 August, 2010 11:57:15
+</I>&gt;&gt;<i> *Subject:* [Uctimsclient-users] UCT IMS Client v1.0.13 registration error
+</I>&gt;&gt;<i> - Diameter Cx interface failed (for REGISTER)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;&gt;<i> I am a beginner in Open IMS Core, I wanna setup an environment only for
+</I>&gt;&gt;<i> academic study use.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have successfully install the Open IMC Core by following this website:
+</I>&gt;&gt;<i> <A HREF="http://uctimsclient.berlios.de/openimscore_on_ubuntu_howto.html">http://uctimsclient.berlios.de/openimscore_on_ubuntu_howto.html</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> but until step 7: test, the UCT IMS Client report an error: &quot;Temporarily
+</I>&gt;&gt;<i> Unavailable - Diameter Cx interface failed (for REGISTER)&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> and the pcscf also report an error:
+</I>&gt;&gt;<i>  DBG:P-CSCF:P_emergency_flag: Check if the user made an Emergency
+</I>&gt;&gt;<i> Registration
+</I>&gt;&gt;<i>  DBG:P-CSCF:P_verify_security: Looking for &lt;1://10.82.225.34:5061&gt;
+</I>&gt;&gt;<i>   INFO:P-CSCF:P_NAT_relay: &lt;sip:127.0.0.1:5061&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> In the meantime, icscf and scscf keep reporting:
+</I>&gt;&gt;<i> WARNING:peer_connect(): Error opening connection to hss.test:3868 &gt;No
+</I>&gt;&gt;<i> address associated with hostname
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Does anyone know which step I miss?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i> Jeffrey
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20100802/88d849dc/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20100802/88d849dc/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000647.html">[Uctimsclient-users] UCT IMS Client v1.0.13 registration error	- Diameter Cx interface failed (for REGISTER)
+</A></li>
+	<LI>Next message: <A HREF="000649.html">[Uctimsclient-users] HSS Roaming not allowed (registration problem)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#648">[ date ]</a>
+              <a href="thread.html#648">[ thread ]</a>
+              <a href="subject.html#648">[ subject ]</a>
+              <a href="author.html#648">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

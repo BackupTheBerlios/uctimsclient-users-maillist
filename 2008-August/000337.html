@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Installation help with v1.0.12
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Installation%20help%20with%20v1.0.12&In-Reply-To=%3CBAY120-W434D360CB06BBBC3A63273B2680%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000336.html">
+   <LINK REL="Next"  HREF="000338.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Installation help with v1.0.12</H1>
+    <B>T K Lee</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Installation%20help%20with%20v1.0.12&In-Reply-To=%3CBAY120-W434D360CB06BBBC3A63273B2680%40phx.gbl%3E"
+       TITLE="[Uctimsclient-users] Installation help with v1.0.12">teckkiong at hotmail.com
+       </A><BR>
+    <I>Wed Aug 20 07:32:57 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000336.html">[Uctimsclient-users] XML file to HSS
+</A></li>
+        <LI>Next message: <A HREF="000338.html">[Uctimsclient-users] Installation help with v1.0.12
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#337">[ date ]</a>
+              <a href="thread.html#337">[ thread ]</a>
+              <a href="subject.html#337">[ subject ]</a>
+              <a href="author.html#337">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi,
+
+I am only able to install UCT IMS Client v1.0.9.  I am unable to install all the new versions because i keep getting dependency problem.
++++
+&gt;<i>  sudo dpkg -i uctimsclient1.0.12.deb 
+</I>
+Selecting previously deselected package uctimsclient.
+(Reading database ... 99041 files and directories currently installed.)
+Unpacking uctimsclient (from uctimsclient1.0.12.deb) ...
+dpkg: dependency problems prevent configuration of uctimsclient:
+ uctimsclient depends on libosip2-2 (&gt;= 3.0.3); however:
+  Package libosip2-2 is not installed.
+ uctimsclient depends on libexosip2-4 (&gt;= 3.0.3); however:
+  Package libexosip2-4 is not installed.
+dpkg: error processing uctimsclient (--install):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ uctimsclient
++++
+
+When i tried to install the required 'lib*' packages, the response is that such packages do not exist.  Example:
+===
+$ sudo apt-get install libosip2
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+E: Couldn't find package libosip2
+===
+
+I am using Ubuntu v7.10 (Gutsy Gibbon) and i have other package like libosip2-3 and libexosip2-5.
+
+Please help.  Thank you.
+
+Regards,
+T K
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000336.html">[Uctimsclient-users] XML file to HSS
+</A></li>
+	<LI>Next message: <A HREF="000338.html">[Uctimsclient-users] Installation help with v1.0.12
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#337">[ date ]</a>
+              <a href="thread.html#337">[ thread ]</a>
+              <a href="subject.html#337">[ subject ]</a>
+              <a href="author.html#337">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

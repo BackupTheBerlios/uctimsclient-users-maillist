@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problems making a video call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-October/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problems%20making%20a%20video%20call&In-Reply-To=%3C53a42400810170648h2ebcb707id0b5ca088a7313f0%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000400.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problems making a video call</H1>
+    <B>devdutt patnaik</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problems%20making%20a%20video%20call&In-Reply-To=%3C53a42400810170648h2ebcb707id0b5ca088a7313f0%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Problems making a video call">uctlistuser at gmail.com
+       </A><BR>
+    <I>Fri Oct 17 15:48:44 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000400.html">[Uctimsclient-users] Modified Indirection Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#399">[ date ]</a>
+              <a href="thread.html#399">[ thread ]</a>
+              <a href="subject.html#399">[ subject ]</a>
+              <a href="author.html#399">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+I was trying the video call feature of the UCT client but it didn't work for
+me.
+
+I am trying to call between 2 laptops. The webcam on my laptop works fine
+when I tested it using the gst-launch tool as :
+
+gst-launch-0.10 v4l2src ! ffmpegcolorspace ! ximagesink
+
+Actually all I want to test is the local capture from my own webcam as the
+other laptop doesnt have a working webcam.
+Also if the local stream is being sent out correctly then the other laptop
+should show my images in the Remote pane.
+However when I start the call all I see in the Local pane is a blank image
+(just a black background).
+
+The UCT client uses v4lsrc in the source code ie. in
+initialiseVideoTxPipeline(). I am assuming that this is the function that is
+used to :
+1 &gt; Grab my webcam image and stream to the other laptop.
+2 &gt; Display the same image on the local pane.
+
+It would give an error saying that &quot; Can't initialise the video pipeline.
+Either you do not have a Video-4-Linux compatible camera or it already in
+use by another application&quot;.
+I used to see the blue default video in the local pane when this error
+occured.
+
+Then I changed the code to use the v4l2src driver as that seems to be the
+correct one. Now I see a black background. The error doesnt show up but the
+local webcam doesnt turn ON.
+
+Is there something else that I need to change in order to turn ON my webcam
+? The webcam works with the gst-launch tool with v4l2src.
+Please help.
+
+Thanks
+Devdutt.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081017/88dfac6c/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20081017/88dfac6c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000400.html">[Uctimsclient-users] Modified Indirection Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#399">[ date ]</a>
+              <a href="thread.html#399">[ thread ]</a>
+              <a href="subject.html#399">[ subject ]</a>
+              <a href="author.html#399">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

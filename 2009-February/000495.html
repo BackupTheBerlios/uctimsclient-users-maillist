@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Port problems with PCRF and PCEF
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Port%20problems%20with%20PCRF%20and%20PCEF&In-Reply-To=%3Cae7050fd0902251223i1ee1f426q9e339a828a55e1ed%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000497.html">
+   <LINK REL="Next"  HREF="000496.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Port problems with PCRF and PCEF</H1>
+    <B>Emina Lu&#269;kin</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Port%20problems%20with%20PCRF%20and%20PCEF&In-Reply-To=%3Cae7050fd0902251223i1ee1f426q9e339a828a55e1ed%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Port problems with PCRF and PCEF">em.dzindo at gmail.com
+       </A><BR>
+    <I>Wed Feb 25 21:23:20 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000497.html">[Uctimsclient-users] problem in gstreamer installation
+</A></li>
+        <LI>Next message: <A HREF="000496.html">[Uctimsclient-users] Port problems with PCRF and PCEF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#495">[ date ]</a>
+              <a href="thread.html#495">[ thread ]</a>
+              <a href="subject.html#495">[ subject ]</a>
+              <a href="author.html#495">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+When I start PCRF and then PCEF, i get following output in PCEF terminal
+window:
+
+*Classpath is
+lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/mysql-connector-java-3.1.13-bin.jar:lib/log4j-1.2.13.jar:lib/junit.jar:lib/commons-logging.jar:lib/commons-httpclient.jar:lib/commons-codec-1.3.jar:src:classes.
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - FQDN:
+pcef.open-ims.test
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Realm:
+open-ims.test
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Vendor_ID :
+10415
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  - Product
+Name: JavaDiameterPeer
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+AcceptUnknwonPeers: true
+[main] INFO  de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+DropUnknownOnDisconnect: true
+[main] ERROR de.fhg.fokus.diameter.DiameterPeer.transport.Acceptor  -
+Acceptor: Error opening socket on port 6868
+java.net.BindException: Address already in use
+    at java.net.PlainSocketImpl.socketBind(Native Method)
+    at java.net.PlainSocketImpl.bind(PlainSocketImpl.java:359)
+    at java.net.ServerSocket.bind(ServerSocket.java:319)
+    at java.net.ServerSocket.&lt;init&gt;(ServerSocket.java:185)
+    at
+de.fhg.fokus.diameter.DiameterPeer.transport.Acceptor.openSocket(Acceptor.java:111)
+    at
+de.fhg.fokus.diameter.DiameterPeer.transport.Acceptor.&lt;init&gt;(Acceptor.java:105)
+    at
+de.fhg.fokus.diameter.DiameterPeer.DiameterPeer.&lt;init&gt;(DiameterPeer.java:281)
+    at pcrf.PCEF.&lt;init&gt;(PCEF.java:83)
+    at pcrf.PCEF.main(PCEF.java:70)
+Exception in thread &quot;main&quot; java.lang.NullPointerException
+    at
+de.fhg.fokus.diameter.DiameterPeer.transport.Acceptor.openSocket(Acceptor.java:117)
+    at
+de.fhg.fokus.diameter.DiameterPeer.transport.Acceptor.&lt;init&gt;(Acceptor.java:105)
+    at
+de.fhg.fokus.diameter.DiameterPeer.DiameterPeer.&lt;init&gt;(DiameterPeer.java:281)
+    at pcrf.PCEF.&lt;init&gt;(PCEF.java:83)
+    at pcrf.PCEF.main(PCEF.java:70)*
+
+I found out which processes are bound to port 6868 with command netstat -anp
+|<i> grep 6868, and got following output:
+</I>
+t*cp6       0      0 192.168.0.2:6868        :::*
+LISTEN      8912/java
+tcp6       0      0 192.168.0.2:6868        192.168.0.2:53410
+ESTABLISHED 8912/java
+tcp6       0      0 192.168.0.2:53410       192.168.0.2:6868
+ESTABLISHED 26727/java *
+
+In more detail, output for command ps -fp PID for both processes is same
+(/usr/lib/jvm/java-6-sun/bin/java -cp
+lib/xercesImpl.jar:lib/xerces-2.4.0.jar:lib/mysql-connector-java-3.1.13-).
+
+One process is started by PCRF, and the other by PCEF, so I can't kill
+neither of them. How can I solve this problem?
+
+
+Regards,
+Emina
+)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090225/2570669e/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090225/2570669e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000497.html">[Uctimsclient-users] problem in gstreamer installation
+</A></li>
+	<LI>Next message: <A HREF="000496.html">[Uctimsclient-users] Port problems with PCRF and PCEF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#495">[ date ]</a>
+              <a href="thread.html#495">[ thread ]</a>
+              <a href="subject.html#495">[ subject ]</a>
+              <a href="author.html#495">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

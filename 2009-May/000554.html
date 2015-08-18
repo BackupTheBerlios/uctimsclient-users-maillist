@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Silence while calling via HSDPA network?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-May/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Silence%20while%20calling%20via%20HSDPA%20network%3F&In-Reply-To=%3Cb702dc1a0905050259saf59203s34146db7e63a5bc7%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000553.html">
+   <LINK REL="Next"  HREF="000555.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Silence while calling via HSDPA network?</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Silence%20while%20calling%20via%20HSDPA%20network%3F&In-Reply-To=%3Cb702dc1a0905050259saf59203s34146db7e63a5bc7%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Silence while calling via HSDPA network?">dwaiting at gmail.com
+       </A><BR>
+    <I>Tue May  5 11:59:50 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000553.html">[Uctimsclient-users] Silence while calling via HSDPA network?
+</A></li>
+        <LI>Next message: <A HREF="000555.html">[Uctimsclient-users] Silence while calling via HSDPA network?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#554">[ date ]</a>
+              <a href="thread.html#554">[ thread ]</a>
+              <a href="subject.html#554">[ subject ]</a>
+              <a href="author.html#554">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Emina
+
+Assuming your HSDPA provider gives you a public IP address, then this is
+most likely a problem with your service provider's firewall.
+
+The client does not use symmetric RTP which means that RTP packets are sent
+and received on different ports. Usually this is not a problem but some
+firewalls won't let packets come into a particular port unless packets have
+also orginated from that port.
+
+I created a simple fix for this problem a while ago which involves sending a
+few random bytes from the receiving port out just to open up the firewall
+from the inside. Unfortunately soon after that gStreamer introduced a flaw
+into their code which meant that RTP packets where not checked for
+correctness. This small random packet would be received at the terminating
+side and would cause gStreamer to crash, therefore I commented out my fix. I
+guess by now gStreamer has probably fixed this bug but I haven't tested it
+since then.
+
+Try uncommenting the media_open_nat lines somewhere around line 231 in
+common_exosip_event_handler.c and see if this helps. If the client crashes
+after you answer the call then I guess gStreamer is still a little buggy.
+
+Regards
+
+David
+
+2009/5/5 Emina Lu&#269;kin &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">em.dzindo at gmail.com</A>&gt;
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Calls with Open IMS core are perfect while both my clients are on wireless
+</I>&gt;<i> LAN, or LAN. As soon as I connect one client via HSDPA network, after
+</I>&gt;<i> answering a call, there's no sound at all. What could be the problem?
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i> Emina
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090505/b31c8fc1/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090505/b31c8fc1/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000553.html">[Uctimsclient-users] Silence while calling via HSDPA network?
+</A></li>
+	<LI>Next message: <A HREF="000555.html">[Uctimsclient-users] Silence while calling via HSDPA network?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#554">[ date ]</a>
+              <a href="thread.html#554">[ thread ]</a>
+              <a href="subject.html#554">[ subject ]</a>
+              <a href="author.html#554">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

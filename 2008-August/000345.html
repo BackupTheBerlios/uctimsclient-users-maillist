@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] User status
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20User%20status&In-Reply-To=%3C48B26864.6080403%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000343.html">
+   <LINK REL="Next"  HREF="000344.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] User status</H1>
+    <B>Richard Good</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20User%20status&In-Reply-To=%3C48B26864.6080403%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] User status">rgood at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Mon Aug 25 10:08:04 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000343.html">[Uctimsclient-users] User status
+</A></li>
+        <LI>Next message: <A HREF="000344.html">[Uctimsclient-users] Call java code in C code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#345">[ date ]</a>
+              <a href="thread.html#345">[ thread ]</a>
+              <a href="subject.html#345">[ subject ]</a>
+              <a href="author.html#345">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Zerin,
+
+With only this information it is difficult to diagnose your problem - 
+however here are the basic steps you need to follow to use the presence 
+service.
+
+1.    You need to have a presence server enabled (We use OpenSER with 
+its presence module - I notice that OpenSER has become OpenSIPS. see 
+<A HREF="http://www.opensips.org/index.php?n=Resources.DocsPapPa">http://www.opensips.org/index.php?n=Resources.DocsPapPa</A> for presence 
+server info.)
+
+2.    You need to configure iFC in the FHoSS web interface to forward 
+all presence related (SUBSCRIBE and PUBLISH messages with event - 
+presence) to the address and port of your running presence server.
+
+3.    Then you can register Alice and Bob (both with presence enabled) 
+and publish their status' under the presence tab.
+
+4.    Add bob as Alice's buddy (and vice versa) and note that when new 
+status' are published, buddies are notified.
+
+If you have followed all these steps and still have problems, post a 
+full wireshark trace.
+
+Regards,
+Richard.
+
+Zerin Y&#252;ce wrote:
+&gt;<i>
+</I>&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> I am trying to set the user status ( located under Presence Tab) in 
+</I>&gt;<i> the UCT IMS Client. I've already configured my Presence Server over 
+</I>&gt;<i> the FHoSS web interface but I get the following messages:
+</I>&gt;<i>
+</I>&gt;<i> 11:54:38&gt; REGISTER
+</I>&gt;<i> 11:54:38&gt; Unauthorized - Challenging the UE (for REGISTER)
+</I>&gt;<i> 11:54:38&gt; OK - SAR succesful and registrar saved (for REGISTER)
+</I>&gt;<i> 11:54:38&gt; IMPUs: &lt;sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">bob at open-ims.test</A>&gt;
+</I>&gt;<i> 11:54:38&gt; SUBSCRIBE (reg event)
+</I>&gt;<i> 11:54:38&gt; Subscription to REG saved (for SUBSCRIBE)
+</I>&gt;<i> 11:54:40&gt; Forbidden - You must register first with a S-CSCF (for PUBLISH)
+</I>&gt;<i>
+</I>&gt;<i> How can I solve that problem?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Kind Regards,
+</I>&gt;<i> zerin
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080825/e6514991/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20080825/e6514991/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000343.html">[Uctimsclient-users] User status
+</A></li>
+	<LI>Next message: <A HREF="000344.html">[Uctimsclient-users] Call java code in C code
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#345">[ date ]</a>
+              <a href="thread.html#345">[ thread ]</a>
+              <a href="subject.html#345">[ subject ]</a>
+              <a href="author.html#345">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

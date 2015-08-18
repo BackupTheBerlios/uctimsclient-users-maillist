@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Have you used UCT-ims Client in Fedora	Core 6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Have%20you%20used%20UCT-ims%20Client%20in%20Fedora%0A%09Core%206&In-Reply-To=%3C756901.77185.qm%40web39801.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000058.html">
+   <LINK REL="Next"  HREF="000061.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Have you used UCT-ims Client in Fedora	Core 6</H1>
+    <B>Kedar P Bhise</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Have%20you%20used%20UCT-ims%20Client%20in%20Fedora%0A%09Core%206&In-Reply-To=%3C756901.77185.qm%40web39801.mail.mud.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] Have you used UCT-ims Client in Fedora	Core 6">kbhise_if at yahoo.com
+       </A><BR>
+    <I>Mon Apr  9 14:00:47 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000058.html">[Uctimsclient-users] Have you used UCT-ims Client in Fedora	Core 6
+</A></li>
+        <LI>Next message: <A HREF="000061.html">[Uctimsclient-users] Media path is a problem with UCTIMSClient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dave,
+
+Thanks for all your help and pointers.
+
+Actually, we found the answer in one of the previous mails by Joseph Johnson on 20 Mar 2007. 
+
+<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/2007-March/000046.html">https://lists.berlios.de/pipermail/uctimsclient-users/2007-March/000046.html</A>
+
+He has quoted from a mail on the Osip mailing list about adding an &quot;&amp;&quot; in front of remote_sdp-&gt;m_medias and to other list accessed.
+
+<A HREF="http://www.atosc.org/pipermail/osip/2007-February/007441.html">http://www.atosc.org/pipermail/osip/2007-February/007441.html</A>
+
+We are now able to compile on Fedora Core 6 and we have the GUI up and running.
+
+Once again thanks to all on the list.
+
+Kedar P Bhise
+
+
+
+----- Original Message ----
+From: Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>&gt;
+To: Kedar P Bhise &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">kbhise_if at yahoo.com</A>&gt;
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Sent: Thursday, 5 April, 2007 3:47:14 PM
+Subject: Re: [Uctimsclient-users] Have you used UCT-ims Client in Fedora Core 6
+
+
+
+
+  
+
+There's a link on the site:
+
+
+
+<A HREF="http://uctimsclient.berlios.de/">http://uctimsclient.berlios.de/</A>
+
+
+
+to download the required libraries. If you're struggling to compile
+eXosip try using 
+
+
+
+./configure --disable-josua
+
+
+
+- Dave
+
+
+
+
+
+Kedar P Bhise wrote:
+
+  
+  
+  Naga,
+
+  
+
+Currently, we are engaged in the same exercise ie, P, I, SCSCF and
+UCTIMS client all on Fedora Core 6 machine.
+
+  
+
+So far, I am looking for the specific libraries for FC6. exosip seems
+to be an issue right now. Have you been able to get all the libraries
+and compile?
+
+  
+
+Kedar P Bhise
+
+  
+
+  
+
+  -----
+Original Message ----
+
+From: Nagaraj K &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">knraj at TechMahindra.com</A>&gt;
+
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+
+Sent: Thursday, 5 April, 2007 11:10:36 AM
+
+Subject: [Uctimsclient-users] Have you used UCT-ims Client in Fedora
+Core 6
+
+  
+
+  
+&lt;!--
+
+
+
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;margin-bottom:.0001pt;font-size:12.0pt;font-family:&quot;Times New Roman&quot;;color:black;}
+a:link, span.MsoHyperlink
+	{color:blue;text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;text-decoration:underline;}
+pre
+	{margin:0in;margin-bottom:.0001pt;font-size:10.0pt;font-family:&quot;Courier New&quot;;color:black;}
+span.EmailStyle18
+	{font-family:Arial;color:windowtext;}
+span.EmailStyle19
+	{font-family:Arial;color:navy;}
+span.EmailStyle20
+	{font-family:Arial;color:navy;}
+span.EmailStyle21
+	{font-family:Arial;color:navy;}
+span.EmailStyle22
+	{font-family:Arial;color:navy;}
+span.EmailStyle23
+	{font-family:Arial;color:navy;}
+span.EmailStyle24
+	{font-family:Arial;color:navy;}
+span.EmailStyle25
+	{font-family:Arial;color:navy;}
+span.EmailStyle26
+	{font-family:Arial;color:navy;}
+span.EmailStyle27
+	{font-family:Arial;color:navy;}
+span.EmailStyle28
+	{font-family:Arial;color:navy;}
+span.EmailStyle29
+	{font-family:Arial;color:navy;}
+_filtered {margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{}
+--&gt;
+
+  
+    
+
+  Hello all,
+
+  I am really
+thankful to Dave.
+
+  Anybody have
+used uctims client in FC6
+where all components (P, S, I-cscf, HSS) running in the same machine?
+
+  Have you
+successful in registering and
+making call?
+
+  Please
+provide information on how to do
+this.
+
+    
+
+  Regards,
+
+  Naga
+
+  
+
+  
+    
+      
+        ============================================================================================================================
+
+        
+
+Tech Mahindra, formerly Mahindra-British Telecom.
+
+        
+
+Disclaimer:
+
+        
+
+This message and the information contained herein is proprietary and
+confidential and subject to the Tech Mahindra policy statement, you may
+review at <A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A>
+externally and <A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A>
+internally within Tech Mahindra.
+
+        
+
+============================================================================================================================
+
+        
+      
+    
+  
+  _______________________________________________
+
+Uctimsclient-users mailing list
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+
+  <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+   Here&#8217;s a new way to find what you're looking for - Yahoo!
+Answers
+  
+_______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+  
+
+
+
+
+
+
+
+		
+__________________________________________________________
+Yahoo! India Answers: Share what you know. Learn something new
+<A HREF="http://in.answers.yahoo.com/">http://in.answers.yahoo.com/</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070409/f8ee3c2c/attachment-0001.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070409/f8ee3c2c/attachment-0001.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000058.html">[Uctimsclient-users] Have you used UCT-ims Client in Fedora	Core 6
+</A></li>
+	<LI>Next message: <A HREF="000061.html">[Uctimsclient-users] Media path is a problem with UCTIMSClient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

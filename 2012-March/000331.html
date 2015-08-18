@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> No subject
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.6.1331738971.13725.uctimsclient-users%40lists.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000032.html">
+   <LINK REL="Next"  HREF="000034.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>No subject</H1>
+    <B></B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20No%20subject&In-Reply-To=%3Cmailman.6.1331738971.13725.uctimsclient-users%40lists.berlios.de%3E"
+       TITLE="No subject">
+       </A><BR>
+    <I>Wed Mar 14 16:29:27 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000032.html">No subject
+</A></li>
+        <LI>Next message: <A HREF="000034.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#331">[ date ]</a>
+              <a href="thread.html#331">[ thread ]</a>
+              <a href="subject.html#331">[ subject ]</a>
+              <a href="author.html#331">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>482 Merge Request - From SIP RFC:&lt;br&gt;
+&lt;br&gt;
+&lt;pre&gt;8.2.2.2 Merged Requests
+
+   If the request has no tag in the To header field, the UAS core MUST
+   check the request against ongoing transactions.  If the From tag,
+   Call-ID, and CSeq exactly match those associated with an ongoing
+   transaction, but the request does not match that transaction (based
+   on the matching rules in Section 17.2.3), the UAS core SHOULD
+   generate a 482 (Loop Detected) response and pass it to the server
+   transaction.
+&lt;/pre&gt;
+&lt;br&gt;
+I can't see why XLite would issue this request.&nbsp; XLite then issues 180
+ringing response, followed by 200 OK (call answered) - which UCT IMS
+Client ACKs.&nbsp; Again I am not too sure why the RTP doesn't flow.&nbsp; This
+could be an issue related to the Merge request or your sound card (Can
+you make calls successfully between two UCT IMS Clients and between two
+XLite clients?&nbsp; This will ensure that both clients have detected your
+sound card successfully)&lt;br&gt;
+&lt;br&gt;
+XLite2UCTIMSCall:&lt;br&gt;
+This signaling is tricky to understand.&lt;br&gt;
+XLite sends an INVITE, UCT IMS Client responds with 180 ringing and
+then 200 OK (when call is answered) .&nbsp; The S-CSCF then issues a CANCEL
+request to which the P-CSCF responds with a 403 not registered (???).&nbsp;
+The 200 OK is still conveyed to XLite, there are then NOTIFY, 481
+Subscription Does not exist&nbsp; and 400 Bad Request messages, however
+Xlite does not send the final ACK message.&nbsp; It almost seems as though
+some of the signaling has been removed (???) Please can you reperform
+this test and resubmit the signaling.&lt;br&gt;
+&lt;br&gt;
+Xlite2UCTIMSIM:&lt;br&gt;
+Here Xlite sends SIP Message methods to the UCT IMS Client.&nbsp; &lt;br&gt;
+However all of these messages are indication of composition messages
+(i.e. messages that say the other user is typing, etc.) and none
+actually contain any text data.&nbsp; I don't think you need to 200 OK these
+notification messages though I see XLite does from the other signaling
+example.&lt;br&gt;
+In the UCT IMS Client you should get a message saying &quot;Some one is
+typing&quot; with a little pencil in the top right corner of the IM window
+as notification.&nbsp; If you type in an instant message from Xlite and
+send, the SIP Message method should contain text data.&nbsp; If a SIP
+Message is received with text data the UCT IMS Client will respond with
+a 200 OK and display that text.&lt;br&gt;
+&lt;br&gt;
+Xlite is a pure SIP client not made to support full IMS signaling which
+could be the cause of some of the interoperability issues.&nbsp;
+Interoperability tests between the UCT IMS Client, the Open IC Lite and
+the IMS Communicator will yield better results.&lt;br&gt;
+&lt;br&gt;
+Regards,&lt;br&gt;
+Richard.&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+ims.asuser ims.asuser wrote:
+&lt;blockquote
+ cite=&quot;mid:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">a42e68ed0808010717s687b1a6cn37d5c6970d8b99b at mail.gmail.com</A>&quot;
+ type=&quot;cite&quot;&gt;
+  &lt;div dir=&quot;ltr&quot;&gt;&lt;br&gt;
+Hi Richard,&lt;br&gt;
+  &lt;br&gt;
+Sorry for the attachment!&lt;br&gt;
+UCT IMS version: 1.0.12&lt;br&gt;
+Xlite Version: 3.0&lt;br&gt;
+I think that the version of the UCT IMS Client I am using supports MD5.&lt;br&gt;
+  &lt;br&gt;
+Thanks&lt;br&gt;
+  &lt;br&gt;
+  &lt;div class=&quot;gmail_quote&quot;&gt;2008/8/1 Richard Good &lt;span dir=&quot;ltr&quot;&gt;&lt;&lt;a
+ moz-do-not-send=&quot;true&quot; href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&lt;/a&gt;&gt;&lt;/span&gt;&lt;br&gt;
+  &lt;blockquote class=&quot;gmail_quote&quot;
+ style=&quot;border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;&quot;&gt;
+    &lt;div bgcolor=&quot;#ffffff&quot; text=&quot;#000000&quot;&gt;Hi Kaldon,&lt;br&gt;
+    &lt;br&gt;
+The UCT IMS Client does support MD5 authentication.&lt;br&gt;
+    &lt;br&gt;
+The traces you mentioned are not attached - please can you resend them.&lt;br&gt;
+    &lt;br&gt;
+Also please provide the XLite and UCT IMS Client versions you are using
+so I can reproduce your tests.&lt;br&gt;
+    &lt;br&gt;
+Regards,&lt;br&gt;
+Richard.
+    &lt;div&gt;
+    &lt;div class=&quot;Wj3C7c&quot;&gt;&lt;br&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+ims.asuser ims.asuser wrote:
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;blockquote type=&quot;cite&quot;&gt;
+      &lt;div&gt;
+      &lt;div class=&quot;Wj3C7c&quot;&gt;
+      &lt;div dir=&quot;ltr&quot;&gt;Hi everyone,&lt;br&gt;
+      &lt;br&gt;
+I've made some test between the Xlite and UCT IMS Client. The result
+are quite positive but still, there are some parts that not work
+correctly.&lt;br&gt;
+      &lt;br&gt;
+First of all, I wanted to know if UCT IMS client handles MD5
+authentication ( think YES)&lt;br&gt;
+      &lt;br&gt;
+Audio Call&lt;br&gt;
+If I make a call from Xlite to UCT Client, both phones are ringing but
+it fails when I answer(in the UCT client part). The Xlite displays
+&quot;Call failed. Media negociation failed&quot;. So I directly went to the
+audio/video codec menu to check whether they were the same on both
+side. But That did not change anything. Attached is the wireshark trace
+(xlite2uctimscall).&lt;br&gt;
+      &lt;br&gt;
+If I make a call from UCT Client to Xlite, both phone are ringing and
+the communication is established. But the only thing we can hear on
+both side is a big noise! (Exactly the same when I used the
+UCTB2BUA...). Attached is the wireshark trace(uctims2xlitecall).&lt;br&gt;
+      &lt;br&gt;
+Instant Messaging&lt;br&gt;
+If I write a message from UCT client to Xlite, everything works
+well.Attached is the wireshark trace(xlite2uctimsIM).&lt;br&gt;
+But that is not working from Xlite to UCT Client. Xlite receives a
+&quot;REQUEST TIME OUT&quot;.I do not why the UCTIMS client does not respond with
+a &quot;200 OK&quot; when it receives the a&nbsp; &quot;MESSAGE&quot;.Attached is the wireshark
+trace(uctims2xliteIM).&lt;br&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+That would be great if anyone of you could explain thoses issues (maybe
+bugs...)&lt;br&gt;
+      &lt;br&gt;
+Thank you all&lt;br&gt;
+Khaldon&lt;br&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;pre&gt;&lt;hr size=&quot;4&quot; width=&quot;90%&quot;&gt;
+_______________________________________________
+Uctimsclient-users mailing list
+&lt;a moz-do-not-send=&quot;true&quot;
+ href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&quot; target=&quot;_blank&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>&lt;/a&gt;
+
+&lt;a moz-do-not-send=&quot;true&quot;
+ href=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>&quot;
+ target=&quot;_blank&quot;&gt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users&lt;/a">https://lists.berlios.de/mailman/listinfo/uctimsclient-users&lt;/a</A>&gt;
+  &lt;/pre&gt;
+    &lt;/blockquote&gt;
+    &lt;br&gt;
+    &lt;/div&gt;
+  &lt;/blockquote&gt;
+  &lt;/div&gt;
+  &lt;br&gt;
+  &lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+--------------010907090000050705000007--
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000032.html">No subject
+</A></li>
+	<LI>Next message: <A HREF="000034.html">No subject
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#331">[ date ]</a>
+              <a href="thread.html#331">[ thread ]</a>
+              <a href="subject.html#331">[ subject ]</a>
+              <a href="author.html#331">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

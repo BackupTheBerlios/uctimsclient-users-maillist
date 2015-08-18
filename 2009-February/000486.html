@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Interval Too Brief (for SUBSCRIBE)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Interval%20Too%20Brief%20%28for%20SUBSCRIBE%29&In-Reply-To=%3C9d69bd260902130909r14a75884ra19350e9373ba64%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000483.html">
+   <LINK REL="Next"  HREF="000484.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Interval Too Brief (for SUBSCRIBE)</H1>
+    <B>Franz Angeli</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Interval%20Too%20Brief%20%28for%20SUBSCRIBE%29&In-Reply-To=%3C9d69bd260902130909r14a75884ra19350e9373ba64%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Interval Too Brief (for SUBSCRIBE)">franz.angeli at gmail.com
+       </A><BR>
+    <I>Fri Feb 13 18:09:26 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000483.html">[Uctimsclient-users] Interval Too Brief (for SUBSCRIBE)
+</A></li>
+        <LI>Next message: <A HREF="000484.html">[Uctimsclient-users] Problem with hss after installing policy	control
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#486">[ date ]</a>
+              <a href="thread.html#486">[ thread ]</a>
+              <a href="subject.html#486">[ subject ]</a>
+              <a href="author.html#486">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+changing presence.c with 3600 presence subscription return 200OK, now i have
+other problem....
+
+Really Thanks
+
+Franz
+
+On Fri, Feb 13, 2009 at 7:47 AM, Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;wrote:
+
+&gt;<i>  Hi,
+</I>&gt;<i>
+</I>&gt;<i> In RFC 3856 the example presence subscription has expires set to 600 in the
+</I>&gt;<i> Subscribe message - I'm not sure why 3600 seems to be the minimum (If that
+</I>&gt;<i> is indeed the problem, though it is tricky to see without a full wireshark
+</I>&gt;<i> trace).  Try changing line 237 in presence.c to have an expires header of
+</I>&gt;<i> 3600 instead of 600 and see if that sorts the problem.
+</I>&gt;<i>
+</I>&gt;<i> Regards,
+</I>&gt;<i>
+</I>&gt;<i> Richard.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Franz Angeli wrote:
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> for privacy problem i can attach only a text extraction of the problem
+</I>&gt;<i> because wireshark doesn't permit obfuscation (or that i think is the
+</I>&gt;<i> problem):
+</I>&gt;<i>
+</I>&gt;<i> Client Subscribe:
+</I>&gt;<i>
+</I>&gt;<i> SUBSCRIBE sip:+39**********@xxx.xx SIP/2.0
+</I>&gt;<i> Via: SIP/2.0/UDP 10.10.10.133:5060;rport;branch=z9hG4bK1682323925
+</I>&gt;<i> From: &lt;sip:+39**********@xxx.xx&gt;;tag=1748841864
+</I>&gt;<i> To: &lt;sip:+39**********@xxx.xx&gt;
+</I>&gt;<i> Call-ID: 753636002
+</I>&gt;<i> CSeq: 20 SUBSCRIBE
+</I>&gt;<i> Contact: &lt;sip:+39**********@10.10.10.133:5060&gt;
+</I>&gt;<i> Max-Forwards: 70
+</I>&gt;<i> User-Agent: UCT IMS Client
+</I>&gt;<i> Expires: 600
+</I>&gt;<i> Event: presence
+</I>&gt;<i> Content-Length: 0
+</I>&gt;<i>
+</I>&gt;<i> Pcscf and PGM response:
+</I>&gt;<i>
+</I>&gt;<i> SIP/2.0 423 Interval Too Brief
+</I>&gt;<i> To: &lt;sip:+39**********@xxx.xx&gt;;tag=fr3l70u6-mf
+</I>&gt;<i> From: &lt;sip:+39**********@xxx.xx&gt;;tag=1748841864
+</I>&gt;<i> Call-ID: 753636002
+</I>&gt;<i> CSeq: 20 SUBSCRIBE
+</I>&gt;<i> Content-Length: 0
+</I>&gt;<i> Via: SIP/2.0/UDP 10.10.10.133:5060;rport;branch=z9hG4bK1682323925
+</I>&gt;<i> Record-Route:
+</I>&gt;<i> &lt;sip:3Zqkv7%0BaGqgaaaaaOqsip%3A+39**********%40xxx.xx@*****-***-***.***.xxx.xx:5060;maddr=10.10.11.166;lr&gt;
+</I>&gt;<i> Record-Route:
+</I>&gt;<i> &lt;sip:3Zqkv7%0AaGagiaaaaOsip%3A%2B39**********%40xxx.xx@*****-***-***.***.xxx.xx:5060;maddr=10.10.11.166;lr&gt;
+</I>&gt;<i> Min-Expires: 3600
+</I>&gt;<i> Server: PGM4.1_PS
+</I>&gt;<i> P-Charging-Vector: icid-value=6720c14504285d08c725a5e2ae9ee
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks in advance
+</I>&gt;<i>
+</I>&gt;<i> Franz
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Thu, Feb 12, 2009 at 3:26 PM, Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i>  Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Could you please send a Wireshark trace of the signalling on the client
+</I>&gt;&gt;<i> side, and at the presence application server.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Richard.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Franz Angeli wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  Hi
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> i'm using UCT IMS Client v.1.0.13 with Ericsson IMS platform, i'm able to
+</I>&gt;&gt;<i> register but i received error during ADD BUDDY:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 6:32:24&gt; REGISTER
+</I>&gt;&gt;<i> 16:32:24&gt; OK (for REGISTER)
+</I>&gt;&gt;<i> 16:32:24&gt; IMPUs: &lt;sip:335*******@XXX.it&gt; &lt;sip:+39335*******@XXX.it&gt;
+</I>&gt;&gt;<i> &lt;sip:0039335*******@XXX.it&gt; &lt;tel:+39335*******&gt;
+</I>&gt;&gt;<i> 16:32:24&gt; SUBSCRIBE (reg event)
+</I>&gt;&gt;<i> 16:32:24&gt; PUBLISH (presence)
+</I>&gt;&gt;<i> 16:32:24&gt; SUBSCRIBE (presence)
+</I>&gt;&gt;<i> 16:32:24&gt; SUBSCRIBE (presence.winfo)
+</I>&gt;&gt;<i> 16:32:24&gt; Bad Event (for SUBSCRIBE)
+</I>&gt;&gt;<i> 16:32:24&gt; OK (for SUBSCRIBE)
+</I>&gt;&gt;<i> 16:32:25&gt; OK (for SUBSCRIBE)
+</I>&gt;&gt;<i> 16:32:25&gt; OK (for PUBLISH)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 16:33:31&gt; SUBSCRIBE (presence)
+</I>&gt;&gt;<i> 16:33:31&gt; Interval Too Brief (for SUBSCRIBE)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Tracing with wireshark i see Status Code 423 returning from PCSCF.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any idea?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks in advance
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Franz
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">listUctimsclient-users at lists.berlios.dehttps</A>://lists.berlios.de/mailman/listinfo/uctimsclient-users
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090213/282b97d5/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090213/282b97d5/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000483.html">[Uctimsclient-users] Interval Too Brief (for SUBSCRIBE)
+</A></li>
+	<LI>Next message: <A HREF="000484.html">[Uctimsclient-users] Problem with hss after installing policy	control
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#486">[ date ]</a>
+              <a href="thread.html#486">[ thread ]</a>
+              <a href="subject.html#486">[ subject ]</a>
+              <a href="author.html#486">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

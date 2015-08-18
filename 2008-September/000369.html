@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] FW:  SIP method to pause the vod
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20FW%3A%20%20SIP%20method%20to%20pause%20the%20vod&In-Reply-To=%3C48C8DCD2.6070700%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000368.html">
+   <LINK REL="Next"  HREF="000370.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] FW:  SIP method to pause the vod</H1>
+    <B>Robert Marston</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20FW%3A%20%20SIP%20method%20to%20pause%20the%20vod&In-Reply-To=%3C48C8DCD2.6070700%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] FW:  SIP method to pause the vod">rmarston at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Thu Sep 11 10:54:42 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000368.html">[Uctimsclient-users] FW:  SIP method to pause the vod
+</A></li>
+        <LI>Next message: <A HREF="000370.html">[Uctimsclient-users] Error in running IPtv Streaming server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#369">[ date ]</a>
+              <a href="thread.html#369">[ thread ]</a>
+              <a href="subject.html#369">[ subject ]</a>
+              <a href="author.html#369">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Miroslave
+
+ETSI TISPAN specifications define the use of SIP and RTSP methods for 
+interaction between the client, the Application Server and the Media 
+Control Function (ETSI TS 183 063 to be exact).
+
+At present the solution does not conform to these ETSI standards however 
+we are looking at implementing a fully standards compliant solution but 
+I can't give you a ETA on when this will be complete.
+
+Regards
+Robert
+
+
+Miroslave Gudic wrote:
+&gt;<i> Hi Robert,
+</I>&gt;<i>
+</I>&gt;<i> yes i understand that it's the libvlc stack who allows te control of 
+</I>&gt;<i> the video.
+</I>&gt;<i> Maybe my question wasn't clear, i want to know how do you choose the 
+</I>&gt;<i> SIP request to speack with the AS.
+</I>&gt;<i> Is there any 3GPP specification about VoD and SIP (i supose) ??
+</I>&gt;<i>
+</I>&gt;<i> Best Regards
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> &gt; Date: Thu, 11 Sep 2008 09:49:39 +0200
+</I>&gt;<i> &gt; From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rmarston at crg.ee.uct.ac.za</A>
+</I>&gt;<i> &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">miro_slave at live.fr</A>
+</I>&gt;<i> &gt; CC: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; Subject: Re: [Uctimsclient-users] SIP method to pause the vod
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi Miroslave
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The so called trick play functionality (PAUSE, FAST FORWARD, etc) are
+</I>&gt;<i> &gt; handled by the RTSP protocol and not SIP. The INVITE and BYE messaging
+</I>&gt;<i> &gt; is used to speak to the application server and for the invite obtains
+</I>&gt;<i> &gt; the RTSP address of the media the client is requesting. Thereafter a
+</I>&gt;<i> &gt; RTSP session is established between the client and the media server.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; You can look in rtsp.c but you won't find any specific rtsp commands,
+</I>&gt;<i> &gt; rather the high level commands that libvlc provides in order to control
+</I>&gt;<i> &gt; the media stream.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hope this answers your question.
+</I>&gt;<i> &gt; Robert
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Miroslave Gudic wrote:
+</I>&gt;<i> &gt; &gt; Hi all,
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; I would like to know which SIP method i should use to pause a VoD. To
+</I>&gt;<i> &gt; &gt; start a VoD it's a SIP INVITE and to stop it a SIP BYE, but for 
+</I>&gt;<i> the pause?
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Thanks in advance for your reply.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; BR
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> &gt; &gt; Souhaitez vous &#171; &#234;tre au bureau sans y &#234;tre &#187; ? Oui je le veux !
+</I>&gt;<i> &gt; &gt; &lt;<A HREF="http://www.microsoft.com/france/windows/bts/default.mspx">http://www.microsoft.com/france/windows/bts/default.mspx</A>&gt;
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;<i> &gt; &gt; Uctimsclient-users mailing list
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> Votre correspondant a choisi Hotmail et profite d'un stockage 
+</I>&gt;<i> quasiment illimit&#233;. Cr&#233;ez un compte Hotmail gratuitement ! 
+</I>&gt;<i> &lt;<A HREF="http://www.windowslive.fr/hotmail/default.asp">http://www.windowslive.fr/hotmail/default.asp</A>&gt;
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000368.html">[Uctimsclient-users] FW:  SIP method to pause the vod
+</A></li>
+	<LI>Next message: <A HREF="000370.html">[Uctimsclient-users] Error in running IPtv Streaming server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#369">[ date ]</a>
+              <a href="thread.html#369">[ thread ]</a>
+              <a href="subject.html#369">[ subject ]</a>
+              <a href="author.html#369">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

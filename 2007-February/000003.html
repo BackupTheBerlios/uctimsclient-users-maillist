@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] [OpenIMSCore-Users] UCT IMS Client	compilation issue
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%5BOpenIMSCore-Users%5D%20UCT%20IMS%20Client%0A%09compilation%20issue&In-Reply-To=%3C20070206215928.82yulf014okkksww%40mail.blr.velankani.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000002.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] [OpenIMSCore-Users] UCT IMS Client	compilation issue</H1>
+    <B>Gaurav Kansal</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20%5BOpenIMSCore-Users%5D%20UCT%20IMS%20Client%0A%09compilation%20issue&In-Reply-To=%3C20070206215928.82yulf014okkksww%40mail.blr.velankani.com%3E"
+       TITLE="[Uctimsclient-users] [OpenIMSCore-Users] UCT IMS Client	compilation issue">gkansal at velankani.com
+       </A><BR>
+    <I>Tue Feb  6 17:29:28 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000002.html">[Uctimsclient-users] [OpenIMSCore-Users] UCT IMS Client	compilation issue
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[Uctimsclient-users] UCT IMS Client on windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+I am still getting the same errors.
+
+Regards,
+Gaurav Kansal
+Quoting Dave Waiting &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">david at crg.ee.uct.ac.za</A>&gt;:
+
+&gt;<i> Hi Guarav
+</I>&gt;<i>
+</I>&gt;<i> What version of osip are you using? It's possible you have an older
+</I>&gt;<i> version that is not compatible. The latest version can be found here:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://www.antisip.com/download/">http://www.antisip.com/download/</A>
+</I>&gt;<i>
+</I>&gt;<i> - Dave
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I am facing following errors in compilation of UCT IMS Client on
+</I>&gt;&gt;<i> Fedora Core 6. Can somebody pls help?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# make
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/callbacks.o -c callbacks.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/common_exosip_event_handler.o -c common_exosip_event_handler.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/common_interface_event_handler.o -c common_interface_event_handler.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/DigestAKAv1MD5.o -c DigestAKAv1MD5.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/ims_exosip_event_handler.o -c ims_exosip_event_handler.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/ims_interface_event_handler.o -c ims_interface_event_handler.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/interface.o -c interface.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/imsUA.o -c imsUA.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/media.o -c media.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/preferences.o -c preferences.c
+</I>&gt;&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o
+</I>&gt;&gt;<i> obj/sdp_methods.o -c sdp_methods.c
+</I>&gt;&gt;<i> sdp_methods.c: In function ?sdp_complete_200ok?:
+</I>&gt;&gt;<i> sdp_methods.c:53: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_eol?
+</I>&gt;&gt;<i> sdp_methods.c:59: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_get?
+</I>&gt;&gt;<i> sdp_methods.c:64: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_eol?
+</I>&gt;&gt;<i> sdp_methods.c:66: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_get?
+</I>&gt;&gt;<i> sdp_methods.c: In function ?sdp_complete_ims?:
+</I>&gt;&gt;<i> sdp_methods.c:169: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_eol?
+</I>&gt;&gt;<i> sdp_methods.c:177: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_get?
+</I>&gt;&gt;<i> sdp_methods.c:183: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_eol?
+</I>&gt;&gt;<i> sdp_methods.c:185: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_get?
+</I>&gt;&gt;<i> sdp_methods.c:218: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_eol?
+</I>&gt;&gt;<i> sdp_methods.c:220: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_get?
+</I>&gt;&gt;<i> sdp_methods.c:233: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_eol?
+</I>&gt;&gt;<i> sdp_methods.c:236: error: incompatible type for argument 1 of
+</I>&gt;&gt;<i> ?osip_list_get?
+</I>&gt;&gt;<i> make: *** [obj/sdp_methods.o] Error 1
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards,
+</I>&gt;&gt;<i> Gaurav Kansal
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> OpenIMSCore-Users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">OpenIMSCore-Users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/openimscore-users">https://lists.berlios.de/mailman/listinfo/openimscore-users</A>
+</I>&gt;<i>
+</I>
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000002.html">[Uctimsclient-users] [OpenIMSCore-Users] UCT IMS Client	compilation issue
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[Uctimsclient-users] UCT IMS Client on windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

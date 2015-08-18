@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem opening IPTV stream
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20opening%20IPTV%20stream&In-Reply-To=%3C47612B70.60606%40tid.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000159.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem opening IPTV stream</H1>
+    <B>Nacho Conde</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20opening%20IPTV%20stream&In-Reply-To=%3C47612B70.60606%40tid.es%3E"
+       TITLE="[Uctimsclient-users] Problem opening IPTV stream">ics266 at tid.es
+       </A><BR>
+    <I>Thu Dec 13 13:54:08 CET 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000159.html">[Uctimsclient-users] Problem opening IPTV stream
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#158">[ date ]</a>
+              <a href="thread.html#158">[ thread ]</a>
+              <a href="subject.html#158">[ subject ]</a>
+              <a href="author.html#158">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>  Hi Dave, I commented these lines and now all work OK. thanks!!
+
+Now We are experimenting a new issue; We are trying to reach de AS 
+using  a SBC, the SBC must open the RTP ports that the AS and the client 
+are negociating.
+
+When the client send the ACK to the AS, in the SDP the video port have 
+the value 0. The SBC close the port previously negociated and the video 
+don't reach de client.
+
+Media Description, name and address (m): videom=video 0 RTP/AVP
+Media Description, name and address (m): audio 29482 RTP/AVP 14
+
+I think this could be a small bug in the uct??
+Regards
+
+Nacho.
+
+
+Dave Waiting wrote:
+&gt;<i> Hi Nacho
+</I>&gt;<i>
+</I>&gt;<i> It looks like the server is working fine but there is a small bug with 
+</I>&gt;<i> the client. I put in a method to open up NATs but if it fails I think 
+</I>&gt;<i> it keeps the port open and the video cannot bind to that port.
+</I>&gt;<i>
+</I>&gt;<i> In the common_exosip_event_handler.c just comment out these lines (185 
+</I>&gt;<i> and 186) and recompile:
+</I>&gt;<i>
+</I>&gt;<i>   media_open_nat(ca-&gt;remote_audio_ip, ca-&gt;remote_audio_port, 
+</I>&gt;<i> ca-&gt;local_audio_port);
+</I>&gt;<i>   media_open_nat(ca-&gt;remote_video_ip, ca-&gt;remote_video_port, 
+</I>&gt;<i> ca-&gt;local_video_port);
+</I>&gt;<i>
+</I>&gt;<i> I hope that solves the problem.
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i> Dave
+</I>&gt;<i>
+</I>&gt;<i> Nacho Conde wrote:
+</I>&gt;&gt;<i> Hi All,
+</I>&gt;&gt;<i>     I've  installed successfully  the IPTV streaming server and I 
+</I>&gt;&gt;<i> think the server runs OK:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     /uctiptv 1000000 1 House.avi /
+</I>&gt;&gt;<i>     /Initialising 1 on channel1/
+</I>&gt;&gt;<i>     /Starting channel1/
+</I>&gt;&gt;<i>     /Elements created/
+</I>&gt;&gt;<i>     /Pipeline created/
+</I>&gt;&gt;<i>     /Setting Bitrate to 1000000 /
+</I>&gt;&gt;<i>     /Creating Decodebin /
+</I>&gt;&gt;<i>     /Adding items /
+</I>&gt;&gt;<i>     /Linking items /
+</I>&gt;&gt;<i>     /Elements linked/
+</I>&gt;&gt;<i>     /ffenc_h263p Caps:/
+</I>&gt;&gt;<i>     /video/x-raw-yuv, width=(int)624, height=(int)352,
+</I>&gt;&gt;<i>     framerate=(fraction)25/1, format=(fourcc)I420,
+</I>&gt;&gt;<i>     pixel-aspect-ratio=(fraction)1/1/
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     /Video Caps:/
+</I>&gt;&gt;<i>     /application/x-rtp, media=(string)video, payload=(int)96,
+</I>&gt;&gt;<i>     clock-rate=(int)90000, encoding-name=(string)H263-1998,
+</I>&gt;&gt;<i>     ssrc=(guint)4109078151, clock-base=(guint)4256599743,
+</I>&gt;&gt;<i>     seqnum-base=(guint)28109/
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     /Audio Caps:/
+</I>&gt;&gt;<i>     /application/x-rtp, media=(string)audio, payload=(int)96,
+</I>&gt;&gt;<i>     clock-rate=(int)90000, encoding-name=(string)MPA,
+</I>&gt;&gt;<i>     ssrc=(guint)649579945, clock-base=(guint)4260157850,
+</I>&gt;&gt;<i>     seqnum-base=(guint)12843/
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     /Returning from channel channel1 init /
+</I>&gt;&gt;<i>     /IPTV Appserver started on port 7070/
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When I run the uctimsclient and  i make a call to the channel 1 I can 
+</I>&gt;&gt;<i> hear the audio but i can't see the video, i haven't any other app 
+</I>&gt;&gt;<i> running on this port.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     / uctimsclient
+</I>&gt;&gt;<i>     UCT IMS Client - SIP port 5060  - Audio Port: 32278 - Video Port: 
+</I>&gt;&gt;<i> 28561
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     sendto: Invalid argument
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     ** (uctimsclient:12791): WARNING **: GStreamer: gstudpsrc.c(818):
+</I>&gt;&gt;<i>     gst_udpsrc_start (): /IPTV_Video_Receive_Pipeline/udp_src:
+</I>&gt;&gt;<i>     bind failed -1: Address already in use (98) - There may be a problem
+</I>&gt;&gt;<i>     opening IPTV stream./
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The response from the video seems to be Ok:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     /Event type: 5 New call received!/
+</I>&gt;&gt;<i>     /To: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">channel1 at iptv.atenea.imscore</A>/
+</I>&gt;&gt;<i>     /From: sip:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">ics266 at atenea.imscore</A> &quot;Nacho&quot;/
+</I>&gt;&gt;<i>     /Local IP: 10.95.31.17/
+</I>&gt;&gt;<i>     /Remote IP Audio: 10.95.23.118/
+</I>&gt;&gt;<i>     /Remote IP Video: 10.95.23.118/
+</I>&gt;&gt;<i>     /Local Audio Port: 2222/
+</I>&gt;&gt;<i>     /Local Video Port: 2223/
+</I>&gt;&gt;<i>     /Remote Audio Port: 32278/
+</I>&gt;&gt;<i>     /Remote Video Port: 28561/
+</I>&gt;&gt;<i>     /Channel1/
+</I>&gt;&gt;<i>     /Adding host 10.95.23.118 with audio port 32278, video port 28561 to
+</I>&gt;&gt;<i>     channel 1 /
+</I>&gt;&gt;<i>     /Event type: 27 New request outside call received!/
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks in advance and congratulations for your client development, We 
+</I>&gt;&gt;<i> are testing the OpenImsCore with the UctImsclient and it's been a 
+</I>&gt;&gt;<i> nice experience because it's works!! :-)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best Regards from Madrid.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Nacho.
+</I>&gt;&gt;<i> /
+</I>&gt;&gt;<i> /
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>   
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> __________ NOD32 2694 (20071130) Information __________
+</I>&gt;<i>
+</I>&gt;<i> This message was checked by NOD32 antivirus system.
+</I>&gt;<i> <A HREF="http://www.eset.com">http://www.eset.com</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000159.html">[Uctimsclient-users] Problem opening IPTV stream
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#158">[ date ]</a>
+              <a href="thread.html#158">[ thread ]</a>
+              <a href="subject.html#158">[ subject ]</a>
+              <a href="author.html#158">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

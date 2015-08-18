@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20P-CSCF/PCRF%20Rx%20interface%20would%20not%20be%20used&In-Reply-To=%3C000301cc0416%245524f9e0%24ff6eeda0%24%40technikum-wien.at%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000677.html">
+   <LINK REL="Next"  HREF="000679.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used</H1>
+    <B>Franz Edler</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20P-CSCF/PCRF%20Rx%20interface%20would%20not%20be%20used&In-Reply-To=%3C000301cc0416%245524f9e0%24ff6eeda0%24%40technikum-wien.at%3E"
+       TITLE="[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used">franz.edler at technikum-wien.at
+       </A><BR>
+    <I>Tue Apr 26 15:32:04 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000677.html">[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+</A></li>
+        <LI>Next message: <A HREF="000679.html">[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#678">[ date ]</a>
+              <a href="thread.html#678">[ thread ]</a>
+              <a href="subject.html#678">[ subject ]</a>
+              <a href="author.html#678">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Didier,
+
+ 
+
+that means you succeeded with your installation?
+
+I also experienced bugs in Rx interface not being aligned anymore between
+OpenIMSCore and UCT IMS Policy Framework.
+
+See:
+<A HREF="http://lists.berlios.de/pipermail/openimscore-users/2011-January/006797.html">http://lists.berlios.de/pipermail/openimscore-users/2011-January/006797.html</A>
+
+
+But the student was not able to dig deeper and propose some code
+adaptations.
+
+ 
+
+BR
+
+Franz
+
+ 
+
+ 
+
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] On Behalf Of Fosters
+Sent: Tuesday, April 26, 2011 9:23 AM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Subject: Re: [Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+
+ 
+
+Hi there,
+
+Just in case somebody has the same kind of problem than me, I found out that
+branch 08 does not exists any more because it was replaced by branch 13
+which is now included in the trunk version. Therefore, no need to install
+branch 8 as specified in the &quot;howto&quot; page of UCT IMS Policy Framework. The
+latest version of ser_ims does include everything you need to work with UCT
+IMS policy Framework.
+Simply copy your pcscf.cfg as pcscf.qos.cfg and uncomment the following
+lines :
+ 
+loadmodule &quot;/opt/OpenIMSCore/ser_ims/modules/cdp/cdp.so&quot;
+modparam(&quot;cdp&quot;, &quot;config_file&quot;, &quot;/opt/OpenIMSCore/ser_ims/cfg/pcscf.xml&quot;)
+//to be customized with your pcscf.xml path
+loadmodule &quot;/opt/OpenIMSCore/ser_ims/modules/cdp_avp/cdp_avp.so&quot;
+modparam(&quot;pcscf&quot;,&quot;use_pcc&quot;,1)
+
+
+modparam(&quot;pcscf&quot;,&quot;forced_qos_peer&quot;,&quot;pcrf.open-ims.test&quot;)
+modparam(&quot;pcscf&quot;,&quot;qos_release7&quot;,1)
+
+modparam(&quot;pcscf&quot;,&quot;ipv4_for_signaling&quot;,&quot;192.168.20.2&quot;) //to be customized
+with your IP address to pcscf
+modparam(&quot;pcscf&quot;,&quot;port_for_signaling&quot;,4060)
+
+Then you might experience a bug with UCT IMS Policy Framework that would not
+accept communication because of insufficient bandwidth (even if your policy
+declares enough), I have reported the bug and how to fix it on the bug
+declaration page of UCT IMS Client project.
+
+Hope this will help, regards,
+
+Didier
+
+2011/4/15 Fosters Fosters &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">comeonleech at gmail.com</A>&gt;
+
+Hi there,
+
+I have installed and successfully configured the OpenIMSCore, and the UCT
+Policy Control Framework following the howto guide
+&quot;<A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>&quot; which goes with
+the updated ser_ims_qos (branch 12 as the branch 8 doesn't exist any more).
+
+But I have the following problem : it seems that the SDP messages with
+communication parameters are not transmitted to the PCRF for policy checking
+(through the diameter requests).
+According to the Step7 (Testing) of the tutorial, I should see in the PCRF
+window a trace of these exchange if they occured : &quot;Examine the PCRF
+terminal window - with  each exchange of SDP offer and answer a Diameter
+request is sent to the PCRF&quot;.
+But I don't have anything, which is confirmed by my analysis in wireshark,
+where such diameter exchanges between P-CSCF and PCRF does not take place.
+
+I am launching the PCSCF (192.168.20.2) on eth0 so that it can be reched
+from other machine in my network, ICSCF(10.1.22.103), SCSCF(10.1.22.104) and
+HSS(10.1.22.105) locally on virtual interface of the loopback.
+PCRF(10.1.22.107) and PCEF(10.1.22.108) are also launched on virtual
+interface of the loopback.
+
+Basically PCSCF, ICSCF, SCSCF and HSS are running correctly, PCRF and PCEF
+are also started correctly and their Rx and Gx interface are started.
+All the launching logs of those entities are shown in the logs below :
+
+====================================================
+====================================================
+
+I am using the pcscf.qos.cfg file with the 2 following line enables that
+should enable usage of the Rx interface if I understood well :
+modparam(&quot;pcscf&quot;,&quot;forced_qos_peer&quot;,&quot;pcrf.open-ims.test&quot;)
+modparam(&quot;pcscf&quot;,&quot;qos_release7&quot;,1)
+
+But when I connect a UCTIMSClient as Bob on a Remote machine, and as Alice
+on the local machine with QoS Strength &quot;mandatory&quot;, type either &quot;end-to-end&quot;
+or &quot;mandatory&quot; and access &quot;IEEE 802.11a&quot; and and making a call between them,
+nothing happens at PCRF and PCEF level, the call is going well anyway, but
+it didn't go throught QoS or policy decision !
+
+I'have seen some post in this mailing list mentionning the activation of the
+Rx interface or being in push mode for the P-CSCF, isn't it already well
+configured in the pcscf.qos.cfg file provided with the uctpcrf1.0.2.tar.gz ?
+
+If somebody could help me, I would appraciated as I'am searching what could
+possibly be wrong for days now !
+
+
+Regards,
+
+Didier.
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20110426/70de43f4/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20110426/70de43f4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000677.html">[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+</A></li>
+	<LI>Next message: <A HREF="000679.html">[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#678">[ date ]</a>
+              <a href="thread.html#678">[ thread ]</a>
+              <a href="subject.html#678">[ subject ]</a>
+              <a href="author.html#678">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

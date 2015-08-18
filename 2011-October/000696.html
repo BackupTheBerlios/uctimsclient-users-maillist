@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Linux release and uct IMS clients
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Linux%20release%20and%20uct%20IMS%20clients&In-Reply-To=%3C1319103183.53764.YahooMailClassic%40web37903.mail.mud.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000695.html">
+   <LINK REL="Next"  HREF="000697.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Linux release and uct IMS clients</H1>
+    <B>Vijaya Venkatachalam</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Linux%20release%20and%20uct%20IMS%20clients&In-Reply-To=%3C1319103183.53764.YahooMailClassic%40web37903.mail.mud.yahoo.com%3E"
+       TITLE="[Uctimsclient-users] Linux release and uct IMS clients">vlakshmi at rocketmail.com
+       </A><BR>
+    <I>Thu Oct 20 11:33:03 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000695.html">[Uctimsclient-users] Linux release and uct IMS clients
+</A></li>
+        <LI>Next message: <A HREF="000697.html">[Uctimsclient-users] Linux release and uct IMS clients
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#696">[ date ]</a>
+              <a href="thread.html#696">[ thread ]</a>
+              <a href="subject.html#696">[ subject ]</a>
+              <a href="author.html#696">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sorry for the barrage of emails.
+Can anyone share the wireshark traces for the tests shown in Richard Good's paper (Step 7).
+
+Using the UCT IMS Client try and set up a call with 
+						the QoS field in the Profile menu set to 
+						&quot;mandatory&quot;. This ensures that preconditions are 
+						mandatory and that full IMS session initiation will take 
+						place including exchange of SDP offers and answers.
+						Examine the PCRF terminal window - with&#160; each 
+						exchange of SDP offer and answer a Diameter request is 
+						sent to the PCRF.&#160; This request contains service 
+						information; based on pre-stored domain policies a 
+						decision is made whether or not to allow the session to 
+						continue - a enforcement policy rule for the session is created. 
+						Also note that bandwidth has been been deducted from the 
+						relevant QoS Classes and Domains to serve the session.
+						Using the Web Management Interface view the Dynamic 
+						policies and note that dynamic IMS Sessions and 
+						associated IP Flows rules have been created. When the session is 
+						cancelled/ended a Diameter termination request is sent 
+						(examine the PCRF terminal window), the dynamic IMS 
+						session and IP Flows are removed and bandwidth etc. is 
+						returned to the relevant QoS Classes and Domains.
+						Using the Web Interface edit the domain policies 
+						and remove a codec that is needed for the session - note 
+						that now when a session is setup the call is rejected 
+						based on policies.&#160; A call can also be rejected 
+						because of insufficient bandwidth, unauthorised domains, 
+						unauthorised QoS classes, etc.
+						The PCEF controls a DiffServ router that that defines 
+						several different levels of services, based on the 
+						enforcement rule packets are allowed, marked and queued 
+						accordingly - if you monitor the individual 
+						packets during a media session you can see the different DSCP field values assigned for different QoS levels. (Note:
+						CONVERSATIONAL and STREAMING classes are marked as 
+						EF streams, while INTERACTIVE and BACKGROUND are marked 
+						as BE streams)
+						Additionally PCEF performs QoS/bandwidth monitoring, 
+						calculates usage statistics and detects transport layer 
+						events. A thread is created for each added IP Flow that 
+						monitors the bandwidth usage of that thread. To use this you must have an RTP Proxy 
+						enabled and enable the data counter through the 
+						Administration Tab of the Web Interface.&#160; If QoS 
+						monitoring is enabled flow information is written to a 
+						log file under /opt/OpenIMSCore/uctprcf/reports/qos_report_logs. 
+						Establish and terminate a few sessions and examine the 
+						QoS report logs, note that each time a flow is removed 
+						from IP Tables it is recorded in the logs.
+						Now set up a call between two client and cause one of 
+						the clients to crash (CTRL-C). The 
+						bandwidth monitor will detect this LOSS OF BEARER and 
+						trigger an event that will remove the dynamic policy 
+						rules at the PCRF and cause the P-CSCF to terminate the 
+						call with the remaining client.
+						Note there are 2 config files for the PCSCF operation 
+						- pcscf.qos.cfg and pcscf.qos.rtp.cfg. The 
+						first config file should be used when you are not 
+						running an RTP proxy and have a single IMS domain; here 
+						resource reservation is only performed at the 
+						originating side (both originating and terminating are 
+						the same) so as not to complicate matters with redundant 
+						Diameter messages.&#160; If you have an RTP proxy 
+						running you will want to perform resource reservation on 
+						both the terminating and originating side and should use 
+						the pcscf.qos.rtp.cfg config file.
+
+
+thx
+--- On Thu, 10/20/11, Vijaya Venkatachalam &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">vlakshmi at rocketmail.com</A>&gt; wrote:
+
+From: Vijaya Venkatachalam &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">vlakshmi at rocketmail.com</A>&gt;
+Subject: [Uctimsclient-users] Linux release and uct IMS clients
+To: &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>&gt;
+Date: Thursday, October 20, 2011, 8:25 AM
+
+Folks,
+I am trying to install the whole set of applications from UCT - IMS client, IMS charging framework, pcrf etc.Does this work only on Ubuntu Linux release or can I also run it on Fedora. I am currently on Core 6 version.
+Thanks,Vijayalakshmi
+
+-----Inline Attachment Follows-----
+
+_______________________________________________
+Uctimsclient-users mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20111020/de47d208/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20111020/de47d208/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000695.html">[Uctimsclient-users] Linux release and uct IMS clients
+</A></li>
+	<LI>Next message: <A HREF="000697.html">[Uctimsclient-users] Linux release and uct IMS clients
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#696">[ date ]</a>
+              <a href="thread.html#696">[ thread ]</a>
+              <a href="subject.html#696">[ subject ]</a>
+              <a href="author.html#696">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

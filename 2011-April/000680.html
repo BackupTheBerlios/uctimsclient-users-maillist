@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] two Rx interface defined when using uctpcrf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20two%20Rx%20interface%20defined%20when%20using%20uctpcrf&In-Reply-To=%3CBANLkTi%3DGP3sPW64z1M_2ZS3G_nGGvhFdMQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000679.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] two Rx interface defined when using uctpcrf</H1>
+    <B>dpene</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20two%20Rx%20interface%20defined%20when%20using%20uctpcrf&In-Reply-To=%3CBANLkTi%3DGP3sPW64z1M_2ZS3G_nGGvhFdMQ%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] two Rx interface defined when using uctpcrf">comeonleech at gmail.com
+       </A><BR>
+    <I>Fri Apr 29 09:06:27 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000679.html">[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#680">[ date ]</a>
+              <a href="thread.html#680">[ thread ]</a>
+              <a href="subject.html#680">[ subject ]</a>
+              <a href="author.html#680">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi there,
+
+I noticed a strange thing in my configuration when using the UCT IMS policy
+framework (UCTPCRF), along with openIMSCore.
+In fact I have 2 diameter peer connexions on the Rx interface between P-CSCF
+and PCRF, one defined with pcscf config file of OpenIMSCore and the other
+with the DiameterPeerPCSCF config file of uctpcrf.
+Here are the diameter peer xml config files :
+
+First the pcscf.xml (from openIMSCore), and then the DiameterPeerPCSCF.xml
+(from uctpcrf).
+
+===============pcscf.xml===========================
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;DiameterPeer
+    FQDN=&quot;pcscf.open-ims.test&quot;
+    Realm=&quot;open-ims.test&quot;
+    Vendor_Id=&quot;10415&quot;
+    Product_Name=&quot;CDiameterPeer&quot;
+    AcceptUnknownPeers=&quot;1&quot;
+    DropUnknownOnDisconnect=&quot;1&quot;
+    Tc=&quot;30&quot;
+    Workers=&quot;4&quot;
+    QueueLength=&quot;8&quot;
+    TransactionTimeout=&quot;5&quot;
+    SessionsHashSize=&quot;128&quot;
+    DefaultAuthSessionTimeout=&quot;60&quot;
+    MaxAuthSessionTimeout=&quot;300&quot;
+&gt;<i>
+</I>    &lt;Peer FQDN=&quot;clf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;3868&quot;/&gt;
+    &lt;Peer FQDN=&quot;pcrf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;4868&quot;/&gt;
+
+    &lt;Acceptor port=&quot;3867&quot; bind=&quot;192.168.20.2&quot;/&gt;
+
+    &lt;Auth id=&quot;16777231&quot; vendor=&quot;13019&quot;/&gt; &lt;!-- ETSI e2 --&gt;
+    &lt;Auth id=&quot;16777236&quot; vendor=&quot;10415&quot;/&gt; &lt;!-- 3GPP Rx --&gt;
+    &lt;Auth id=&quot;16777236&quot; vendor=&quot;0&quot;/&gt;     &lt;!-- Rx --&gt;
+    &lt;Auth id=&quot;16777222&quot; vendor=&quot;10415&quot;/&gt; &lt;!-- 3GPP Gq --&gt;
+    &lt;Auth id=&quot;16777222&quot; vendor=&quot;13019&quot;/&gt; &lt;!-- ETSI Gq prima --&gt;
+
+    &lt;DefaultRoute FQDN=&quot;pcrf.open-ims.test&quot; metric=&quot;10&quot;/&gt;
+    &lt;DefaultRoute FQDN=&quot;clf.open-ims.test&quot; metric=&quot;10&quot;/&gt;
+
+&lt;!-- Realm Routing configuration - Uncomment and Edit!
+
+    &lt;Realm name=&quot;open-ims.test&quot;&gt;
+        &lt;Route FQDN=&quot;clf1.open-ims.test&quot; metric=&quot;10&quot;/&gt;
+        &lt;Route FQDN=&quot;clf2.open-ims.test&quot; metric=&quot;20&quot;/&gt;
+    &lt;/Realm&gt;
+    &lt;Realm name=&quot;another.open-ims.test&quot;&gt;
+        &lt;Route FQDN=&quot;clf3.open-ims.test&quot; metric=&quot;10&quot;/&gt;
+        &lt;Route FQDN=&quot;clf2.open-ims.test&quot; metric=&quot;20&quot;/&gt;
+    &lt;/Realm&gt;
+    &lt;DefaultRoute FQDN=&quot;clf.open-ims.test&quot; metric=&quot;10&quot;/&gt;
+    &lt;DefaultRoute FQDN=&quot;clf4.open-ims.test&quot; metric=&quot;20&quot;/&gt;
+
+--&gt;
+
+&lt;/DiameterPeer&gt;
+==========================================
+========DiameterPeerPCSCF.xml================
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;DiameterPeer
+    FQDN=&quot;pcscf.open-ims.test&quot;
+    Realm=&quot;open-ims.test&quot;
+    Vendor_Id=&quot;10415&quot;
+    Product_Name=&quot;JavaDiameterPeer&quot;
+    AcceptUnknownPeers=&quot;1&quot;
+    DropUnknownOnDisconnect=&quot;1&quot;
+    Tc=&quot;10&quot;
+    Workers=&quot;8&quot;
+    QueueLength=&quot;32&quot;&gt;
+
+    &lt;Peer FQDN=&quot;pcrf.open-ims.test&quot; Realm=&quot;open-ims.test&quot; port=&quot;4868&quot;/&gt;
+
+    &lt;Acceptor port=&quot;3879&quot; bind=&quot;192.168.20.2&quot; /&gt;
+
+    &lt;Auth id=&quot;16777236&quot; vendor=&quot;10415&quot;/&gt;
+
+&lt;/DiameterPeer&gt;
+==========================================
+
+You can see, from those files that one peer connexion is established between
+P-CSCF port 3879 and PCRF port 4868 (by uctpcrf) and an other between P-CSCF
+port 3867 and PCRF port 4868 (by openIMSCore).
+Can anybody tell me whether this is right or wrong ?
+Shouldn't I disable one of them, like the pcrf peer in pcscf.xml config file
+?
+
+Thanks for your Help.
+
+Didier.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20110429/29795f6a/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20110429/29795f6a/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000679.html">[Uctimsclient-users] P-CSCF/PCRF Rx interface would not be used
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#680">[ date ]</a>
+              <a href="thread.html#680">[ thread ]</a>
+              <a href="subject.html#680">[ subject ]</a>
+              <a href="author.html#680">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

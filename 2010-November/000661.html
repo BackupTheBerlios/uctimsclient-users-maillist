@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Uctimsclient-users Digest, Vol 43, Issue 3
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2010-November/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Uctimsclient-users%20Digest%2C%20Vol%2043%2C%20Issue%203&In-Reply-To=%3CAANLkTim_7K_%3D6cxXWCaCwnjDb7vwv7qf8B_013nt8tEA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000659.html">
+   <LINK REL="Next"  HREF="000660.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Uctimsclient-users Digest, Vol 43, Issue 3</H1>
+    <B>Premalatha</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Uctimsclient-users%20Digest%2C%20Vol%2043%2C%20Issue%203&In-Reply-To=%3CAANLkTim_7K_%3D6cxXWCaCwnjDb7vwv7qf8B_013nt8tEA%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Uctimsclient-users Digest, Vol 43, Issue 3">premalatha at ngintech.com
+       </A><BR>
+    <I>Mon Nov 22 11:09:39 CET 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000659.html">[Uctimsclient-users] Uctimsclient-users Digest, Vol 43, Issue 3
+</A></li>
+        <LI>Next message: <A HREF="000660.html">[Uctimsclient-users] Convite para se conectar no LinkedIn
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#661">[ date ]</a>
+              <a href="thread.html#661">[ thread ]</a>
+              <a href="subject.html#661">[ subject ]</a>
+              <a href="author.html#661">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks.
+
+1. Iam using ubuntu 8.04 and installed uctimsclient 1.0.11
+2. Also, checked the following configuration. It seems to be correct.
+3. Registration is successful, while requesting channel1 from uctimsclient,
+only a small blank window pops up. But i can see 200 Ok with correct
+rtsp_redirection url in content-type and client sending ACK.
+4. I also confirmed it with printf statements at Indirection server. AS is
+sending the rtsp_redirection_uri (Media_server). But iam also getting
+network unreachable as said below.
+5. But i can view video through VLC with same URL defined in Application
+server hash table.
+
+I have crosschecked that Firewall is disabled too and i can ping vice-versa
+(IMS, AS, Media server, client)
+
+Really dono what is missing, if needed, i can send u the ethereal traces and
+logs.
+
+Thanks,
+Premalatha
+
+
+
+
+On Sat, Nov 20, 2010 at 11:42 PM, Mohhamed Salih &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">mbsalih at gmail.com</A>&gt; wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> There are two points here:
+</I>&gt;<i> 1- As cristhian explained, you need to use ubuntu 8.4. I couldn't find
+</I>&gt;<i> compatibility information in the official website, however, this is the only
+</I>&gt;<i> way I got it working.
+</I>&gt;<i> 2- The error message &quot;DEBUG [get_if_output] connect : Network Unreachable&quot;
+</I>&gt;<i> at the indirection server suggests network problem or DNS problem.
+</I>&gt;<i>
+</I>&gt;<i> what I can suggest is to use a video client (e.g. VLC) at the
+</I>&gt;<i> AS_Indirection server, or at the end-user PC, and see if you can stream the
+</I>&gt;<i> video using the same url in the Indirection server configuration file. If it
+</I>&gt;<i> works, then there is an issue in the Indirection server integration with the
+</I>&gt;<i> IMS Core (which I doubt, given the error message). if it doesn't work, try
+</I>&gt;<i> to check the network and the DNS by pinging the DNS-name and the IP address
+</I>&gt;<i> of the streaming server and see which one responds.
+</I>&gt;<i>
+</I>&gt;<i> hope that helps
+</I>&gt;<i>
+</I>&gt;<i> Mohamed
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;&gt;<i> Message: 1
+</I>&gt;&gt;<i> Date: Fri, 19 Nov 2010 17:18:17 +0530
+</I>&gt;&gt;<i> From: Premalatha &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">premalatha at ngintech.com</A>&gt;
+</I>&gt;&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> Subject: [Uctimsclient-users] no Video on UCTIMSCLIENT
+</I>&gt;&gt;<i> Message-ID:
+</I>&gt;&gt;<i>        &lt;AANLkTi=+eqKwuyMqVXn92d=<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">c1o00vjzpb7WWuCm-s1+G at mail.gmail.com</A>&lt;c1o00vjzpb7WWuCm-s1%<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">2BG at mail.gmail.com</A>&gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> Content-Type: text/plain; charset=&quot;iso-8859-1&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Installed Uctimclient 1.0.11 on Ubuntu 8.04, ima getting the same error.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> At Indirection Server (Application Server)
+</I>&gt;&gt;<i> DEBUG [get_if_output] connect : Network Unreachable
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any idea ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks,
+</I>&gt;&gt;<i> Premalatha
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Wed, Nov 17, 2010 at 6:57 PM, cristhian ip &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">cris_ip at hotmail.com</A>&gt;
+</I>&gt;&gt;<i> wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt;  you must user ubuntu 8.04,
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; regards
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Cristhian
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; &gt; From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-request at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; &gt; Subject: Uctimsclient-users Digest, Vol 43, Issue 1
+</I>&gt;&gt;<i> &gt; &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; &gt; Date: Wed, 17 Nov 2010 12:00:05 +0100
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Send Uctimsclient-users mailing list submissions to
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i> &gt; &gt; or, via email, send a message with subject or body 'help' to
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-request at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; You can reach the person managing the list at
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-owner at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; When replying, please edit your Subject line so it is more specific
+</I>&gt;&gt;<i> &gt; &gt; than &quot;Re: Contents of Uctimsclient-users digest...&quot;
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Today's Topics:
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; 1. no Video on uctimsclient (Premalatha)
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; ----------------------------------------------------------------------
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Message: 1
+</I>&gt;&gt;<i> &gt; &gt; Date: Wed, 17 Nov 2010 15:57:42 +0530
+</I>&gt;&gt;<i> &gt; &gt; From: Premalatha &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">premalatha at ngintech.com</A>&gt;
+</I>&gt;&gt;<i> &gt; &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; &gt; Subject: [Uctimsclient-users] no Video on uctimsclient
+</I>&gt;&gt;<i> &gt; &gt; Message-ID:
+</I>&gt;&gt;<i> &gt; &gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">AANLkTikYJ8TvXdYH1fxGwPCZtGxYo2MStWLbjXOizx9d at mail.gmail.com</A>&gt;
+</I>&gt;&gt;<i> &gt; &gt; Content-Type: text/plain; charset=&quot;iso-8859-1&quot;
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Hi,
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Iam using ubuntu 9.10 version on which installed uctimsclient1.0.11
+</I>&gt;&gt;<i> &gt; version.
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Registration is successful, but when i do VoD (selecting channel1 from
+</I>&gt;&gt;<i> &gt; IPTV
+</I>&gt;&gt;<i> &gt; &gt; tab). Window pops up, but no video is streaming. I don't see any error
+</I>&gt;&gt;<i> &gt; log
+</I>&gt;&gt;<i> &gt; &gt; at client too.
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; At Indirection AS: following is seen
+</I>&gt;&gt;<i> &gt; &gt; DEBUG [get_output_if] connect: Network unreachable
+</I>&gt;&gt;<i> &gt; &gt; Event type: 5 New calls received.
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Sip Flow:
+</I>&gt;&gt;<i> &gt; &gt; 1. Client sends INVITE with SDP to IMS CORE
+</I>&gt;&gt;<i> &gt; &gt; 2. 100 trying to Client
+</I>&gt;&gt;<i> &gt; &gt; 3. 101 Dialog Established
+</I>&gt;&gt;<i> &gt; &gt; 4. 200 OK to client with <A HREF="rtsp://Media_server_addr/channel1">rtsp://Media_server_addr/channel1</A>
+</I>&gt;&gt;<i> &gt; &gt; 5. Client sends ACK
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; After that Client is not initiating rstp SETUP message.
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; But with VLC i can see the video and not using UCTIMSCLIENT.
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Any insight ? Please help.
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; Thanks,
+</I>&gt;&gt;<i> &gt; &gt; Premalatha
+</I>&gt;&gt;<i> &gt; &gt; -------------- next part --------------
+</I>&gt;&gt;<i> &gt; &gt; An HTML attachment was scrubbed...
+</I>&gt;&gt;<i> &gt; &gt; URL: &lt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20101117/9410b31f/attachment-0001.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20101117/9410b31f/attachment-0001.html</A>
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; ------------------------------
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; _______________________________________________
+</I>&gt;&gt;<i> &gt; &gt; Uctimsclient-users mailing list
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt; &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;<i> &gt; &gt; End of Uctimsclient-users Digest, Vol 43, Issue 1
+</I>&gt;&gt;<i> &gt; &gt; *************************************************
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> -------------- next part --------------
+</I>&gt;&gt;<i> An HTML attachment was scrubbed...
+</I>&gt;&gt;<i> URL: &lt;
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20101119/28c5dc4f/attachment-0001.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20101119/28c5dc4f/attachment-0001.html</A>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Uctimsclient-users mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> End of Uctimsclient-users Digest, Vol 43, Issue 3
+</I>&gt;&gt;<i> *************************************************
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20101122/5bf19f86/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20101122/5bf19f86/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000659.html">[Uctimsclient-users] Uctimsclient-users Digest, Vol 43, Issue 3
+</A></li>
+	<LI>Next message: <A HREF="000660.html">[Uctimsclient-users] Convite para se conectar no LinkedIn
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#661">[ date ]</a>
+              <a href="thread.html#661">[ thread ]</a>
+              <a href="subject.html#661">[ subject ]</a>
+              <a href="author.html#661">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

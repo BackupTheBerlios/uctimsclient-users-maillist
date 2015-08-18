@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Experiences, Bugs, Questions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Experiences%2C%20Bugs%2C%20Questions&In-Reply-To=%3C46CC650A.7040602%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000135.html">
+   <LINK REL="Next"  HREF="000141.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Experiences, Bugs, Questions</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Experiences%2C%20Bugs%2C%20Questions&In-Reply-To=%3C46CC650A.7040602%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Experiences, Bugs, Questions">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Wed Aug 22 18:32:10 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000135.html">[Uctimsclient-users] Experiences, Bugs, Questions
+</A></li>
+        <LI>Next message: <A HREF="000141.html">[Uctimsclient-users] Experiences, Bugs, Questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Tim
+
+Answers inline...
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Tim.Teulings at materna.de</A> wrote:
+&gt;<i> Hello!
+</I>&gt;<i>
+</I>&gt;<i> We are currently testing the UCTIMSClient together with the Fraunhofer IMS Core and the Oracle OCMS as SIP application and especially as XCAP and presence server (so no openser bases presence server here!). Here are some experiences:
+</I>&gt;<i>
+</I>&gt;<i> * Oracle uses a different path for the pres-rules on the XCAP server. While you use &quot;pres-rules/user&quot; Oracle uses &quot;pres-rules/users&quot;. Reading the relvant RFC it looks like Oracle is right. Since in priciple everybody may use the path that suits him, we would recomment to simply make this configurable :-)
+</I>&gt;<i>   
+</I>Yes, I probably got this wrong. XCAP-lite doesn't seem to even look at 
+that part of the path so it's never been an issue for us. I'll fix it in 
+the next release. For now just change it in your xcap.c file.
+&gt;<i> * On the other hand Oracle currently only implements an earlier draft of RF 4745 which has a different syntax for &quot;pres-rules&quot; files (btw. it also names the files presrule sand not presence_rules.xml by default. Perhaps this should also be configurable).
+</I>&gt;<i>   
+</I>Probably. I've tried to keep this as simple as possible for now but it 
+looks like there are lots of vendor implementations to take into 
+account. Unfortunately I hate reading RFCs as much as everyone else.
+
+&gt;<i> * We are not sure, but is it possible that the application does not automatically deregister on close? Would be not nice :-/
+</I>&gt;<i>   
+</I>No I'm pretty sure it does deregister from the core on exit. It waits 
+for a second or two to deregister from the core before closing completely.
+&gt;<i> * We currently have the problem (possibly because the clients does not automatically dregister on close) that a presence status sometimes contains more than one entry for one user/device combination. It seems that the UCTIMSClient in this case uses the last entry (last in the meaning of &quot;at the bottom&quot;) in the list. This has the consequence that the client sometimes shows an old status for an entry in the buddy list. We think that the behaviour is incorrect and the client should always use the latest (in the sence of &quot;most current regarding the given time stamp&quot;) entry.
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>The presence server is a different story. I guess the client should 
+publish an &quot;away&quot; state on exiting but that would also delay closing the 
+client even further.
+
+I agree that the client should display only the most recent status. I 
+would appreciate a patch.
+
+&gt;<i> * Finally: While we see that the client is not finished yet, we would still like to further use it for tests and similar (together with other clients). Can you tell us something about the background (goals? Is this a university project? roadmaps? timeframe? Do you actively use the Bug Tracker?) of the client development? Are you interested in bug reports (and of course what can we except regarding bug fixes :-)?)?
+</I>&gt;<i> We would also politely ask if there is a repository for the current development code that we can access. Also while it is unlikely that we would activly participate in the devlopement it may be possible that we would like to send patches for bug fixes or enhancements in some cases (which would further motivate the question for a repository with the current development sources) - if they get applied and integrated. Can you make a statement about that, too?
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>Well the client is a project Richard Good and I started just to 
+facilitate other research goals. Neither of us have done any real 
+programming before so this probably explains the questionable 
+programming style! Richard is interested in QoS mechanisms in the core 
+network and I am looking at privacy and spam control mechanisms. When we 
+first started there was no open-source client available so we made our 
+own. Now there are a few others available but we still find ours 
+fulfills our needs the best, i.e. it is very simple, configurable and 
+linux-based so we can add new libraries and code new features very easily.
+
+We have several students at our University and others that use the 
+client in their undergrad and postgrad projects. For example one of our 
+students is incorporating video calling at the moment. It was never 
+designed to be used commercially so we will probably never release a 
+&quot;stable&quot; version. It is also not designed to work on a cell-phone or 
+PDAs like other clients - the reason being that this is usually at the 
+expense of functionality and it doesn't really prove anything except 
+make for fun demos.
+
+Feel free to report bugs on the website but I think the mailing list is 
+easier and faster. We usually fix whatever bugs get reported to the best 
+of our ability and when time allows. We do have a SVN repository here 
+for the code in our lab but I am embarrassed to admit that it is not 
+password protected so I won't be advertising the address here. I'll see 
+if I can figure out how to password protect it and then you are welcome 
+to get the latest revisions. I'll post to the list if I get this right.
+
+For now if you have any code additions please feel free to send them to 
+this list.
+
+&gt;<i> P.S.: It seems like you release new version on a monthly basis. Will there be a new version soon ;-)?
+</I>&gt;<i>   
+</I>Yes, I think a new release is in order fairly soon. Version 1.0.6 will 
+have the video calling that I mentioned earlier and some basic ITPV 
+functions. I'm also going to move the media over to the gstreamer 
+libraries so there will be more codecs to choose from.
+
+Regards
+
+Dave
+
+&gt;<i> Greetings...
+</I>&gt;<i>  Tim
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>   
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000135.html">[Uctimsclient-users] Experiences, Bugs, Questions
+</A></li>
+	<LI>Next message: <A HREF="000141.html">[Uctimsclient-users] Experiences, Bugs, Questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#136">[ date ]</a>
+              <a href="thread.html#136">[ thread ]</a>
+              <a href="subject.html#136">[ subject ]</a>
+              <a href="author.html#136">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] error: incompatible type for argument 1 of	'osip_list_eol
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20error%3A%20incompatible%20type%20for%20argument%201%20of%0A%09%27osip_list_eol&In-Reply-To=%3C2392e3f30703200520j166957e8h5e77f8fe3b951ede%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000044.html">
+   <LINK REL="Next"  HREF="000045.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] error: incompatible type for argument 1 of	'osip_list_eol</H1>
+    <B>Joseph Johnson</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20error%3A%20incompatible%20type%20for%20argument%201%20of%0A%09%27osip_list_eol&In-Reply-To=%3C2392e3f30703200520j166957e8h5e77f8fe3b951ede%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] error: incompatible type for argument 1 of	'osip_list_eol">joseph.johnson.ie at gmail.com
+       </A><BR>
+    <I>Tue Mar 20 13:20:09 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000044.html">[Uctimsclient-users] error: incompatible type for argument 1 of	'osip_list_eol
+</A></li>
+        <LI>Next message: <A HREF="000045.html">[Uctimsclient-users] 400 Bad Request - P-Visited-Network-ID header	missing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>from <A HREF="http://www.atosc.org/pipermail/osip/2007-February/007441.html">http://www.atosc.org/pipermail/osip/2007-February/007441.html</A>
+
+&quot;The osip_list_* interface has been changed in latest versions of
+osip and osip_list_t in structures are not pointer any more.
+
+I think Updating is just a matter of adding &quot;&amp;&quot; in front of
+remote_sdp-&gt;m_medias and to other list accessed.
+
+Aymeric&quot;
+
+Joe
+
+
+On 3/20/07, Nagaraj K &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">knraj at techmahindra.com</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Hello all,
+</I>&gt;<i>
+</I>&gt;<i> When I am compiling the following error occurs. I have searched forums, but I cant find a solution.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at btchen01</A> src]# make
+</I>&gt;<i>
+</I>&gt;<i> gcc -I/usr/local/include -I/root/openIMS/linphone-1.6.0/oRTP/include/ortp `pkg-config --cflags gtk+-2.0 ortp` -o obj/sdp_methods.o -c sdp_methods.c
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c: In function 'sdp_complete_200ok':
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:53: error: incompatible type for argument 1 of 'osip_list_eol'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:59: error: incompatible type for argument 1 of 'osip_list_get'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:64: error: incompatible type for argument 1 of 'osip_list_eol'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:66: error: incompatible type for argument 1 of 'osip_list_get'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c: In function 'sdp_complete_ims':
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:188: error: incompatible type for argument 1 of 'osip_list_eol'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:196: error: incompatible type for argument 1 of 'osip_list_get'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:202: error: incompatible type for argument 1 of 'osip_list_eol'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:204: error: incompatible type for argument 1 of 'osip_list_get'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:237: error: incompatible type for argument 1 of 'osip_list_eol'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:239: error: incompatible type for argument 1 of 'osip_list_get'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:253: error: incompatible type for argument 1 of 'osip_list_eol'
+</I>&gt;<i>
+</I>&gt;<i> sdp_methods.c:255: error: incompatible type for argument 1 of 'osip_list_get'
+</I>&gt;<i>
+</I>&gt;<i> make: *** [obj/sdp_methods.o] Error 1
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> regards,
+</I>&gt;<i>
+</I>&gt;<i> Naga
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i>  Tech Mahindra, formerly Mahindra-British Telecom.
+</I>&gt;<i>
+</I>&gt;<i>  Disclaimer:
+</I>&gt;<i>
+</I>&gt;<i>  This message and the information contained herein is proprietary and confidential and subject to the Tech Mahindra policy statement, you may review at <A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A> externally and <A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A> internally within Tech Mahindra.
+</I>&gt;<i>
+</I>&gt;<i>  ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Uctimsclient-users mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000044.html">[Uctimsclient-users] error: incompatible type for argument 1 of	'osip_list_eol
+</A></li>
+	<LI>Next message: <A HREF="000045.html">[Uctimsclient-users] 400 Bad Request - P-Visited-Network-ID header	missing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#46">[ date ]</a>
+              <a href="thread.html#46">[ thread ]</a>
+              <a href="subject.html#46">[ subject ]</a>
+              <a href="author.html#46">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

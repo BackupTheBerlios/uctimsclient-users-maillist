@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem with hss
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-January/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20hss&In-Reply-To=%3Cae7050fd0901160357y13d269fh28d522f7d19d140a%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000470.html">
+   <LINK REL="Next"  HREF="000472.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem with hss</H1>
+    <B>Emina Lu&#269;kin</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20hss&In-Reply-To=%3Cae7050fd0901160357y13d269fh28d522f7d19d140a%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Problem with hss">em.dzindo at gmail.com
+       </A><BR>
+    <I>Fri Jan 16 12:57:31 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000470.html">[Uctimsclient-users] UCT IMS Client v1.0.13
+</A></li>
+        <LI>Next message: <A HREF="000472.html">[Uctimsclient-users] Uctimsclient-users Digest, Vol 23, Issue 5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#471">[ date ]</a>
+              <a href="thread.html#471">[ thread ]</a>
+              <a href="subject.html#471">[ subject ]</a>
+              <a href="author.html#471">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have successfully configured Open IMS Core on my Ubuntu desktop, then I
+did exactly the same on my laptop, but still I have error.
+I changed ip address from 127.0.0.1 to 192.168.0.2, and as I know I did it
+correctly (not the  first time).
+When I start fhoss, I get the following:
+
+PCSCF: *usual output, nothing wrong*
+
+ICSCF:
+*12(6787) DBG:peer_timer(): Peer hss.open-ims.core     State 0
+12(6787) DBG:sm_process(): Peer hss.open-ims.core     State Closed     Event
+Start
+12(6787) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.core
+12(6787) WARNING:peer_connect(): Error opening connection to
+hss.open-ims.core:3868 &gt;No address associated with hostname
+12(6787) DBG:sm_process(): Peer hss.open-ims.core     State Wait_Conn_Ack
+    Event I_Rcv_Conn_NAck
+12(6787) --- Peer List: ---
+12(6787)  S[Closed] hss.open-ims.core:3868 D[ ]
+12(6787)  S[R_Open] hss.open-ims.test:3868 D[X]
+12(6787)      [16777216,10415]
+12(6787)      [16777216,4491]
+12(6787)      [16777216,13019]
+12(6787)      [16777217,10415]
+12(6787)      [16777221,10415]
+12(6787) ------------------
+12(6787) DBG:peer_timer(): Peer hss.open-ims.test     State 5
+12(6787) --- Peer List: ---
+12(6787)  S[Closed] hss.open-ims.core:3868 D[ ]
+12(6787)  S[R_Open] hss.open-ims.test:3868 D[X]
+12(6787)      [16777216,10415]
+12(6787)      [16777216,4491]
+12(6787)      [16777216,13019]
+12(6787)      [16777217,10415]
+12(6787)      [16777221,10415]*
+
+
+SCSCF:
+*18(6925) DBG:sm_process(): Peer hss.open-ims.test     State R_Open
+Event R_Rcv_DWA
+12(6832) DBG:peer_timer(): Peer hss.open-ims.core     State 0
+12(6832) DBG:sm_process(): Peer hss.open-ims.core     State Closed     Event
+Start
+12(6832) DBG:I_Snd_Conn_Req(): Peer hss.open-ims.core
+12(6832) WARNING:peer_connect(): Error opening connection to
+hss.open-ims.core:3868 &gt;No address associated with hostname
+12(6832) DBG:sm_process(): Peer hss.open-ims.core     State Wait_Conn_Ack
+    Event I_Rcv_Conn_NAck
+12(6832) --- Peer List: ---
+12(6832)  S[Closed] hss.open-ims.core:3868 D[ ]
+12(6832)  S[R_Open] hss.open-ims.test:3868 D[X]
+12(6832)      [16777216,10415]
+12(6832)      [16777216,4491]
+12(6832)      [16777216,13019]
+12(6832)      [16777217,10415]
+12(6832)      [16777221,10415]
+12(6832) ------------------
+12(6832) --- Peer List: ---
+12(6832)  S[Closed] hss.open-ims.core:3868 D[ ]
+12(6832)  S[R_Open] hss.open-ims.test:3868 D[X]
+12(6832)      [16777216,10415]
+12(6832)      [16777216,4491]
+12(6832)      [16777216,13019]
+12(6832)      [16777217,10415]
+12(6832)      [16777221,10415]*
+
+I checked my DNS, and it is ok, I can ping hss.open-ims.test...
+Can anyone guess whats wrong?
+
+Thanks,
+Emina
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090116/100da3a4/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090116/100da3a4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000470.html">[Uctimsclient-users] UCT IMS Client v1.0.13
+</A></li>
+	<LI>Next message: <A HREF="000472.html">[Uctimsclient-users] Uctimsclient-users Digest, Vol 23, Issue 5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#471">[ date ]</a>
+              <a href="thread.html#471">[ thread ]</a>
+              <a href="subject.html#471">[ subject ]</a>
+              <a href="author.html#471">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

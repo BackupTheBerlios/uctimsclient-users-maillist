@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] How to run OpenSER 1.3.X - Test Presence	functionality(UCT IMS Client 1.0.5)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-August/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20How%20to%20run%20OpenSER%201.3.X%20-%20Test%20Presence%0A%09functionality%28UCT%20IMS%20Client%201.0.5%29&In-Reply-To=%3COF89189515.652621EE-ON65257337.0026749B-65257337.0029C973%40tcs.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000131.html">
+   <LINK REL="Next"  HREF="000133.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] How to run OpenSER 1.3.X - Test Presence	functionality(UCT IMS Client 1.0.5)</H1>
+    <B>Kriti Wadhwa</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20How%20to%20run%20OpenSER%201.3.X%20-%20Test%20Presence%0A%09functionality%28UCT%20IMS%20Client%201.0.5%29&In-Reply-To=%3COF89189515.652621EE-ON65257337.0026749B-65257337.0029C973%40tcs.com%3E"
+       TITLE="[Uctimsclient-users] How to run OpenSER 1.3.X - Test Presence	functionality(UCT IMS Client 1.0.5)">kriti.wadhwa at tcs.com
+       </A><BR>
+    <I>Tue Aug 14 09:42:07 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000131.html">[Uctimsclient-users] how to get started with uctimsclient?
+</A></li>
+        <LI>Next message: <A HREF="000133.html">[Uctimsclient-users] Problem installing XCAP service with presence	service (Openser)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#132">[ date ]</a>
+              <a href="thread.html#132">[ thread ]</a>
+              <a href="subject.html#132">[ subject ]</a>
+              <a href="author.html#132">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All,
+
+While testing the presence service using XCAP, I am stuck up some issues. 
+Following are the details:
+
+For OpenSER 1.3.x, I pulled out Revision 2327 branch using SVN through 
+link: <A HREF="http://openser.svn.sourceforge.net/svnroot/openser/trunk/">http://openser.svn.sourceforge.net/svnroot/openser/trunk/</A>
+Platform: PCLinux
+
+The build is successfull using this command: make prefix=/ 
+include_modules=&quot;mysql presence presence_xml mi_fifo mi_xmlrpc&quot; install . 
+The executables, .cfg and modules are installed at the path mentioned in 
+<A HREF="http://uctimsclient.berlios.de/xcap_server_howto.html.">http://uctimsclient.berlios.de/xcap_server_howto.html.</A>
+
+/sbin - openserunix; openser_textdb.sh; openser; openserctl; 
+openser_mysql.sh
+
+/etc/openser - openserrctlrc; openser.cfg
+
+/share/openser/dbtext - openser_db
+
+/lib/openser - libraries
+
+I have no earlier versions of OpenSER running on my machine, cleared all 
+previous files and started fresh build.
+
+ISSUES:
+
+I am using sample cfg file given at 
+<A HREF="http://uctimsclient.berlios.de/openser.cfg.xcap">http://uctimsclient.berlios.de/openser.cfg.xcap</A>
+
+1. As mentioned in the link: 
+<A HREF="http://openser.org/dokuwiki/doku.php/install:openser-from-svn,">http://openser.org/dokuwiki/doku.php/install:openser-from-svn,</A> following 
+scripts should be installed.
+openser_mysql.sh - script to create and manage the MySQL database (for 
+version &lt; = 1.2.X) 
+openserdbctl - script to create and manage the Databases (for version &gt; 
+1.2.X) 
+
+I am working on version 1.3.X(Revision 2327), but I am not able to find 
+&quot;openserdbctl&quot; script to create Databases.
+
+
+2. While running the command - &quot;openser_mysql.sh create&quot; or 
+&quot;./openser_msql.sh, directory - /sbin
+I am getting the error: &quot;: bad interpreter: No such file or directory/sh&quot;
+
+(Note: Appropriate call to an interpreter on the first line (ie #!/bin/sh) 
+is there)
+
+3. While running the command - &quot;openser start&quot;, directory - /etc/init.d
+I am getting the error: 
+
+O(30201) parse error (1,1-2): syntax error
+O(30201) ERROR: cfg. parser: unexpected EOF in unclosed string
+ERROR: bad config file (1 errors)
+
+(Note: According to Openser documentation, this error is thrown from file 
+&quot;lex.yy.c)
+
+
+Please give me the pointers to resolve the above mentioned issues asap... 
+
+Thanks in advance.
+
+Best Regards,
+- Kriti
+=====-----=====-----=====
+Notice: The information contained in this e-mail
+message and/or attachments to it may contain 
+confidential or privileged information. If you are 
+not the intended recipient, any dissemination, use, 
+review, distribution, printing or copying of the 
+information contained in this e-mail message 
+and/or attachments to it are strictly prohibited. If 
+you have received this communication in error, 
+please notify us by reply e-mail or telephone and 
+immediately and permanently delete the message 
+and any attachments. Thank you
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070814/dadb8336/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070814/dadb8336/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000131.html">[Uctimsclient-users] how to get started with uctimsclient?
+</A></li>
+	<LI>Next message: <A HREF="000133.html">[Uctimsclient-users] Problem installing XCAP service with presence	service (Openser)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#132">[ date ]</a>
+              <a href="thread.html#132">[ thread ]</a>
+              <a href="subject.html#132">[ subject ]</a>
+              <a href="author.html#132">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

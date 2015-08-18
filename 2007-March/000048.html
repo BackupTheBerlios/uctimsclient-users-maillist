@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Media path is a problem with UCTIMSClient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Media%20path%20is%20a%20problem%20with%20UCTIMSClient&In-Reply-To=%3C4608E084.6000309%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000047.html">
+   <LINK REL="Next"  HREF="000049.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Media path is a problem with UCTIMSClient</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Media%20path%20is%20a%20problem%20with%20UCTIMSClient&In-Reply-To=%3C4608E084.6000309%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] Media path is a problem with UCTIMSClient">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Tue Mar 27 11:14:44 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000047.html">[Uctimsclient-users] 400 Bad Request - P-Visited-Network-ID header missing
+</A></li>
+        <LI>Next message: <A HREF="000049.html">[Uctimsclient-users] Media path is a problem with UCTIMSClient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ramachandran
+
+Apologies for not replying to your previous message. Unfortunately we 
+only work part time on this project and sometimes we miss a few emails.
+
+Let me first say that the client was never really designed to support 
+media very well. We are more focussed on the signalling aspects. Having 
+said that the media does work, but apparently not on your sound card. I 
+am ussuming that if you look at port 10001 you see a  whole lot of 172 
+byte packets flowing. That indicates that the RTP stream is working.
+
+The problem is with setting up the sound card with alsa. It seems to 
+work fine with the ringing but as soon as we set it up for the RTP 
+packets it doesn't work too well. Unfortunately we have no experience 
+with alsa and haven't heard from anyone that does so it's still a 
+problem. My best suggestion is to open media.c and change the line where 
+we call initialise_alsa in the start_recv_rtp method. Try adjusting the 
+number of periods and the period size. You will see there's already a 
+hack in there to get one of our machines working! If you find a setting 
+that works please let us know.
+
+If anyone on the list has any experience with this sort of thing we 
+would really appreciate a fix for this.
+
+Regards
+
+Dave
+
+
+Ramachandran wrote:
+
+&gt;<i> Hi David and Richard,
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> I got both of your reference from media.c file of uctimsclient source 
+</I>&gt;<i> base.  Long back I posted this to uctimscleint mailing as well, so far 
+</I>&gt;<i> nobody has replied to that.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  I have installed uctimsclient and FOKUS IMS on FC 6.0 machines. 
+</I>&gt;<i>  These are physically separated like one machine having installed 
+</I>&gt;<i> X-CSCF/HSS and other two identical machines having installed 
+</I>&gt;<i> UCTIMSClient's.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  I am able to get the phones registered with FOKUS X-CSXCF/HSS 
+</I>&gt;<i> successfully, also the phone GUI says call is established.  Whenever I 
+</I>&gt;<i> make a call from one phone to other, I am able here the ringing sound 
+</I>&gt;<i> properly, but the moment other phone answers the call, No sound at 
+</I>&gt;<i> both the ends.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Can you please tell me, what should be the issue here? My FC machine 
+</I>&gt;<i> has intel-had-snd cards with ensonique chitpset. For some reason there 
+</I>&gt;<i> is no audio flowing between these two phones.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  Expecting a favorable response from both of  you.
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i>
+</I>&gt;<i> Ramachandran
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070327/5263a14c/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070327/5263a14c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000047.html">[Uctimsclient-users] 400 Bad Request - P-Visited-Network-ID header missing
+</A></li>
+	<LI>Next message: <A HREF="000049.html">[Uctimsclient-users] Media path is a problem with UCTIMSClient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#48">[ date ]</a>
+              <a href="thread.html#48">[ thread ]</a>
+              <a href="subject.html#48">[ subject ]</a>
+              <a href="author.html#48">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

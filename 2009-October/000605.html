@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] UCTPCRF Crash at Receiving 200OK INVITE	without SDP?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTPCRF%20Crash%20at%20Receiving%20200OK%20INVITE%0A%09without%20SDP%3F&In-Reply-To=%3C527E3FCD6D15A141A2245921633673E5059D1274%40xmb-hkg-416.apac.cisco.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] UCTPCRF Crash at Receiving 200OK INVITE	without SDP?</H1>
+    <B>Qingao Wu (qinwu)</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20UCTPCRF%20Crash%20at%20Receiving%20200OK%20INVITE%0A%09without%20SDP%3F&In-Reply-To=%3C527E3FCD6D15A141A2245921633673E5059D1274%40xmb-hkg-416.apac.cisco.com%3E"
+       TITLE="[Uctimsclient-users] UCTPCRF Crash at Receiving 200OK INVITE	without SDP?">qinwu at cisco.com
+       </A><BR>
+    <I>Thu Oct 15 10:43:51 CEST 2009</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#605">[ date ]</a>
+              <a href="thread.html#605">[ thread ]</a>
+              <a href="subject.html#605">[ subject ]</a>
+              <a href="author.html#605">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, All
+ 
+I was trying out uctpcrf recently, but facing some problems.
+ 
+I was using 2 Mercuro IMS client to register to OpenIMSCore (with pcscf
+using ser_ims_qos branch), and make calls to each other. pcscf will
+crash when the called side answers the call everytime.
+ 
+It seems pcscf will look for SDP bodies in 200OK INVITE, and fails. And
+when it fails for the 2nd time, some thread crashed. 
+ 
+Can anyone help to look at this issue? because this call flow should be
+valid. I've attached the tcpdump and pcscf debug output here FYI. Thx.
+ 
+Regards,
+ 
+Qingao Wu
+Software/QA Engineer
+ERBU, Cisco Systems
+Phone: +86 21 2405 7139 Mobile: +86 138 1791 1914
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091015/192f4645/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091015/192f4645/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PCRF-Troubleshoot.zip
+Type: application/x-zip-compressed
+Size: 16419 bytes
+Desc: PCRF-Troubleshoot.zip
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091015/192f4645/attachment.bin">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091015/192f4645/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#605">[ date ]</a>
+              <a href="thread.html#605">[ thread ]</a>
+              <a href="subject.html#605">[ subject ]</a>
+              <a href="author.html#605">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

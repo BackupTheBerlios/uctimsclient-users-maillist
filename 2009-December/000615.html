@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] uct client can't call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-December/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uct%20client%20can%27t%20call&In-Reply-To=%3Ca1604bde0912271821s3708b8c5x787b4b724ed20f2f%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000614.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] uct client can't call</H1>
+    <B>agung aryo</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20uct%20client%20can%27t%20call&In-Reply-To=%3Ca1604bde0912271821s3708b8c5x787b4b724ed20f2f%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] uct client can't call">agung.aryo at gmail.com
+       </A><BR>
+    <I>Mon Dec 28 03:21:04 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000614.html">[Uctimsclient-users] UCT Client can't register
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#615">[ date ]</a>
+              <a href="thread.html#615">[ thread ]</a>
+              <a href="subject.html#615">[ subject ]</a>
+              <a href="author.html#615">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>dear all,
+I've tried to add domain policies with my domain (azunk-ims.stt)
+but uct client still cant call and appear error
+09:11:18&gt; INVITE
+09:11:18&gt; trying -- your call is important to us (for INVITE)
+09:11:18&gt; Dialog Establishement (for INVITE)
+09:11:18&gt; Not Acceptable Here (for INVITE)
+09:14:56&gt; INVITE
+
+
+*and in PCRF session  appear :*
+DEBUG: session id; flow id; source ip; dest ip; source port; dest port;
+usage; status; BW ul; BW dl; QoS class; Media Type
+DEBUG:
+pcscf.azunk-ims.stt;3838942712;7;1,1;10.14.3.25;10.14.3.25;19213;;37602;0;2;65536;65536;2;0
+DEBUG:
+pcscf.azunk-ims.stt;3838942712;7;1,2;10.14.3.25;10.14.3.25;19214;;37603;1;2;65536;65536;2;0
+DEBUG: Codecs: 3;0;101
+INFO: Codecs authorised
+INFO: Originating and Destination Domains authorised
+INFO: Session ID: pcscf.azunk-ims.stt;3838942712;7 does not exist
+INFO: Requested QoS class can handle the session bandwidth
+INFO: Originating and Destination Domains can handle the required bandwidth
+INFO: IMS Session information for session pcscf.azunk-ims.stt;3838942712;7
+added to Policy Repository
+INFO: IP Flow information for session pcscf.azunk-ims.stt;3838942712;7
+information added to Policy Repository
+pcscf.azunk-ims.stt;3838942712;7;1,1;10.14.3.25;10.14.3.25;37602;19213;0;2;65536;65536;2
+
+--------------------------------------------------
+
+INFO: Sending DIAMETER RAR message to PCEF
+[Thread-5] ERROR de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+DiameterPeer: Peer  not found in peer list.
+INFO: Time out waiting for PCEF RAA via Gx
+
+INFO: Sending DIAMETER AAA message to P-CSCF
+
+--------------------------------------------------
+
+INFO: Received STR DIAMETER message from P-CSCF
+DEBUGGING: Session ID: pcscf.azunk-ims.stt;3838942712;7
+
+--------------------------------------------------
+
+INFO: Sending DIAMETER RAR message to PCEF
+[Thread-7] ERROR de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+DiameterPeer: Peer  not found in peer list.
+INFO: IP Flow with flow id: 1,1 is being removed from the bearer level
+
+--------------------------------------------------
+
+INFO: Sending DIAMETER RAR message to PCEF
+[Thread-7] ERROR de.fhg.fokus.diameter.DiameterPeer.DiameterPeer  -
+DiameterPeer: Peer  not found in peer list.
+INFO: IP Flow with flow id: 1,2 is being removed from the bearer level
+
+Sending DIAMETER STA message to P-CSCF
+
+
+is there anything I should do ?
+
+
+agung aryo,
+
+On Mon, Dec 28, 2009 at 9:02 AM, agung aryo &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">agung.aryo at gmail.com</A>&gt; wrote:
+
+&gt;<i> dear all,
+</I>&gt;<i>
+</I>&gt;<i> I've installed PCRF and PCEF ,and IMS Core.
+</I>&gt;<i> the uct client can register but can't make a call
+</I>&gt;<i> while I've not created a policy yet
+</I>&gt;<i>
+</I>&gt;<i> I attached the capture from wireshark and from PCRF LOG . . .
+</I>&gt;<i>
+</I>&gt;<i> any idea with this case ?
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> agung aryo,
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091228/4b37b0a7/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20091228/4b37b0a7/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000614.html">[Uctimsclient-users] UCT Client can't register
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#615">[ date ]</a>
+              <a href="thread.html#615">[ thread ]</a>
+              <a href="subject.html#615">[ subject ]</a>
+              <a href="author.html#615">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

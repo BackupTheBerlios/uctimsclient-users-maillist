@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] Problem with uctpcrf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2009-June/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20uctpcrf&In-Reply-To=%3C1dffcef30906220110o53e8d5f7q8fc116c35a959362%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000587.html">
+   <LINK REL="Next"  HREF="000589.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] Problem with uctpcrf</H1>
+    <B>Sarah Sarette</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20Problem%20with%20uctpcrf&In-Reply-To=%3C1dffcef30906220110o53e8d5f7q8fc116c35a959362%40mail.gmail.com%3E"
+       TITLE="[Uctimsclient-users] Problem with uctpcrf">sarette2561 at gmail.com
+       </A><BR>
+    <I>Mon Jun 22 10:10:17 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000587.html">[Uctimsclient-users] Problem with uctpcrf
+</A></li>
+        <LI>Next message: <A HREF="000589.html">[Uctimsclient-users] Ser_ims_qos doesn't compile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#588">[ date ]</a>
+              <a href="thread.html#588">[ thread ]</a>
+              <a href="subject.html#588">[ subject ]</a>
+              <a href="author.html#588">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ok sorry I didn't have compile the good branch.
+With the 08_cdp_sessions compilation, I have the error :
+
+make[1]: *** [cx_avp.o] Erreur 1
+make[1]: quittant le r&#233;pertoire &#171; /opt/OpenIMSCore/ser_ims_qos/modules/icscf
+&#187;
+make: *** [modules] Erreur 1
+
+
+2009/6/22 Sarah Sarette &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">sarette2561 at gmail.com</A>&gt;
+
+&gt;<i> I have download a OpenIMSCore branches version : 08_cdp_sessions. This
+</I>&gt;<i> branch is for me &quot;ser_ims_qos&quot; and I have add it to my old OpenIMSCore. So I
+</I>&gt;<i> use standard OpenIMSCore + ser_ims_qos.
+</I>&gt;<i> I don't have error during the compilation (but some warnings).
+</I>&gt;<i>
+</I>&gt;<i> 2009/6/21 Paolo M &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">pamapa at hotmail.it</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i>  be sure you're using the OpenIMSCore  *branches  *version and not the
+</I>&gt;&gt;<i> trunk one (when you downloaded files with svn, check the link you have
+</I>&gt;&gt;<i> used).
+</I>&gt;&gt;<i> UCT uses a modified version of PCSCF, downloaded from branches folder.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;<i> Date: Sat, 20 Jun 2009 16:48:08 +0000
+</I>&gt;&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>
+</I>&gt;&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">sarette2561 at gmail.com</A>; <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> Subject: Re: [Uctimsclient-users] Problem with uctpcrf
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi Sarah,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Are you sure that the installation process completed without errors?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Regards;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Asma
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;<i> *From:* Sarah Sarette &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">sarette2561 at gmail.com</A>&gt;
+</I>&gt;&gt;<i> *To:* <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+</I>&gt;&gt;<i> *Sent:* Friday, 19 June, 2009 9:45:06
+</I>&gt;&gt;<i> *Subject:* [Uctimsclient-users] Problem with uctpcrf
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hello all,
+</I>&gt;&gt;<i> I have a problem with the installation of uctpcrf. I have used this guide
+</I>&gt;&gt;<i> : <A HREF="http://uctimsclient.berlios.de/policy_control_howto.html">http://uctimsclient.berlios.de/policy_control_howto.html</A>
+</I>&gt;&gt;<i> But when I run *./ims.qos.sh*, I have some errors for pcscf.qos.sh :
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  0(28886) set_mod_param_regex: parameter &lt;forced_qos_peer&gt; not found in
+</I>&gt;&gt;<i> module &lt;pcscf&gt;
+</I>&gt;&gt;<i>  0(28886) parse error (93,18-19): Can't set module parameter
+</I>&gt;&gt;<i>  0(28886) set_mod_param_regex: parameter &lt;qos_release7&gt; not found in
+</I>&gt;&gt;<i> module &lt;pcscf&gt;
+</I>&gt;&gt;<i>  0(28886) parse error (94,17-18): Can't set module parameter
+</I>&gt;&gt;<i>  0(28886) parse error (358,11-12): unknown command, missing loadmodule?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  0(28886) parse error (366,16-17): unknown command, missing loadmodule?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  0(28886) parse error (433,11-12): unknown command, missing loadmodule?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  0(28886) parse error (462,46-47): unknown command, missing loadmodule?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  0(28886) parse error (466,16-17): unknown command, missing loadmodule?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  0(28886) parse error (627,11-12): unknown command, missing loadmodule?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  0(28886) parse error (662,46-47): unknown command, missing loadmodule?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ERROR: bad config file (9 errors)
+</I>&gt;&gt;<i>  0(28886) INFO:cdp:cdp_exit(): CDiameterPeer stoping ...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Can you help me?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> *Sarette*
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;<i> Chiama da PC a PC e. taglia i costi delle chiamate!&lt;<A HREF="http://messenger.it/chiamarePcPc.aspx">http://messenger.it/chiamarePcPc.aspx</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090622/3686c692/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20090622/3686c692/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000587.html">[Uctimsclient-users] Problem with uctpcrf
+</A></li>
+	<LI>Next message: <A HREF="000589.html">[Uctimsclient-users] Ser_ims_qos doesn't compile
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#588">[ date ]</a>
+              <a href="thread.html#588">[ thread ]</a>
+              <a href="subject.html#588">[ subject ]</a>
+              <a href="author.html#588">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

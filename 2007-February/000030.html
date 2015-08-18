@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] installing UCT IMS Client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-February/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20installing%20UCT%20IMS%20Client&In-Reply-To=%3C000d01c75a53%245b1a1590%240b40000a%40blr.velankani.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000033.html">
+   <LINK REL="Next"  HREF="000037.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] installing UCT IMS Client</H1>
+    <B>Gaurav Kansal</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20installing%20UCT%20IMS%20Client&In-Reply-To=%3C000d01c75a53%245b1a1590%240b40000a%40blr.velankani.com%3E"
+       TITLE="[Uctimsclient-users] installing UCT IMS Client">gkansal at velankani.com
+       </A><BR>
+    <I>Tue Feb 27 10:40:41 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000033.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+        <LI>Next message: <A HREF="000037.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Asma
+
+ 
+
+If you have installed ortp, then I think the problem is that libortp is at
+some other place and your compilation is trying to pick it from some other
+place. Try locating where libortp is placed and copy that to /usr/lib or
+whatever PATH you have defined.
+
+ 
+
+Regards,
+
+Gaurav Kansal
+
+ 
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users-bounces at lists.berlios.de</A>] On Behalf Of asma a
+Sent: Tuesday, February 27, 2007 3:03 PM
+To: Richard Good
+Cc: uctims
+Subject: Re: [Uctimsclient-users] installing UCT IMS Client
+
+ 
+
+yes I installed them manually from source code.
+
+I found the &quot;ortp.pc&quot; file in the path &quot;/usr/local/lib/pkgconfig&quot; and export
+it to the PKG_CONFIG_PATH environment variable.  now the make step work. 
+
+but it seems that there is another environment variable need to be set,
+because as I execute the uctimsclient I get this
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# ./uctimsclient
+./uctimsclient: error while loading shared libraries: libortp.so.5: cannot
+open shared object file: No such file or directory
+[<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at localhost</A> src]# 
+
+what is the environment variable I need to set the libortp.so path in it??
+
+Thanks;
+
+Asma
+
+----- Original Message ----
+From: Richard Good &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">rgood at crg.ee.uct.ac.za</A>&gt;
+To: asma a &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">asmaa_a_m at yahoo.co.uk</A>&gt;
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">uctimsclient-users at lists.berlios.de</A>
+Sent: Monday, 26 February, 2007 2:20:28 PM
+Subject: Re: [Uctimsclient-users] installing UCT IMS Client
+
+Hi Asma,
+
+It sounds like you manually installed these packages and may not have 
+put them in their default locations.  Wherever possible use package 
+managers to install software as these use the default locations.
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000033.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+	<LI>Next message: <A HREF="000037.html">[Uctimsclient-users] installing UCT IMS Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#30">[ date ]</a>
+              <a href="thread.html#30">[ thread ]</a>
+              <a href="subject.html#30">[ subject ]</a>
+              <a href="author.html#30">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>

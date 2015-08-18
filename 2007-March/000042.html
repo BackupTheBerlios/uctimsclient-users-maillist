@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Uctimsclient-users] error:	'payload_type_telephone_event'	undeclared
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/uctimsclient-users/2007-March/index.html" >
+   <LINK REL="made" HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20error%3A%0A%09%27payload_type_telephone_event%27%09undeclared&In-Reply-To=%3C45FE997C.1080900%40crg.ee.uct.ac.za%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000041.html">
+   <LINK REL="Next"  HREF="000043.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Uctimsclient-users] error:	'payload_type_telephone_event'	undeclared</H1>
+    <B>Dave Waiting</B> 
+    <A HREF="mailto:uctimsclient-users%40lists.berlios.de?Subject=Re%3A%20%5BUctimsclient-users%5D%20error%3A%0A%09%27payload_type_telephone_event%27%09undeclared&In-Reply-To=%3C45FE997C.1080900%40crg.ee.uct.ac.za%3E"
+       TITLE="[Uctimsclient-users] error:	'payload_type_telephone_event'	undeclared">david at crg.ee.uct.ac.za
+       </A><BR>
+    <I>Mon Mar 19 15:09:00 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000041.html">[Uctimsclient-users] error: 'payload_type_telephone_event'	undeclared
+</A></li>
+        <LI>Next message: <A HREF="000043.html">[Uctimsclient-users] error:	'payload_type_telephone_event'	undeclared
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#42">[ date ]</a>
+              <a href="thread.html#42">[ thread ]</a>
+              <a href="subject.html#42">[ subject ]</a>
+              <a href="author.html#42">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+The compiler can't find your oRTP files. Have you installed oRTP and the 
+-dev libraries if you are using a package manager?
+
+- Dave
+
+
+Nagaraj K wrote:
+
+&gt;<i> Hello all,
+</I>&gt;<i>
+</I>&gt;<i> I have found the following error while installing UCT-IMS
+</I>&gt;<i>
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">root at btchen01</A> src]# make
+</I>&gt;<i>
+</I>&gt;<i> gcc -I/usr/local/include `pkg-config --cflags gtk+-2.0 ortp` -o 
+</I>&gt;<i> obj/imsUA.o -c imsUA.c
+</I>&gt;<i>
+</I>&gt;<i> imsUA.c: In function 'initialise_ortp':
+</I>&gt;<i>
+</I>&gt;<i> imsUA.c:54: error: 'payload_type_telephone_event' undeclared (first 
+</I>&gt;<i> use in this function)
+</I>&gt;<i>
+</I>&gt;<i> imsUA.c:54: error: (Each undeclared identifier is reported only once
+</I>&gt;<i>
+</I>&gt;<i> imsUA.c:54: error: for each function it appears in.)
+</I>&gt;<i>
+</I>&gt;<i> make: *** [obj/imsUA.o] Error 1
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> pls help me..    
+</I>&gt;<i>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>&gt;<i> regards,
+</I>&gt;<i>
+</I>&gt;<i> Naga
+</I>&gt;<i>
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i> Tech Mahindra, formerly Mahindra-British Telecom.
+</I>&gt;<i>
+</I>&gt;<i> Disclaimer:
+</I>&gt;<i>
+</I>&gt;<i> This message and the information contained herein is proprietary and 
+</I>&gt;<i> confidential and subject to the Tech Mahindra policy statement, you 
+</I>&gt;<i> may review at <A HREF="http://www.techmahindra.com/Disclaimer.html">http://www.techmahindra.com/Disclaimer.html</A> externally 
+</I>&gt;<i> and <A HREF="http://tim.techmahindra.com/Disclaimer.html">http://tim.techmahindra.com/Disclaimer.html</A> internally within Tech 
+</I>&gt;<i> Mahindra.
+</I>&gt;<i>
+</I>&gt;<i> ============================================================================================================================
+</I>&gt;<i>
+</I>&gt;<i>------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i>_______________________________________________
+</I>&gt;<i>Uctimsclient-users mailing list
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">Uctimsclient-users at lists.berlios.de</A>
+</I>&gt;<i><A HREF="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">https://lists.berlios.de/mailman/listinfo/uctimsclient-users</A>
+</I>&gt;<i>  
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070319/fe30fd0a/attachment.html">https://lists.berlios.de/pipermail/uctimsclient-users/attachments/20070319/fe30fd0a/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000041.html">[Uctimsclient-users] error: 'payload_type_telephone_event'	undeclared
+</A></li>
+	<LI>Next message: <A HREF="000043.html">[Uctimsclient-users] error:	'payload_type_telephone_event'	undeclared
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#42">[ date ]</a>
+              <a href="thread.html#42">[ thread ]</a>
+              <a href="subject.html#42">[ subject ]</a>
+              <a href="author.html#42">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/uctimsclient-users">More information about the Uctimsclient-users
+mailing list</a><br>
+</body></html>
